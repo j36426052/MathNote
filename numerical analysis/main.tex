@@ -147,7 +147,7 @@ when the function is more sensitive to change, the condition number will be more
 
 \newpage
 
-\section{Methods for solutions of the Equation $f(x)=0$}
+\section{Methods for $f(x)=0$}
 
 we have four way to deal this problem
 
@@ -236,16 +236,302 @@ $\epsilon_n = |x_n - \xi| \leq \frac{1}{2}(\frac{b-a}{2^n}) \approx \frac{1}{2}\
 Then Bisection Method is first order convergence
 
 \subsection{Newton-Taphson Method}$ $\\
+
+
 observation:
 
 Let $x_0$ be an initial approximate to the root of $f(x) = 0$, then $x_0 + h$ is the exact root of $f(x)=0$, i.e. $f(x_0 + h) = 0$, from Taylor series, $f(x_0+h) = f(x_0)+h\cdot f(x_0)+\cdots$\\i.e. $x_0 \approx x_0 + h$
 
-the first order approximation, $f(x_0+h) = f(x_0)+h\cdot f'(x_0)=0$
+the first order approximation, $f(x_0+h) = f(x_0)+h\cdot f'(x_0)=0 \implies h=\dfrac{-f(x_0)}{f'(x_0)}$
+
+Let $x_1 = x_0 + h$ be the next approximation to the root, $x_1 = x_0 - \dfrac{f(x_0)}{f'(x_0)}$
+
+Ingeneral $x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)} ~\forall n \geq 1$
+
+\textbf{Example}
+
+\begin{tcolorbox}
+	
+
+Consider the $f(x) = x^2-M=0(M>0)$
+
+$$x_{n+1} = x_n - \dfrac{x_n^2-M}{2x_n} = \frac{1}{2}(x_n + \frac{M}{x_n})(\star)$$
+
+Ingeneral, also can obtain for the $k$th root of $M$, i.e. $\sqrt[k]{M}$ with $f(x) = x^k - M = 0$
+
+if $x_1 > \sqrt{M}$, and define $x_2,\cdots$ by the interaction formula $(\star)$, then 
+
+(1)$\sett{x_n}$ is $\downarrow$(~trivial~)  ~(2)$\sett{x_n}$ is bounded above($x_{n+1} = \frac{1}{2}(x_n + \frac{M}{x_n}) \geq \sqrt{x_n(\frac{M}{x_n})} = \sqrt{M}$)
+
+By (1)(2),$\lim_{n\rightarrow \infty}x_n = \sqrt{M}$ exists.
+
+\end{tcolorbox}
 
 
+observation 
+
+let $(x_0,f(x_0))$ be any point on the curve
+
+$y = f(x),$ then $y-f(x_0) = f'(x_0)(x-x_0)$
+
+\textbf{Thm. 4(The NR method is 2 order convergence)}
+
+\begin{tcolorbox}
+	Let $x$ denote the exact value of the root of $f(x) = 0$
+	
+	$x_n,x_{n+1}$ be two approximation S to the exact root $a,(f(a) = 0)$
+	
+	if $\epsilon_n,\epsilon_{n+1}$ corresponding error $S$, then $x_n = a + \epsilon_n, x_{n+1} = a + \epsilon_{n+1}$
+	
+	by(NR)
+	
+	\begin{eqnarray*}
+		a + \epsilon_{n+1} &=& a + \epsilon_n - \dfrac{f(a-\epsilon)}{f'(a+\epsilon_n)} 
+		\\
+		\epsilon_{n+1} &=& S_n - \dfrac{f(a)+\epsilon_nf'(a)+\dfrac{\epsilon_n^2}{2!}f''(a)+\cdots}{f'(a)+\epsilon f''(a)+\dfrac{\epsilon_n^2}{2!}f'''(a)+\cdots}
+		\\
+		&=&\epsilon_n - \dfrac{\epsilon_n\left(f'(a)+\epsilon f'(a)+\dfrac{\epsilon_n^2}{2!}f''(a)+\cdots\right)}{f'(a)+\epsilon_n f''(a) + \dfrac{\epsilon^2}{2!}f''(a)+\cdots}
+		\\
+		&=&\dfrac{\epsilon[f'(a)+\epsilon_nf''(a)+\dfrac{\epsilon_n^2}{2!}f(a)+\cdots-[f'(a)+\dfrac{\epsilon_n}{2!}f''(a)+\cdots]]}{f'(a)+\epsilon_nf''(a)+\dfrac{\epsilon_n^2}{2!}f'''(a)+\cdots}
+		\\
+		&=&\dfrac{\epsilon_n[\dfrac{\epsilon_n}{2}f'(a)+\dfrac{\epsilon^2_n}{3}f''(a)+\cdots]}{f'(a)+\epsilon_n f''(a)+\dfrac{\epsilon^2_n}{2!}f'''(a)+\cdots}
+		\\
+		&=&\dfrac{\epsilon_n^2[\frac{1}{2}f'(a)+\dfrac{\epsilon_n}{3}f''(x)+\cdots]}{f'(a)[1+\epsilon_n\dfrac{f''(a)}{f'(a)}+\dfrac{\epsilon_n^2}{2!}\dfrac{f'''(a)}{f''(a)}+\cdots]}
+		\\
+		\implies \dfrac{e_{n+1}}{\epsilon_n^2} &=& \dfrac{\frac{1}{2}f''(a)+\dfrac{\epsilon_n}{3}f'''(a) + \cdots}{f'(a)(1+\epsilon_n\dfrac{f''(a)}{f'(a)}+\cdots)}
+	\end{eqnarray*}
+	
+	$\lim_{n \rightarrow \infty}|\dfrac{\epsilon_{n+1}}{\epsilon^n}| > \frac{1}{2}|\dfrac{f''(a)}{f'(a)}| < + \infty$
+	
+	\textbf{Remark: if f(x) has double root S}
+	
+	
+\end{tcolorbox}
+
+\newpage
+\section{Eigen Problem}$ $\\
+
+\subsection{Review  eigenvalue \& eigenvector} $ $\\ 
+
+$A \in M_{n \times n}(\mathrm{R}/C), ~AX = \lambda X = \lambda (IX) = \lambda IX \implies (A - \lambda I)X = 0$
+
+it's a homogeneous system of $n$ linear equation, it determinate is $0$  
+
+$p(\lambda) = det(A - \lambda I) = 0,~ deg(p(\lambda)) = n$
+
+Define $\lambda = \left(\begin{matrix} \lambda_1 \\ \vdots \\ \lambda_n \end{matrix} \right), X = \left(\begin{matrix}x_1\\ \vdots \\ x_n \end{matrix} \right),$ $X$ is a eigen vector of A, $\lambda$ is a eigenvalue of A
+
+the normalized eigenvector $\hat{X} = \dfrac{1}{||X||}\left[\begin{matrix}
+	x_1 \\ \vdots \\ x_n \end{matrix} \right]$ where $||X|| = (X^TX)^{\frac{1}{2}}  = (x_1^2+\cdots+x_n^2)^{\frac{1}{2}}$
+
+if $T$ is diagonalizable, then $\exists$ order basis $\beta$, $\beta \ni [T]_{\beta} = D$, which is a diagonal matrix
+
+similarly $A$ is diagonalizable if $L_A$ is diagonalizable \\
+
+\textbf{diagonalizable}
+
+$\begin{cases} \text{the c.p  split} \begin{cases}n \text{ distinct eigenvalue}\\\text{other}\begin{cases}\text{algebraic multiplicity = geometric multiplicity} \\ \text{algebraic multiplicity $\neq$ geometric multiplicity}\textbf{(not diagonalizable)} \end{cases}\end{cases}\\\text{the cp does not split (not diagonalizable)}\end{cases}$
+
+(c.p. is charateristic polynomial)\\ \\
+
+$E_{\lambda}$ is subspace ,$E_{\lambda} = N(T-\lambda I)$, $E_{\lambda}$ is T-invariant, i.e. $T(E_{\lambda}) \subseteq E_{\lambda},$$ 1 \leq \dim(E_\lambda) \leq m$ 
+
+if $T$ is diagonalizable, then
+
+$$V = E_{\lambda_1}\oplus E_{\lambda_2}+\cdots + E_{\lambda_n} \Leftrightarrow V = k\lambda_1 \oplus \cdots \oplus k \lambda_n$$
+
+Let any eigenvalue $\lambda$ be repeated $r$ times with $k$ linearly independent eigenvector
+
+$r$ is algebraic multiplicity, $k$ is geometric multiplicity
+
+\newpage
+
+\subsection{some introduction}$ $\\
+
+we will learn ODE and PDE next time
+
+$\dfrac{dX}{dt} = AX$, $X = \left( \begin{matrix}x_1\\x_2 \end{matrix}\right), A = \left( \begin{matrix} a_{11} & a_{12} \\ a_{21} & a_{22}\end{matrix}\right) ,\dfrac{dx_1}{dt} = a_{11}x_1 + a_{12},\dfrac{dx_2}{dt} = a_{21}x_1 + a_{22}x_2$
+
+$X = \chi e^{\lambda t}$ is the solution of system, $\chi$ is column vector, $\lambda$ is parameter to be determind
+
+$\dfrac{d \chi e^{\lambda t}}{dt} = \lambda \chi e^{\lambda t} \implies \lambda \chi e^{\lambda t} = A \chi e ^{\lambda t} \implies \lambda \chi = A\chi$
+
+\textbf{Definition}
+
+\begin{tcolorbox}
+	The spectrum of A, radius $p$ of the smallest circle with center at the origin and contains all the spactual radius
+\end{tcolorbox}
+
+\subsection{Power Method} $ $\\
+
+\textbf{Definition} 
+
+\begin{tcolorbox}
+	Let $A \in M_{n \times m}(\mathrm{C})$, for $1 \leq i,j \leq n$
+	
+	define $p_i(A)$ to be the sum of the abs-values of the entries of row $i$ of $A$ and $r_i(A)$ to be the sum of the abs-values of the entries of column $j$ of $A$
+	
+	$p_i(A) = \sum^n_j  ||A_ij||$,  $~r_j(A) = \sum^n_i  ||A_ij||$
+	
+	$e(A) = \max(p_i(A))$, $r(A) = \max(r_j(A))$, $1 \leq i,j \leq n$
+\end{tcolorbox}
 
 
+\textbf{Definition}
 
+\begin{tcolorbox}
+	an $n \times n$ matrix $A$, we define the $i$th Geisg disk $c_i$ to be the disk in the complex plain with center $A_{ii}$ an radius $r_i = p_i(A) - |A_{ii}|$, $c_i = \sett{z \in \mathrm{C}~| ~|z - A_{ii}| < r_i}$
+\end{tcolorbox}
+
+\newpage
+
+\textbf{Theorem(Geisg Disk Theorem 1)}
+
+\begin{tcolorbox}
+	Let $A \in M_{n \times n}(\mathrm{C})$, then every eigenvalue of $A$ is contained in a Geisg Disk
+	
+	pf: Let $\lambda$ be eigenvalue of $A$ r.t. eigenvector $v = \left( \begin{matrix} v_1\\\vdots \\ v_n	\end{matrix} \right)$, clearly $Av = \lambda v$
+	
+	Then $I^n_j = A_{ij}v_j = \lambda_{ri}~,~ 1 \leq i \leq n (\star)$
+	
+	suppose $v_k$ is the coordinate of $V$ having the largest abs-solute,($v_k \neq 0$)
+	
+	claim $\lambda \in C_k$, i.e. $|\lambda - A_{kk} | \leq r_k$ For $i = k$,by $(\star)$
+	
+	\begin{eqnarray*}
+		|\lambda v_k - A_{kk}v_k| &=& |\sum^n_{j=1}A_{kj}v_j - A_{kk}v_k|\\
+		&=& |\sum_{j \neq k} A_{kj}v_j|\\
+		&\leq & \sum_{j \neq k}|A_{kj}||v_j|\\
+		&\leq & \sum_{j \neq k}|A_kj||v_k| = r_k|v_k|
+	\end{eqnarray*}
+	
+\end{tcolorbox}
+
+\textbf{Corollary 1}
+
+\begin{tcolorbox}
+	Let $\lambda$ be any eigenvalue of $A \in M_{n \times n}(\mathrm{C})$, then $|\lambda| \leq p(A) = \max(p_i(A))$
+	
+	pf: by Thm. $|\lambda - A_{kk}| \leq r_k$ for some $k$, $1 \leq k \leq n$
+	
+	$|\lambda| = |\lambda - A_{kk}| + |A_{kk}| \leq r_k + |A_{kk}| = p_k(A) \leq p(A)$
+\end{tcolorbox}
+
+\textbf{Corollary 2}
+
+\begin{tcolorbox}
+	$A^T \in M_{n \times n}(\mathrm{C}),~ |
+\lambda| \leq r(A) = \max(r_j(A))$
+\end{tcolorbox}
+
+\textbf{Corollary 3}
+
+\begin{tcolorbox}
+	Let $\lambda$ be eigenvalue of $A \in M_{n \times n}(\mathrm{C})$, $|\lambda| \leq \min\sett{p(A),r(A)}$
+	
+	by corollary 1 \& 2, we are done.
+\end{tcolorbox}
+
+
+\textbf{Theorem(Geisg Disk Theorem 2)}
+
+\begin{tcolorbox}
+	Let $A \in M_{n \times n}(\mathrm{C})$, $k$ of the disks are disjoint from the others, then exactly $k$ eigenvalue are contained in the union of these disks.
+	
+	pf: the gumltprinciple
+	
+	Ref:Matrix Analysis 2/e (Horn/Johnson) P.388,389
+\end{tcolorbox}
+
+\newpage
+
+\textbf{Rayleign Power Method}
+
+Let $\lambda_1,\cdots,\lambda_n$ be the eigenvalue of matrix, $|\lambda_1| > |\lambda_2|> \cdots > |\lambda_n|$
+	
+	our goal is to find $|\lambda_1|$
+
+\begin{tcolorbox}
+	Let $x_1,\cdots,x_n$ be eigenvectors, r.t. $\lambda_1,\cdots,\lambda_n, \implies Ax_i = \lambda_ix_i ,~ \forall 1 \leq i \leq n$
+	
+	if the matrix $A$(which is diagonalizable) has $n$ linearly independent eigenvectors 
+	
+	then $x = c_1x_1 + c_2x_2 + \cdots + c_nx_n$ for some $c_i \in \mathrm{C}$
+	
+	\begin{eqnarray*}
+		Ax &=& A(c_1x_1 + \cdots + c_nx_n)\\
+		&=& c_1Ax_1 + \cdots + c_nAx_n\\
+		&=& c_1 \lambda_1x+\cdots +c_n\lambda_nx\\
+		&=&\lambda_1\left(c_1x+c_2\left(\dfrac{\lambda_2}{\lambda_1}\right)x + \cdots + c_n\left(\dfrac{\lambda_n}{\lambda_1}\right)\right)
+	\end{eqnarray*}
+	
+	\begin{eqnarray*}
+		A^2x &=& A\left(\lambda_1\left(c_1x+c_2\left(\dfrac{\lambda_2}{\lambda_1}\right)x+\cdots+c_n\left(\dfrac{\lambda_n}{\lambda_1}\right)\right)\right)\\
+		&=& \lambda \left( c_1Ax + c_2\left(\dfrac{\lambda_2}{\lambda_1}\right)Ax+\cdots+c_n\left(\dfrac{\lambda_n}{\lambda_1}\right)Ax\right)\\
+		&=& \lambda_1^2\left( ax + c_2\left(\dfrac{\lambda_2}{\lambda_1}\right)^2x + \cdots + c_n \left( \dfrac{\lambda_n}{\lambda_1}\right)^2x\right)
+	\end{eqnarray*}
+	\begin{center}
+		Continue process	
+	\end{center}
+	\begin{eqnarray*}
+		A^kx &=& \lambda_1^k \left( c_1x_1 + c_2\left(\dfrac{\lambda_2}{\lambda_1}\right)^kx_2+\cdots+c_n\left(\dfrac{\lambda_n}{\lambda_1}\right)^kx_n\right)\\
+		A^{k+1}x &=& \lambda_1^{k+1}\left(c_1x_1+\cdots+c_n\left(\dfrac{\lambda_n}{\lambda_1}\right)^{k+1}x_n\right)\\
+		&&\lim_{k \rightarrow \infty}\dfrac{A^{k+1}x}{A^kx} = \lambda_1 
+	\end{eqnarray*}
+	
+	
+\end{tcolorbox}
+
+\newpage
+
+\textbf{A stepwise procedure}
+
+\begin{enumerate}
+	\item[(i)] $X^{(0)}$ is initial vector
+	\item[(ii)] $Y^{(0)} = AX^{0}$
+	\item[(iii)] $\lambda^{(1)}$ is the absolutely largest element, common from the vector $Y^{(0)}$
+	
+	Let the remainly vector be $X^{1}$, $Y^(0) = \lambda^{(1)}X^{(1)}$
+	\item[(iv)] reapeating (ii) and (iii), $Y^{(k)} = \lambda^{(k+1)}X^{k+1}$
+	\item[(v)] $|\lambda^{(k+1)} |,x^{(k+1)}$ is goal
+\end{enumerate}
+
+\textbf{Example}
+
+\begin{tcolorbox}
+	$A = \left( \begin{matrix}
+		0&2&4\\1&1&-2\\-2&0&5
+	\end{matrix}\right),$
+	$~X^{(0)} = \left(\begin{matrix}
+		1\\1\\1
+	\end{matrix}\right),$
+	$~Y^{0} = AX^{0} = \left(\begin{matrix}
+		6\\0\\3
+	\end{matrix}\right),$
+	
+	
+	$~\lambda^{(1)} = 6,~ Y^{(0)} = 6\left(\begin{matrix}
+		1\\0\\\frac{1}{2}
+	\end{matrix}\right) = \lambda^{(1)}X^{(1)} \implies Y^{(1)} = AX^{(1)} = A^{(1)} = \left(\begin{matrix}
+		2\\0\\0.5
+	\end{matrix}\right), \lambda^{(2)} = 2$
+\end{tcolorbox}
+
+\textbf{Inverse Power Method}
+
+\begin{tcolorbox}
+	Let $\lambda_i$ be an eigenvalue of matrix $A$, then $\dfrac{i}{\lambda_i}$ is eigenvalue of the matrix $A^{-1}$,The eigenvector of $A^{-1}$ is $X_i$
+	
+	pf: $Ax_i = \lambda_ix_i \implies \dfrac{1}{\lambda_i}\left( Ax_i \right) = x_i \implies \dfrac{1}{\lambda_i}x_i = A^{-1}x_i$
+\end{tcolorbox}
+
+\textbf{Shifted Power Method}
+
+\begin{tcolorbox}
+	Let $\lambda_i$ be an eigenvalue of matrix $A$, then $(\lambda_i - k)$ is an eigenvalue of the matrix $A-kI$ with the same eigenvector as that matrix $A$
+	
+	pf: $Ax_i = \lambda_ix_i \implies (A-kI)x_i = AX_i - kX_i = \lambda_ix_i - kx_i = (\lambda_i - k)x_i$
+\end{tcolorbox}
 
 
 
