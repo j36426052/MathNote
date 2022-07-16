@@ -1,0 +1,26 @@
+Let $\mathrm{V}$ be a vector space over a field of characteristic not equal to two.
+
+Let $u$ and $v$ be distinct vectors in $\mathrm{V}$. Prove that $\sett{u,v}$ is linearly independent if and only if $\sett{u+v,u-v}$ is linearly independent.
+	
+\begin{tcolorbox}
+	\begin{solution}
+	$ $\\
+		\begin{enumerate}
+			\item[$(\Rightarrow)$] \textbf{Claim.} $\sett{u+v,u-v}$ is linearly independent\\
+			$a_1(u+v) + a_2(u-v) = 0, a_1,a_2 \in \mathrm{F}$\\
+			$\Rightarrow (a_1+a_2)u+(a_1-a_2)v = 0$\\
+			$\because \sett{u,v}$ is linearly independent\\
+			$\therefore \begin{cases} a_1 + a_2 = 0\\a_1 - a_2 = 0
+			\end{cases} \Rightarrow a_1 = a_2 = 0$\\
+			$\therefore \sett{u+v,u-v}$ is linearly independent
+			\item[($\Leftarrow$)] \textbf{Claim.} $\sett{u,v}$ is linearly independent\\
+			$\Rightarrow b_1u+b_2v = 0$\\
+			$\Rightarrow \frac{b_1+b_2}{2}(u+v)+\frac{b_1-b_2}{2}(u-v)=0$\\
+			$\because \sett{u+v,u-v}$ is linearly independent\\
+			$\therefore \begin{cases} \frac{b_1+b_2}{2} = 0 \\ \frac{b_1-b_2}{2} = 0\end{cases} \Rightarrow b_1 = b_2 = 0$\\
+			$\therefore \sett{u,v} $ is linearly independent
+		\end{enumerate}			
+	
+		
+	\end{solution}
+\end{tcolorbox}

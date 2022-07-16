@@ -1,0 +1,38 @@
+Prove that $W_1 = \sett{\left(a_1,a_2,\cdots,a_n\right) \in \mathrm{F}^n \,|\, \linearcombination{a}{x} = 0}$ is a subspace of $\mathrm{F}^n$, but $W_2 = \sett{ \left( a_1,a_2,\cdots ,a_n \right) \in \mathrm{F}^n \, | \, \slinearcombination{a} = 1}$ is not.
+
+\begin{tcolorbox}
+\begin{solution}
+	Let $x,y \in W_1$ , $c \in F$ , $x = (x_1,x_2,\cdots,x_n)$ , $y=(y_1,y_2,\cdots,y_n)$
+	
+	\textbf{Claim : }$W_1$ is a subspace of $\mathrm{F}^n$
+	\begin{enumerate}
+		\item $ $\\ 
+		$\begin{array}{ll}
+		x+y  =  (x_1+y_1,x_2+y_2,\cdots,x_n+y_n)  \\ 
+		\because x_1 + y_1 + \cdots +  x_n + y_n   =   x_1 +x_2 +\cdots +x_n + y_1 + y_2 + \cdots + y_n   \\
+		  =  0 + 0   =  0 \therefore x+y \in W_1
+		\end{array}$
+		\item $ $
+		
+		$\begin{array}{lll}
+			&cx = (cx_1+cx_2+\cdots + cx_n)  c \in F \because cx_1+cx_2+\cdots+cx_n\\
+			& =c(x_1+x_2+\cdots+x_n) = c*0 = 0
+			\therefore cx \in W_1 
+		\end{array}$
+		\item $ $		
+		
+		$\begin{array}{lll}
+			&\because 0+0+\cdots+0=0   
+			&\therefore (0,0,\cdots,0) \in W_1 
+		\end{array}$
+	\end{enumerate}
+	
+	Concluding (a)(b)(c) $\therefore$ $W_1$ is a subspace of $\mathrm{F}$.\\
+	\textbf{Claim} $W_2$ is a subspace of $\mathrm{F}^n$\\
+	$x+y = (x_1+y_1,x_2+y_2,\cdots,x_n+y_n)$\\
+	$\because (x_1+y_1)+(x_2+y_2)+\cdots+(x_n+y_n) = (x_1+x_2+\cdots+x_n)+(y_1+y_2+\cdots+y_n) = 1 + 1 = 2$\\
+	$x + y \notin w_2  \rightarrow\leftarrow$\\
+	$\therefore W_2$ is not a subspace of $F^n$ 
+\end{solution}
+
+\end{tcolorbox}

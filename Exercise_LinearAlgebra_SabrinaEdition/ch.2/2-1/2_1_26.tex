@@ -1,0 +1,39 @@
+Using the notation in the definition above, assume that T: V $\rightarrow$ V is the projection on $\mathrm{W}_1$ along $\mathrm{W}_2$.
+
+\begin{enumerate}
+	\item[(a)] Prove that T is linear and $\mathrm{W}_1 = \sett{x \in \mathrm{V} ~|~ \mathrm{T}(x) = x}.$
+	\item[(b)] Prove that $\mathrm{W}_1 = $R(T) and $\mathrm{W}_2 =$ N(T).
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{solution}
+	\begin{enumerate}
+		\item[(a)] let $x,y \in V, x = w_1 + w_2, y = w_1'+w_2', w_1,w_1' \in W_1, w_2,w_2' \in W_2, c \in \mathrm{F}$
+		
+		\textbf{Claim.} T is linear
+		
+		T($cx + y$) = T($(cw_1 + w_1')+(cw_2 + w_2')$) = $cw_1 + w_1'$ = $c$T($x$)+T($y$)
+		
+		T(0) = T(0 + 0) = 0
+		T is linear
+		
+		\item[(b)] let $w_1 \in W_1, w_2 \in W_2$
+		
+		R(T) = $\sett{T(x)~|~x \in V}$ = $\sett{T(w_1+w_2)|w_1 \in W_1,w_2 \in W_2}$ = $\sett{T(w_1)+T(w_2)~|~ w_1\in W_1,w_2 \in W_2}$ = $\sett{T(w_1)~|~w_1 \in W_1}$=$W_1$
+		
+		let $x \in N(T) \implies T(x) = 0 \implies x \in W_2 \implies N(T) \subseteq W_2$
+		
+		let $x \in W_2 \implies T(x) = 0 \implies x \in N(T) \implies W_2 \subseteq N(T)$
+		
+		$\therefore N(T) = W_2$		
+		
+		%N(T) = $\sett{x~|~x\in V, T(x) = 0} = \sett{w_1+w_2~|~w_1\in W_1,w_2\in W_2,T(w_1+w_2)=0} = \sett{w_1+w_2~|~w_1 \in W_1 , w_2 \in W_2,T(w_1)+T(w_2)=0}$
+		
+		$\because T(w_1)=0$ only $w_1 = 0, T(w_2) = 0$ when $w_2 \in W_2$
+		
+		$\therefore $ N(T) = $\sett{w_2 ~|~ w_2 \in W_2} = W_2$
+	\end{enumerate}
+	
+\end{solution}
+
+\end{tcolorbox}

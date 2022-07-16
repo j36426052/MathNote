@@ -1,0 +1,53 @@
+Let $W_1$ and $W_2$ be subspaces of a vector space $\mathrm{V}$.
+
+\begin{enumerate}
+	\item[(a)] Prove that $W_1 + W_2$ is a subspace of $\mathrm{V}$ that contains both $W_1$ and $W_2$. 
+	\item[(b)] Prove that any subspace of $\mathrm{V}$ that contains both $W_1$ and $W_2$ must also contain $W_1 + W_2$.
+\end{enumerate}
+
+\begin{tcolorbox}
+	\begin{solution}
+		$ $\\
+		(a)\textbf{Claim} $W_1+W_2$ is a subspace of V
+		
+			let $u_1,u_2 \in W_1 + W_2~,~u_1 = x_1 + y_1,~u_2 = x_2 + y_2$
+			
+			$x_1, x_2 \in W_1~,~ y_1,y_2 \in W_2$			
+			
+		\begin{enumerate}
+			\item[(1)] 
+
+			$u_1 + u_2 $			
+			
+			$\Rightarrow (x_1+y_1)+(x_2+y_2) = x_1 +x_2 + y_1+ y_2 = (x_1 +x_2) + (y_1+ y_2)$
+			
+			$\because W_1,W_2$ is a subspace of V
+			
+			$\therefore (x_1+x_2) \in W_1 , (y_1+y_2) \in W_2 \implies (x_1 + x_2)+(y_1+y_2) \in W_1 + W_2$
+			
+			\item[(2)] let $c \in \mathrm{F}$
+			
+			$cu_1 = c(x_1+y_1) = cx_1+cy_1$
+			
+			$\because W_1,W_2$ is a subspace of V, $cx_1 \in W_1, cy_1 \in W_2 $
+			
+			$\therefore cx_1+cy_1 \in W_1 + W_2$
+			
+			\item[(3)] $\because W_1, W_2$ is a subspace of V,$\therefore 0\in W_1, 0 \in W_2,$
+			
+			$0+0 = 0 \in W_1 + W_2$
+			
+			$\therefore W_1+W_2$ is a subspace of V
+		\end{enumerate}
+		
+		$W_1 = \{x+0 \,|\, x \in W_1\} \subseteq \sett{x+y \,|\, x \in W_1 , y \in W_2}$\\
+		$W_2 = \{0+y \,|\, y \in W_2\} \subseteq \sett{x+y \,|\, x \in W_1 , y \in W_2}$\\
+		$\therefore W_1 + W_2$ contains both $W_1$ and $W_2$
+		
+		(b)let $W_3$ is a subspace of $V$,
+		$W_1 \subseteq W_3$,$W_2 \subseteq W_3$\\
+		
+		let $x \in W_1, y \in W_2$,$\because W_3$ is a subspace$\therefore x+y \in W_3 \implies W_1 + W_2 \subseteq W_3$
+	\end{solution}	
+\end{tcolorbox}
+

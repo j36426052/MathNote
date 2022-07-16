@@ -1,0 +1,80 @@
+\begin{enumerate}
+	\item[(a)] Prove that if $W_1$ and $W_2$ are finite-dimensional subspaces of a vector space $V$, then the subspace $W_1 + W_2$ is finite-dimensional, and dim($W_1 + W_2$) = dim($W_1$) + dim($W_2$) - dim($W_1 \cap W_2$).
+	\item[(b)] Let $W_1$ and $W_2$ be finite-dimensional subspaces of a vector space V, and let V = $W_1 + W_2$. Deduce that V is the direct sum of $W_1$ and $W_2$ if and only if dim(V) = dim($W_1$) + dim($W_2$).
+\end{enumerate}
+
+\begin{tcolorbox}
+	\begin{solution}
+			\textbf{(a)} let $\beta$ is a basis of $W_1 \cap W_2$ dim($W_1$) = $k+m$,
+			
+			 dim($W_2$) = $k+n$, dim($W_1 \cap W_2$) = $k$, $k,m,n \in \mathbb{Z}^{\geq 0}$ 
+			 
+			$\beta \in = \sett{u_1,u_2,\cdots,u_k}$, $u_1,\cdots,u_k \in W_1 \cap W_2$
+			
+			$\because \beta \in W_1, \beta \in W_2$
+			
+			by Replacement Theorem, every linearly independent subset of V can be extended to a basis for V.
+			
+			$\exists~\beta_1$ is a basis of $W_1$ $\beta_1 = \sett{u_1, u_2,\cdots, u_k , v_1,v_2 , \cdots,v_m} ~ v_1,v_2,\cdots,v_m \in W_1$ 
+			
+			$\exists \beta_2$ is a basis of $W_2$
+			
+			$\beta_2 = \sett{u_1, u_2,\cdots,u_k,w_1,w_2,\cdots,w_n} w_1,w_2,\cdots,w_m \in W_2$
+			
+			let $x \in W_1 + W_2$
+			
+			\textbf{Claim.} $span(\sett{u_1,\cdots,u_k,v_1,\cdots,v_m,w_1,\cdots,w_n}) = W_1 + W_2$
+			
+			$x = (a_1u_1 + a_2u_2 + \cdots + a_{k+1}v_1+a_{k+2}v_2 + \cdots + a_{k+m}v_m)+(b_1u_1+b_2u_2+\cdots+b_ku_k+b_{k+1}w_{1}+b_{k+2}w_2+\cdots+b_{k+n}w_n), a_1,a_2,\cdots,a_{k+m},b_1,b_2,\cdots,b_{k+n} \in \mathrm{F}$
+			
+			$=c_1u_1 + c_2u_2 + \cdots + c_ku_k + a_{k+1}v_1 + a_{k+2}v_2+\cdots + a_{k+m}v_m + b_{k+1}w_1 + b_{k+2} + \cdots + b_{k+n}w_n, c_1,c_2,\cdots,c_k \in \mathrm{F}$
+			
+			$x \in W_1 + W_2 \therefore W_1 + W_2 \subseteq span(\sett{u_1,\cdots,u_k,v_1,\cdots,v_m,w_1,\cdots,w_n})$
+			
+			$\because W_1 + W_2$ is a subspace, any linear combination of $W_1 + W_2$'s subset are in $W_1 + W_2$
+			
+			$\therefore span(\sett{u_1,\cdots,u_k,v_1,\cdots,v_m,w_1,\cdots,w_n}) \in W_1 + W_2$
+			
+			$\therefore span(\sett{u_1,\cdots,u_k,v_1,\cdots,v_m,w_1,\cdots,w_n}) = W_1 + W_2$
+			
+	\end{solution}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\begin{solution}
+		\textbf{Claim.} $\sett{u_1,\cdots,u_k,v_1,\cdots,v_m,w_1,\cdots,w_n}$ is linearly independent
+			
+			$\sum^k_{i=1}a_iu_i + \sum^m_{i=1}b_iv_i + \sum^n_{i=1}c_iw_i = 0$
+			
+			$\Rightarrow \sum^k_{i=1}a_iu_i + \sum^m_{i=1}b_iv_i = -\sum^n_{i=1}c_iw_i$
+			
+			$\because \sum^{k}_{i=1} + \sum^{m}_{i=1}b_iv_i \in W_1~,~ -\sum^n_{i=1}c_iw_i \in W_2$
+			
+			$\therefore \sum^k_{i=1}a_iu_i + \sum^m_{i=1}b_iv_i~,~-\sum^n_{i=1}c_iw_i \in W_1 \cap W_2$
+			
+			$\Rightarrow \exists d_i \in \mathrm{F}, sum^k_{i=1}a_iu_i + \sum^m_{i=1}b_iv_i = -\sum^n_{i=1}c_iw_i = \sum^k_{i=1}d_iu_i$
+			
+			$\because \beta_1 , \beta_2$ is linearly independent
+			
+			$\therefore -\sum^n_{i=1}c_iw_i = \sum^k_{i=1}d_iu_i$ only scalar is 0
+			
+			$sum^k_{i=1}a_iu_i + \sum^m_{i=1}b_iv_i = 0$ only scalar is 0
+			
+			$\therefore \{u_1,\cdots,u_k,v_1,\cdots,v_m,W_1,\cdots,w_n\}$ is linearly independent
+			
+			$\therefore \sett{u_1,u_2,\cdots,u_k,v_1,v_2,\cdots,v_m,w_1,w_2,\cdots,w_n}$ is linearly independent
+			
+			$\therefore \sett{u_1,u_2,\cdots,u_k,v_1,v_2,\cdots,v_m,w_1,w_2,\cdots,w_n}$ is a basis of $W_1 + W_2$
+			
+			
+			
+			$\therefore$ dim($W_1 + W_2$) = $k+m+n$
+			
+			dim($W_1 + W_2$) = dim($W_1$) + dim($W_2$) + dim($W_1 \cap W_2$)
+			
+			\textbf{(b)} $W_1 \cap W_2 = \sett{0}$
+			
+			by Exercise 1.16.29(a), if $W_1$ and $W_2$ are finite-dimensional subspace of a vector space V, dim(V) = dim($W_1$) + dim($W_2$) - dim($W_1 \cap W_2$) = dim($W_1$) + dim($W_2$) - dim($\sett{0}$) = dim($W_1$) + dim($W_2$)
+			
+	\end{solution}
+\end{tcolorbox}

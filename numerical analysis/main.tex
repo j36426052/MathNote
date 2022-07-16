@@ -1,0 +1,281 @@
+\input{settings}
+\begin{document}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\section{Error Analysis}
+
+\textbf{Definition}:\\
+\begin{tcolorbox}
+
+let $x$ is a value, $\tilde{x}$ is a estimated value
+
+\begin{enumerate}
+	\item[(1)] absolute   error, $E_a = |x-\tilde{x}|$
+	\item[(2)] relation   error, $E_r = |\frac{x-\tilde{x}}{x}|$
+	\item[(3)] percentage error, $E_p = 100 \times |\frac{x-\tilde{x}}{x}|$
+\end{enumerate}
+
+\end{tcolorbox}
+
+$\exists \epsilon > 0, |x-\tilde{x}| < \epsilon$, Then $\epsilon$ is upper limit of the absolute error measures the absolute accuracy.
+
+\subsection{Error in Implementation of Numerical Methods}
+
+\begin{enumerate}
+	\item[(1)] Round-off Error
+	\item[(2)] Overflow \& Underflow
+	\item[(3)] Floating Point Arithmetic and Error Propagation
+	\item[(4)] Truncation Error
+	\item[(5)] Machine eps (Epsilon)
+\end{enumerate}
+
+\subsection*{(3)Floating Point Arithmetic and Error Propagation}
+$ $\\
+
+Let $x_1,x_2$ are values, $E_1,E_2$ are error of $x_1,x_2$,We want to check the change of error in $"+","-","*","/"$
+
+\textbf{"+"}
+\begin{tcolorbox}
+	Let $x = x_1 + x_2$, error of $x$ is $E$
+	
+	Then $x+E = x_1 + x_2 + E_1 + E_2 \implies E = E_1 + E_2$
+	
+	by triangle inequality
+	
+	Absolute Error = $|E| \leq |E_1|+|E_2|$
+	
+	Relative Error = $\frac{|E|}{|x|} \leq \frac{|E_1|}{|x|} + \frac{|E_2|}{|x|}$
+\end{tcolorbox}
+
+\textbf{"-"}(Similar "+")\\
+
+\newpage
+
+\textbf{"*"}
+\begin{tcolorbox}
+Let $x = x_1 * x_2$
+
+Then $x + E = (x_1 + E_1)(x_2 + E_2) = x_1x_2 + E_2x_1 + E_1x_2 + E_1E_2$
+
+Absolute Error = $|E| \leq |x_2E_1|+|x_1E_2|$
+
+Relative Error = $\frac{|E_1|}{|x|}  \leq \frac{|E_1|}{|x_1|} + \frac{|E_2|}{|x_2|}$
+
+\end{tcolorbox}
+
+\textbf{"/"}
+\begin{tcolorbox}
+	Let $x = x_1 /x_2$
+	
+	$x + E_x = \dfrac{x_1+E_1}{x_2+E_2}\left( \dfrac{x_2 - E_2}{x_2 - E_2}\right) = \dfrac{x_1x_2 + E_1x_2 - x_1E_2}{x_2^2 - E_2^2} + E_1E_2$
+	
+	Absolute Error = $|E_x| = |\dfrac{E_1x_2 - x_1E_2}{x_2^2}| \leq \dfrac{|E_1|}{|x_2|}+\dfrac{|x_1E_2|}{x_2^2}$
+	
+	Relative Error = $\dfrac{|E_x|}{|x|} \leq \dfrac{|E_1|}{|x_1 |} + \dfrac{|E_2|}{|x_2|}$
+\end{tcolorbox}
+
+\subsection*{(4)Truncation Error}
+
+Cause by approximation infinite with its finite terms.
+
+Use Taylor series ($f(x) \in P(C)$) as example
+
+Let $x = a, f(x) = f(a)+f'(a)(x-a) + f''(a)\dfrac{(x-a)^2}{2!} + \cdots + \dfrac{(x-a)^n}{n!}f^{n}(a)+\cdots + Rn$
+
+$Rn = \int^x_a\dfrac{(x-t)^n}{n!}f^{(n+1)}(t)dt$
+
+\textbf{Thm 1(First Mean Value Theorem)}
+
+\begin{tcolorbox}
+	If $g$ is continuous on $[a,x]$, then $\exists~\xi$ between $a$ and $x$ s.t. 
+
+	$$ \int^x_ag(t)~dt = g(\xi)(x-a)$$
+\end{tcolorbox}
+
+
+
+\textbf{Thm 2(Second Mean Value Theorem)}
+
+\begin{tcolorbox}
+	If $g,h$ is differentiable and integrable on $[a,x]$, $h$ does not change sign on $[a,x]$
+
+	then $\exists~\xi$ that $a\leq\xi\leq x$ s.t.
+
+$$ \int^x_ag(t)h(t)~dt = g(\xi)\int^x_ah(t)~dt$$
+\end{tcolorbox}
+
+since $t \in [a,x], h(t)=(x-t)^n\dfrac{1}{n!}$, $f^{(n+1)}(t)$ is continuous
+
+$\exists ~\xi \in [a,x]$, $R_n = \dfrac{f^{(n+1)}(\xi)}{(n+1)!}f^{(x+1)}(\xi), ~\xi \in [a,a+h]$
+
+(Ref. Violin page:799)
+
+since power series convergent, $R_n(x) \rightarrow 0,~as_n \rightarrow \infty$
+
+\newpage
+
+Definition
+
+\begin{tcolorbox}
+	Given $\sett{a_n}\sett{b_n},~ b_n \geq 0, ~\forall n \geq 1$
+	
+	$a_n = O(b_n)~$ if $~\exists ~M > 0 \rightarrow |a_w| \leq Mb_n~\forall ~n\geq 1$
+	
+	$R_n(x)=O(h^{n+1})$
+\end{tcolorbox}
+
+\subsection{Condition \& Stability} $ $\\
+
+Condition number is sensitivit of the function
+
+Stability is used to describle the sensitity of the process
+
+\textbf{Condition number of the $f(n)$}
+
+$$\text{CN} = \dfrac{|\dfrac{f(x)-f(\tilde{x})}{x-\tilde{x}} |}{|\dfrac{x-\tilde{x}}{x} |} = |\dfrac{f(x)-f(\tilde{x})}{x-\tilde{x}}|\cdot|\dfrac{x}{f(x)}| = |\dfrac{x}{f(x)} \cdot f'(x) |$$
+
+by Mean Value Theorem,
+
+$$\dfrac{f(x)-f(\tilde{x})}{x-\tilde{x}} \thickapprox f'(x)$$
+
+when CN $\leq 1$ is \textbf{well condition}, other is \textbf{ill condition}
+
+when the function is more sensitive to change, the condition number will be more big.
+
+\newpage
+
+\section{Methods for solutions of the Equation $f(x)=0$}
+
+we have four way to deal this problem
+
+\begin{enumerate}
+	\item[(1)] Direct analytical Method
+	\item[(2)] Graphical
+	\item[(3)] Trial and Error Method
+	\item[(4)] Iterative Method
+\end{enumerate}
+
+\textbf{Thm. 3(Mean Value Theorem)}
+
+\begin{tcolorbox}
+	Let $f$ be a continuous function on $[a,b] = I$(connected),
+	
+	if $f(a) \leq c \leq f(b)$ that $\exists~\xi \in [a,b] \rightarrow f(\xi) = c$
+\end{tcolorbox}
+
+\textbf{Corollary}
+
+
+\begin{tcolorbox}
+	Let $f$ be a continuous function on $[a,b] = I$(connected)
+	
+	i.e. $f(a) \cdot f(b) < 0 ~\ni~ \exists c \in (a,b) ~\ni~ f(c) = 0$
+	
+	$c$ is a root of f(t)
+\end{tcolorbox}
+
+\section*{Iterative Method}
+\subsection{Bisection Method}$ $\\
+
+Let $a,b$ be fixed satisfying Thm.3
+
+$\therefore f(a) \cdot f(b) < 0,f$ is continuous on $[a,b]$.
+The first approximation is $x_0 = \dfrac{a+b}{2}$
+
+if $f(a) \cdot f(x_0) \leq 0$, then By Thm. 3 the root will lie on $(a,x_0)$ and $x_1 = \dfrac{a + x_0}{2}$
+
+continue the process, let $x_{n-3},x_{n-2},x_{n-1}$ be same step, then nth approximation
+
+if $f(x_n-1) \cdot f(x_{n-3}) \leq 0$, then $x_n = \dfrac{x_{n-1}+x_{n-2}}{2}$
+
+else $f(x_n-1) \cdot f(x_{n-3}) \geq 0$, then $x_n = \dfrac{x_{n-1}+x_{n-3}}{2}$
+
+we shall label the interval by algorithm
+
+$$[a,b] = [a_0,b_0],[a_1,b_1][a_2,b_2],\cdots$$
+
+by construction $b_na_n = \frac{1}{2}(b_{n-1} - a_{n-1})$, Hence $b_n - a_n = \frac{1}{2^{n}}[b_0-a_0],~\forall n \geq 1$
+
+Clearly $a_0 \leq a_1 \leq \cdots \leq b, b_0 \geq b_1 \geq \cdots \geq a, \sett{a_n},\sett{b_n}$ is bdd and monotonic
+
+$$\lim_{n \rightarrow \infty}a_n  = \lim_{n \rightarrow \infty}b_n = f(r)$$
+
+by assumption $f(a_n)f(b_n) < 0, \lim_{n \rightarrow \infty}f(a_n) = f(\lim_{n \rightarrow \infty}a_n) = f(r)$
+
+$\therefore f(b_n) = f(r), 0 \leq [f(r)]^2 \leq 0 \implies f(r) = 0$
+
+
+The process is called \textbf{nested internal property}
+
+\newpage
+
+Let $\sett{C_k}^{\infty}_{k=1}$ is a $\downarrow$ sequence of nonempty closed compact subset of X, then $\cap k \subset k\neq \varnothing $
+
+if $c_k \rightarrow 0,$ then $\cap_kc_k = \sett{r}$
+
+Let $\xi$ be the solution $f(x) = 0$, then $\sett{x_0-\xi} \leq \dfrac{b-a}{2},\cdots,\sett{x_n-\xi}\leq \dfrac{b-a}{2^{n+1}}$
+
+\textbf{Definition(p-order-convergence)}\\
+\begin{tcolorbox}
+	$\sett{x_n}:\text{seq}, x_n \rightarrow z, s_n \rightarrow \infty$, define $\epsilon_n = z - x_n$, ~ if $\exists c > 0, p\geq 1$
+	
+	$$\lim_{n \rightarrow \infty}\dfrac{|\epsilon_{n+1}|}{|\epsilon_n|^p} = c$$
+	
+	we call $\sett{x_n}$ is $p$ order convergence
+	
+	if $c \leq 1,$ then it's good(only check this when  it's a first order convergence)
+\end{tcolorbox}
+
+Let $\epsilon_n$ be the error i.e. $\epsilon_n = |x_n - \xi|$, $\epsilon_n \leq \dfrac{b-a}{2^{n+1}} \leq \epsilon$, i.e. $h \geq \dfrac{ln(b-a) - ln\epsilon}{ln2}-1$
+
+$\epsilon_n = |x_n - \xi| \leq \frac{1}{2}(\frac{b-a}{2^n}) \approx \frac{1}{2}\epsilon_n - 1 \implies \lim_{n \rightarrow \infty}|\dfrac{\epsilon_n}{\epsilon_n - 1}| = \dfrac{1}{2}$
+
+Then Bisection Method is first order convergence
+
+\subsection{Newton-Taphson Method}$ $\\
+observation:
+
+Let $x_0$ be an initial approximate to the root of $f(x) = 0$, then $x_0 + h$ is the exact root of $f(x)=0$, i.e. $f(x_0 + h) = 0$, from Taylor series, $f(x_0+h) = f(x_0)+h\cdot f(x_0)+\cdots$\\i.e. $x_0 \approx x_0 + h$
+
+the first order approximation, $f(x_0+h) = f(x_0)+h\cdot f'(x_0)=0$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

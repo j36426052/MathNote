@@ -1,0 +1,19 @@
+Let V be a vector space having dimension $n$, and let $S$ be a subset of V that generates V.
+
+	\begin{enumerate}
+		\item[(a)] Prove that there is a subset of $S$ that is a basis for V.(Be careful not to assume that $S$ is finite)
+		\item[(b)] Prove that $S$ contains at least $n$ vectors.
+	\end{enumerate}
+\begin{tcolorbox}
+	\begin{solution}
+		\begin{enumerate}
+			\item[(a)] if $S = \varnothing$ or $S = \sett{0}$\\
+			$V = \sett{0} \therefore $ there is a subset of $S$ be a basis.\\
+			else pick $s_1 \neq$ from $S$\\
+			pick $s_{k+1} \notin \spann{\sett{s_1,s_2,\cdots,s_k}}$, by replacement theorem, when a linearly independent set's element number equal dim(V), the set can generate V.\\
+			$\therefore$ there is a subset of $S$ be a basis.
+			\item[(b)] by the definition dimension, the element number of basis is $n$\\
+			by replacement theory's, span($S'$)=V,$\#(S') \geq n$,$S' \subseteq S$,$\#(S) \geq n$.
+		\end{enumerate}
+	\end{solution}
+\end{tcolorbox}

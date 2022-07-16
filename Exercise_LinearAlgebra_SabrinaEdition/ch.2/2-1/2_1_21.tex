@@ -1,0 +1,51 @@
+Let V be the vector space of sequences described in Example 5 of Section 1.2. Define the functions T,U:V $\rightarrow$ V by
+
+$$\mathrm{T}(a_1,a_2,\cdots) = (a_2,a_3,\cdots) \text{ and } \mathrm{U}(a_1,a_2,\cdots) = (0,a_1,a_2,\cdots).$$
+
+T and U are called the \textbf{left shift} and \textbf{right shift} operators on V, respectively.
+
+\begin{enumerate}
+	\item[(a)] Prove that T and U are linear.
+	\item[(b)] Prove that T is onto, but not one-to-one.
+	\item[(c)] Prove that U is one-to-one, but not onto.
+\end{enumerate}
+	
+\begin{tcolorbox}
+\begin{solution}
+	\begin{enumerate}
+		\item[(a)] let $v_1,v_2 \in $V $c \in \mathrm{F}, v_1 = (a_1,a_2,\cdots), v_2 = (b_1,b_2,\cdots)$
+		
+		\textbf{Prove T is linear}
+		
+		T($cv_1 + v_2$) = T($(ca_1,ca_2,\cdots)+(b_1,b_2,\cdots)$) = T($ca_1+b_1,ca_2+b_2,\cdots$) = $(ca_2+b_2,ca_3+b_3,\cdots)$ = $c(a_2,a_3,\cdots)+(b_2,b_3,\cdots)$ = $c$T($v_1$) + T($v_2$)
+		
+		T($(0,0,\cdots)$) = $(0,0,\cdots)$
+		
+		$\therefore$ T is a linear function
+		
+		\textbf{Prove U is linear}
+		
+		U($cv_1+v_2$) = U($(ca_1,ca_2,\cdots)$+$(b_1,b_2,\cdots)$) = U($ca_1+b_1,\cdots$) = $(0,ca_1+b_1,\cdots)$ = $c(0,a_1,\cdots) + (0,b_1,\cdots)$ = $c$U($v_1$) + U($v_2$)
+		
+		U($0,0,\cdots$) = $(0,0,\cdots)$
+		
+		$\therefore$ U is a linear function
+		
+		\item[(b)] let $v_1 = (a_1,a_2,\cdots) \in V, a_1,a_2,\cdots \in F$
+		
+		$\exists (a_2,\cdots) = T(a_2,a_3,\cdots) \in V \therefore$ T is onto
+		
+		T($1,0,\cdots$) = T($2,0,\cdots$) = $(0,0,\cdots)$
+		
+		T is not one-to-one
+		
+		\item[(c)] U($a_1,a_2,\cdots$) = $(0,0,\cdots)$ only $a_1 = a_2 = \cdots = 0 \implies N(U) = \sett{0}$
+		
+		by Theorem 2.4, U is linear, if N(V) = $\sett{0}$, then U is one-to-one
+		
+		$(1,2,3,\cdots) \in V \notin R(U)$, U is not onto
+		
+	\end{enumerate}
+\end{solution}
+
+\end{tcolorbox}

@@ -1,0 +1,16 @@
+Let V and W be vector spaces, let T: V $\rightarrow$ W be linear, and let $\sett{w_1,\cdots,w_k}$ be a linearly independent subset of R(T). Prove that if $S = \sett{v_1,\cdots,v_k}$ is chosen so that T($v_i$) = $w_i$ for $i=1,2,\cdots,k,$ then $S$ is linearly independent.
+
+\begin{tcolorbox}
+\begin{solution}
+	$\textbf{Claim.}$ S is linearly independent
+	
+	there exist $a_1,\cdots,a_k \in \mathrm{F} \implies$
+	
+	$\sum^{k}_{i=1}a_iv_i=0 \implies \mathrm{T}(\sum^{k}_{i=1}a_iv_i) = 0$
+	$\implies \sum^{k}_{i=1}a_i \mathrm{T}(v_i)=0 \implies \sum^{k}_{i=1}a_iw_i = 0$
+	
+	$\because \sett{w_1,\cdots,w_k}$ is linearly independent
+	$\therefore \sum^{k}_{i=1}a_iv_i = 0$ only $a_i=0, i=1,\cdots,k$
+\end{solution}
+
+\end{tcolorbox}

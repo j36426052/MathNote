@@ -1,0 +1,29 @@
+Let V and W be finite-dimensional vector spaces and T:V $\rightarrow$ W be linear.
+
+\begin{enumerate}
+	\item[(a)] Prove that if dim(V) < dim(W), then T cannot be onto.
+	\item[(b)] Prove that if dim(V) > dim(W), then T cannot be one-to-one.
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{solution}
+let dim(V)= $m$,dim(W)=$n$, $\beta_v$ is a basis of V, $\beta_w$ is a basis of W, $\beta_v = \sett{v_1,\cdots,v_m}$, $\beta_w = \sett{w_1,\cdots,w_n}$
+
+\begin{enumerate}
+	\item[(a)] by dimension theorem
+	
+	$\because$ rank(T) $\leq$ dim(V) < dim(W) $\therefore$ R(T) $\neq$ W
+	
+	\item[(b)] \textbf{Claim.} T is one-to-one
+	
+	by Theorem 2.4, T is one-to-one then N(T)$= \sett{0}$, nullity(T) = $0$
+	
+	$\therefore$ R(T) is a subspace of $W$
+	
+	dim(V) $=$ rank(T) $+$ nullity(T) $>$ dim(W)$\implies$ rank(T) $>$ dim(W)$\rightarrow\leftarrow$
+	
+\end{enumerate}
+
+\end{solution}
+
+\end{tcolorbox}

@@ -1,0 +1,10 @@
+Let $f,g \in F(R,R)$ be the functions defined by $f(t) = e^{et}$ and $g(t) = e^{st}$, where $r \neq s$. Prove that $f$ and $g$ are linearly independent in $F(R,R)$.
+
+\begin{tcolorbox}
+	\begin{solution}
+		\textbf{Claim.} $f, g$ are linearly independent in $F(R,R)$\\
+		$a_1f(t) + a_2g(t) = 0 \Rightarrow a_1e^{rt} + a_2e^{st} = 0 \Rightarrow e^{rt}(a_1 + a_2e^{t(s-r)}) = 0$\\
+		$\Rightarrow e^{rt} = 0(\text{impossiable})$ or $(a_1 + a_2e^{t(s-r)}) = 0 \Rightarrow a_1=a_2=0$\\
+		$\therefore f,g$ are linearly independent in $F(R,R)$.
+	\end{solution}
+\end{tcolorbox}

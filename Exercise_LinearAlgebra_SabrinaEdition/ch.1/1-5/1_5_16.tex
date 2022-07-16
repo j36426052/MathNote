@@ -1,0 +1,18 @@
+Prove that a set $S$ of vectors is linearly independent if and only if each finite subset of $S$ is linearly independent.
+
+\begin{tcolorbox}
+	\begin{solution}
+		let $S = \sett{s_1,s_2,\cdots,s_n}$\\
+		\begin{enumerate}
+			\item[$(\Rightarrow)$] \textbf{Claim.} $\exists$ subset $S_i = \sett{s_1',s_2',\cdots,s_r'}, r \leq n,$ 
+			
+			$ b_1s_1'+b_2s_2'+\cdots + b_ns_r' = 0,$ not all $b_i = 0, 1 \leq i \leq r$
+			
+			
+			let $S-S_i = \sett{s_{r+1}',s_{r+2}',\cdots,s_{n}'}$\\
+			$b_1s_1'+b_2s_2'+\cdots+b_ns_n' = 0$ not only $b_1 = b_2 = \cdots = b_n = 0  \rightarrow\leftarrow$
+			
+			\item[$(\Leftarrow)$] by definition of linear independent, each finite subset of $S$ is linearly independent, $S$ is linear independent.
+		\end{enumerate}
+	\end{solution}
+\end{tcolorbox}

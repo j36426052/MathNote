@@ -1,0 +1,17 @@
+Let $S$ be a nonempty set and $F$ a field. Prove that for any $s_0 \in S$,$\sett{f \in F(S,F) \, | \, f(s_0) = 0}$ , is a subspace of $F(S,F)$.
+
+\begin{tcolorbox}
+	\begin{solution}
+		\textbf{Claim.} $\sett{f \in F(S,F)\,|\,f(S_0)=0}$ is a subspace of $F(S,F)$
+		\begin{enumerate}
+			\item let $f_a,f_b \in \sett{f \in F(S,F)\,|\,f(s_0)=0}$\\
+			$\because (f_a+f_b)(s_0) =f_a(s_0) + f_b(s_0) = 0$\\
+			$\therefore (f_a + f_b)(s_0) \in \sett{f \in F(S,F)\,|\,f(s_0)=0}$
+			\item let $f_a \in \sett{f \in F(S,F)\,|\,f(s_0)=0}, c \in \mathrm{F}$\\
+			$\because cf_a(s_0) = c \cdot 0 = 0$\\
+			$\therefore cf_a(s_0) \in \sett{f \in F(S,F)\,|\,f(s_0)=0}$
+			\item every function in $\sett{f \in F(S,F)~|~f(s_0)=0}$ is zero function.
+		\end{enumerate}
+		$\therefore \sett{f \in F(S,F)\,|\,f(s_0)=0}$ is a subspace of $F(S,F)$.
+	\end{solution}
+\end{tcolorbox}

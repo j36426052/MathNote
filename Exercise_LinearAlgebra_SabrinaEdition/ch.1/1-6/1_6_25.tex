@@ -1,0 +1,30 @@
+Let V,W, and Z be as in Exercise $21$ if Section 1.2. If V and W are vector spaces over $F$ of dimensions $m$ and $n$, determine the dimension of Z.
+
+\begin{tcolorbox}
+	\begin{solution}
+		let $Z = \sett{(v,w) ~|~ v \in V,w \in W}, dim(V)=m,dim(W)=n$
+		
+		$Z_1 = \sett{(v,0) ~|~ v \in V}$,$Z_2 = \sett{(0,w) ~|~ w \in W}$
+		
+		\textbf{Claim} $Z \subseteq Z_1 + Z_2$, let $x \in Z, x = (v,w) v\in V,w \in W$
+		
+		$x = (v,0) + (0,w) \in Z_1 + Z_2$
+		
+		$\therefore Z \subseteq Z_1 + Z_2$
+		
+		\textbf{Claim} $Z_1 + Z_2 \subseteq Z$, let $x \in Z_1 + Z_2$
+		
+		$x = (v,0) + (0,w) v\in V, w \in W = (v,w) \in Z$
+		
+		$\therefore Z_1 + Z_2 \subseteq Z$
+		
+		$\therefore Z = Z_1 + Z_2$
+		
+		$\because Z = Z_1 + Z_2$,$Z_1 \cap Z_2 = \sett{(0,0)}$
+		
+		$\therefore Z = Z_1 \bigoplus Z_2$
+		
+		by Exercise 1.6.29(b), if $W_1$ and $W_2$ are finite-dimensional subspace of a vector space V, and let V = $W_1 \bigoplus W_2$. dim($W_1+W_2$) = dim($W_1$) + dim($W_2$) = $m+n$
+			
+	\end{solution}
+\end{tcolorbox}

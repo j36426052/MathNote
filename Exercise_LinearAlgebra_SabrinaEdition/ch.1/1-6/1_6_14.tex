@@ -1,0 +1,39 @@
+Find bases for the following subspaces of $\mathrm{F}^5$:
+
+$$ W_1 = \sett{(a_1,a_2,a_3,a_4,a_5) \in \mathrm{F}^5 ~|~ a_1 - a_3 - a_4 = 0} $$
+and
+$$ W_2 = \sett{(a_1,a_2,a_3,a_4,a_5) \in \mathrm{F}^5 ~|~ a_2 = a_3 = a_4 ~,~ a_1 + a_5 = 0}. $$
+What are the dimensions of $W_1$ and $W_2$?
+
+
+\begin{tcolorbox}
+	\begin{solution}
+		set $p,q,t,r \in \mathrm{F}$,\\$W_1 = \{(q+t,p,q,t,r) = q(1,0,1,0,0)+ p(0,1,0,0,0) $
+		
+		$ + t(1,0,0,1,0) + r(0,0,0,0,1)\}$
+		
+		\textbf{Claim.} $\sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)}$ is linearly independent
+		
+		$c_1(1,0,1,0,0) + c_2(0,1,0,0,0) + c_3(1,0,0,1,0)+c_4(0,0,0,0,1)$
+		
+		$\Rightarrow c_1+c_3=0, c_2 = 0, c_1 = 0, c_3 = 0, c_4 = 0 \Rightarrow c_1=c_2=c_3=c_4=0$
+		
+		$\therefore \sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)}$ is linearly independent
+		
+		\textbf{Claim} $span(\sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)}) = W_1$	
+			
+		let $x \in W_1$, x = $q(1,0,1,0,0) + p(0,1,0,0,0) + t(1,0,0,1,0)+r(0,0,0,0,1)$
+		
+		$x \in span(\sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)})$
+		
+		$\therefore W_1 \subseteq span(\sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)})$
+		
+		$\because W_1$ is a subspace of V, any linearly combination of $W_1$'s subset is in $W_1$
+		
+		$\therefore span(\sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)}) \in W_1$
+		
+		$\therefore span(\sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)}) = W_1$
+		
+		$\therefore \sett{(1,0,1,0,0),(0,1,0,0,0),(1,0,0,1,0),(0,0,0,0,1)}$ is a basis of $W_1$,the dimension of $W_1$ is $4$.
+	\end{solution}
+\end{tcolorbox}

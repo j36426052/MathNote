@@ -1,0 +1,74 @@
+Let V and W be vector spaces and T:V $\rightarrow$ W be linear.
+
+\begin{enumerate}
+	\item[(a)] Prove that T is one-to-one if and only if T carries linearly independent subsets of V onto linearly independent subsets of W.
+	\item[(b)] Suppose that T is one-to-one and that $S$ is a subset of V. Prove that $S$ is linearly independent if and only if T($S$) is linearly independent.
+	\item[(c)] Suppose $\beta = \sett{v_1,v_2,\cdots,v_n}$ is a basis for V and T is one-to-one and onto. Prove that T($\beta$) = \{T($v_1$),T($v_2$),$\cdots$,T($v_n$)\} is a basis for W.
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{solution}
+	\begin{enumerate}
+		\item[(a)]
+		($\Rightarrow$) let $\sett{s_1,\cdots,s_n}$ be a linearly independent subset of S
+		
+		\textbf{Claim.} $\sett{T(s_1),\cdots,T(s_n)}$ is a linearly independent subset of $W$
+		
+		$\sum^{n}_{i=1}a_iT(s_i) = 0 \implies \sum^{n}_{i=1}T(a_is_i) = 0 \implies T(\sum^{n}_{i=1}a_is_i)=0$
+		
+		$\because $ T is one-to-one $\therefore \sum^{n}_{i=1}a_is_i = 0$ only scalars are $0$
+		
+		$\sett{T(s_1),\cdots,T(s_n)}$ is a linearly independent subset of W
+		
+		($\Leftarrow$) let $x,y \in $V, $\beta$ is a basis of V, $\beta = \sett{v_1,v_2,\cdots,v_n}$
+		
+		$x = a_1v_1+\cdots+a_nv_n, y= b_1v_1 + \cdots + b_nv_n$
+		
+		T($x$) = T($y$) $\implies$ T($x$)-T($y$) = 0 $\implies$ T($x-y$) = 0 $\implies$ T($(a_1-b_1)v_1+\cdots+(a_n-b_n)v_n$) = $0$
+		
+		$\implies (a_1-b_1)T(v_1) + \cdots + (a_n-b_n)T(v_n) = 0 \because \sett{T(v_1),\cdots,T(v_n)}$ is linearly independent
+		
+		$\therefore (a_1 - b_1)T(v_1) + \cdots + (a_n-b_n)T(v_n) = 0$ only $a_1-b_1=\cdots=a_n-b_n=0$
+		
+		$\implies a_1 = b_1,\cdots,a_n=b_n \implies T(x) = T(y)$ only $x=y$
+		
+		T is one-to-one
+	\end{enumerate}
+
+\end{solution}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\begin{enumerate}
+		\item[(b)] let S = $\sett{s_1,s_2,\cdots,s_n}$
+		
+		$(\Rightarrow)$ \textbf{Claim.} $\sett{T(s_1),\cdots,T(s_n)}$ is linearly independent
+		
+		$a_1T(s_1)+\cdots+a_nT(s_n)=0 \implies T(a_1s_1)+\cdots+T(a_ns_n) = 0 \implies T(a_1s_1+\cdots+a_ns_n) = 0$
+		
+		$\because$ S is linearly independent, T is one-to-one $\therefore T(a_1s_1 + \cdots + a_ns_n) =0$ only scalars are $0$
+		
+		$\sett{T(s_1),\cdots,T(s_n)}$ is linearly independent
+		
+		$(\Leftarrow)$ \textbf{Claim.} $\sett{s_1,\cdots,s_n}$ is linearly independent
+		
+		$a_1s_1+\cdots+a_ns_n = 0 \implies T(a_1s_1+\cdots+a_ns_n=0)\implies a_1T(s_1) + \cdots + a_nT(s_n) = 0$
+		
+		$\because \sett{T(s_1),\cdots,T(s_n)}$ is linearly independent, $\therefore a_1=\cdots=a_n=0$
+		
+		$\sett{s_1,\cdots,s_n}$ is linearly independent
+		
+		\item[(c)] \textbf{Claim.} T($\beta$) can generate W
+		
+		$\because$ T is onto, by Thm 2.2, T : V $\rightarrow$ W be linear, $\beta$ is a basis of V, then R(T) = span(T($\beta$)) = W
+		
+		T($\beta$) can generate W
+		
+		\textbf{Claim} T($\beta$) is a linearly independent set of W
+		
+		by (b), T is one-to-one,$S$ is a linearly independent subset of V, T($S$) is linearly independent
+		
+		T($S$) is a basis of W
+	\end{enumerate}
+\end{tcolorbox}

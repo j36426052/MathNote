@@ -1,0 +1,79 @@
+Let S be a set of non zero polynomials in $P(F)$ such that no two have the same degree. Prove that $S$ is linearly independent.
+
+\begin{tcolorbox}
+	\begin{solution}
+		let $a_1u_1+a_2u_2+\cdots+a_nu_n=0~,~a_1,\cdots,a_n \in \mathrm{F}~,~u_1,\cdots,u_n \in S$
+		
+		$u_1 = c_{10} + c_{11}x + c_{12}x^2 + \cdots + c_{1k}x^k$
+		
+		$u_22 = c_{20} + c_{21}x + c_{22}x^2 + \cdots + c_{2k}x^k$
+		
+		\vdots		
+		
+		$u_n = c_{n0} + c_{n1}x + c_{n2}x^2 + \cdots + c_{nk}x^k$
+		
+		$d_i $ is the degree of $u_i$
+		
+		$d_1 < d_2 < \cdots < d_n ,d_n= k$
+		
+		$a_1u_1 + a_2u_2 + \cdots + a_nu_n$
+		
+		$=(a_1c_{10}+\cdots + a_nc_{n0})+\cdots+(a_1c_{1k}+\cdots + a_nc_{nk})x^k$
+		
+		$=0$
+		
+		$\Rightarrow 
+		\begin{cases}
+			a_1c_{10}+\cdots+a_nc_{n0} = 0\\
+			a_1c_{11}+\cdots+a_nc_{n1} = 0\\
+			\vdots \\
+			a_1c_{1k}+\cdots+a_nc_{nk} = 0
+		\end{cases}$
+		
+		$\because $ the element in $S$ no two have same degree
+		
+		$\therefore$ only $u_n$ contain $x^k$
+		
+		$\Rightarrow c_{1k} = c_{2k} = \cdots = c_{n-1k} = 0 c_{nk} \neq 0$
+		
+		$\Rightarrow a_1c_{1k} + \cdots + a_nc_{nk} = 0$ only $a_n = 0$
+		
+		(1) at most $u_{n-1},u_n$ contains $x^{d_{n-1}}$
+		
+		$\Rightarrow c_{1d_{n-1}} = c_{2d_{n-1}} = \cdots = c_{(n-2)(d_{n-1})} = 0, c_{n-1d_{n-1}}\neq 0, c_{nd_{n-1}} \neq 0$
+		
+		$\because a_n = 0$
+		
+		$\therefore a_1c_{1d_{d_{n-1}}} + \cdots + a_nc_{nd_{n-1}} = 0$, only $a_{n-1} = 0$
+		
+		(2) $u_{n-i}, \cdots, u_n$ contains $x^{d_{n-i}}$
+		
+		$\Rightarrow c_{1d_{n-i}} = c_{2d_{n-i}} = \cdots = c_{(n-i-1)(d_{n-i})} = 0$
+		
+		assume $a_1c_{1d_{n-i}}+\cdots+a_nc_{nd_{n-i}} = 0$
+		
+		only $a_n{n-i},a_{n-i+1},\cdots,a_n = 0$
+		
+		(3)$u_{n-(i+1)},\cdots,u_n$ contains $x^{d_{n-(i+1)}}$
+		
+		$\Rightarrow c_{1d_{(n-i-1)}} = c_{2d_{(n-i-1)}} = \cdots = c_{(n-i-2)d_{(n-i-1)}}$
+		
+		$a_1c_{1d_{(n-i-1)}} + \cdots + a_nc_{nd_{(n-i-1)}} = 0$
+		
+		$\Rightarrow a_{n-i-1}c_{(n-i-1)d_{(n-i-1)}} + \cdots + a_nc_{nd_{(n-i-1)}} = 0$
+		
+		$\because a_{n-i},\cdots,a_n = 0$
+		
+		$\Rightarrow a_{n-i-1}c_{(n-i-1)d_{(n-i-1)}} = 0$
+		
+		$\because u_{n-i-1}$ contains $x^{d_{(n-i-1)}}$
+		
+		$\therefore c_{(n-i-1)d_{(n-i-1)}} \neq 0$
+		
+		$a_{n-i-1} = 0$
+		
+		by mathematical induction $a_1u_1+a_2u_2+\cdots+a_nu_n=0$ only $a_1 = a_2 = \cdots = a_n = 0$
+		
+		$S$ is Linearly independent
+	\end{solution}
+\end{tcolorbox}

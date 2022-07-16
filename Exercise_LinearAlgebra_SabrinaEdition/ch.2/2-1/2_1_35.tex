@@ -1,0 +1,35 @@
+Let V be a finite-dimensional vector space and T: V $\rightarrow$ V be linear.
+
+\begin{enumerate}
+	\item[(a)] Suppose that V = R(T) + N(T). Prove that V = R(T) $\oplus$ N(T).
+	\item[(b)] Suppose that R(T) $\cap$ N(T) = $\sett{0}$. Prove that V = R(T) $\oplus$ N(T).
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{solution}
+\begin{enumerate}
+	\item[(a)] \textbf{Claim} R(T) $\cap$ N(T) = $\sett{0}$
+	
+	by Exercise 1.6.29 and dimension Theorem, $W_1,W_2$ is a subspace of V, dim($W_1+W_2$) = dim($W_1$)+dim($W_2$)-dim($W_1 \cap W_2$)
+	
+	dim(R(T) $\cap$ N(T)) = dim(R(T)) + dim(N(T)) - dim(V) = $0$
+	
+	$\because$ R(T),N(T) is a subspace, $\therefore$ R(T) $\cap$ N(T) = $\sett{0}$
+	
+	$\because$ R(T), N(T) is a subspace of V, R(T) $\cap$ N(T) = 0
+	
+	$\therefore$ R(T) $\oplus$ N(T) = V
+	
+	\item[(b)] by dimension theorem and Exercise 1.6.29
+	
+	$W_1,W_2$ is a subspace of V, dim($W_1+W_2$) = dim($W_1$)+dim($W_2$)-dim($W_1 \cap W_2$)
+	
+	dim(R(T)+N(T)) = dim(R(T)) + dim(N(T)) - dim(R(T) $\cap$ N(T)) = dim(R(T)) + dim(N(T)) = dim(V)
+	
+	$\because$ R(T) + N(T) is a subspace of V, dim(R(T)+N(T)) = dim(V)
+	
+	$\therefore$ R(T)+N(T) = V
+\end{enumerate}		
+\end{solution}
+
+\end{tcolorbox}

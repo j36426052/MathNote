@@ -1,0 +1,958 @@
+This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.3) (preloaded format=xelatex 2022.6.25)  25 JUN 2022 10:00
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./1_4_14.tex
+(1_4_14.tex
+LaTeX2e <2022-06-01> pre-release-0 (develop 2022-6-25 branch)
+L3 programming layer <2022-06-02>
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 S
+     how that if $S_1$ and $S_2$ are arbitrary subsets of a vector space $\m...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no S in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 1.
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no + in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no . in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--2
+[]
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 1--2
+\OML/cmm/m/it/10 S[]$
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 1--2
+\OML/cmm/m/it/10 S[]$
+ []
+
+
+Overfull \hbox (7.63889pt too wide) in paragraph at lines 1--2
+\OT1/cmr/m/n/10 V$
+ []
+
+
+Overfull \hbox (17.28476pt too wide) in paragraph at lines 1--2
+\OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 [
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 1--2
+\OML/cmm/m/it/10 S[]$
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 1--2
+\OML/cmm/m/it/10 S[]$
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 1--2
+\OML/cmm/m/it/10 S[]$ 
+ []
+
+
+! LaTeX Error: Environment tcolorbox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \begin{tcolorbox}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment solution undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 ^^I\begin{solution}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ^^I^^IL
+           et $S_1 \cap S_2 = \sett{v_1,v_2,\cdots , v_n}$,
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no L in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+! Undefined control sequence.
+l.6 ^^I^^ILet $S_1 \cap S_2 = \sett
+                                   {v_1,v_2,\cdots , v_n}$,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no , in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 6--7
+[]
+ []
+
+
+Overfull \hbox (17.28476pt too wide) in paragraph at lines 6--7
+\OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 \
+ []
+
+
+Overfull \hbox (21.17358pt too wide) in paragraph at lines 6--7
+\OML/cmm/m/it/10 S[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (55.62375pt too wide) in paragraph at lines 6--7
+[]$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 ^^I^^I$
+           S_1 = \sett{u_1,u_2,\cdots,u_m,v_1,\cdots,v_n} , S_2 = \sett{r_1,...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.8 ^^I^^I$S_1 = \sett
+                      {u_1,u_2,\cdots,u_m,v_1,\cdots,v_n} , S_2 = \sett{r_1,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.8 ..._2,\cdots,u_m,v_1,\cdots,v_n} , S_2 = \sett
+                                                  {r_1,\cdots,r_k,v_{1}, \cd...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (41.17358pt too wide) in paragraph at lines 8--9
+[]$\OML/cmm/m/it/10 S[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (132.31697pt too wide) in paragraph at lines 8--9
+[]\OML/cmm/m/it/10 ; S[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (86.94191pt too wide) in paragraph at lines 8--9
+[]$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 ^^I^^I\textbf{Claim.}
+                           span($S_1$)+span($S_2$) $\subseteq$ span($S_1 \cu...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no + in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+! Undefined control sequence.
+l.11 ^^I^^Ilet $x \in \spann
+                            {S_1}+\spann{S_2})$\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.11 ^^I^^Ilet $x \in \spann{S_1}+\spann
+                                        {S_2})$\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Command \b invalid in math mode on input line 12.
+
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+2.
+(C:\Users\Hermize\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Warning: Command \b invalid in math mode on input line 12.
+
+LaTeX Font Info:    Trying to load font information for +lmr on input line 12.
+LaTeX Font Info:    No file lmr.fd. on input line 12.
+LaTeX Font Info:    Trying to load font information for +cmr on input line 12.
+LaTeX Font Info:    No file cmr.fd. on input line 12.
+
+LaTeX Font Warning: Font shape `/lmr/m/n' undefined
+(Font)              using `/cmr/m/n' instead on input line 12.
+
+
+LaTeX Font Warning: Font shape `/cmr/m/n' undefined
+(Font)              using `/cmr/m/n' instead on input line 12.
+
+! Corrupted NFSS tables.
+wrong@fontshape ...message {Corrupted NFSS tables}
+                                                  error@fontshape else let f...
+l.12 ...ots + a_{m+n}v_{n})+$\\$(b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+LaTeX Font Warning: Font shape `/cmr/m/n' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 12.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 ...ots + a_{m+n}v_{n})+$\\$(b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing { inserted.
+<to be read again> 
+                   \endtemplate 
+l.12 ...ots + a_{m+n}v_{n})+$\\$(b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 ...ots + a_{m+n}v_{n})+$\\$(b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.12 ...ots + a_{m+n}v_{n})+$\\$(b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Undefined control sequence.
+l.14 ^^I^^I$\Rightarrow x \in \spann
+                                    {S_1 \cup S_2}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (53.05pt too wide) in paragraph at lines 10--15
+[]\TU/lmr/bx/n/10 Claim.
+ []
+
+
+Overfull \hbox (21.23615pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 S[]$$S[]$
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 10--15
+\OMS/cmsy/m/n/10 ^^R$
+ []
+
+
+Overfull \hbox (17.28476pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 [
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 S[]$ 
+ []
+
+
+Overfull \hbox (15.15967pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (18.39587pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (14.50697pt too wide) in paragraph at lines 10--15
+[]\OT1/cmr/m/n/10 )$ 
+ []
+
+
+Overfull \hbox (16.27078pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (31.64943pt too wide) in paragraph at lines 10--15
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]u[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (33.9805pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 a[]u[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (40.11821pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 a[]v[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (45.92151pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 a[]v[]\OT1/cmr/m/n/10 )+$ 
+ []
+
+
+Overfull \hbox (29.4422pt too wide) in paragraph at lines 10--15
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]r[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (23.2304pt too wide) in paragraph at lines 10--15
+[]\OML/cmm/m/it/10 kr[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (36.44803pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 b[]v[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (34.47353pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 b[]v[]\OT1/cmr/m/n/10 )$ 
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 10--15
+\OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (30.6911pt too wide) in paragraph at lines 10--15
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 c[]u[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (36.91107pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 c[]u[]\OT1/cmr/m/n/10 ) +
+ []
+
+
+Overfull \hbox (42.71313pt too wide) in paragraph at lines 10--15
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 c[]r[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (34.14946pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 ) +
+ []
+
+
+Overfull \hbox (53.60786pt too wide) in paragraph at lines 10--15
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 c[]v[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 10--15
+[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (37.4539pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 )$
+ []
+
+
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 10--15
+\OMS/cmsy/m/n/10 )
+ []
+
+
+Overfull \hbox (15.15967pt too wide) in paragraph at lines 10--15
+\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (32.34717pt too wide) in paragraph at lines 10--15
+[]$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16 ^^I^^I$
+            \therefore \spann{S_1} + \spann{S_2} \subseteq \spann{S_1 \cup S...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \therefore 
+                           
+l.16 ^^I^^I$\therefore
+                       \spann{S_1} + \spann{S_2} \subseteq \spann{S_1 \cup S...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.16 ^^I^^I$\therefore \spann
+                             {S_1} + \spann{S_2} \subseteq \spann{S_1 \cup S...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.16 ^^I^^I$\therefore \spann{S_1} + \spann
+                                           {S_2} \subseteq \spann{S_1 \cup S...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.16 ...\spann{S_1} + \spann{S_2} \subseteq \spann
+                                                  {S_1 \cup S_2} $
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (38.39587pt too wide) in paragraph at lines 16--17
+[]$[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (21.17358pt too wide) in paragraph at lines 16--17
+[] \OMS/cmsy/m/n/10 ^^R
+ []
+
+
+Overfull \hbox (32.34717pt too wide) in paragraph at lines 16--17
+[]$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ^^I^^I\textbf{Claim.}
+                           $\spann{S_1 \cup S_2} \subseteq \spann{S_1} + \sp...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \spann 
+                       
+l.18 ^^I^^I\textbf{Claim.} $\spann
+                                  {S_1 \cup S_2} \subseteq \spann{S_1} + \sp...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.18 ...m.} $\spann{S_1 \cup S_2} \subseteq \spann
+                                                  {S_1} + \spann{S_2}$\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.18 ...1 \cup S_2} \subseteq \spann{S_1} + \spann
+                                                  {S_2}$\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+! Undefined control sequence.
+l.19 ^^I^^Ilet $y \in \spann
+                            {S_1 \cup S_2}$\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Command \b invalid in math mode on input line 21.
+
+
+LaTeX Warning: Command \b invalid in math mode on input line 21.
+
+
+LaTeX Font Warning: Font shape `/lmr/m/n' undefined
+(Font)              using `/cmr/m/n' instead on input line 21.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...cdots + a_{m+n}v_{n}) + (b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing { inserted.
+<to be read again> 
+                   \endtemplate 
+l.21 ...cdots + a_{m+n}v_{n}) + (b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...cdots + a_{m+n}v_{n}) + (b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.21 ...cdots + a_{m+n}v_{n}) + (b_1r_1+\cdots+\b_
+                                                  kr_k + b_{k+1}v_1 + \cdots...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Undefined control sequence.
+<recently read> \therefore 
+                           
+l.22 ^^I^^I$\therefore
+                       y \in \spann{S_1} + \spann{s_2}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.22 ^^I^^I$\therefore y \in \spann
+                                   {S_1} + \spann{s_2}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.22 ^^I^^I$\therefore y \in \spann{S_1} + \spann
+                                                 {s_2}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (53.05pt too wide) in paragraph at lines 18--23
+[]\TU/lmr/bx/n/10 Claim.
+ []
+
+
+Overfull \hbox (42.90268pt too wide) in paragraph at lines 18--23
+[] \OMS/cmsy/m/n/10 ^^R
+ []
+
+
+Overfull \hbox (18.39587pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (10.61807pt too wide) in paragraph at lines 18--23
+[]$ 
+ []
+
+
+Overfull \hbox (14.706pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (32.34717pt too wide) in paragraph at lines 18--23
+[]$ 
+ []
+
+
+Overfull \hbox (15.81711pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 y \/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (30.6911pt too wide) in paragraph at lines 18--23
+\/cmr/m/n/10 (\OML/cmm/m/it/10 c[]u[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (36.91107pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 c[]u[]\/cmr/m/n/10 ) +
+ []
+
+
+Overfull \hbox (42.71313pt too wide) in paragraph at lines 18--23
+\/cmr/m/n/10 (\OML/cmm/m/it/10 c[]r[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (34.14946pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 c[]\/cmr/m/n/10 ) +
+ []
+
+
+Overfull \hbox (53.60786pt too wide) in paragraph at lines 18--23
+\/cmr/m/n/10 (\OML/cmm/m/it/10 c[]v[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (37.4539pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 c[]\/cmr/m/n/10 )$ 
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 18--23
+\/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (31.64943pt too wide) in paragraph at lines 18--23
+\/cmr/m/n/10 (\OML/cmm/m/it/10 a[]u[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (33.9805pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 a[]u[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (40.11821pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 a[]v[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (45.92151pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 a[]v[]\/cmr/m/n/10 ) +
+ []
+
+
+Overfull \hbox (29.4422pt too wide) in paragraph at lines 18--23
+\/cmr/m/n/10 (\OML/cmm/m/it/10 b[]r[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (23.2304pt too wide) in paragraph at lines 18--23
+[]\OML/cmm/m/it/10 kr[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (36.44803pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 b[]v[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (19.44441pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (34.47353pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 b[]v[]\/cmr/m/n/10 )$
+ []
+
+
+Overfull \hbox (14.706pt too wide) in paragraph at lines 18--23
+\OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (18.39587pt too wide) in paragraph at lines 18--23
+[] \/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (9.17363pt too wide) in paragraph at lines 18--23
+[]$ 
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{solution}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 ^^I\end{solution}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{tcolorbox}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \end{tcolorbox}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> ./1_4_14.tex
+                
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 73 strings out of 410673
+ 1336 string characters out of 2816368
+ 310329 words of memory out of 3000000
+ 21192 multiletter control sequences out of 15000+600000
+ 472210 words of font info for 30 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 25i,9n,32p,277b,146s stack positions out of 10000i,1000n,20000p,200000b,80000s
+No pages of output.
