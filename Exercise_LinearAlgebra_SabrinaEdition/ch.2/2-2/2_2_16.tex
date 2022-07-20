@@ -1,0 +1,17 @@
+Let $V$ and $W$ be vector spaces such that $\dim (V) = \dim (W),$ and let $T:V \rightarrow W$ be linear. Show that there exist ordered bases $\beta$ and $\gamma$ for $V$ and $W$, respectively, such that $[T]^{\gamma}_{\beta}$ is a diagonal matrix
+
+\begin{tcolorbox}
+	Suppose $\dim (V) = n$, Claim nullity($T$) $= k$
+	
+	let $\sett{v_1,v_2,\cdots,v_k}$ is a basis of $N(T)$
+	
+	$\because N(T)$ is a subspace of $V$, we can extend $\sett{v_1,v_2,\cdots, v_k}$ to $\sett{v_1,v_2,\cdots,v_n}$ be a basis of $V$
+	
+	by dimension theorem, $\dim (V) = \text{nullity}(T) + \text{rank}(T) \implies \text{R}(T)=n-k$
+	
+	pick $\sett{u_{k+1},\cdots,u_{n}}$ where $u_{k+1} = T(v_{k+1}),\cdots,u_n=T(v_n)$ be a basis of $R(T)$
+	
+	$[T]^{\gamma}_{\beta} = \left( \begin{matrix}
+		0&0\\0&I_{(n-k)}
+	\end{matrix}\right)$
+\end{tcolorbox}

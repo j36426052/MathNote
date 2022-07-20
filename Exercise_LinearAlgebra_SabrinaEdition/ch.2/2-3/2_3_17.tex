@@ -1,0 +1,33 @@
+Let $V$ be a vector space. Determine all linear transformations $T: V \rightarrow V$ such that $T = T^2$, and show that $V = \sett{y~|~T(y) = y} \oplus N(T)$.
+
+\begin{tcolorbox}
+	let $W = \sett{y~|~T(y) =y}, x \in V$, Claim $W$ is a subspace of $V$
+	
+	$T(ay_1 + y_2) = aT(y_1) + T(y_2) = ay_1 + y_2 \implies ay_1 + y_2 \in W$,$T(0) = 0$
+	
+	$\therefore W$ is a subspace of $V$
+	
+	Claim $x -T(x) \in N(T)$
+	
+	$T(x-T(x)) = T(x) - T(T(x)) = T(x) - T(x) = 0 \therefore x - T(x) \in N(T)$
+	
+	Claim $R(T) \subseteq W(T)$, let $T(x) \in R(T), x \in V$
+	
+	Case1. $T(x) = 0 \in W(T)$
+	
+	Case2. $T(x) = y, y \in V,~ y \neq 0,~ T(x) = T^2(x) = y \implies T(y) = y \in W$
+	
+	$\therefore R(T) \subseteq W(T)$
+	
+	Claim $V \subseteq W + N(T),~ x = T(x) + ( x - T(x)) \in (W + N(T))$
+	
+	$\because W,~ N(T)$ is a subspace of $V$, $W + N(T) \in V$
+	
+	$\therefore W + N(T) = V$
+	
+	Claim $W \cap N(T) = \sett{0}$
+	
+	let $x \in W \cap N(T),~T(x)=x=0$ only $x = 0$
+	
+		
+\end{tcolorbox}

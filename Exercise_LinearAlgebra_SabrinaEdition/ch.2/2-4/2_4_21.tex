@@ -1,0 +1,65 @@
+Let $V$ and $W$ be finite-dimensional vector spaces with ordered bases $\beta = \sett{v_1,v_2,\cdots,v_n}$ and $\gamma = \sett{w_1,w_2,\cdots,w_m}$, respectively. By Theorem 2.6, there exist linear transformations $T_{ij}:V \rightarrow W$ such that
+
+$$T_{ij}(v_k) = \begin{cases}
+	w_i \text{if} k = j\\
+	0 \text{if} k \neq j.
+\end{cases}$$
+
+First prove that $\sett{T_{ij}~|~1 \leq i \leq m,1\leq j \leq n}$ is a basis for $L(V,W)$. Then let $M^{ij}$ be the $m \times n$ matrix with $1$ in the $i$th row and $j$th column and $0$ elsewhere, and prove that $[T_{ij}]^{\gamma}_{\beta} = M^{ij}$. Again by Theorem 2.6, there exists a linear transformation $\Phi :L(V,W) \rightarrow M_{m \times n}(F)$ such that $\Phi (T_{ij}) = M^{ij}$. Prove that $\Phi$ is an isomorphism.
+
+\begin{tcolorbox}
+	Claim $\sett{T_{ij}~|~1 \leq i \leq m,~1 \leq j \leq n}$ is linearly independent, let $x \in V$
+	
+	$\sum^n_{j=1}\sum^m_{i=1}a_{ij}T_{ij}(x)=0 \implies \sum^n_{j=1}\sum^m_{i=1}a_{ij}T_{ij}(b_1v_1+b_2v_2+\cdots+b_nv_n) = 0$
+	
+	$\implies \sum^{n}_{j=1}\sum^{m}_{i=1}a_{ij}b_{j}w_{i}=0 \implies \sum^{n}_{j=1}b_j\sum^{m}_{i=1}a_{ij}w_i = 0 $
+	
+	$\implies \sum^{n}_{j=1}b_j(a_{ij}w_1+\cdots+a_{mj}w_m)=0 $
+	
+	$\implies (\sum^n_{j=1}b_ja_{1j})w_1 + \cdots + (\sum^n_{j=1}b_ja_{mj})w_m=0$ only $a_{ij} = 0 ~(1 \leq i \leq m,~1 \leq j \leq n)$
+	
+	$\therefore \sett{T_{ij}~|~1 \leq i \leq m, 1 \leq j \leq n}$ is linearly independent
+	
+	Claim $\spann{\sett{T_{ij}~|~1 \leq j \leq m,1 \leq j \leq n}} = L(V,M)$
+	
+	$\spann{\sett{T_{ij}~|~1 \leq i \leq m,~ 1 \leq j \leq n}} \subseteq L(V,W)$ \textbf{trivial}
+	
+	$L(V,W) \subseteq \spann{\sett{T_{ij}~|~1 \leq i \leq m,~ 1\leq j \leq n}}$
+	
+	let $T \in L(V,W)~  x \in V,~ x = a_1v_1 + \cdots + a_nv_n$
+	
+	$T(x) = a_1T(v_1)+\cdots+a_nT(v_n) = a_1(\sum^m_{i=1}b_{i1}T_{i1}(v_1))+\cdots + a_n(\sum^m_{i=1}b_{in}T_{in}(v_n))$
+	
+	$= \sum^n_{j=1}\sum^m_{i=1}c_{ij}T_{ij}(v_j) \implies T = \sum^n_{j=1}\sum^m_{i=1}c_{ij}T_{ij} \in \spann{T_{ij} ~|~1\leq i \leq m,~1 \leq j \leq n}$
+	
+	$\sett{T_{ij~|~1 \leq i \leq m,~1 \leq j \leq n}}$ is a basis of $L(V,W)$
+	
+	let $x \in V,~x = a_1v_1 + \cdots + a_nv_n, T_{ij}(x) = a_jw_i \implies \begin{cases}
+		T_{ij}(v_1)=0\\T_{ij}(v_2)=0\\\vdots \\ T_{ij}(v_j)=1 \times w_i \\ \vdots \\ T_{ij}(v_n) = 0	\end{cases} $
+		
+		$\implies [T_{ij}]^{\gamma}_{\beta} = M^{ij}$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	Claim $\Phi$ is one-to-one, let $T \in L(V,W),~T =\sum^n_{j=1}\sum^m_{i=1}c_{ij}T_{ij}$
+	
+	$\Phi(T) = 0 \implies \Phi(\sum^n_{j=1}\sum^m_{i=1}c_{ij}T_{ij}) = 0 \implies \sum^n_{j=1}\sum^m_{i=1}c_{ij}\Phi(T_{ij}) = 0 $
+	
+	$\implies \sum^n_{j=1}\sum^m_{i=1}c_{ij}M_{ij} = 0$ only $c_{ij} = 0 (1 \leq i \leq m,~ 1 \leq j \leq n) \implies N(T) = \sett{T_0} \implies \Phi$ is one-to-one
+	
+	Claim $R(\Phi) = M_{m \times n}(\mathrm{F})$
+	
+	by Dimension Theorem, $V$ is finite vector space, $T$ is linear transformation,
+	
+	$\dim(V) = \text{rank}(T) + \text{nullity}(T) \implies \text{dim}(L(V,W)) = \text{rank}(\Phi) $
+	
+	$\implies \text{rank}(\Phi) = m \times n$
+	
+	$\therefore R(\Phi)$ is a subspace of $M_{m \times n}(\mathrm{F})$, $\dim(R(\Phi)) =  M_{m \times n}(\mathrm{F}) $
+	
+	$\implies R(\Phi) = M_{m \times n}(\mathrm(F)) ~\therefore \Phi$ is onto
+	
+	$\because L(V,W)$ is a finite Vector Space, $\Phi$ is one-to-one \& onto 
+	
+	$\implies L(V,W)$ is a isomorphism
+\end{tcolorbox}

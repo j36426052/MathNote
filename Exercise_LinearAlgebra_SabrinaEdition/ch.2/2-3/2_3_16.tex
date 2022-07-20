@@ -1,0 +1,32 @@
+Let $V$ be a finite-dimensional vector space, and let $T: V \rightarrow V$ be linear.
+
+\begin{enumerate}
+	\item[(a)] If rank$(T)=$ rank$(T^2)$, prove that $R(T) \cap N(T) = \sett{0}$. Deduce that $V = R(T) \oplus N(T)$
+	\item[(b)] Prove that $V = R(T^k)\oplus N(T^k)$ for some positive integer $k$.
+\end{enumerate}
+
+\begin{tcolorbox}
+
+\begin{enumerate}
+	\item[(a)] $R(T) = \sett{T(x)~|~x \in V}~R(T^2)=\sett{T(x)~|~x\in R(T)} \implies R(T^2) \subseteq R(T)$
+	
+	let $\beta = \sett{v_1,v_2,\cdots,v_k}$ be a basis of $R(T^2)$
+	
+	$\because$ rank($T^2$) = rank($T$) $\therefore \beta$ also be a basis of $R(T) \implies R(T^2) = R(T)$
+	
+	Suppose $x\in R(T) \cap N(T)$ but $x \neq 0 \in \mathrm{F}$  i.e. $\exists ~y \in V, T(y) = x$
+	
+	by Dimension Theorem, $\text{nullity}(T^2) = \dim(V) - \text{rank}(T^2) =  \text{nullity}(T)$
+	
+	$\because N(T) \subseteq N(T^2), \text{nullity}(T) = \text{nullity}(T^2) ~\therefore N(T) = N(T^2)$
+	
+	$\because x \in N(T) \therefore T(T(y)) = T(x) = 0 \implies y \in N(T) \implies x = 0 (\rightarrow\leftarrow)$
+	
+	by Exercise 2.1.35,$R(T) \cap N(T) = \sett{0} \implies R(T) \oplus N(T) = V$
+	
+	\item[(b)] \text{\color{red} not today}
+\end{enumerate}
+	
+	
+	
+\end{tcolorbox}

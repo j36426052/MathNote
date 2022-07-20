@@ -1,0 +1,15 @@
+Let $V$ and $W$ be vector spaces, and let $T$ and $U$ be nonzero linear transformations from $V$ into $W$. If $R(T) \cap R(U) = \sett{0}$, prove that $\sett{T,U}$ is a linearly independent subset of $L(V,W)$.
+
+\begin{tcolorbox}
+	Claim $\sett{T,U}$ is linearly independent, let $x \in V$
+	
+	\begin{eqnarray*}
+		a_1T(x) + a_2 U(x) &=& 0 ~(a_1,a_2 \in \mathrm{F})\\
+		a_1T(x) &=& -a_2U(x) \in R(T) \cap R(u)\\
+		\implies a_1T(x) &=&  -a_2U(x) = 0\\
+		\implies a_1T(x) + a_2U(x) &=& 0 \text{, only $a_1 = a_2 = 0$}
+	\end{eqnarray*}
+	
+	$\therefore \sett{T,U}$ is linearly independent.
+	
+\end{tcolorbox}

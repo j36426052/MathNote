@@ -1,0 +1,19 @@
+Let V be a finite-dimensional vector space and $T$ be the projection on $W$ along $W'$, where $W$ and $W'$ are subspaces of $V$. Find and ordered basis $\beta$ for $V$ such that $[T]_{\beta}$ is a diagonal matrix.
+
+\begin{tcolorbox}
+	let $\beta_w = \sett{w_1,w_2,\cdots,w_n}, \beta_{w'} = \sett{w_1',w_2',\cdots,w_m'}$, by Exercise 1.6.33, $W_1$ and $W_2$ is a subspace of $V$, $W_1 \oplus W_2 = V$, $\beta_1 , \beta_2$ is a basis of $W_1,W_2$, then $\beta_1 \cup \beta_2$ is a basis of $V$ $\implies \beta_w \cup \beta_{w'}$ is a basis of $V$
+	
+	\begin{eqnarray*}
+		T(w_1) &=& 1 \cdot w_1 + 0 \cdot w_2 + \cdots + 0 \cdot w_n + 0 \cdot w_1' + \cdots + 0 \cdot w_m'\\
+		T(w_2) &=& 0 \cdot w_1 + 1 \cdot w_2 + \cdots + 0 \cdot w_n + 0 \cdot w_1' + \cdots + 0 \cdot w_m'\\
+		\vdots\\
+		T(w_n) &=& 0 \cdot w_1 + 0 \cdot w_2 + \cdots + 1 \cdot w_n + 0 \cdot w_1' + \cdots + 0 \cdot w_m'\\
+		T(w_1') &=& 0 \cdot w_1 + 0 \cdot w_2 + \cdots + 0 \cdot w_n + 0 \cdot w_1' + \cdots + 0 \cdot w_m'\\
+		\cdots\\
+		T(w_1') &=& 0 \cdot w_1 + 0 \cdot w_2 + \cdots + 0 \cdot w_n + 0 \cdot w_1' + \cdots + 0 \cdot w_m'\\
+	\end{eqnarray*}
+	
+	$\implies \left( [T]_{\beta_w \cup \beta_{w'}}  \right)_{ij} = 0$ when $i \neq j$, $~\therefore \beta_w \cup \beta_{w'}$ is a basis of $V$
+	
+	$[T]_{\beta_w \cup \beta_{w'}}$ is a diagonal matrix	
+\end{tcolorbox}

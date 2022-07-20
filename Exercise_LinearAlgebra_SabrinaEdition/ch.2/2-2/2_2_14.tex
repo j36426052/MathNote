@@ -1,0 +1,15 @@
+Let $V = P(R)$, and for $j \geq 1$ define $T_j(f(x)) = f^{(j)}(x)$, where $f^{(j)}(x)$ is the $j$th derivation of $f(x)$. Prove that the set $\sett{T_1,T_2,\cdots,T_n}$ is a linearly independent subset of $L(V)$ for any positive integer $n$.
+
+\begin{tcolorbox}
+	let $c_1,c_2,\cdots,c_n \in F, f(x) \in P(R)$
+	
+	$f(x) = a_0 + a_1x + \cdots + a_nx^n + \cdots,~ a_0,a_1,\cdots \in \mathrm{F}$
+	
+	$c_1T_1(f(x)) + c_2T_2(f(x)) + \cdots + c_nT_n(f(x)) = 0$
+	
+	$\Rightarrow c_1(1 \cdot a_1 +\cdots + n \cdot a_nx^{n-1}+\cdots)+\cdots + c_n(n!a_n + \frac{(n+1)!}{(n+1-n)!}a_{n+1}x+\cdots) = 0$
+	
+	$\Rightarrow (c_1a_1 + \cdots + n!c_na_n)+\cdots+(c_1\frac{(n+1)!}{n!}+c_2\frac{(n+2)!}{n!}+\cdots)x^n+\cdots =0$
+	
+	only $c_1 = c_2 = \cdots = c_n = 0$ $~\therefore \sett{T_1,T_2,\cdots,T_n}$ is linearly independent
+\end{tcolorbox}

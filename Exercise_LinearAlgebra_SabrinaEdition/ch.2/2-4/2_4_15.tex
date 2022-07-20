@@ -1,0 +1,27 @@
+Let $V$ and $W$ be finite-dimensional vector spaces, and let $T:V \rightarrow W$ be a linear transformation. Suppose that $\beta$ is a basis for $V$. Prove that $T$ is an isomorphism if and only if $T(\beta)$ is a basis for $W$.
+
+\begin{tcolorbox}
+	$(\Rightarrow)~ T$ is onto $\implies R(T) = W = \spann{T(\beta)}$, let $\beta = \sett{v_1,v_2,\cdots,v_n}$
+	
+	Claim $T(\beta)$ is linearly independent $\Rightarrow a_1T(v_1) +\cdots + a_nT(v_n) = 0 , a_1,\cdots,a_n \in \mathrm{F}$
+	
+	$\implies T(a_1v_1+\cdots + a_nv_n) = 0 $
+	
+	$\because T$ is one-to-one, $N(T) = \sett{0}$
+	
+	$a_1T(v_1) + \cdots + a_nT(v_n)=0$ only $a_1=\cdots = a_n = 0$ 
+	
+	$\therefore T(\beta)$ is a basis of $W$\\ 
+	
+	$(\Leftarrow)~ $ let $\beta = \sett{v_1,\cdots,v_n},~x \in V,~x = a_1v_1+\cdots+a_nv_n,~a_1,\cdots,a_n \in \mathrm{F}$
+	
+	$R(T) = \spann{T(\beta)} = W \implies T$ is onto
+	
+	$T(x) = T(a_1v_1+\cdots+a_nv_n) = a_1T(v_1)+\cdots+a_nT(v_n)=0$ only $a_1=\cdots=a_n=0$
+	
+	$\implies~ T(x)=0$ only $x=0 \implies N(T) = \sett{0} \implies T$ is one-to-one
+	
+	$\therefore T$ is an isomorphism
+	
+	
+\end{tcolorbox}

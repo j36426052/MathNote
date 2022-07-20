@@ -1,0 +1,20 @@
+Let $V$ be an n-dimensional vector space, and let $T: V \rightarrow V$ be a linear transformation. Suppose that $W$ is a T-invariant subspace of $V$ having dimension $k$. Show that there is a basis $\beta$ for $V$ such that $[T]_{\beta}$ has the form
+
+$$\left( \begin{matrix}
+	A&B\\O&C,
+\end{matrix}\right)$$
+
+where $A$ is a $k \times k$ matrix and $O$ is the $(n-k) \times k$ zero matrix.
+
+\begin{tcolorbox}
+	let $\beta_w$ is a basis of $W$, $\beta_w = \sett{v_1,v_2,\cdots,v_k}, v_1,\cdots,v_k \in V$
+	
+	we can extended $\beta_w$ to $\beta$ which is a basis of $V$, $\beta = \sett{v_1,v_2,\cdots,v_n}, v_{k+1},\cdots,v_n \in V$
+	
+	let $x \in V, \exists$ unique $a_ij \in F (1 \leq i,j \leq n), T(v_{j}) = \sum^n_{i=1}a_{ij}v_i, 1 \leq j \leq n$
+	
+	$\because W$ is a T-invariant subspace of $V \implies T(w) \in W, w\in W$
+	
+	$\therefore T(v_j) = \sum^{n}_{i=1}a_{ij}v_i(i \leq j \leq k) = \sum^k_{i=1} a_{ij} v_i \implies \left([T]_{\beta}\right)_{ij} = 0 (k+1 \leq j \leq n)$
+	 
+\end{tcolorbox}

@@ -1,0 +1,47 @@
+Let $V,W,$ and $Z$ be vector spaces, and let $T:V \rightarrow W$ and $U:W \rightarrow Z$ be linear.
+
+\begin{enumerate}
+	\item[(1)] Prove that if $UT$ is one-to-one, then $T$ is one-to-one. Must $U$ also be one-to-one?
+	\item[(2)] Prove that if $UT$ is onto, then $U$ is onto. Must $T$ also be onto?
+	\item[(3)] Prove that if $U$ and $T$ are one-to-one and onto, then $UT$ is also
+\end{enumerate}
+
+\begin{tcolorbox}
+	\begin{enumerate}
+		\item[(a)] let $v_1,v_2 \in V$,
+		
+		$UT(v_1) = UT(v_2)$ only $v_1 = v_2 \implies U(T(v_1)) = U(T(v_2))$ only $v_1 = v_2$
+		
+		Claim $T$ is not one-to-one
+		
+		$\exists v_1,v_2 \in V, T(v_1) = T(v_2)$ but $v_1 \neq v_2$
+		
+		$U(T(v_1)) = U(T(v_2))$ when $v_1 \neq v_2 \rightarrow\leftarrow$
+		
+		\item[(b)] let $v_1 \in V$, $R(UT)=Z$, Claim $U$ is not onto $\implies \exists z \in Z, z \notin R(U)$
+		
+		$R(UT) = \sett{UT(v)~|~v \in V} = \sett{U(w)~|~w\in R(T)} $
+		
+		$\subseteq \sett{U(w)~|~w \in W}(R(T) \subseteq W) = R(U)$
+		
+		$\implies z \notin R(UT) \implies R(UT) \neq Z (\rightarrow\leftarrow)$
+		
+		\item[(c)] Claim $UT$ is one-to-one, let $v_1,v_2 \in V$, pick $w_1,w_2 \in W,~z_1,z_2 \in Z$
+		
+		$ T(v_1)=w_1,~T(v_2)=w_2,~U(w_1)=z_1,~U(w_2)=z_2$
+		
+		$UT(v_1)=UT(v_2) \Rightarrow U(T(v_1))=U(T(v_2)) \Rightarrow U(w_1) = U(w_2)\Rightarrow z_1=z_2$
+		
+		$\because U,T$ is one-to-one, $z_1=z_2$ only $w_1=w_2,~w_1=w_2$ only $v_1 = v_2$
+		
+		$\therefore UT$ is one-to-one
+		
+		Claim $UT$ is onto, let $z \in Z$
+		
+		$\because U,T$ is onto, $R(U) = Z,~R(T)=W$
+		
+		$R(UT) = \sett{UT(v)~|~v \in V} = \sett{U(T(v))~|~v\in V} = \sett{U(w)~|~w \in W} $
+		
+		$= R(U) = Z$		
+	\end{enumerate}
+\end{tcolorbox}

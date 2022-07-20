@@ -1,0 +1,44 @@
+Let $V$ and $W$ be finite-dimensional vector spaces and $T:V \rightarrow W$ be an isomorphism. Let $V_0$ be a subspace of $V$.
+
+\begin{enumerate}
+	\item[(a)] Prove that $T(V_0)$ is a subspace of $W$.
+	\item[(b)] Prove that $\dim (V_0) = \dim (T(V_0)).$ 
+\end{enumerate}
+
+\begin{tcolorbox}
+	let $\beta_0 = \sett{v_1,\cdots,v_k}$ be a basis of $V_0$, i.e. $\spann{\beta_0} = V_0$
+	
+	\begin{enumerate}
+		\item[(a)] $T(V_0) = \sett{T(a_1v_1+\cdots+a_kv_k)~|~a_1,\cdots,a_k \in \mathrm{F}}$
+		
+		$= \sett{a_1T(v_1)+\cdots+a_kT(v_k)~|~a_1,\cdots,a_k \in \mathrm{F}}$
+		
+		let $v_1',v_2' \in T(V_0),~c\in \mathrm{F}$
+		
+		$v_1' = a_1T(v_1)+\cdots+a_kT(v_k),~a_1,\cdots,a_k \in \mathrm{F}$
+		
+		$v_2' = b_1T(v_1)+\cdots+b_kT(v_k),~b_1,\cdots,b_k \in \mathrm{F}$
+		
+		(1) $cv'1+v'2 = ca_1T(v_1) + \cdots + ca_kT(v_k)+b_1T(v_1)+\cdots+b_kT(v)k)$
+		
+		$=(ca_1+b_1)T(v_1)+\cdots + (ca_k+b_k)T(v_k) \in T(V_0)$
+		
+		(2) $0 \in V_0 \implies 0 \in T(V_0)$
+		
+		$T(V_0)$ is a subspace of $W$
+		
+		\item[(b)]
+		
+		Claim $T(\beta)$ is a basis of $T(V_0)$, $\spann{\beta} = V_0 \implies \spann{T(\beta_0)} = V_0$
+		
+		Claim $T(\beta)$ is linearly independent
+		
+		$a_1T(v_1)+\cdots+a_kT(v_k)=0 \implies T(a_1v_1 + \cdots + a_kv_k) = 0$
+		
+		$\because T$ is one-to-one $\implies T(a_1v_1+\cdots+a_kv_k) = 0$ only $a_1v_1 + \cdots + a_kv_k = 0$
+		
+		$\implies a_1+\cdots+a_k=0 \implies T(\beta)$ is linearly independent
+		
+		$\dim(V_0) = \dim(T(V_0)) = k$
+	\end{enumerate}
+\end{tcolorbox}
