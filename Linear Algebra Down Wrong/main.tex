@@ -1,0 +1,99 @@
+\input{../settings}
+\begin{document}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\section{Introduction to spectral theory}
+
+\subsection{Main definitions}
+
+\begin{defn}
+	A scalar $\lambda$ is called an eigenvalue of an operator $A:V \rightarrow V$ if there exists a non-zero vector $v \in V$ such that 
+	
+	$$Av = \lambda v$$
+	
+	The vector $v$ is called the eigenvector of $A$
+\end{defn}
+
+\begin{thm*}[From hamberger Thm 5.2]
+	Let $A \in M_{n \times n}(F).$ Then a scalar $\lambda$ is an eigenvalue of $A$ if and only if $\det(A - \lambda I_{n}) = 0$.
+\end{thm*}
+
+\begin{proof}
+	A scalar $\lambda$ is an eigenvalue of $A$ if and only if there exists a nonzero vector $v \in F^n$ such that $A v = \lambda v$, that is, $(A - \lambda I_n)(v) = 0$. By Theorem 2.5, this is true \textbf{if and only if} $A - \lambda I_n$ is not invertible. However, this result is equivalent to the statement that $\det(A - \lambda I_n)=0$
+\end{proof}
+
+\begin{defn}
+	Let $A \in M_{n\times n}(\mathrm{F}).$ The polynomial $f(t) = \det (A - tI_n)$ is claaed the characteristic polynomial of $A$
+\end{defn}
+
+\begin{thm*}[From hamberger Thm 5.4]
+	Let $T$ be a linear operator on a vector space $V$, and let $\lambda$ be an eigenvalue of $T$. A vector $v \in V$ is an eigenvector of $T$ corresponding to $\lambda$ if and only if $v \neq 0$ and $v \in N(T - \lambda I)$.
+\end{thm*}
+
+\begin{defn}
+	The nullspace $N(A - \lambda I)$, i.e. the set of all eigenvectors and $0$ vector, is called the eigenspace. The set of all eigenvalues of an operator $A$ is called spectrum of $A$, and is usually denoted $\sigma (A)$.
+\end{defn}
+
+\begin{rmk*} $ $
+
+	If the matrix $A$ is ugly, what should we do?
+	
+	we can use the similar ≤matrices
+	
+	$A$ and $B$ are called similar if there exists an invertible matrix $S$ such that 
+	
+	$$ A = SBS^{-1}$$
+	
+	The determinants of similar matrix is same
+	
+	$$\det(A) = \det(SBS^{-1}) = \det(S)\det(B)\det(S^{-1}) = \det(B)$$
+	
+	We can find $A-\lambda I$ and $B -\lambda I$ is similar
+	
+	$$A - \lambda I = SBS^{-1} - \lambda SIS^{-1} = S(BS^{-1} - \lambda I S^{-1}) = S(B-\lambda I)S^{-1}$$
+	
+	It same in transform
+	
+	If $T:V\rightarrow V$ is a linear transform, $\alpha,\beta$ are two bases in $V$, then
+	
+	$$[T]^{\alpha}_{\alpha} = [I]^{\alpha}_{\beta}[T]^{\beta}_{\beta}[I]^{\beta}_{\alpha} $$
+	
+	
+\end{rmk*}
+
+\begin{defn}[algebraic mutiplicity]
+	The largest positive integer $k$ such that $(x - \lambda)^k$ divides $p(x)$ is called the multiplicity of the root $\lambda$.
+	
+	If $\lambda$ is an eigenvalue of an operator (matrix) $A$, then it is a root of the characteristic polynomial $p(z) = \det(A - zI)$. The multiplicity of this root is called the (algebraic) multiplicity of the eigenvalue $\lambda$.
+\end{defn}
+
+\begin{defn}[geometric multiplicity]
+	The dimension of the eigen space $N(A - \lambda I)$ is called geometric multiplicity of the eigenvalue $\lambda$.
+\end{defn}
+
+\subsection{Diagonalization}
+
+\begin{defn}
+	A linear operator $T$ on a finite-dimensional vector space $V$ is called diagonalizable if there is an ordered basis $\beta$ for $V$ such that $[T]_{\beta}$ is a diagonal matrix. A square matrix $A$ is called diagonalizable if $L_A$ is diagonalizable.
+\end{defn}
+
+\begin{thm*}
+	A matrix $A$ admits a representation $A = SDS^{-1}$, where $D$ is a diagonal matrix and $S$ is an invertible one \textbf{if and only if} there exists a basis in $F^n$ of eigenvectors of $A$.
+\end{thm*}
+
+\begin{proof}
+	Let $D = \text{diag}\sett{\lambda_1,\lambda_2,\cdots,\lambda_n}$, and let $b_1,\cdots,b_n$ be the columns of $S$ (note that since $S$ is invertible it's columns form a basis in $\mathrm{F^n}$). Then the identity $A = SDS^{-1}$ means that $D = [A]$
+\end{proof}
+
+
+
+
+
+
+
+
+
+\end{document}

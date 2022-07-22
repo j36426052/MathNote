@@ -533,8 +533,287 @@ Let $\lambda_1,\cdots,\lambda_n$ be the eigenvalue of matrix, $|\lambda_1| > |\l
 	pf: $Ax_i = \lambda_ix_i \implies (A-kI)x_i = AX_i - kX_i = \lambda_ix_i - kx_i = (\lambda_i - k)x_i$
 \end{tcolorbox}
 
+\newpage
 
+\section{Review Linear Algebra}
+\subsection{Lagrange polynomials}
 
+Let $T:P_n(\mathrm{F}\rightarrow \mathrm{F}^{n_1}$ be linear transform defined by $T(f)=(f(c_0),\cdots,f(c_n))$, which $c_0,c_1,\cdots,c_n$ are distinct scalars in an infinite field $\mathrm{F}$,$\beta$ be the stander order basis for $P_n(\mathrm{F})$, $\gamma$ be the stander order basis for $\mathrm{F}^{n+1}$
+
+Claim 1:
+
+$[T]^{\gamma}_{\beta} = M = \left[\begin{matrix}
+	1&c_0&c_0^2 &\cdots & c_0^n\\
+	1&c_0&c_1^2 &\cdots & c_1^n\\
+	\vdots&\vdots&\vdots&\vdots&\vdots\\
+	1&c_n&c_n^2&\cdots&c_n^n
+\end{matrix}\right],~ \beta = \sett{1,x,\cdots,x^n},~\gamma=\sett{(1,\cdots,0),\cdots,(0,\cdots,1)}$
+
+$T(1) = (1,\cdots,1),T(x) = (c_0,\cdots,c_n),\cdots,T(x^n)=(c_0^n,\cdots,c_n^n)$
+
+$M$ is called a Vandemonde Matrix
+
+Claim2: $\det(M) \neq 0$
+
+$\because \dim(P_n(F)) = \dim(\mathrm{F^{n+1}}) = n+1,~T$ is linear \textbf{\color{red}check},$T$ is one-to-one \textbf{\color{red}check},
+
+$\therefore T$ is invertible, $\therefore [T]^{\gamma}_{\beta}$ is invertible $\Leftrightarrow \det([T]^{\gamma}_{\beta} \neq 0 \implies \det(M) \neq 0$
+
+Claim3: $\det(M) = \prod_{0\leq i < j \leq n}(c_j - c_i)$
+
+\begin{proof}
+	we use the induction on $n = \deg(P_n(\mathrm{F}))$
+	
+	$n = 1, \det\left[\begin{matrix}
+		1 & c_0\\1&c_1
+	\end{matrix}\right] = c_1 - c_0$
+	
+	Suppose the statement holds for $n$
+	
+	$\det \left( \begin{matrix}
+		1&c_0&c_0^2&\cdots&c_0^n\\
+		\vdots&\vdots&\vdots&\vdots&\vdots\\
+		1&c_n&c_n^2&\cdots&c_n^n
+	\end{matrix}\right) = \det \left(\begin{matrix}
+		1&c_0&c_0^2&\cdots&c_0^n\\
+		0&c_1-c_0&c_1^2-c_0^2&\cdots&c_1^n - c_0^n\\
+		\vdots&\vdots&\vdots&\vdots&\vdots\\
+		0&c_n-c_0&c_n^2-c_0^2&\cdots&c_n^n-c^n_0
+	\end{matrix}\right)$
+	
+	$=\det \left( \begin{matrix}
+		1&0&0&\cdots&0\\
+		0&c_1-c_0&c_1^2-c_1c_0&\cdots&c_1^n-c_0c_1^{n-1}\\
+		\vdots&\vdots&\vdots&\vdots&\vdots\\
+		0&c_n-c_0&c_n^2-c_0c_n&\cdots&c_n^n-c_0c_n^{n-1}
+	\end{matrix}\right) = \det\left(\begin{matrix}
+		c_1-c_0&c_1(c_1-c_0)&\cdots&c_1^{n-1}(c_1-c_0)\\
+		\vdots&\vdots&\vdots&\vdots\\
+		c_n-c_0&c_n(c_n-c_0)&\cdots&c_n^{n-1}(c_n-c_0)
+	\end{matrix}\right)$
+	
+	$=(c_1-c_0)\cdots(c_n - c_0)\cdot \det\left(\begin{matrix}
+		1 & c_1&\cdots&c_n^{n-1}\\
+		\vdots&\vdots&\vdots&\vdots\\
+		1&c_n&\cdots&c_n^{n-1}
+	\end{matrix}\right) = (c_1-c_0)\cdots (c_n - c_0)\prod_{1\leq i <j \leq n}(c_j-c_i)$
+	
+	$= \prod_{0 \leq i < j \leq n}(c_j-c_i)$
+\end{proof}
+
+Let $P_n(X) = a_0+a_1x+\cdots+a_nx^n$, where $a_0,\cdots,a_n \in F$
+
+$P_n(X)$ is a polynomial s.t. it interpolated the $n+1$ points
+
+$P_n(x_0) = a_0 + a_1x_0 + a_2x_0^2 + \cdots + a_nx_0^n = y_0$
+
+$\vdots$
+
+$P_n(x_n) = a_0 + a_1x_n + a_2x_n^2 + \cdots + a_nx_n^n = y_n$
+
+\newpage
+
+In matrix form 
+
+$\left[ \begin{matrix}
+	1&x_0&x_0^2&\cdots&x_0^n\\
+	\vdots&\vdots&\vdots&\vdots&\vdots\\
+	1&x_n&x_n^2\cdots&x_n^n
+\end{matrix}\right] \left[\begin{matrix}
+	a_0\\\vdots\\a_n
+\end{matrix}\right] = \left[\begin{matrix}
+	y_0\\\vdots\\y_n
+\end{matrix}\right]$
+
+Now we define the Lagrange polynomials of degree $l_0(x),\cdots,l_n(x)$ as 
+
+$$l_i(x_j) = \begin{cases}
+	1 \text{ if } i=j\\0 \text{ if } i \neq j
+\end{cases}$$
+
+The $P_n(x) = y_0l_0(x)+\cdots+y_nl_n(x) = \sum^n_{i=0}y_il_i(x)$
+
+$l_i(x)$ is an n-degree polynomial with roots says 
+
+$l_i(x) = c_i(x-x_0)\cdots(x-x_n) = c_i \prod_{j\neq i}(x-x_j)$
+
+$l_i(x_i)=1=1c_i \prod_{j\neq i}(x_i - x_j),~ c_i = \dfrac{1}{\prod_{j\neq i}(x_i-x_j)},~l_i(x) = \dfrac{\prod_{j \neq i}(x-x_j)}{\prod_{j\neq i}(x_i-x_j)}$
+
+\subsection{special matrix}
+
+\begin{thm*}[Shor's Lemma]
+	Let $T$ is a linear operator on $V$ which is a finite dimension inner product space, Suppose the characteristic polynomial splits, Then $\exists$ order normal basis $\beta \implies [T]_{\beta}$ is uppertriangle.
+\end{thm*}
+
+\textbf{Note}
+\begin{tcolorbox}
+	normal : $AA^{*} = A^*A(TT^* = T*T)$
+	
+	self-adjoint : $A* = A(T^* = T)$
+\end{tcolorbox}
+
+\begin{thm*}[Spectral Theorem]
+		Let $T$ be a linear operator on $V$ which is a finite dimensional inner product space
+		
+		$\mathbb{C}: T$ is normal $\Leftrightarrow \exists $ order normal basis $\beta$ containing eigenvectors $\Leftrightarrow T$ is diagonal over $\mathbb{C}$
+		
+		$\mathbb{R}: T$ is self-adjoint $\Leftrightarrow \exists$ order normal basis $\beta$ containing eigenvector $\Leftrightarrow T$ is diagonal over $\mathbb{R}$
+\end{thm*}
+
+T is diagonal $\implies \exists$ order normal basis $\implies [T]_{}\beta$ is diagonal,$T$ is normal(over C)
+
+$\implies[T]^*_{\beta}[T]_{\beta} = [T]_{\beta}[T]^* \implies [T^*]_{\beta}[T]_{\beta} = [T]_{\beta}[T^*]_{\beta} \implies [T^*T]_{\beta} = [TT^*]_{\beta}$
+
+T is diagonalizable $\begin{cases}
+	(C)\Leftrightarrow T \text{ is normal(unitary equivalent)(by Shur's Lemma)}\\
+	(R)\Leftrightarrow T \text{ is self-adjoint(orthogonal equivalent)(eigenvalue is real + Shur's)}
+\end{cases}$
+
+\textbf{Property}
+
+$T$ is unitory $\Leftrightarrow$ every row(column) vectors is orthonormal basis
+
+unitary equivalent $A \sim B \Leftrightarrow \exists $ unitary matrix $Q \implies A = Q^*BQ$
+
+orthogonally equivalent $A \sim B \Leftrightarrow \exists$ orthogonal matrix $P \implies A = P^*BP$
+
+\newpage
+
+Define: Let $V$ be a vector space, $W_1,W_2 \leq V \implies V = W_1 \oplus W_2$
+
+A function $T: V \rightarrow V$ is called projection on $W_1$ along $W_2$ if for $x = x_1 + x_2$, \\$x_1 \in W_1,x_2 \in W_2,~T(x) = x_1$
+
+\textbf{Property}
+
+$R(T) = W_1,~N(T) = W_2,~V = R(T)\oplus N(T)$
+
+\begin{proof}
+	Claim: $R(T) = W_1$
+	
+	$(\supseteq) x \in W_1 \implies T(x) = x \in R(T)$
+	
+	$(\subseteq) x \in R(T) \implies \exists y \in V \implies T(y) = x $
+	
+	 $\because V = W_1 \oplus W_2 \therefore y = x_1+x_2$ for some $x_1 \in W_1,~x_2 \in W_2 \implies T(y) = x_1 = x \in W_1$
+	 
+	 Claim: $N(T) = W_2$ \textbf{exercise}
+	 
+	 Claim: $V = R(T) \oplus N(T),\because $(1),(2), it's trivial
+\end{proof} 
+
+\textbf{Property}
+
+$T$ is projection $\Leftrightarrow T = T^2$
+
+\begin{proof}$ $\\
+
+	($\Rightarrow$) $T$ is projection($V = W_1 \oplus W_2$)
+	
+	given $y \in V$, $\because V = W_1 \oplus W_2,~\therefore \exists x_1 \in W_1, x_2 \in W_2 \ni y = x_1+x_2$
+	
+	$\therefore T(y) = T(x_1+x_2) = x_1 = T(x_1) = T(T(y))$
+	
+	($\Leftarrow$) $T = T^2$(use the previous proposition to build $R(T),N(T) $
+	
+	$\implies V = R(T)\oplus N(T) \implies T$ is projection)
+	
+	Given $x \in V$
+	
+	(1) $x = T(x)+[x-T(x)]$
+	
+	(2)$T^2(x) = T(x)$(assumption)
+	
+	$\begin{cases}
+		(i) T(x) \in R(T) \\ (ii)x-T(x) \in N(T)\\(iii)R(T) \cap N(T) = \sett{0}\\(iv)V = R(T)+N(R)
+	\end{cases}$
+	
+	$(i)T(T(x)) = T(x) \in R(T),~(ii)T(x-T(x)) = T(x)-T(T(x))=T(x)-T(x)=0,$
+	
+	$~(iv)$trivial($\because $(1))
+	
+	$(iii)$ Suppose $N(T) \cap R(T) = \sett{v},v\neq 0,v\in N(T) \implies T(v)=0$
+	
+	$v \in R(T) \implies \exists y \in V \implies T(y)=v \implies T(T(y)) = T(v) = 0,y \in N(T),v=0 \rightarrow\leftarrow$
+	
+\end{proof}
+
+\textbf{Property}: every projections is uniquely determined by the range \& kernal
+
+Let $T,U: V \rightarrow V,R(T)=R(U)=W_1,~N(T)=N(U)=W_2$
+
+$\forall x \in V,$ let $y' = T(x),y=U(x) \in W_1$
+
+$T(x-y') = T(x) - T(y') = y'-y' = 0,~x - y' \in W_2 \implies x \in y' + W_2$(coset) 
+
+$\implies \exists z' \in W_2 \ni x=y'+z' \implies y = U(x) = U(y'+z') = U(y')+U(z') = y'+0=y'=T(x)$
+
+\newpage
+
+\begin{thm*}
+	orthogonal projection $T$, $V = R(T)\oplus N(T),~R(T)^{\perp} = N(T),~N(T)^{\perp} = R(T)$
+	
+	$T$ is orthogonal projection $\Leftrightarrow T = T^2 = T^*$
+\end{thm*}
+
+\begin{thm*}
+	Let matrix $A$ normal($\mathbb{C}$), self-adjoint($\mathbb{R}$)
+	
+	$A$ is unitary equivalent to a diagonal matrix
+	
+	$u_1,\cdots,u_n:$eigenvectors(orthonormal), $\lambda_1,\cdots,\lambda_n:$eigenvalues
+	
+	$\left[\begin{matrix}
+		u_1&u_2&\cdots&u_n
+	\end{matrix}\right]\left[\begin{matrix}
+		\lambda_1&\cdots&0\\
+		\vdots&\ddots&\vdots\\
+		0&\cdots&\lambda_n
+	\end{matrix}\right]\left[\begin{matrix}
+		u_1^{T}\\\vdots\\u_n^T
+	\end{matrix}\right] = A  = \sum^{n}_{i=1}\lambda_iu_iu_i^T$(spectral decomposition)
+
+\end{thm*}
+
+Check $A$ is normal
+
+$A = u_iu_i^*, L_A = u_iu_i^*,~L_AL_A = L_A^2 = (u_iu_i^*)(u_iu_i^*)=u_iu_i^*=L_A$
+
+$L_A^* = (L_A)^* = (u_iu_i^*)^* = u_I^{*^*}u_i^{*} = u_iu_i^{*}=L_A$
+
+\textbf{example}
+
+\begin{tcolorbox}
+	$A = \left[\begin{matrix}
+		1&2\\2&-2
+	\end{matrix}\right],$c.p. of $A = (1-t)(-2-t)-4 = t^2+t-6 = (t+3)(t-2)$
+	
+	the eigenvector are$\left(\begin{matrix}
+		-1\\2
+	\end{matrix}\right), \left( \begin{matrix}
+		2\\1
+	\end{matrix}\right)$
+	
+	$\because$ they are distinct eigenvalue $\implies $ orthogonal 
+	
+	$r_1 = \dfrac{1}{\sqrt{5}}\cdot \left(\begin{matrix}
+		-1\\2
+	\end{matrix}\right),r_2 = \dfrac{1}{\sqrt{5}}\cdot \left(\begin{matrix}
+		2\\1
+	\end{matrix}\right)$
+	
+	$\left[\begin{matrix}
+		r_1&r_2
+	\end{matrix}\right]\left[\begin{matrix}
+		-3&-\\0&2
+	\end{matrix}\right]\left[\begin{matrix}
+		r_1^{T}\\r_2^{T}
+	\end{matrix}\right] = \left[\begin{matrix}
+		1&2\\2&-2
+	\end{matrix}\right]$
+	
+	$A = -3r_1r_1^{T} + 2 r_2r_2^{T}$
+	
+\end{tcolorbox}
 
 
 
