@@ -7,7 +7,22 @@
 
 \section*{Road Map}
 
-In chapter2, we will consider the initial case about statistic estimate, $\cdots$
+$\textbf{First Part}$
+
+From 2$\sim$6 chapter, we will know that what is machine model and what assumption and restrict is we should focus about.\\
+
+In chapter 2, we will introduce the concept and element about machine learning's model, and proof when we have some strict assumption, we can create a good model by ERM. Because these assumption is too much to find a suite model in real world, in following chapter we want to release these assumption.To release the assumption, we define the PAC model in the chapter 3, and proof the finite PAC model is learnable.\\
+
+In chapter 5, we define two type of error and know that we face a trade off in different hypothesis class.In chapter 6, we us VC-dimension to think the "infinite hypothesis class" and figure out what is the necessary condition about learnable model.
+
+\begin{center}
+	\includegraphics[scale = 0.37]{./figure/0-1.png}
+	
+	Figure 0-1, the road map of first part
+\end{center}
+
+
+\newpage
 
 \section*{Chapter2: A Gentle Start}
 This chapter is talking about a general model of machine learning and common error.
@@ -26,7 +41,7 @@ This chapter is talking about a general model of machine learning and common err
 \begin{enumerate}
 	\item[$\cdot$] $h:\chi \rightarrow y,$ a prediction function, also called a predictor, hypothesis, classifier.
 	
-	Formally, the learner should choose tin advance a set of predictors. This set is called a hypothesis class and is denoted by $H$. Each $h \in H$ is a function mapping from $\chi$ to $y$.
+	Formally, the learner should choose the advance a set of predictors. This set is called a hypothesis class and is denoted by $H$. Each $h \in H$ is a function mapping from $\chi$ to $y$.
 \end{enumerate}
 
 
@@ -40,7 +55,12 @@ This chapter is talking about a general model of machine learning and common err
 		\item \textbf{Training error:} $L_S(h) = \dfrac{|\sett{i \in m ~|~ h(x_i) \neq y_i} |}{m}$ where $[m] = \sett{1,\cdots,m}$
 	\end{enumerate}
 	
-	\textbf{\color{red} picture here \color{black} (same training error but different true error)}
+	\begin{center}
+		\includegraphics[scale = 0.3]{./figure/2-1.png}
+		
+		Figure 2-1, training error is $0$ but true error is bad
+	\end{center}
+	
 	
 	\item[$\cdot$] We denote the probability of getting a non-representative sample by $\delta$, and call ($1 - \delta$) the \textbf{confidence parameter} of our prediction
 	\item[$\cdot$] The \textbf{accuracy parameter}, commonly denoted by $\epsilon$. We interpret the event $L_{(D,f)}(h_s) > \epsilon$ as a failure of the learner
@@ -99,13 +119,14 @@ by definition, we can write
 $$\sett{S|_x ~|~ L_{(D,f)}(h_S) > \epsilon} \subseteq M\color{red}(\star_1) $$
 
 
-We can rewrite $M$ as 
+We can rewrite $M$ as (thought it's intersection was not empty)
 
 $$M = \cup_{h \in H_B}\sett{S|_x ~|~ L_S(h) = 0}\color{red}(\star_2)$$
 
 by $(\star_1),(\star_2)$,
 
 $$D^m(\sett{S|_x~|~L_{(D,f)}(h_s)>\epsilon}) \leq D^m(M) = D^m(\cup_{h\in H_B}\sett{S|_x ~|~ L_S(h) = 0})\color{red}(\star_3)$$
+
 
 \textbf{LEMMA}(Union Bound) For any two sets $A,B$ and a distribution $D$ we have
 
@@ -115,27 +136,42 @@ and the $(\star_3)$ can be bound like this
 
 $$D^m(\sett{S|_x ~|~ L_{(D,f)}(h_S)>\epsilon}) \leq \sum_{h \in H_B}D^m(\sett{S|_x ~|~ L_S(h) = 0})\color{red}(\star_4)$$
 
-\textbf{Next, we focus on the bad hypothesis $h \in H_B$} $\implies L_{(D,f)}(h) > \epsilon$
+\textbf{Next, we fix $h_B$ on the bad hypothesis $h_B \in H_B$} $\implies L_{(D,f)}(h) > \epsilon$
 
 because the event are i.i.d, we get that
 
 $$D^m(\sett{S|_x~|~L_S(h)=0}) = D^m(\sett{S|_x ~|~\forall i,h(x_i) = f(x_i) = f(x_i)}) = \prod^m_{i=1}D(\sett{x_i~|~h(x_i) = f(x_i)})\color{red}(\star_5)$$
 
+
+
 check the each individual sampling of an element of the training set, we have
 
-$$D(\sett{x_i~|~h(x_i) = y_i}) = 1 - L_{D,f}(h) \leq 1 - \epsilon$$
+$$D(\sett{x_i~|~h_B(x_i) = y_i}) = 1-D(\sett{x ~|~ h_B(x) \neq f(x)})=1 - L_{D,f}(h_B) \leq 1 - \epsilon$$
 
 put it to the $\color{red}(\star_5)$ and use the inequality $1 - \epsilon \leq e^{-\epsilon}$
 
-$$D^m(\sett{S|_x~|~ L_S(h) = 0}) \leq (1 -\epsilon)^m \leq e^{-\epsilon m}\color{red}(\star_6)$$
+$$D^m(\sett{S|_x~|~ L_S(h_B) = 0}) \leq (1 -\epsilon)^m \leq e^{-\epsilon m}\color{red}(\star_6)$$
 
-put $\color{red}(\star_6)$ back to $\color{red}(\star_4)$
+put $\color{red}(\star_6)$ back to $\color{red}(\star_4)$ 
+
+\begin{tcolorbox}
+	\textbf{Note:}
+	
+	
+	$D^m(\sett{S|_x ~|~L_{(D,f)}(h_s)>\epsilon}) = |H_B|D^m(\sett{{S|_x ~|~L_S(h_B)=0}})$
+	
+	$|H_B|$ means the cardinality(element number) of $H_B$
+\end{tcolorbox}
 
 $$D^m(\sett{S|_x ~|~ L_{(D,f)}(h_S)>\epsilon}) \leq |H_B|e^{-\epsilon m} \leq |H|e^{-\epsilon m}$$
 
+\newpage
 
+In this equation, we can know that when $m$ increase, the  overfitting hypothesis's probability (where the hypothesis of $L_S$ is small but $L_{(D,f)}$ is big, i.e. $D^m(\sett{S|_x ~|~ L_{(D,f)}(h_S)>\epsilon})$) will decrease.
 
+Since $D^m(\sett{S|_x ~|~ L_{(D,f)}(h_S)>\epsilon})$ is $\delta$, and have a nature log, we get
 
+$$m \geq \dfrac{\log(|H|/\delta)}{\epsilon}$$
 
 
 
@@ -159,7 +195,6 @@ $$L_D(h_s) = \epsilon_{app} + \epsilon_{est} ~\text{ where: } \epsilon_{app} = \
 \end{enumerate}
 
 \textbf{Bias-complexity Tradeoff}
-
 
 
 
