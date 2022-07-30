@@ -7,7 +7,11 @@
 
 \section{Introduction to spectral theory}
 
-\subsection{Main definitions}
+\subsection{Main definitions}$ $
+
+\begin{tcolorbox}
+	Introduce eigenvalue \& eigenvector first, and the method to find these thing.
+\end{tcolorbox}
 
 \begin{defn}
 	A scalar $\lambda$ is called an eigenvalue of an operator $A:V \rightarrow V$ if there exists a non-zero vector $v \in V$ such that 
@@ -26,7 +30,7 @@
 \end{proof}
 
 \begin{defn}
-	Let $A \in M_{n\times n}(\mathrm{F}).$ The polynomial $f(t) = \det (A - tI_n)$ is claaed the characteristic polynomial of $A$
+	Let $A \in M_{n\times n}(\mathrm{F}).$ The polynomial $f(t) = \det (A - tI_n)$ is called the characteristic polynomial of $A$
 \end{defn}
 
 \begin{thm*}[From hamberger Thm 5.4]
@@ -64,6 +68,10 @@
 	
 \end{rmk*}
 
+\begin{tcolorbox}
+	Before introducing diagonal, we have these two mutiplicity, 
+\end{tcolorbox}
+
 \begin{defn}[algebraic mutiplicity]
 	The largest positive integer $k$ such that $(x - \lambda)^k$ divides $p(x)$ is called the multiplicity of the root $\lambda$.
 	
@@ -74,7 +82,17 @@
 	The dimension of the eigen space $N(A - \lambda I)$ is called geometric multiplicity of the eigenvalue $\lambda$.
 \end{defn}
 
-\subsection{Diagonalization}
+\subsection{Diagonalization} $ $
+
+\begin{defn}
+	A linear operator $T$ on a finite-dimensional vector space $V$ is called diagonalizable if there is an ordered basis $\beta$ for $V$ such that $[T]_\beta$ is a diagonal matrix. A square matrix $A$ is called diagonalizable if $L_A$ is diagonalizable.
+\end{defn}
+
+\begin{tcolorbox}
+	After have the definition of diagonal, we want to know want matrix can be diagonal.
+\end{tcolorbox}
+
+
 
 \begin{defn}
 	A linear operator $T$ on a finite-dimensional vector space $V$ is called diagonalizable if there is an ordered basis $\beta$ for $V$ such that $[T]_{\beta}$ is a diagonal matrix. A square matrix $A$ is called diagonalizable if $L_A$ is diagonalizable.
@@ -84,9 +102,304 @@
 	A matrix $A$ admits a representation $A = SDS^{-1}$, where $D$ is a diagonal matrix and $S$ is an invertible one \textbf{if and only if} there exists a basis in $F^n$ of eigenvectors of $A$.
 \end{thm*}
 
+\begin{tcolorbox}
+	In this theorem, we will know the relation between diagonal matrix and the eigenvector
+\end{tcolorbox}
+
 \begin{proof}
-	Let $D = \text{diag}\sett{\lambda_1,\lambda_2,\cdots,\lambda_n}$, and let $b_1,\cdots,b_n$ be the columns of $S$ (note that since $S$ is invertible it's columns form a basis in $\mathrm{F^n}$). Then the identity $A = SDS^{-1}$ means that $D = [A]$
+	Let $D = \text{diag}\sett{\lambda_1,\lambda_2,\cdots,\lambda_n}$, and let $b_1,\cdots,b_n$ be the columns of $S$ (note that since $S$ is invertible it's columns form a basis in $\mathrm{F^n}$). Then the identity $A = SDS^{-1}$ means that $D = [A]^\beta_\beta$
+	
+	Indeed, $S = [I]^{\beta}_{S}$ is the change of the coordinates matrix from $\beta$ to the standard basis $S$ so we get from $A = SDS^{-1}$ that $D = S^{-1}AS = [I]^{\beta}_{S}A[I]^{S}_{\beta}$, which means exactly that $D = [A]_{\beta}$
 \end{proof}
+
+\begin{thm*}
+	Let $\lambda_1,\lambda_2,\cdots,\lambda_r$ be distinct eigenvalues of $A$, and let $v_1,v_2,\cdots,v_r$ be the corresponding eigenvectors. Then vectors $v_1,v_2,\cdots,v_r$ are linearly independent.
+\end{thm*}
+
+\begin{cor*}
+	If an operator $A: V \rightarrow V$ has exactly $n = dim V$ distinct eigenvalues, then it is diagonalizable.
+\end{cor*}
+
+\begin{tcolorbox}
+	This section we will focus the bases of subspace to build the tool to proof the criterion of diagnal.
+\end{tcolorbox}
+
+\begin{defn}[Direct sums of subspaces]
+	Let $V_1,V_2,\cdots,V_p$ be a subspaces of a vector space $V$. We say that the system of subspace is a basis in $V$ if any vector $v \in V$ admits a unique representation as a sum
+	
+	$$v = v_1 + v_2 + \cdots + v_p = \sum^p_{k=1}v_k,~v_k \in V_k$$
+	
+	We also say, that a system of subspaces $V_1,V_2,\cdots,V_p$ is linearly independent if the equation 
+	
+	$$v_1 + v_2 + \cdots + v_p = 0,~v_k \in V_k$$
+	
+	has only trivial solution
+\end{defn}
+
+\begin{rmk*}
+	From the above definition, the system of eigenspaces $E_k$ if an operator $A$
+	
+	$$E_k = N(A - \lambda_k I)$$
+	
+	is linearly independent 
+\end{rmk*}
+
+\begin{lmma*}
+	Let $V_1,V_2,\cdots,V_p$ be a linearly independent family of subspaces, and leu us have in each subspace $V_k$ a linearly independent system $\beta_k$ of vectors. Then the union $B = \cup_k\beta_k$ is a linearly independent system.
+\end{lmma*}
+
+\begin{thm*}
+	Let $V_1,V_2,\cdots,V_p$ be a basis of subspaces, and let us have in each subspace $V_k$ a basis (of vectors) $\beta_k$. Then the union $\cup_k\beta_k$ of these bases is a basis in $V$.
+\end{thm*}
+
+\begin{tcolorbox}
+	After we have the tool, we can use it to check the criterion of diagonal.
+\end{tcolorbox}
+
+\begin{thm*}
+	Let an operator $A:V\rightarrow V$ has exactly $n = \dim V$ eigenvalues (counting multiplicities). Then $A$ is diagonalizable if and only if for each eigenvalue $\lambda$, geometric multiplicity = algebraic multiplicity.
+\end{thm*}
+
+\section{Inner Product Spaces}
+
+\subsection{Inner Products \& Norms}
+
+\begin{defn}
+	Let $V$ be a vector space over $\mathrm F$. An \textbf{inner product} on $V$ is a function that assigns, to every ordered pair of vectors $x$ and $y$ in $V$, a scalar in $\mathrm F$, denoted $<x,y>$, such that for all $x,y$ and $z$ in $V$ and all $c$ in $\mathrm F$, the following hold:
+	
+	\begin{enumerate}
+		\item[(a)] $\left<x+z,y\right> = \left<x,y\right>+\left<z,y\right>$
+		\item[(b)] $\left<cx,y\right> = c\left<x,y\right>$
+		\item[(c)] $\overline{\left<x,y\right>} = \left<y,x\right>$
+		\item[(d)] $\left<x,x\right> ~>0$ if $x \neq 0$
+	\end{enumerate}
+	
+	if $a_1,a_2,\cdots,a_n \in \mathrm F$ and $y,v_1,v_2,\cdots,v_n \in V$, then
+	
+	$$\left<\sum^n_{i=1}a_iv_i,y\right> = \sum^n_{i=1}a_i\left<v_i,y\right>$$
+	
+	vector space $V$ over $\mathrm F$ endowed with a specific inner product is called \textbf{inner product space}
+\end{defn}
+
+\begin{tcolorbox}
+	\textbf{\color{red}Note}: We just define the \textbf{rule} of the inner product, not define \textbf{what} is inner product.
+\end{tcolorbox}
+
+
+\begin{thm*}
+	Let $V$ be an inner product space. Then for $x,y,z \in V$ and $c \in \mathrm F$, the following statements are true.
+	
+	\begin{enumerate}
+		\item[(a)] $\inn{x,y+z} = \inn{x,y} + \inn{x,z}.$
+		\item[(b)] $\inn{x,cy} = \overline{c}\inn{x,y}$
+		\item[(c)] $\inn{x,0} = \inn{0,x} = 0$
+		\item[(d)] $\inn{x,x} = 0$ if and only if $x = 0$
+		\item[(e)] If $\inn{x,y} = \inn{x,z}$ for all $x \in V$, then $y=z$ 
+	\end{enumerate}
+\end{thm*}
+
+\newpage
+
+\begin{defn}
+	Let $V$ be an inner product space. For $x \in V$, we define the \textbf{norm} or \textbf{length} of $x$ by $||x|| = \sqrt{\inn{x,x}}$
+\end{defn}
+
+\begin{thm*}
+	Let $V$ be an inner product space over $\mathrm F$. Then for all $x,y \in V$ and $c \in F$, the following statements are true
+	
+	\begin{enumerate}
+		\item[(a)] $||cx|| = |c|\cdot||x||$
+		\item[(b)] $||x|| = 0$ if and only if $x = 0$. In any case, $||x|| \geq 0$
+		\item[(c)] (Cauchy-Schwarz Inequality) $|\inn{x,y}| \leq ||x||\cdot||y||.$
+		\item[(d)] (Triangle Inequality) $||x+y|| \leq ||x|| + ||y||.$
+	\end{enumerate}
+\end{thm*}
+
+\begin{tcolorbox}
+	After have the definition of inner product and norm, we can define orthogonal.
+\end{tcolorbox}
+
+
+\begin{defn}
+	Let $V$ be an inner product space. Vectors $x$ and $y$ in $V$ are \textbf{orthogonal(perpendicular)} if $\inn{x,y} = 0$. A subset $S$ of $V$ is \textbf{orthogonal} if ant two distinct vectors in $S$ are orthogonal. A vector $x$ in $V$ is a \textbf{unit vector} if $||x|| = 1$. Finally, a subset $S$ of $V$ is \textbf{orthonormal} if $S$ is orthogonal and consists entirely of unit vectors.
+\end{defn}
+
+\subsection{Gram-Schmidt \& Orthogonal complements} $ $
+
+\begin{tcolorbox}
+	The power of the orthogonal subset
+\end{tcolorbox}
+
+\begin{thm*}
+	Let $V$ be an inner product space and $S = \sett{v_1,v_2,\cdots,v_k}$ be an orthogonal subset of $V$ consisting of nonzero vectors. If $y \in \spann{S}, then$
+	
+	$$y = \sum^k_{i=1}\dfrac{\inn{y,v_i}}{||v_i||^2}v_i$$
+\end{thm*}
+
+\begin{cor*}
+	If, in addition to the hypotheses of thm, $S$ is orthonormal and $y \in \spann{S},$ then
+	
+	$$y = \sum^k_{i=1}\inn{y,v_i}v_i$$.
+\end{cor*}
+
+\begin{cor*}
+	Let $V$ be an inner product space, and let $S$ be an orthogonal subset of $V$ consisting of nonzero vectors. Then $S$ is linearly independent.
+\end{cor*}
+
+
+\begin{thm*}[Gram-Schmidt]
+	Let $V$ be an inner product space and $S = \sett{w_1,w_2,\cdots,w_n}$ be a linearly independent subset of $V$. Define $S' = \sett{v_1,v_2,\cdots,v_n},$ where $v_1 = w_1$ and
+	
+	$$v_k = w_k - \sum^{k-1}_{j=1}\dfrac{\inn{w_k,v_j}}{||v_j||^2}v_j ~\text{ for $2 \leq k \leq n$}$$ 
+	
+	Then $S'$ is an orthogonal set of nonzero vectors such that span($S'$) = span($S$).
+\end{thm*}
+
+\begin{thm*}
+	Let $V$ be a nonzero finite-dimensional inner product space. Then $V$ has an orthonormal basis $\beta$. Furthermore, if $\beta = \sett{v_1,v_2,\cdots,v_n}$ and $x \in V$, then
+	
+	$$x = \sum^n_{i=1}\inn{x,v_i}v_i$$
+\end{thm*}
+
+\begin{cor*}
+	Let $V$ be finite-dimensional inner product space with an orthonormal basis $\beta = \sett{v_1,v_2,\cdots,v_n}.$ Let $T$ be a linear operator on $V$, and let $A = [T]_{\beta}$. Then for any $i$ and $j$, $A_{ij} = \inn{T(v_j),v_i}$
+\end{cor*}
+
+\begin{defn}
+	Let $\beta$ be an orthonormal subset (possibly infinite) of an inner product space $V$, and let $x \in V$. We define the \textbf{Fourier coefficients} of $x$ relative to $\beta$ to  
+\end{defn}
+
+\begin{tcolorbox}
+	After have good tools, we are going to check the \textbf{orthogonal complement} of $S$.
+\end{tcolorbox}
+
+\begin{defn}
+	Let $S$ be a nonempty subset of an inner product space $V$. We define $S^{\perp}$ to be the set of all vectors in $V$ that are orthogonal to every vector in $S$; that is, $S^{\perp} = \sett{x \in V~|~\inn{x,y} = 0 \text{ for all } y \in S}$. The set $S^{\perp}$ is called the \textbf{orthogonal complement} of $S$.
+\end{defn}
+
+\begin{thm*}
+	Let $W$ be a finite-dimensional subspace of an inner product space $V$, and let $y \in V$. Then there exist unique vectors $u \in W$ and $z \in W^{\perp}$. i.e.
+	
+	$$V = W \oplus W^{\perp}$$
+	
+	Furthermore, if $\sett{v_1,v_2,\cdots,v_k}$ is an orthonormal basis for $W$, then
+	
+	$$u = \sum^k_{i=1}\inn{y,v_i}v_i$$
+\end{thm*}
+
+\begin{cor*}
+	In the notation of Thm, the vector $u$ is the unique vector in $W$ that is "closest" to $y$; that is, for any $x \in W,||y-x||\geq ||y-u||,$ and this inequality is an equality if and only if $x = u$.
+\end{cor*}
+
+\begin{thm*}
+	Suppose that $S = \sett{v_1,v_2,\cdots,v_k}$ is an orthonormal set in an n-dimensional inner product space $V$. Then
+	
+	\begin{enumerate}
+		\item[(a)] $S$ can be extended to an orthonormal basis $\sett{v_1,v_2,\cdots,v_k,v_{k+1},\cdots,v_n}$ for V
+		\item[(b)] If $W = \spann{S}$, then $S_1 = \sett{v_{k+1},v_{k+2},\cdots,v_n}$ is an orthonormal basis for $W^{\perp}$
+		\item[(c)] If $W$ is any subspace of $V$, then $\dim (V) = \dim (W) + \dim (W^{\perp})$
+	\end{enumerate}
+\end{thm*}
+
+\subsection{The Adjoint of a Linear Operator} $ $
+
+\begin{tcolorbox} 
+	In this section, we will introduce the adjoint linear operator and it's property.
+	
+	Before know adjoint operation, we need to know the theorem first.
+\end{tcolorbox}
+
+\begin{thm*}
+	Let $V$ be a finite-dimensional inner product space over $\mathrm F$, and let $g: V \rightarrow F$ be a linear transformation. Then there exists a \textbf{unique} vector $y \in V$ such that $g(x) = \inn{x,y}$ for all $x \in V$
+\end{thm*}
+
+\textbf{\color{red} this proof next time}
+
+\begin{thm*}
+	Let V be a finite-dimensional inner product space, and let $T$ be a linear operator on $V$. Then there exists a unique function $T^*:V\rightarrow V$ such that $\inn{T(x),y} = \inn{x,T^*(y)}$ for all $x,y \in V$. Furthermore, $T^*$ is linear.
+\end{thm*}
+
+\begin{tcolorbox}
+	We define the $T^*$ here, and next we want to know the $*$ in the matrix presentation. 
+\end{tcolorbox}
+
+\begin{thm*}
+	Let $V$ be a finite-dimensional inner product space, and let $\beta$ be an orthonormal basis for $V$. If $T$ is a linear operator on $V$, then
+	
+	$$[T^*]_\beta = [T]^*_\beta$$
+\end{thm*}
+
+\begin{cor*}
+	Let $A$ be an "$n \times n$" matrix. Then $L_{A^*} = (L_A)^*$
+\end{cor*}
+
+\begin{thm*}
+	Let $V$ be an inner product space, and let $T$ and $U$ be linear operators on $V$. Then
+	
+	\begin{tasks}(2)
+		\task $(T+U)^* = T^* + U^*$
+		\task $(cT)^* = \overline{c}T^*$ for any $c \in \mathrm F$
+		\task $(TU)^* = U*T*$
+		\task $T^{**} = T*$
+		\task $I^* = I$
+	\end{tasks}
+\end{thm*}
+
+\begin{cor*}
+	Let $A$ and $B$ be $n \times n$ matrices. Then
+	
+	\begin{tasks}(2)
+		\task $(A + B)^* = A^* + B^*$
+		\task $(cA)^* = \overline{c}A^*$ for all $c \in \mathrm F$
+		\task $(AB)^{*} = B^*A^*$
+		\task $A^{**} = A$
+		\task $I^* = I$ 
+	\end{tasks}
+\end{cor*}
+
+\textbf{\color{red} we skip the minimum function here(LAMMA$\sim$Thm 6.13)}
+
+
+\subsection{Normal \& Self-Adjoint Operators}
+
+
+\begin{lmma*}
+	Let $T$ be a linear operator on a finite-dimensional inner product space $V$. If $T$ has an eigenvector, then so does $T^*$.
+\end{lmma*}
+
+\begin{thm*}[Schur]
+	Let $T$ be a linear operator on a finite-dimension inner product space $V$. Suppose that the characteristic polynomial of $T$ splits. Then there exists an orthonormal basis $\beta$ for $V$ such that the matrix $[T]_\beta$ is upper triangular.
+\end{thm*}
+
+\begin{tcolorbox}
+	I don't know why read Schur here, but we are going to introduce \textbf{normal} and it's property.
+\end{tcolorbox}
+
+\begin{defn}
+	Let $V$ be an inner product space, and let $T$ be a linear operator on $V$. We say that $T$ is \textbf{normal} if $TT^* = T^*T$. An $n \times n$ real or complex matrix $A$ is \textbf{normal} if $AA^* = A^*A$.
+\end{defn}
+
+
+\begin{thm*}
+	Let $V$ be an inner product space, and let $T$ be a \textbf{normal operator} on $V$. Then the following statements are true.
+	
+	\begin{tasks}
+		\task $||T(x)|| = ||T^*(x)||$ for all $x \in V$.
+		\task $T - cI$ is normal for every $c \in \mathrm F$
+		\task If $x$ is an eigenvector of $T$, then $x$ is also an eigenvector of $T^*$. In fact, if $T(x) = \lambda x$, then $T^*(x) = \overline{\lambda}x$.
+		\task If $\lambda_1$ and $\lambda_2$ are distinct eigenvalues of $T$ with corresponding eigenvectors $x_1$ and $x_2$, then $x_1$ and $x_2$ are orthogonal.
+	\end{tasks}
+\end{thm*}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,7 +8,10 @@
 \usepackage{lastpage}
 \usepackage{fancyhdr}
 \usepackage{accents}
-\pagestyle{fancy}
+\usepackage{tasks}
+\linespread{1.2}
+\parindent = 0pt
+%\pagestyle{fancy}
 \setlength{\headheight}{40pt}
 \everymath{\displaystyle}
 
@@ -39,6 +42,7 @@
 \newtheorem*{defn}{\underline{Definition}}
 \newtheorem*{ex*}{Example}
 \newtheorem*{sol*}{Solution}
+\newtheorem*{cor*}{Corollary}
 \newtheorem*{thm*}{Theorem}
 \newtheorem*{lmma*}{Lemma}
 \newtheorem*{rmk*}{Remark}
@@ -67,4 +71,5 @@
 \newcommand{\slinearcombination}[1]{#1_1+\cdots+#1_n}
 \newcommand{\spann}[1]{\text{span($#1$)}}
 \newcommand{\sub}[1]{\text{sup}}
+\newcommand{\inn}[1]{\left< #1 \right>}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
