@@ -66,8 +66,6 @@ This chapter is talking about a general model of machine learning and common err
 	\item[$\cdot$] The \textbf{accuracy parameter}, commonly denoted by $\epsilon$. We interpret the event $L_{(D,f)}(h_s) > \epsilon$ as a failure of the learner
 \end{enumerate}
 
-\newpage
-
 \subsection*{2.2 Improve Model} $ $\\
 
 \textbf{Empirical Risk Minimization}
@@ -100,9 +98,7 @@ Restricting the learner to choosing a predictor from $H$ are often called an \te
 
 \textbf{Proof Section}
 
-The goal is to proof when $m \geq \dfrac{\log(|H|/\delta)}{\epsilon}$, then $L_{D,f}(h_s) \leq \epsilon$
-
-Let $H_B$ be the set of "bad" hypotheses, that is,
+The goal is to proof when $m \geq \dfrac{\log(|H|/\delta)}{\epsilon}$, then $L_{D,f}(h_s) \leq \epsilon$, Let $H_B$ be the set of "bad" hypotheses, that is,
 
 $$H_B = \sett{h \in H~|~L_{D,f}(h)>\epsilon}$$
 
@@ -110,11 +106,7 @@ In addition, let
 
 $$M = \sett{S|_x ~|~ \exists~h \in H_B,L_S(h) = 0}$$
 
-be the set of \textbf{misleading sample}(they are bad but $L_S(h_S) = 0$)
-
-\newpage
-
-by definition, we can write 
+be the set of \textbf{misleading sample}(they are bad but $L_S(h_S) = 0$), by definition, we can write 
 
 $$\sett{S|_x ~|~ L_{(D,f)}(h_S) > \epsilon} \subseteq M\color{red}(\star_1) $$
 
@@ -164,8 +156,6 @@ put $\color{red}(\star_6)$ back to $\color{red}(\star_4)$
 \end{tcolorbox}
 
 $$D^m(\sett{S|_x ~|~ L_{(D,f)}(h_S)>\epsilon}) \leq |H_B|e^{-\epsilon m} \leq |H|e^{-\epsilon m}$$
-
-\newpage
 
 In this equation, we can know that when $m$ increase, the  overfitting hypothesis's probability (where the hypothesis of $L_S$ is small but $L_{(D,f)}$ is big, i.e. $D^m(\sett{S|_x ~|~ L_{(D,f)}(h_S)>\epsilon})$) will decrease.
 

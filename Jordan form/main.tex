@@ -1,0 +1,265 @@
+\input{../settings}
+\begin{document}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+
+
+\section{Jordan Canonical Form}
+
+\subsection{Triangular Form}$ $
+
+
+\begin{defn}
+	let $T:V \rightarrow V$ be a linear operator, a subspace $W \subseteq V$ is said to be invariant under $T$ if $T(W) \subseteq W$
+\end{defn}
+
+\begin{tcolorbox}
+	\begin{rmk*}
+		$\sett{0},V,Ker(T),Im(T),E_{\lambda}$ are T-invarient
+	\end{rmk*}
+\end{tcolorbox}
+
+\begin{defn}
+	Let $T:V \rightarrow V$ be a linear operator on a finite dimension vector space
+	
+	we say that $V$ is triangularizable $\Leftrightarrow \exists$ a order basis $\beta \ni [T]^{\beta}_{\beta}$ is upper triangular  
+\end{defn}
+
+\textbf{Example}(triangularizable matrix)
+
+\begin{tcolorbox}
+	Consider $\mathbb F = \mathbb = C,~V = \mathbb C^4$, let $\beta$ be a order basis of $V$, $\beta = \sett{e_1,e_2,e_3,e_4}$
+	
+	$$[T]^{\beta}_{\beta} = \left[ \begin{matrix}
+		1&1-i&2&0\\
+		0&1&i&0\\
+		0&0&1-i&3+i\\
+		0&0&0&1-i
+	\end{matrix}\right]$$
+	
+	Clearly $[T]^{\beta}_{\beta}$ is upper triangular, and let $w_i$ be the subspace of $\mathbb C^4$ spanned by the first $i$ vectors in the standard ordered basis, clearly, $T(w_i) \subseteq w_i = \sett{T(w)~|~w\in W} = Im(T|w)$
+\end{tcolorbox}
+
+\textbf{Propos 1}
+
+let $V$ be a finite vector space, let $T:V \rightarrow V$ be a linear operator and $\beta = \sett{x_1,\cdots,x_n}$ be a basis for $V$, then
+
+\begin{center}
+	$[T]^{\beta}_{\beta}$ is upper triangle $\Leftrightarrow$ the subspace $w_i = \spann{x_1,\cdots,x_i}$ is T-invariant 
+\end{center}
+
+Note that the subspace $w_i$ in \textbf{Prop 1} related follow
+
+$$\sett{0} \subseteq w_i \subseteq \cdots \subseteq w_{n-1} \subseteq w_n = V$$
+
+we say that $w_i$ forms an hands up sequence of subspaces.
+
+on the other hand, a given linear operator can be a upper triangle, we must to construct the $\nearrow$ sequence of $T$-invariant subspace
+
+$$\sett{0} \subseteq w_1 \subseteq \cdots \subseteq w_n$$
+
+$T|_{w}:W\rightarrow W$ is a linear mapping, $T_W$ where $W$ is a $T$-invariant subspace 
+
+\newpage
+
+\textbf{Propos 2}
+
+Let $T:V \rightarrow V, W \leq V$ is a $T$-invariant, where $V$ is a finite dimension vector space. Then the character polynomial of $T|_W$ divides the c.p. of $T$
+
+\begin{proof}(Thm 5.21 from Friedberg)
+	
+	\textbf{\color{red} not today}
+	
+\end{proof}
+
+\begin{cor*}
+	Every eigenvalue of $T|_W$ is also an eigenvalue of $T$, i.e. the eigenvalue of $T|_W$ is a subset of the eigenvalue of $T$ on $V$,
+\end{cor*}
+
+\textbf{Review}(Diagonal's condition)
+
+\begin{tcolorbox}
+	Let $T:V \rightarrow V$ be a linear operator, where $V$ is a finite dimension vector space, $\lambda_1,\cdots,\lambda_n$ are distinct eigenvalues, $m_i$ be the multiplicity of $\lambda_i$, as a root number of the c.p. of $T$, Then
+	
+	\begin{center}
+		$T$ is diagonal $\Leftrightarrow ~ m_1+\cdots+m_n = \dim(V),~dim(E_{\lambda_i}) = m_i$ 
+	\end{center} 
+	
+	The proof is Thm. 5.9 $\sim$ Thm. 5.11 from Friedberg
+	
+	It means that 
+	
+	\begin{enumerate}
+		\item $V = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_n}$(From Exercise 5-2-20 Friberg)
+		\item $m_i$ is algebraic multiplicity, $\dim(E_{\lambda_i})$ is geometric multiplicity.
+	\end{enumerate}
+\end{tcolorbox}
+
+\begin{thm*}[Schur]
+	Let $V$ be a finite dimensional vector space over $\mathbb F$ and $T:V \rightarrow V$ be an linear operator, then $T$ is triangular $\Leftrightarrow$ the c.p. have $\dim(V)$ roots (counted with multiplicities) in $\mathbb F$
+\end{thm*}
+
+\begin{rmk*} $ $
+	\begin{enumerate}
+		\item[$\star$] if $\mathrm F = \mathbb C$(algebraic closure), then, by the Fundamental theorem of Algebra, every matrix $A \in M_{n \times n}(\mathbb C)$ can be a triangularized
+		\item[$\star$] if $\mathrm F = \mathbb R$($x^2 + 1$ does not split on $\mathbb R$) consider the rotation matix $R_{\theta}$ where $0<\theta < \pi$
+	\end{enumerate}
+\end{rmk*}
+
+\begin{lmma*}
+	Let $V$ be a finite dimensional vector space over $\mathbb F$ and $T:V \rightarrow V$ be an linear operator, and assume that the characteristic polynomial of $T$ has $n = \dim(V)$ roots in $\mathrm F$. If $W \subsetneqq V$ is an invariant subspace under $T$, then there exists a vector $x \neq 0$ in $V$ such that $x \notin V$ is an invariant subspace under $T$, then there exists a vector $x \neq 0$ in $V$ such 
+
+\end{lmma*}
+
+$\color{red}\star $ we need to use this lemma to create $\nearrow$ subspaces
+
+\newpage
+
+\begin{proof}
+
+	\textbf{Define the $P$ and $S$ first}
+
+	let $\alpha = \sett{x_1,\cdots,x_k}$ be a basis for $W$, and extend $\alpha$ by adjoint $\alpha' = \sett{x_{k+1},\cdots,x_n}$ to form a basis $\beta = \alpha \cup \alpha'$ for $V$, let $w' = \spann{\alpha'}$. Define a linear operator $P:V \rightarrow V$ by
+	
+	 $$P(a_1x_1+\cdots+a_nx_n) = a_1x_1 + \cdots + a_kx_k~ \text{(projection, $V = W \oplus W'$)}$$
+	 
+	 Clearly, $W' = Ker(P),~W = Im(P),~P^2 = P$, Moreover $I - P$ is also the projection on $W'$ with kernel $W$
+	 
+	 \begin{tcolorbox}
+	 	$(I-P)(a_1x_1+\cdots+a_nx_n)=I(a_1x_1+\cdots+a_nx_n)-P(a_1x_1+\cdots+a_nx_n)$
+	 	
+	 	$=a_1x_1+\cdots+a_nx_n-a_1x_1+\cdots+a_kx_k = a_{k+1}x_{k+1} + \cdots + a_nx_n$
+	 	
+	 	Further more $(I - P)^2 = (I-P)(I-P) = I-P^2 - P + P = I-P^2 = I - P $
+	 \end{tcolorbox}
+	 
+	 if the basis is orthogonal basis, $W' = W^{\perp}$(Gramm schmit), and $P$ is an orthogonal projection
+	 
+	 let $S = (I-P)\circ T$, since $Im(I-P) = W'$, so $Im(S) \subseteq Im(I-P) = W'$, i.e. $W'$ is $S$-invariant subspace, $\because S(W') \subseteq W'$
+	 
+	 \textbf{Claim} the set of eigenvalues of $S|_W$ is a subset of the root of eigenvalues of $T$
+	 
+	 First, since $W$ is $T$-invariant, then $[T]^{\beta}_{\beta} = \left( \begin{matrix}
+	 	A&B\\O&C
+	 \end{matrix}\right)$
+	 
+	 Clearly, $A = \left[ T|_W\right]^{\alpha}_{\alpha}$ is $k \times k$ block, $C = \left[ S|_{W'}\right]^{\alpha'}_{\alpha'}$ is a $(n-k) \times (n-k)$ block, Hence 
+	 
+	 $$\det(T - \lambda I) = \det(T|_W - \lambda I)\cdot \det(S|_{W'} - \lambda I)$$
+	 
+	 by prop.2 \& corollary, we down since all the eigenvalue of $T$ lie in $\mathrm F$(the c.p. has $n$ roots)
+	 
+	 by claim, same is true of all the eigenvalues of $S|_{W'}$
+	 
+	 so $\exists x \neq 0,~x \in W' \ni Sx = \lambda x$, for some $\lambda \in \mathbb F$, i.e.
+	 
+	 $$(I-P)(Tx) = \lambda x \implies Tx - PTx = \lambda x \implies Tx = \lambda x + PTx \in \spann{x}+W$$
+	 
+	 Finally $W + \spann{x}$ is $T$-invariant, i.e. $y \in W + \spann{x} \implies T(y) \in W + \spann{x}$
+	 
+	 Give $y \in W + \spann{x}$, then, $\exists~z \in W_1,\lambda \in \mathrm F \implies y = z + \lambda x$
+	 
+	 $T(y) = T(z+\lambda x) = T(z) + \lambda T(x) = T(z) + \lambda(x)+\lambda PT(x)$
+\end{proof}
+
+\textbf{We finish this lemma, and we are going to proof Schur lemma}
+
+\begin{proof}($\Rightarrow$) T is triangular
+
+$\implies \exists$ order basis $\beta$ of $V \implies [T]_{\beta}$ is upper triangular $\implies$ the eigenvalues of $T$ are the diagonal entries in $\mathrm F \implies$ the c.p. splits  
+	
+\end{proof}
+
+\newpage
+
+\begin{proof}($\Leftarrow$) Suppose the condition holds
+
+let $\lambda$ be eigenvalues of $T$, $x_i$ is eigenvector of $T$ correspond with $\lambda$, $W_1 = \spann{\sett{x_i}}$
+
+Clearly, $W_1$ is $T$-invariant by lemma, $\exists x \notin W,~ x \neq 0 \ni W_1 + \spann{\sett{x_1}}$ is $T$-invariant.
+
+continue the processes $W_1 \subseteq \cdots \subseteq W_k$ with $W_i = \spann{\sett{x_1,\cdots,x_i}} ~\forall~ i$
+
+By lemma, $\exists x_{k+1} \notin W_k \ni W_{k+1} = W_k + \spann{x_{k+1}}$ is also $T$-invariant
+
+$\therefore$ By prop.1, we are done. 
+	
+\end{proof}
+
+\begin{cor*}
+	if $T:V\rightarrow V$ is triangular with eigenvalues $\lambda_i$ and $m_i$ is its multiplicities, then $\exists$ an order basis $\beta$ for $V \ni [T]_{\beta}$ is upper triangular matrix, and the diagonal entries of $[T]_{\beta}$ are $m_1,\lambda_1$ followed by $m_2 \lambda_2$'s and so on.
+\end{cor*}
+
+\textbf{Recall}
+
+In Chapter 4, If $T$ is a linear mapping (or matrix) and $p(t) = a_nt^n + a_{n-1}t^{n-1}T^{n-1} + \cdots + a_0$ is a polynomial, we can define a new linear mapping
+
+$$p(T) = a_nT^n + a_{n-1}T^{n-1}+\cdots + a_1I$$
+
+\begin{thm*}
+	Let $T:V \rightarrow V$ be a linear operator on $V$ which is a finite dimension vector space and $p(t)=\det(T - tI)$ be its c.p
+	Assume that $p(t)$ has $\dim(V)$ roots in $\mathrm F$ over which $V$ is defined, then $p(T) = 0$(which is a zero transformation on $V$)
+\end{thm*}
+
+\begin{proof}(Exercise 6-4-16 in Friedber)
+	For all the vector $S$ in some basis of $V \rightarrow p(T)(x) = 0$(scalar), by Schur lemma, $\exists$ order basis $\beta = \sett{x_1,\cdots,x_n}$ for $V \implies w_i = \spann{\sett{x_1,\cdots,x_i}} $
+	
+	$\forall ~1 \leq i \leq n $ is $T$-invariant, all the eigenvalues of $T$ lie in $\mathrm F$, so $p(t) = \pm (t - \lambda)\cdots(t-\lambda_n)$ for some $\lambda_i \in \mathrm F$(not necessary distinct),if the factors here are ordered in the same fashion as the diagonal entries of $[T]^{\beta}_{\beta}$, then
+	
+	$$T(x_i) = \lambda_ix_i+y_{i-1},~y_i \in W_{i-1},~i \geq 2,~T(x_1) = \lambda_1x_1$$
+	
+	Now, we use the induction on $i$
+	
+	\begin{enumerate}
+		\item[$\cdot$] For $i = 1,$
+		
+		$p(T)(x_1) = \pm(T - \lambda_1 I)\cdots(T - \lambda_n I)(x_1) = \pm(T- \lambda_2 I)\cdots(I-\lambda_n I)(T - \lambda_1)(x_1) = 0$
+		\item[$\cdot$] Suppose that: $p(T)(x_i)=0,~\forall~i \leq k$
+		
+		\item[$\cdot$] Consider $p(T)(x_{k+1})$, clearly $(T - \lambda_1 I)\cdots(T - \lambda_k I)$ are needed to end $x_i$ to $0$, for $i \leq k$
+		
+		$p(T)(x_{k+1}) = I(T - \lambda_1 I)\cdots(T - \lambda_n I)(T - \lambda_{k+1}I)(x_{k+1}) $
+		
+		$= \pm (T - \lambda_1 I)\cdots(T - \lambda_n I)(y_k) = 0$ By induction, we are done
+	\end{enumerate}
+\end{proof}
+
+\newpage
+
+Suppose that $A \in M_{n \times n}(\mathrm F)$ if $A$ is invertible, i.e. $\det(A) \neq 0$, consider the c.p. of $A$
+
+$$\det(A - tI) = (-1)^nt^n + \cdots + a_1t + a_0,~t=0 \implies a_0 = \det(A) \neq 0$$
+
+by thm 4(Cayley-Hamilton), $p(A) = (-1)^nA^n + \cdots + \det(A)I = 0$
+
+$$\left( \dfrac{-1}{\det(A)}\right)\left((-1)^nA^{n-1}+\cdots+a_1I\right) = A^{-1}$$
+
+\subsection{A Canonical form for nilpotent mappings}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
