@@ -1,0 +1,270 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage{fontspec} 
+\usepackage{xeCJK}
+%%\setCJKmainfont{標楷體}
+\usepackage[utf8]{inputenc}
+\usepackage{CJKutf8}
+\xeCJKsetup{AutoFakeBold=true, AutoFakeSlant=true}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{natbib}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\kernal}[1]{Ker(#1)}
+\newcommand{\image}[1]{Im(#1)}
+\newcommand{\spanning}[1]{span(#1)}
+\newcommand{\linear}{\mathscr{L}}
+\newcommand{\st}{\ni}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\ip}[2]{\langle #1, #2 \rangle}
+\newcommand{\seq}[2]{\{#1_#2\}_{#2=1}^{\infty}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma}{Lemma}
+
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{remark}
+\newtheorem*{example}{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem*{remark}{Remark}
+\newtheorem*{reason}{Reason}
+\newtheorem*{recall}{Recall}
+
+
+
+\begin{document}
+	
+\title{Jordan Canonical Form}
+\author{CHIU HSIANG-TZU}
+\maketitle
+
+\section{Triangular Form}
+
+\begin{definition}
+	let $T:V \rightarrow V$ be a linear operator. A subspace $W \subseteq V$ is said to be invariant $($or stable$)$ under $T$ if $T(W) \subseteq W$
+\end{definition}
+
+\begin{remark}
+	$\{0\}$, $V$, $\kernal{T}$, $\image{T}$, and $E_{\lambda}$ are $T$-invarient.
+\end{remark}
+
+\begin{definition}
+	Let $T:V \rightarrow V$ be a linear operator on a finite dimensional vector space $V$. We say that $V$ is triangularizable if and only if there exists an ordered basis $\beta$ such that  $[T]^{\beta}_{\beta}$ is upper triangular.  
+\end{definition}
+
+\begin{example}
+	Consider $\mathbb F = \C$ and $V = \mathbb \C^4$. Let $\beta$ be the standard ordered basis of $V$ and let $\beta = \{e_1,e_2,e_3,e_4\}$, where $e_i$ is $(0,…,0,1,0,…,0)$ with the nonzero component at position $i$. We compute the matrix representation of $[T]^{\beta}_{\beta}$ as follows.	
+	$$[T]^{\beta}_{\beta} = \left[ 
+	\begin{matrix}
+		1&1-i&2&0\\
+		0&1&i&0\\
+		0&0&1-i&3+i\\
+		0&0&0&1-i
+	\end{matrix}\right]$$	
+	Clearly, the matrix is upper triangular. Notice that $T(e_1) = e_1$, that is, $e_1$ is an eigenvector of $T$, $T(e_2) = (1-i)e_1 + e_2 \in \spanning{\{e_1,e_2\}}$, $T(e_3) \in \spanning{\{e_1,e_2,e_3\}}$, and $T(e_4) \in \spanning{\{e_1,e_2,e_3,e_4\}}$. Let $W_i$ be the subspace of $\C^4$ spanned by the first $i$ vectors in the standard ordered basis, that is, $T(e_i) \in W_i$ for all $i$. Clearly, $T(W_i) \subseteq W_i$, where $T(W) = \{T(w)~|~w \in W\} = \image{T\arrowvert_W}$ for all subsapce of $V$.
+\end{example}
+
+\begin{proposition}
+	Let $T:V \rightarrow V$ be a linear operator on  a finite dimensional vector space $V$ and $\beta = \{x_1,\cdots,x_n\}$ be a basis for $V$. Then $[T]^{\beta}_{\beta}$ is upper triangle if and only if the subspace $w_i = \spanning{\{x_1,\cdots,x_i\}}$ is $T$-invariant.
+\end{proposition}
+
+\begin{proof}
+	It is trivial.
+\end{proof}
+
+Note that the subspace $W_i$ in Proposition~1.1  are related as follows:
+$$\{0\} \subseteq W_1 \subseteq \cdots \subseteq W_{n-1} \subseteq W_n = V.$$
+We say that $W_i$ forms an increasing sequence of subspaces. On the other hand, in Proposition~1.1, to show that a given linear operator is triangularizable. We must to construct the increasing sequence of $T$-invariant subspaces 
+$$\{0\} \subseteq W_1 \subseteq \cdots \subseteq W_{n-1} \subseteq W_n = V.$$
+One also have to introduce  the restriction of $T$ to an $T$-invariant subspace $W \subseteq V$. Clearly, $T\arrowvert_W = T_W: W \rightarrow W$ is a new linear mapping, where $W$ is a $T$-invariant subspace of $V$.
+
+\begin{proposition}
+	Let $T:V \rightarrow V$ be a linear operator and $W$ be a $T$-invariant subspace of a finite dimensional vector space $V$. Then the characteristic polynomial of $T\arrowvert_W$ divides the characteristic polynomial of $T$.
+\end{proposition}
+
+\begin{proof}
+	One can see Theorem 5.21 in Friedbreg.
+\end{proof}
+
+\begin{corollary}
+	Every eigenvalue of $T\arrowvert_W$ is also an eigenvalue of $T$,that is, the eigenvalue of $T\arrowvert_W$ is some subset of the eigenvalue of $T$ on $V$.
+\end{corollary}
+
+
+Let $T:V \rightarrow V$ be a linear operator, where $V$ is a finite dimensional vector space. Let $\lambda_1,\cdots,\lambda_n$ be distinct eigenvalues and $m_i$ be the multiplicity of $\lambda_i$, as a root of the characteristic polynomial of $T$. Then $T$ is diagonalizable if and only if $m_1+\cdots+m_n = \dim(V)$ and $\dim{E_{\lambda_i}} = m_i$ for all $i$. The proof combines with Theorem 5.9 to 5.11 in Friedberg. Moreover, it means that 
+\begin{itemize}
+	\item [(1)] $V$ can be rewritten as the direct sum of eigenspaces
+	\item [(2)] $m_i$ is algebraic multiplicity
+	\item [(3)] $\dim(E_{\lambda_i})$ is geometric multiplicity.
+\end{itemize}
+
+\begin{theorem}[\textbf{Schur's Lemma}]
+	Let $V$ be a finite dimensional vector space over $\F$ and $T:V \rightarrow V$ be an linear operator. Then $T$ is triangularizable if and only if  the characteristic polynomial of $T$ has $\dim(V)$ roots $($counted with multiplicities$)$ in $\F$
+\end{theorem}
+
+\begin{remark}
+		If $\F =\C$~(algebraic closure), then, by the fundamental theorem of algebra, every matrix $A \in M_{n \times n}(\C)$ can be triangularizable. However, if $\F = \R$~($x^2 + 1$ does not split on $\R$), then we can consider the rotation matix $R(\phi)$, where $0 <\phi < \pi$. Since the rotation matrix in $\R^2$, says
+		$$ R = R(\phi) = 
+		\begin{bmatrix}
+			\cos\phi& -\sin\phi\\
+			\sin\phi& \cos\phi \\
+		\end{bmatrix} \in M_{2 \times 2}(\R),
+		$$ 
+		where $0 <\phi < \pi$. There does not exist any vector $v \ne 0$ such that $R v = \lambda v$ for some $\lambda$. Since 
+		\begin{align*}
+			\det(R - \lambda I_2) 
+			& = |\begin{bmatrix}
+				\cos\phi& -\sin\phi\\
+				\sin\phi& \cos\phi \\
+			\end{bmatrix} - 
+			\lambda\begin{bmatrix}
+				1& 0\\
+				0& 0 \\
+			\end{bmatrix} |\\
+			& = |\begin{bmatrix}
+				\cos\phi - \lambda& -\sin\phi\\
+				\sin\phi& \cos\phi - \lambda\\
+			\end{bmatrix}|\\
+			& = \cos^2\phi - 2\lambda \cos\phi + \lambda^2 + \sin^2\phi \\
+			& = \lambda^2 - 2\cos\phi\lambda +1,
+		\end{align*}
+		so we use the discriminant of a quadratic polynomial to get that $D = 4\cos^2\phi - 4<0$, that is, there are no solution in $\R$. Hence the characteristic polynomial of $R$ does not split over $\R$.
+\end{remark}
+
+\begin{lemma}
+	Let $T:V \rightarrow V$ be as in theorem 1.1 and assume that the characteristic polynomial of $T$ has $n = \dim(V)$ roots in $\F$. If $W \subsetneqq V$ is an invariant subspace under $T$, then there exists a non-zero vector $x$ in $V$ such that $x \notin W$ and $W + \spanning{\{x\}}$ is also $T$-invariant.
+\end{lemma}
+
+\begin{proof}
+	let $\alpha = \{x_1,\cdots,x_k\}$ be a basis for $W$ and extend $\alpha$ by adjointing $\alpha' = \{x_{k+1},\cdots,x_n\}$ to form a basis $\beta = \alpha \cup \alpha'$ for $V$. Let $W' = \spanning{\alpha'}$. Clearly, $V = W \oplus W'$ because we know that the fact that 
+	\begin{tcolorbox}
+		Let $\beta_1$ and $\beta_2$ be disjoint bases for subspaces $W_1$ and $W_2$, respectively, of a vector space $V$. If $\beta_1 \cup \beta_2$ is a basis for $V$, then $V = W_1 \oplus W_2$.
+	\end{tcolorbox}	
+	We define a linear operator $P:V \rightarrow V$ by	
+	$$P(a_1x_1+\cdots+a_nx_n) = a_1x_1 + \cdots + a_kx_k.$$
+	Clearly, $W' = \kernal{P}$, $W = \image{P}$, and $P^2 = P$. Hence $P$ is the projection on $W$ with kernal $W'$. Moreover $I - P$ is also the projection on $W'$ with kernel $W$. Since 
+	\begin{align*}
+		& (I-P)(a_1x_1+\cdots+a_nx_n) \\
+		& = I(a_1x_1+\cdots+a_nx_n)-P(a_1x_1+\cdots+a_nx_n)\\
+		& = a_1x_1+\cdots+a_nx_n-a_1x_1+\cdots+a_kx_k \\
+		& = a_{k+1}x_{k+1} + \cdots + a_nx_n,
+	\end{align*}
+	 $W = \kernal{I - P}$, $W' = \image{I - P}$, and $(I - P)^2 = (I-P)(I-P) = I-P^2 - P + P = I-P^2 = I - P $. If the basis of $V$ is orthonormal (the Grame-Schmidt process), then it is clear that $W' = W^\perp$ by theorem 6.7 in Friedbreg. Since $V$ is a finite dimensional vector space, so $(W^\perp)^\perp = W$ for all subspace $W$ of $V$. It implies that $P$ is an orthogonal projection.Let $S = (I-P)\circ T \equiv (I-P)T $. Since $\image{I-P}= W'$, so $\image{S} \subseteq \image{I-P} = W'$, that is, $W'$ is $S$-invariant subspace ($S(W') \subseteq W'$). Now, we claim that the set of eigenvalues of $S\arrowvert_W$ is a subset of the root of eigenvalues of $T$. Since $W$ is $T$-invariant (by assumption), so we compute the matrix representation of $[T]^{\beta}_{\beta}$ is the form
+	 $$[T]^{\beta}_{\beta} = \left[ 
+	 \begin{matrix}
+	 	A&B\\O&C
+	 \end{matrix}
+ 	\right].$$
+	Clearly, $A = \left[T\arrowvert_W\right]^{\alpha}_{\alpha}$ is $k \times k$ block matrix and $C = \left[ S\arrowvert_{W'}\right]^{\alpha'}_{\alpha'}$ is a $(n-k) \times (n-k)$ block matrix. Hence 
+	$$\det(T - \lambda I) = \det(T\arrowvert_W - \lambda I)\cdot \det(S\arrowvert_{W'} - \lambda I).$$
+	From Corollary 1.1, we are done. Since all the eigenvalues of $T$ lie in the field $\F$ ($\because$ the characteristic polynomial $n$ roots), so by previous discussion, the same is true of all the the eigenvalues of $S\arrowvert_{W'}$. Then there exists a nonzero vector $x$ in $W'$ ($x \notin W$) such that $Sx = \lambda x$, for some $\lambda \in \mathbb F$. It implies that 
+	\begin{align*}
+		(I-P)(Tx) = \lambda x 
+	 	& \implies Tx - PTx = \lambda x \\
+	 	& \implies Tx = \lambda x + PTx \in \spanning{\{x\}}+W.
+	\end{align*} 
+	Finally, we show that $W +  \spanning{\{x\}}$ is $T$-invariant. For all $y \in W + \spanning{\{x\}}$, there exists $z \in W$ and $\lambda \in \F$ such that $y = z + \lambda x$. Then 	
+	\begin{align*}
+		T(y) = T(z+\lambda x) 
+		& = T(z) + \lambda T(x) \\
+		& = T(z) + \lambda(x)+\lambda PT(x)\in \spanning{\{x\}}+W.
+	\end{align*} 
+\end{proof}
+
+Now we go back to prove Theorem~1.1 (\textbf{Schur's Lemma}).
+
+\begin{proof}
+	Suppose that $T$ is triangularizable. Then there exists an ordered basis $\beta$ for  $V$ such that $[T]_{\beta}$ is an  upper triangular matrix. Hence the eigenvalues of $T$ are the diagonal entries of this matrix. They are elements of $\F$. It means that the characteristic polynomial splits over $\F$. Conversely, suppose that the condition holds. Let $\lambda$ be eigenvalues of $T$, $x_i$ be an eigenvector of $T$ correspond with $\lambda$ and $W_1 = \spanning{\{x_1\}}$. Clearly, $W_1$ is $T$-invariant. From lemma, there exists a non-zero vector $x \notin W_1$ such that $W_1 + \spanning{\{x_1\}}$ is also $T$-invariant. Continuing the process,we get an increasing sequence of $T$-invariant subspace of $V$, that is, 
+	$W_1 \subseteq \cdots \subseteq W_k$
+	with $W_i = \spanning{\{x_1,\cdots,x_i\}}$ for all $i \ge 1$. Again, by lemma, there exists a nonzero vector $W_k$ such that 
+	$ W_k \ni W_{k+1} = W_k + \spanning{\{x_{k+1}\}}$
+	is also $T$-invariant. We continue the process until we have produced a basis for $V$. Hence, by Proposition 1.1, $T$ is triangularizable.
+\end{proof}
+
+\begin{corollary}
+	If $T:V\rightarrow V$ is triangularizable with eigenvalues $\lambda_i$ with respective multiplicities $m_i$, then there eixsts an order basis $\beta$ for $V$ such that $[T]_{\beta}$ is upper triangular matrix, and the diagonal entries of $[T]_{\beta}$ are $m_1$~$\lambda_1$'s followed by $m_2$~$\lambda_2$'s and so on.
+\end{corollary}
+
+Under the assumption that all the eigenvalues of $T: V \rightarrow V$ lie in the foeld $\F$ over which $V$ is defined. We recall that if $T$ is a linear operator (or matrix)  and $p(t) = a_nt^n + a_{n-1}t^{n-1}T^{n-1} + \cdots + a_0$ is a polynomial, then we can define a new linear mapping
+$$p(T) = a_nT^n + a_{n-1}T^{n-1}+\cdots + a_0I.$$
+
+\begin{theorem} [\textbf{Cayley-Hamilton theorem}]
+	Let $T:V \rightarrow V$ be a linear operator on a finite dimensional vector space $V$ and let $p(t)=\det(T - tI)$ be its characteristic polynomial. Assume that $p(t)$ has $\dim(V)$ roots in the field $\F$ over which $V$ is defined. Then $p(T) = 0$, which is a zero transformation on $V$.
+\end{theorem}
+
+\begin{remark}
+	It follows form Exercise 6-4-16 in Friedberg.
+\end{remark}
+
+\begin{proof}
+	It suffices to show that $p(T)(x) =0$ for all the vectors in some basis of $V$. By Theorem 1.1 (\textbf{Schur's Lemma}), there exists an ordered basis $\beta = \{x_1,\cdots,x_n\}$ for $V$ such that  $W_i = \spanning{\{x_1,\cdots,x_i\}}$ is $T$-invariant for all $1 \leq i \leq n$. Since all the eigenvalues of $T$ lie in $\F$, so 
+	$$p(t) = \pm1 \cdot (t - \lambda)\cdots(t-\lambda_n)$$
+	for some $\lambda_i \in \F$ (not necessary distinct). If the factors here are ordered in the same fashion as the diagonal entries of $[T]^{\beta}_{\beta}$, then 
+	$$T(x_i) = \lambda_ix_i+y_{i-1},$$ 
+	where $y_i \in W_{i-1}$ and $i \geq 2$, in particular, $T(x_1) = \lambda_1x_1$. Now, we use the induction on $i$. For $i = 1$, we get that 
+	\begin{align*}
+		p(T)(x_1) 
+		& = \pm(T - \lambda_1 I)\cdots(T - \lambda_n I)(x_1) \\
+		& = \pm(T- \lambda_2 I)\cdots(I-\lambda_n I)(T - \lambda_1)(x_1) = 0.
+	\end{align*}
+	The last equality follows that the powers of $T$ commutes with each other and with $I$. Suppose that $p(T)(x_i)=0$ for all $i \leq k$. We compute $p(T)(x_{k+1})$. It is clear that only the factors $(T - \lambda_1 I),\cdots,(T - \lambda_k I)$ are needed to send $x_i$ to $0$ for $i \leq k$. As before, we can rearrange the factors in $p(T)$ to obtain
+	\begin{align*}
+		p(T)(x_{k+1})
+		& = \pm(T - \lambda_1 I)\cdots(T - \lambda_n I)(x_{k+1}) \\
+		& = \pm(T - \lambda_1 I)\cdots(T - \lambda_n I)(T - \lambda_{k+1}I)(x_{k+1}) \\
+		& = \pm(T - \lambda_1 I)\cdots(T - \lambda_n I)(y_k) = 0.
+	\end{align*}
+ 	The last equality follows that $T(x_{k+1}) = \lambda_{k+1}x_{k+1}+y_{k}$ and $y_k \in W_k$. By induction, the other factors in $p(T)$ send all the vectors in this subspace to 0. We are done.
+\end{proof}
+
+\begin{remark}
+	There are another proof of Theorem 1.2 (\textbf{Cayley-Hamilton theorem}). One can see Theorem 5.23 in Friedbreg.
+\end{remark}
+
+\begin{remark}
+	Suppose that $A \in M_{n \times n}(\F)$. If $A$ is invertible, then $\det(A) \ne 0$. We consider that the characteristic polynomial of $A$
+	$$p(A) = \det(A - tI) = (-1)^nt^n + a_{n-1}t^{n-1}+\cdots+ a_1t + a_0.$$
+	Clearly, $a_0 = \det(A)$. By Theorem 1.2 (\textbf{Cayley-Hamilton theorem}), we get that 
+	$$p(A) = (-1)^nA^n + a_{n-1}A^{n-1}+\cdots+ a_1A + a_0I = 0.$$
+	Moreover, we also get that 
+	$$A^{-1} = \frac{-1}{\det(A)}((-1)^nA^{n-1} + \cdots+ a_1I).$$
+	One can see Excercise 5-1-20, 5-1-21 and 5-4-18 in Friedbreg.
+\end{remark}
+
+
+
+
+
+
+
+
+
+\end{document}

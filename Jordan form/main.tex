@@ -23,9 +23,7 @@
 \end{tcolorbox}
 
 \begin{defn}
-	Let $T:V \rightarrow V$ be a linear operator on a finite dimension vector space
-	
-	we say that $V$ is triangularizable $\Leftrightarrow \exists$ a order basis $\beta \ni [T]^{\beta}_{\beta}$ is upper triangular  
+	Let $T:V \rightarrow V$ be a linear operator on a finite dimension vector space, we say that $V$ is triangularizable $\Leftrightarrow \exists$ a order basis $\beta \ni [T]^{\beta}_{\beta}$ is upper triangular  
 \end{defn}
 
 \textbf{Example}(triangularizable matrix)
@@ -43,35 +41,27 @@
 	Clearly $[T]^{\beta}_{\beta}$ is upper triangular, and let $w_i$ be the subspace of $\mathbb C^4$ spanned by the first $i$ vectors in the standard ordered basis, clearly, $T(w_i) \subseteq w_i = \sett{T(w)~|~w\in W} = Im(T|w)$
 \end{tcolorbox}
 
-\textbf{Propos 1}
+\textbf{Propos 1.} Let $V$ be a finite vector space, let $T:V \rightarrow V$ be a linear operator and $\beta = \sett{x_1,\cdots,x_n}$ be a basis for $V$, then $[T]^{\beta}_{\beta}$ is upper triangle $\Leftrightarrow$ the subspace $w_i = \spann{x_1,\cdots,x_i}$ is T-invariant. 
 
-let $V$ be a finite vector space, let $T:V \rightarrow V$ be a linear operator and $\beta = \sett{x_1,\cdots,x_n}$ be a basis for $V$, then
-
-\begin{center}
-	$[T]^{\beta}_{\beta}$ is upper triangle $\Leftrightarrow$ the subspace $w_i = \spann{x_1,\cdots,x_i}$ is T-invariant 
-\end{center}
+\begin{proof}
+	It is trivial.
+\end{proof}
 
 Note that the subspace $w_i$ in \textbf{Prop 1} related follow
 
-$$\sett{0} \subseteq w_i \subseteq \cdots \subseteq w_{n-1} \subseteq w_n = V$$
+$$\sett{0} \subseteq W_i \subseteq \cdots \subseteq W_{n-1} \subseteq W_n = V$$
 
-we say that $w_i$ forms an hands up sequence of subspaces.
+we say that $w_i$ forms an hands up sequence of subspaces. On the other hand, a given linear operator can be a upper triangle, we must to construct the $\nearrow$ sequence of $T$-invariant subspace
 
-on the other hand, a given linear operator can be a upper triangle, we must to construct the $\nearrow$ sequence of $T$-invariant subspace
-
-$$\sett{0} \subseteq w_1 \subseteq \cdots \subseteq w_n$$
+$$\sett{0} \subseteq W_1 \subseteq \cdots \subseteq W_n$$
 
 $T|_{w}:W\rightarrow W$ is a linear mapping, $T_W$ where $W$ is a $T$-invariant subspace 
-
-\newpage
 
 \textbf{Propos 2}
 
 Let $T:V \rightarrow V, W \leq V$ is a $T$-invariant, where $V$ is a finite dimension vector space. Then the character polynomial of $T|_W$ divides the c.p. of $T$
 
-\begin{proof}(Thm 5.21 from Friedberg)
-	
-	\textbf{\color{red} not today}
+\begin{proof}(Thm 5.21 from Friedberg)\textbf{\color{red} not today}
 	
 \end{proof}
 
@@ -119,50 +109,41 @@ $\color{red}\star $ we need to use this lemma to create $\nearrow$ subspaces
 \newpage
 
 \begin{proof}
-
-	\textbf{Define the $P$ and $S$ first}
-
-	let $\alpha = \sett{x_1,\cdots,x_k}$ be a basis for $W$, and extend $\alpha$ by adjoint $\alpha' = \sett{x_{k+1},\cdots,x_n}$ to form a basis $\beta = \alpha \cup \alpha'$ for $V$, let $w' = \spann{\alpha'}$. Define a linear operator $P:V \rightarrow V$ by
-	
-	 $$P(a_1x_1+\cdots+a_nx_n) = a_1x_1 + \cdots + a_kx_k~ \text{(projection, $V = W \oplus W'$)}$$
-	 
-	 Clearly, $W' = Ker(P),~W = Im(P),~P^2 = P$, Moreover $I - P$ is also the projection on $W'$ with kernel $W$
-	 
-	 \begin{tcolorbox}
-	 	$(I-P)(a_1x_1+\cdots+a_nx_n)=I(a_1x_1+\cdots+a_nx_n)-P(a_1x_1+\cdots+a_nx_n)$
-	 	
-	 	$=a_1x_1+\cdots+a_nx_n-a_1x_1+\cdots+a_kx_k = a_{k+1}x_{k+1} + \cdots + a_nx_n$
-	 	
-	 	Further more $(I - P)^2 = (I-P)(I-P) = I-P^2 - P + P = I-P^2 = I - P $
-	 \end{tcolorbox}
-	 
-	 if the basis is orthogonal basis, $W' = W^{\perp}$(Gramm schmit), and $P$ is an orthogonal projection
-	 
-	 let $S = (I-P)\circ T$, since $Im(I-P) = W'$, so $Im(S) \subseteq Im(I-P) = W'$, i.e. $W'$ is $S$-invariant subspace, $\because S(W') \subseteq W'$
-	 
-	 \textbf{Claim} the set of eigenvalues of $S|_W$ is a subset of the root of eigenvalues of $T$
-	 
-	 First, since $W$ is $T$-invariant, then $[T]^{\beta}_{\beta} = \left( \begin{matrix}
+	let $\alpha = \{x_1,\cdots,x_k\}$ be a basis for $W$ and extend $\alpha$ by adjointing $\alpha' = \{x_{k+1},\cdots,x_n\}$ to form a basis $\beta = \alpha \cup \alpha'$ for $V$. Let $W' = \spann{\alpha'}$. Clearly, $V = W \oplus W'$ because we know that the fact that 
+	\begin{tcolorbox}
+		Let $\beta_1$ and $\beta_2$ be disjoint bases for subspaces $W_1$ and $W_2$, respectively, of a vector space $V$. If $\beta_1 \cup \beta_2$ is a basis for $V$, then $V = W_1 \oplus W_2$.
+	\end{tcolorbox}	
+	We define a linear operator $P:V \rightarrow V$ by	
+	$$P(a_1x_1+\cdots+a_nx_n) = a_1x_1 + \cdots + a_kx_k.$$
+	Clearly, $W' = \kernal{P}$, $W = \image{P}$, and $P^2 = P$. Hence $P$ is the projection on $W$ with kernal $W'$. Moreover $I - P$ is also the projection on $W'$ with kernel $W$. Since 
+	\begin{align*}
+		& (I-P)(a_1x_1+\cdots+a_nx_n) \\
+		& = I(a_1x_1+\cdots+a_nx_n)-P(a_1x_1+\cdots+a_nx_n)\\
+		& = a_1x_1+\cdots+a_nx_n-a_1x_1+\cdots+a_kx_k \\
+		& = a_{k+1}x_{k+1} + \cdots + a_nx_n,
+	\end{align*}
+	 $W = \kernal{I - P}$, $W' = \image{I - P}$, and $(I - P)^2 = (I-P)(I-P) = I-P^2 - P + P = I-P^2 = I - P $. If the basis of $V$ is orthonormal (the Grame-Schmidt process), then it is clear that $W' = W^\perp$ by theorem 6.7 in Friedbreg. Since $V$ is a finite dimensional vector space, so $(W^\perp)^\perp = W$ for all subspace $W$ of $V$. It implies that $P$ is an orthogonal projection.Let $S = (I-P)\circ T \equiv (I-P)T $. Since $\image{I-P}= W'$, so $\image{S} \subseteq \image{I-P} = W'$, that is, $W'$ is $S$-invariant subspace ($S(W') \subseteq W'$). Now, we claim that the set of eigenvalues of $S\arrowvert_W$ is a subset of the root of eigenvalues of $T$. Since $W$ is $T$-invariant (by assumption), so we compute the matrix representation of $[T]^{\beta}_{\beta}$ is the form
+	 $$[T]^{\beta}_{\beta} = \left[ 
+	 \begin{matrix}
 	 	A&B\\O&C
-	 \end{matrix}\right)$
-	 
-	 Clearly, $A = \left[ T|_W\right]^{\alpha}_{\alpha}$ is $k \times k$ block, $C = \left[ S|_{W'}\right]^{\alpha'}_{\alpha'}$ is a $(n-k) \times (n-k)$ block, Hence 
-	 
-	 $$\det(T - \lambda I) = \det(T|_W - \lambda I)\cdot \det(S|_{W'} - \lambda I)$$
-	 
-	 by prop.2 \& corollary, we down since all the eigenvalue of $T$ lie in $\mathrm F$(the c.p. has $n$ roots)
-	 
-	 by claim, same is true of all the eigenvalues of $S|_{W'}$
-	 
-	 so $\exists x \neq 0,~x \in W' \ni Sx = \lambda x$, for some $\lambda \in \mathbb F$, i.e.
-	 
-	 $$(I-P)(Tx) = \lambda x \implies Tx - PTx = \lambda x \implies Tx = \lambda x + PTx \in \spann{x}+W$$
-	 
-	 Finally $W + \spann{x}$ is $T$-invariant, i.e. $y \in W + \spann{x} \implies T(y) \in W + \spann{x}$
-	 
-	 Give $y \in W + \spann{x}$, then, $\exists~z \in W_1,\lambda \in \mathrm F \implies y = z + \lambda x$
-	 
-	 $T(y) = T(z+\lambda x) = T(z) + \lambda T(x) = T(z) + \lambda(x)+\lambda PT(x)$
+	 \end{matrix}
+ 	\right].$$
+	Clearly, $A = \left[T\arrowvert_W\right]^{\alpha}_{\alpha}$ is $k \times k$ block matrix and $C = \left[ S\arrowvert_{W'}\right]^{\alpha'}_{\alpha'}$ is a $(n-k) \times (n-k)$ block matrix. Hence 
+	$$\det(T - \lambda I) = \det(T\arrowvert_W - \lambda I)\cdot \det(S\arrowvert_{W'} - \lambda I).$$
+	From Corollary 1.1, we are done. Since all the eigenvalues of $T$ lie in the field $\mathrm F$ ($\because$ the characteristic polynomial $n$ roots), so by previous discussion, the same is true of all the the eigenvalues of $S\arrowvert_{W'}$. Then there exists a nonzero vector $x$ in $W'$ ($x \notin W$) such that $Sx = \lambda x$, for some $\lambda \in \mathbb F$. It implies that 
+	\begin{align*}
+		(I-P)(Tx) = \lambda x 
+	 	& \implies Tx - PTx = \lambda x \\
+	 	& \implies Tx = \lambda x + PTx \in \spann{\{x\}}+W.
+	\end{align*}
+	
+	Finally, we show that $W +  \spann{\{x\}}$ is $T$-invariant. For all $y \in W + \spann{\{x\}}$, there exists $z \in W$ and $\lambda \in \mathrm F$ such that $y = z + \lambda x$. Then 	
+	
+	\begin{align*}
+		T(y) = T(z+\lambda x) 
+		& = T(z) + \lambda T(x) \\
+		& = T(z) + \lambda(x)+\lambda PT(x)\in \spann{\{x\}}+W.
+	\end{align*} 
 \end{proof}
 
 \textbf{We finish this lemma, and we are going to proof Schur lemma}
@@ -172,8 +153,6 @@ $\color{red}\star $ we need to use this lemma to create $\nearrow$ subspaces
 $\implies \exists$ order basis $\beta$ of $V \implies [T]_{\beta}$ is upper triangular $\implies$ the eigenvalues of $T$ are the diagonal entries in $\mathrm F \implies$ the c.p. splits  
 	
 \end{proof}
-
-\newpage
 
 \begin{proof}($\Leftarrow$) Suppose the condition holds
 
@@ -227,8 +206,6 @@ $$p(T) = a_nT^n + a_{n-1}T^{n-1}+\cdots + a_1I$$
 	\end{enumerate}
 \end{proof}
 
-\newpage
-
 Suppose that $A \in M_{n \times n}(\mathrm F)$ if $A$ is invertible, i.e. $\det(A) \neq 0$, consider the c.p. of $A$
 
 $$\det(A - tI) = (-1)^nt^n + \cdots + a_1t + a_0,~t=0 \implies a_0 = \det(A) \neq 0$$
@@ -237,7 +214,9 @@ by thm 4(Cayley-Hamilton), $p(A) = (-1)^nA^n + \cdots + \det(A)I = 0$
 
 $$\left( \dfrac{-1}{\det(A)}\right)\left((-1)^nA^{n-1}+\cdots+a_1I\right) = A^{-1}$$
 
-\subsection{A Canonical form for nilpotent mappings}
+\subsection{A Canonical form for nilpotent mappings} $ $
+
+We look at the linear operator $N:V \rightarrow V$, which only one distinct eigenvalue $\lambda = 0$ with multiplicity $n = dim(V)$, if $N$ is each mapping, then by 
 
 
 

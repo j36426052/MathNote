@@ -1,0 +1,763 @@
+\section{Basic Point Set Topology}
+
+To know the "closeness", "limit" and "continue"
+
+\textbf{Notation}. Let $X$ be a nonempty set. The power set of $X$ is denoted by $p(X)$ or $2^X$, i.e. $\mathscr{P}(X) = 2^X$ which is the collect of all subset, if $|X| = n$, then $|\mathscr{P}(X)| = 2^n$
+
+\subsection{Topological Spaces}
+
+\begin{defn}
+	Let $X$ be a nonempty set and $\mathscr{T} \subseteq \mathscr{P}(X)$, we say that $\mathscr{T}$ is a topology on $X$ if it satisfies
+	
+	\begin{enumerate}
+		\item $\emptyset,X \in \mathscr{T}$
+		\item $\mathscr{T}$ is closed under arbitrary union, \\i.e. $U_{\alpha} \in \mathscr{T},~\alpha \in I \implies \bigcup_{\alpha \in I} U_{\alpha} \in \mathscr{T}$
+		\item $\mathscr{T}$ is closed under finite intersection \\i.e. $U_1,\cdots,U_n \in \mathscr{T} \implies U_1 \cap \cdots \cap U_n \in \mathscr{T}$
+	\end{enumerate}
+	
+	In this chapter, the pair $(X,J)$ or simply $J$ is called a topological space and members in $T$ are called open set in $X$ or open subsets of $X$
+\end{defn}
+
+\begin{rmk*}$ $
+	\begin{enumerate}
+		\item $X$: a nonempty set, there is at least two trivial topology on $X$
+			\begin{enumerate}
+				\item[$\bullet$] $\mathscr{P}$(x) is the largest topology on $X$ w.r.t inclusion $X$ with this topology is called a discrete topological space
+				\item[$\bullet$] $\mathscr{T}_0 = \{\emptyset, X\}$ is the smallest topology on $X$ w.r.t inclusion $X$ with this topology is called an indiscrete topological space
+			\end{enumerate}
+		\item How many topology can be define on $\{a\},~\{a,b\}$?
+	\end{enumerate}
+\end{rmk*}
+
+In the following $X$ is a topology space
+
+\begin{defn}[neighborhood]
+	Let $p \in X$, a neighborhood of $P$ is an open set $U$ containing $p$  
+\end{defn}
+
+\begin{defn}[Hausdorff space]
+	$X$ is a Hausdorff space if any two distinct points can be separated by open set, i.e. $\forall ~p \neq q$ in $X,~\exists$ neighborhood $U$ of $p$ and $V$ of $q \in U \cap V = \emptyset$
+\end{defn}
+
+\begin{defn}[closed set]
+	A subset $F \subseteq X$ is said to be closed if $F^C = X - F$ is open in $X$
+\end{defn}
+
+\begin{thm}
+	The collection of all closed subsets of $X$ satisfied
+	
+	\begin{enumerate}
+		\item[(a)] $\emptyset, X$ are closed
+		\item[(b)] Arbitrary intersection of closed set if closed
+		\item[(c)] Finite union of closed sets is closed
+	\end{enumerate}
+\end{thm} 
+\newpage
+
+\begin{proof}$ $\\
+	\begin{enumerate}
+		\item[(a)] $X - \emptyset = X $ is open $~\therefore \emptyset$ is closed\\
+	$X - X = \emptyset$ is open $~\therefore X$ is closed
+		\item[(b)] Given closed sets $F_{\alpha},\alpha \in I$, $X - \bigcap_{\alpha \in I}F_{\alpha} = \bigcup_{\alpha - I}(X - F_{\alpha})$ is open,$\therefore \bigcap_{\alpha - I}F_{\alpha}$ is closed.
+		\item[(c)] Given closed set $F_1,\cdots,F_n$, $X - \bigcup_{i=1}^{n}F_i = \bigcap^n_{i=1}(X-F_i)$ is open, $\therefore \bigcup^n_{i=1}F_i$ is closed.
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{defn}
+	Let $Y \subseteq X$ and
+	
+	$$\T_y = \{U \cap Y ~|~U \text{ is open in }X\}$$
+\end{defn}
+
+\begin{thm}
+	$\mathscr T_Y$ is also a topology space
+\end{thm}
+
+\begin{proof}
+	To proof $\mathscr T_Y$ is a topology space, we take the topology's definition
+	\begin{enumerate}
+		\item[(a)] $\emptyset,Y \in \T_Y$ ($\because \emptyset = \emptyset \cap Y,~Y = X \cap Y$)
+		\item[(b)] Given $U_{\alpha} \cap Y \in \T_Y,~\alpha \in I,$ where $U_{\alpha}$ is open in $X$
+		
+		$\bigcup_{\alpha \in I}(U_{\alpha \cap Y}) = (\bigcup_{\alpha \in I}U_{\alpha})\cap Y \implies \bigcup_{\alpha \in I}(U_{\alpha} \cap Y) \in \T_Y$
+		\item[(c)] Given $U_1 \cap Y,\cdots,U_n \cap Y$, where $U_i$ is open in $X,~1 \leq i \leq n$
+		
+		$\cap^n_{i=1}(U_i \cap Y) = (\cap^n_{i=1}U_i) \cap Y \implies \bigcap^n_{i=1}(U_i \cap Y) \in \T_Y$
+		
+		$\therefore \T_Y$ is a topology on $Y$
+	\end{enumerate}
+\end{proof}
+
+\begin{defn}
+	In Theorem 2.2, with the topology $\T_Y$ on $Y$, is called a topological subspace of $X$ and $\T_Y$ is called the relative topology of $Y$ in $X$. Members in $\T_Y$ are called open set in $Y$ or relative open sets in $Y$.
+\end{defn}
+
+\newpage
+
+\subsection{Metric Spaces \& Subspace}$ $
+
+In this chapter, we will introduce a class of topology space whose topology in induced by a metric.
+\begin{defn}
+	Let $X$ be a nonempty set. A metric or distance function in a function
+	
+	$$d:X\times X \rightarrow \mathbb R,~(a,b) \mapsto d(a,b)$$
+	
+	satisfying:
+	
+	\begin{enumerate}
+		\item[(a)] $\forall a,b \in X,d(a,b) \geq 0$ and $d(a,b) = 0 \Leftrightarrow a = b$
+		\item[(b)] $\forall a,b \in X,d(a,b) = d(b,a)$ \textbf{symmetry}
+		\item[(c)] $\forall a,b,c \in X,d(a,b) \leq d(a,c)+d(a,b)$ \textbf{triangle inequaity}
+	\end{enumerate}
+	
+	if $d$ is a metric on $X$, then the pair $(X,d)$ or simply $X$ is called a metric space and $\forall a,b \in X,~d(a,b)$ is called the distance between $a ~\&~b$
+\end{defn}
+
+\textbf{Examples}
+
+\begin{enumerate}
+	\item Let $X$ be a nonempty set define by
+	
+	$$d(a,b) = \begin{cases}
+		0 \text{ if } a = b\\ 1 \text{ if } a \neq b
+	\end{cases}$$
+	
+	Then $d$ is a metric on $X$, called the discrete metric and with this metric $X$ is called a discrete metric space. In particular, any set admits a metric.
+	\item The most important metric spaces are the Euclidean space $\mathbb R^k$, the metric $d$ is called the Euclidean or standard or usual metric on $\mathbb R^k$.There are other metrics on $\mathbb R^k$ induced the same metric topology on $\mathbb R^k$, in fact, they are all equivalent, e.g $\forall~ 1 \leq p \leq \infty$, We can define a metric $d_p$ on $\mathbb R^k$ as follows
+		\begin{enumerate}
+			\item[$\bullet$] $1 \leq p < \infty,~d_p(x,y) = ||x-y||_p = \left( \sum^k_{i=1}|x_i-y_i|^p\right)^{\frac{1}{p}}$
+			\item[$\bullet$] $p = \infty,~d_{\infty}(x,y) = \max_{1 \leq i \leq k}|x_i - y_i|$
+		\end{enumerate}
+		
+		Note that $d_2 = d$ is the Euclidean metric on $\mathbb R^k$
+		
+		\begin{rmk*}
+			In fact, every normed linear space$(V,||\cdot||)$ is a metric space whose metric is induced by its norm
+		\end{rmk*}
+	\item Let $(X,d)$ be a metric space and $Y \subseteq X,~Y \neq \emptyset$. Then the restriction of $d$ to $Y \times Y$ is also a metric on $Y$, with this metric, $Y$ is called a metric subspace of $X$
+	
+\end{enumerate}
+
+\newpage
+
+\begin{defn}[ball]
+	Given $p \in X \& r > 0$
+	
+	$B(p,r) = \{x \in X ~|~ d(x,p) < r\}:$ open ball with center $p$ and radius $r$
+	
+	$\overline{B}(p,r) = \{x \in X ~|~ d(x,p) \leq r\}:$ closed ball with center $p$ and radius $r$ 
+\end{defn}
+
+\textbf{Example}$ $
+
+\begin{enumerate}
+	\item The discrete metric space $X:~ p \in X,~r>0$
+	
+	$B(p,r) = \begin{cases}
+		\{p\} \text{ if } 0 \leq r \leq 1\\ X \text{ if } r > 1
+	\end{cases}$
+	
+	$\overline{B}(p,r) = \begin{cases}
+		\{p\} \text{ if } 0 \leq r < 1\\ X \text{ if } r \geq 1
+	\end{cases}$
+	
+	\item In the Euclidean space $\mathbb R^k$,~ $p \in \mathbb R^k,~r>0$
+	
+	$B(p,r) = \{x \in \mathbb R~|~ \norm{x-p} < r \}$ is a ""true"" open
+	
+	$\overline{B}(p,r) = \{ x \in \mathbb R ~|~ \norm{x - p} \leq r \} $ is a "true" closed ball
+	
+	In particular, for $k = 1$ in $\mathbb R$
+	
+	$B(p,r) = (p-r,p+r):$ a symmetric opne interval
+	
+	$\overline{B}(p,r) = [p-r,p+r]:$ a symmetric close interval
+	
+	However, w.r.t $d_1 ~\&~ d_{\infty}$, we have, e.g. in $\mathbb R^2$
+	
+	$B_1(0,1) = \{(x,y)~|~|x-0|+|y-0|<1\}$
+	
+	$B_{\infty}(0,1) = \{(x,y) ~|~ \max\{|x|,|y|\} \leq 1\}$
+	
+	\item What is the open balls in $S = [0,1] \subseteq \mathbb R$?
+	
+	$B_S(0,\frac{1}{2}) = \{x \in S ~|~ |x - 0| < \frac{1}{2}\} = [0,\frac{1}{2}] = B(0,\frac{1}{2}) \cap [0,1]$
+	
+	$B_S(0,3) = [0,1] = B(0,3) \cap [0,1]$
+
+\end{enumerate}
+
+\textbf{Prop 2.2} Let $S$ be a metric subspace of a metric space $X$, then $\forall ~p \in S ~\&~ r > 0$, $B_S(p,r) = B(p,r) \cap S$
+
+\begin{proof}
+	$B_S(p,r) = \{x \in S ~|~ d(x,p) < r\} = \{x \in X ~|~ d(x,p) < r\} \cap S\\=B(p,r) \cap S$
+\end{proof}
+
+\subsection{Open Sets in Metric Spaces} $ $
+
+We will see that every metric on a set induce a topology on $X$
+
+\begin{defn}[interior point]
+	Let $S \subseteq X$ be a set, and $p \in S$, we say that $p$ is an interior point of $S$ if $\exists~ r > 0,~\exists~B(p,r) \subseteq S$
+	
+	Denote by $S^o$ or int($S$) by the set of all interior point of $S$
+\end{defn}
+
+\begin{defn}[open]
+	Let $S \subseteq X$, we say that $S$ is open if all points of $S$ are interior points of $S$
+\end{defn}
+
+\newpage
+
+\begin{rmk*}$ $
+	\begin{enumerate}[wide]
+		\item Every open set $S$ is a union of a open balls in $X$.
+		
+		$\because \forall~x \in S,x$ is an interior point of $S$, $\exists r_x > 0 \ni B(x,r_x) \subseteq S$
+		
+		$\therefore S = \cup_{x \in S}B(x,r_x)$
+		
+		\item $S^o \subseteq S$ by definition
+		\item $S$ is open $\Leftrightarrow S = S^o$
+	\end{enumerate}
+\end{rmk*}
+
+\textbf{Prop 2.3}
+
+\begin{enumerate}[wide,label=\textbf{(\alph*)}] 
+	\item $S \subseteq T \implies S^o \subseteq T^o$ 
+	
+	$$\because p \in S^o \implies \exists~r>0 \ni B(p,r) \subseteq S \subseteq T \implies p \in T^o$$
+	\item Every open ball $B(p,r)$ in $X$ is open
+	
+	$\because$ Give $q \in B(p,r)$, Let $\delta = r = d(p,q)$.Claim $B(q,\delta) \subseteq B(p,r)$ which says $q$ is an interior point of $B(p,r)$.Since $q \in B(p,r)$ is arbitrary, so $B(p,r)$ is open. Given $x \in B(q,\delta)$
+	
+	$$d(x,p) \leq d(x,q) + d(q,p) < \delta + d(q,p) = r - d(p,q)+d(q,p)=r$$
+	\item $\forall~S \subseteq X,~S^o$ is always open
+	
+	$\because$ Given $p \in S^o,~\exists~r>0 \ni B(p,r) \subseteq S$
+	
+	$$\implies B(p,r) \subseteq S^o \implies p \text{ is a interior point of }S^o$$
+	
+	$\therefore S^o$ is open
+	
+	\item $\forall~ S \subseteq X,~ S^{oo} = (S^o)^o = S^o$
+	 
+	$\because$ by definition of open set and (c)\\
+\end{enumerate}
+
+
+Now, let $T = \{U \subseteq X ~|~ U \text{ is open in }X\}$
+
+\textbf{Prop 2.4} $T$ is a topology on $X$. In particular, $X$ is a topology space.
+
+
+\begin{proof}$ $
+	\begin{enumerate}[wide,label = (\textbf{\roman*})]
+		\item $\emptyset, X \in \T$, $\because \emptyset = \emptyset,~X^o = X$
+		\item $U_{\alpha} \in \T, a \in I$ are open $\implies \bigcup_{\alpha \in I}U_{\alpha}$ is open
+		
+		Given an arbitrary point $p \in \bigcup_{\alpha \in I}U_{\alpha} \implies \exists \alpha_0 \in I \ni p \in U_{\alpha_0}$
+		
+		$U_{\alpha_0}$ is open, $\exists r > 0 \ni B(p,r) \subseteq U_{\alpha_0} \subseteq \bigcup_{\alpha \in I}U_{\alpha}$
+		
+		$\because p$ is an interior point of $\bigcup_{\alpha \in I}U_{\alpha}~\therefore \bigcup_{\alpha \in I}U_{\alpha}$ is open, i.e. $\bigcup_{\alpha \in I}U_{\alpha} \in T$
+		\item $U_1,\cdots,U_n \in T \implies U_1 \cap \cdots \cap U_n \in T$
+		 
+		$\because$ Given $p \in U_1 \cap \cdots \cap U_n \implies p \in U_i~1\leq i\leq n$. Each $U_i$ is open, $\exists r_i > 0~B(p,r_i) \subseteq U_i,~1\leq i \leq n \implies B(p,r) \subseteq U_1 \cap \cdots \cap U_n$\\
+		$\implies p$ is an interior point of $U_1 \cap \cdots \cap U_n$
+		
+		p is arbitrary, so $U_1 \cap \cdots \cap U_n$ is open, i.e. $U_1 \cap \cdots \cap U_n \in T$
+		
+		Therefore, $T$ is a topology on $X$
+	\end{enumerate}
+\end{proof}
+
+\begin{defn}
+	Let $X$ be a metric space with metric $d$. The topology $T$ in prop 2.4 is called the metric topology(include by $d$)
+\end{defn}
+
+Let $X$ be a metric space and $Y \subseteq X$, Then $Y$ is a metric subspace of $X$, and $\forall y \in Y,~r > 0,~B_Y(y,r) = B(y,r) \cap Y$. In fact, we have more\\
+
+\textbf{Prop 2.5} A subset $A \subseteq Y$ is open in $Y \Leftrightarrow A = U \cap Y$ for some open set $U$ in $X$, in particular, the metric topology on $T$ is just the relation topology of $Y$ on $X$
+
+\begin{proof}$ $
+	($\Rightarrow$) suppose $A \subseteq Y$ is open in $Y$. Then
+	
+	$$A = \bigcup_{y \in A}B_{Y}(y,r_y) = \bigcup_{y \in A}(B(y,r_y)\cap Y) = (\bigcup_{y \in A}B(y,r_y))\cap Y$$
+	
+	Let $U = \bigcup_{y \in Y}B(y,r_y)$, then $U$ is open in $X$ and $A = U \cap Y$
+	
+	($\Leftarrow$) Suppose $A = U \cap Y$ where $U \subseteq X$ is open $\forall ~ y \in A, y\in U \cap Y \implies y \in U \implies \exists r > 0 \ni B(y,r) \subseteq U \implies B(y,r) \cap Y \subseteq U \cap Y = A \implies B_Y(y,r) \subseteq A$, $~\therefore A$ is open in $Y$.
+\end{proof} 
+
+\textbf{Prop 2.6} Every metric space $X$ is Hausdorff
+
+\begin{proof}
+	Given $p,q \in X,~p\neq q$. Choose $r = \frac{1}{2}d(p,q)>0$. Then $B(p,r)\cap B(q,r) = \emptyset$. So $X$ is Hausdorff \\($\because x \in B(p,r) \cap B(q,r) = d(x,p) < r ~\&~ d(x,q) < r \implies d(p,q) \leq d(p,x) + d(x,q) < r+r = 2r = d(p,q) (\rightarrow\leftarrow)$ )
+\end{proof} 
+
+\begin{rmk*}
+	Let $S \subseteq X,$ where $X$ is a metric space. Then $S^o$ is the largest(w.r.t inclusion) open set contained in $S$. $\because \forall~$ open set $U \subseteq S,~U^o\subseteq S^o \implies U \subseteq S^o \subseteq S$. In fact, $S^\circ = \bigcup_{U \subseteq S}U$(which is the definition of intension of S in a topology space $X$)
+\end{rmk*}
+
+
+\subsection{Closed Sets}
+
+\begin{defn}[Closed set]
+	$F \subseteq X$ is closed $\Leftrightarrow$ $F^C = X-F$ is open in $X$
+\end{defn}
+
+By Theorem 2.1, the collection of all close sets in $X$ has the properties
+
+\begin{enumerate}[wide,label = \textbf{(\roman*)}]
+	\item $\emptyset,X$ are closed in $X$
+	\item $F_{\alpha}$ is closed in $X,~\alpha \in I \implies \bigcap_{\alpha \in I}F_{\alpha}$ is closed in $X$
+	\item $F_1,\cdots,F_n$ are closed in $X \implies \bigcup_{i=1}F_i$ is closed in $X$
+\end{enumerate}
+
+\textbf{Example}
+
+Intersection of infinitely many open set may not be open
+	
+in $\mathbb R$ with Euclidean topology, $(-\frac{1}{n},\frac{1}{n})$ is open in $\mathbb R ~\forall~n \geq 1 \implies \bigcap_{n=1}^{\infty}(-\frac{1}{n},\frac{1}{n}) = \{0\}$ is not open
+
+\textbf{Prop 2.8} Let $X$ be a metric space and $Y \subseteq X$ and $B \subseteq Y$, Then $B$ is closed in $Y \Leftrightarrow B = F \cap Y$ for some closed set $F$ in $X$
+
+\begin{proof}
+	($\Rightarrow$) Suppose $B$ is close in $Y \implies Y - B$ is open in $Y \implies Y-B = U \cap Y(\text{by prop 2.5})$ for some open set $U$ in $X \implies Y - (Y-B) = Y-(U \cap Y) \implies B = (X - U) \cap Y$. where $(X - U)$ is close.
+	
+	($\Leftarrow$) Suppose $B = F \cap Y,$ where $F$ is closed in $X \implies Y - B = Y-(F \cap Y) = (X-F) \cap Y \implies Y - B$ is open in $Y \implies B$ is close in $Y$.
+\end{proof}
+
+In metic space, one can use sequence to detect the closeness of a set
+
+\textbf{Example}
+
+\begin{enumerate}[wide,label=\textbf{\arabic*.}]
+	\item We know that $[a,b)$ is not closed in $\mathbb R$, however, $\exists$ a sequence $\{x_n\}$ in $[a,b) \ni x_n \rightarrow b$ on $n \rightarrow \infty$, e.g. $b - \frac{1}{n} \rightarrow b$
+	\item $A = \{\frac{1}{n}~|~n \geq 1\} = \{1,\frac{1}{2},\frac{1}{3},\cdots\}$ is not close in $\R$
+	
+	if $\R - A$ will open, them $\exists r>0,~B(0,r) \subseteq \R - A(\rightarrow\leftarrow)$
+	
+	$A \cup \{0\}$ is closed in $\R$
+	
+	$$R \setminus (A \cup \{0\}) = (-\infty,0)\cup(1,\infty)\cup(\bigcup^{\infty}_{n=1}(\frac{1}{n+1},\frac{1}{n})) \text{ is open}$$
+	
+	$\therefore A \cup \{0\}$ is closed
+\end{enumerate}
+
+
+
+\begin{defn}[Adherent, clousure $\cdots$]
+	Let $X$ be a metric space with metric $d$, $T \subseteq X$ be a subset.(\textbf{\color{red} important})
+	
+	\begin{enumerate}[wide, label = \textbf{(\arabic*.)}]
+		\item A point $p \in X$ is said to be an adherent point of $T$ if $\forall r > 0,~B(p,r)\cap T \neq \emptyset,~$ equivalent, $\forall$ neighborhood $U$ of $p$, $U \cap T \neq \emptyset$
+		\item Let $\overline{T}$ or $cl(T)$ denote the set of all adherent points of $T$, called the closure of $T$, i.e. $\overline{T} = \{p \in X ~|~p \text{ is an adherent point of }T\}$
+		\item A point $p \in X$ is said to be a limit point or accumulation point of $T$ if $\forall~r > 0,~B(p,r) \cap T - \{p\} \neq \emptyset,$ equivalently, $\forall$ neighborhood $U$ of $p$, $U \cap T - \{p\} \neq \emptyset$
+		
+		Denote by $T'$ the set of all accumulation points of $T$, called the devied set of $T$.
+		\item $p \in T$ and $p \notin T'$, then $p$ is called an isolated point of $T$, i.e. $\exists r >0 \ni B(p,r)\cap T = \{p\}$
+		\item A subset $T \subseteq X$ is said to be perfect if $T$ is closed and every points of $T$ is an accumulated point of $T$, i.e. $T$ is closed $\&$ $T' = T$
+		\item A subset $T \subseteq X$ is said to be bounded if $\exists R>0$ and $p \in X \ni T \subseteq B(p,R)$
+		\item A subset $T \subseteq X$ is said to be dense if $\overline{T} = X$, e.g. $\overline{\Q} = \R$
+		\item A point $p \in X$ is said to be a boundary point of $T$ if $\forall~ r>0,B(p,r) \cap T \neq \emptyset ~\&~ B(p,r) \cap (X \setminus T) \neq \emptyset $. Denote by $\partial T$ or bd($T$) the set of all boundary points of $T$
+	\end{enumerate}
+\end{defn}
+
+\textbf{Prop 2.9} Let $X$ be a metric space. All sets and point below are subset of $X$
+
+\begin{enumerate}[wide,label=\textbf{(\arabic*)}]
+	\item $S \subseteq T \implies \overline{S} \subseteq \overline{T} ~\&~ S' \subseteq T'$
+	 
+	$\because p \in \overline{S} \implies \forall~ r>0,B(p,r) \cap S \neq \emptyset \implies B(p,r) \cap T \neq \emptyset \implies p \in \overline{T}$
+	
+	$p \in S' \implies \forall r > 0,B(p,r)\cap S - \{p\} \neq \emptyset \implies B(p,r) \cap T - \{p\} \neq \emptyset$
+	
+	\item $\overline{T}$ is always closed in $X$
+	
+	\begin{tcolorbox}
+		We want to know $\overline{T}$ is closed on $X \rightarrow X - \overline{T}$ is open $\rightarrow \forall~p \in X - \overline{T}$ is an interior point $\implies \exists r > 0,~B(p,r) \subseteq X - \overline{T}$
+		
+		$\because p \notin \overline{T} \Rightarrow \exists r' > 0 \ni B(p,r') \cap T = \emptyset$
+		
+		But we want to get $B(p,r') \cap \overline{T}$, so we check every point in $B(p,r')$ is not in $\overline{T}$, let $q \in B(p,r') ,~\exists ~\delta > 0 ~,B(q,\delta) \subseteq B(p,r') \implies B(q,\delta) \cap T = \emptyset \implies q \notin \overline{T}$
+		
+		because if $q \in \overline{T},\forall r > 0 \ni B(q,r) \cap T \neq \emptyset$
+		
+		$\implies B(p,r) \cap \overline{T} = \emptyset$
+	\end{tcolorbox}
+	
+	Let $p \in X - \overline{T} \implies p \notin \overline{T} \implies \exists~r>0 \ni B(p,r) \cap T = \emptyset \implies B(p,r) \cap \overline{T} = \emptyset$ ($\because \forall q \in B(p,r),~\exists~\delta > 0 \ni B(q,\delta) \subseteq B(p,r) \implies B(q,\delta) \cap T = \emptyset \implies q \notin \overline{T}$)
+	
+	$\therefore B(p,r) \subseteq X - \overline{T}$,~$\because p$ is an interior point of $X - \overline{T}$. Hence, $X - \overline{T}$ is open, i.e. $\overline{T}$ is closed.
+	
+	\item $T \subseteq \overline{T}(\because \forall~p \in T, \forall ~ r > 0,B(p,r) \cap T \neq \emptyset)$
+	\newpage
+	\item $p \in T' \implies \forall r > 0,~ B(p,r) \cap T - \{p\}$ is an infinite set, say $x_1,\cdots,x_n$, Let $\delta = \frac{1}{2} \min \{d(p,x_i)~|~1\leq i \leq n\}$. Then $B(p,\delta) \cap T - \{p\} = \emptyset (\rightarrow\leftarrow)$ to $p \in T'$, $x \in B(p,\delta) \cap T - \{p\} \implies d(x,p) < \delta \implies x = x_i$ for some $1 \leq i \leq n \&$ we get $d(x_i,p) < \delta \leq \frac{1}{2}d(x_i,p)$
+	
+	$\therefore$ no such $x$ i.e. $B(p,\delta) \cap T - \{p\} = \emptyset$
+	\item Any finite subset of $X$ has no accumulation points in $X$ by (4). In particular, it is closed by (6)(c) below.
+	\item TFAE
+	\begin{enumerate}
+		\item $S$ is closed
+		\item $S$ contains all it's adherent point, i.e. $\overline{S} \subseteq S$
+		\item $S$ contains all it's accumulation points, i.e. $S' \subseteq S$
+		\item $S = \overline{S}$
+	\end{enumerate}
+	\item $\overline{\overline{S}} = \overline{S}$ by (2) and (6)
+	\begin{proof} of (6)
+
+(a) $\Rightarrow$ (b) Suppose $S$ is closed $\implies X \setminus S$ is open $\implies \forall ~ p \in X - S \implies \exists r > 0 \ni B(p,r) \subseteq X \setminus S \implies B(p,r) \cap S = \emptyset \implies p \notin \overline{S}$
+
+$\therefore \overline{S} \subseteq S$, i.e. (b) holds\\
+
+(b) $\Rightarrow$ (c) $\because S' \subseteq \overline{S}$\\
+
+(c) $\Rightarrow$ (d) Suppose $S' \subseteq S$. To prove $S = \overline{S}$ if not, then $S \subsetneqq \overline{S}$, i.e. $\exists~ p \in \overline{S} ~\&~ p\notin S \implies \forall r > 0,~B(p,r) \cap S \neq \emptyset~(\because p \in \overline{S})$
+
+(d) $\Rightarrow$ (a) by (2)
+
+
+\end{proof}
+
+	\item $\overline{S}$ is the smallest closed set in $X$ containing $S$
+	
+	$\because$ We know that $S \subseteq \overline{S}$, if $F$ is closed in $X ~\&~ F \subseteq S$, then $\overline{F} \subseteq \overline{S}$ by (1), $F = \overline{F} \subseteq \overline{S}$ by (6), $\therefore \overline{S}$ is the smallest such one.
+	\item In fact, $\overline{S} = \bigcap_{F \subseteq S}F$
+	\item $p \in S$ is an isolated point $\Leftrightarrow \exists~ r > 0 \ni B(p,r) \cap S = \{p\}$
+	
+	($\Rightarrow$) Suppose $p \in S$ is an isolated point of $S$. Then $p \in S' \implies \exists~ r > 0 \ni B(p,r) \cap S - \{p\} = \emptyset \implies B(p,r) \cap S = \{p\}$
+	
+	($\Leftarrow$) Trivial
+	\item $S$ is dense in $X$ $\Leftrightarrow  ~\forall~p \in X ~\&~ r>0,~B(p,r) \cap S \neq \emptyset \Leftrightarrow  \forall$ open set $U \neq \emptyset,~U \cap S \neq \emptyset$
+	\begin{proof}$ $
+		($\Rightarrow$) Suppose $S$ is dense in $X$, i.e. $\overline{S} = X$, So $\forall p \in X, p \in \overline{S} \implies \forall~ r > 0,~B(p,r) \cap S \neq \emptyset$
+		
+		($\Leftarrow$) Suppose the condition holds, $\forall p \in X ~\&~ r > 0,~B(p,r) \cap S \neq \emptyset \implies p \in \overline{S} \implies X \subseteq \overline{S} \subseteq X,~\therefore \overline{S} = X$
+	\end{proof}
+	
+	\item $\partial S = \partial(X - S)$ In particular, $\partial S = \overline{S} \cap \overline{(X - S)}$, In particular, $\partial S$ is closed in $X$, $\because$ It suffices to prove $\partial S$  = $\overline{S} \cap \overline{(X - S)}$,
+	
+	$\because \partial(X - S) = \overline{X - S} \cap \overline{X - (X - S)} = \overline{X - S} \cap \overline{S} = \partial S$
+	
+	$\forall p \in \partial S \implies \forall r > 0, B(p,r) \cap S \neq \emptyset ~\&~ p \in \overline{X - S} \implies p \in \overline{S} \cap \overline{X - S}$
+	
+	$\therefore \partial S \subseteq \overline{S} \cap \overline{X - S}$, 
+	
+	Conversely, $p \in \overline{S} \cap \overline{X - S} \implies p \in \overline{S} ~\&~ p \in \overline{X - S} \implies \forall r> 0,~B(p,r) \cap S \neq \emptyset ~\&~ B(p,r)\cap(X-S) \neq \emptyset \implies p\in \partial S$
+	
+	$\therefore \overline{S} \cap \overline{(X - S)} \subseteq \partial S \therefore \partial S = \overline{S} \cap \overline{(X - S)}$
+\end{enumerate}
+
+\subsection{Examples}$ $
+
+We give some simple examples of open sets, closed sets, adherent, accumulation, isolated and boundary points.
+
+\begin{enumerate}[wide,label = \textbf{\arabic*.}]
+	\item In a discrete metric space $X$, every subset of $X$ is both open and close, $\forall x \in X,~B(p,r) \begin{cases}
+		\{x\} \text{ if } 0<r\leq 1\\ X \text{ if } r>1
+	\end{cases} $
+	
+	$\therefore$ Every singleton is open in $X$, so every subset of $X$ is open.
+	\item In $\R$. Consider the set $S = [0,1) \cup \{3\}$, $S^\circ = \emptyset,~S' =\{0\}$, \\$\overline{S} = S \cup \{0\}$
+	\item In $\R$, consider the set $S = \{\frac{1}{n}~|~n = 1,2,\cdots\}$, $S^\circ = \emptyset,~\\S' = \{0\},~\overline{S} = S \cup \{0\}$
+	\item In $\R^2,$ consider $S = \{(x,y) \in \R^2~|~x>0,y>0\}$, $S$ is open
+	
+	$\overline{S} = \{(x,y) \in \R^2~|~x \geq 0,y \geq 0\}$
+	
+	$\partial S = \{(x,0)~|~x \geq 0\} \cup \{(y,0)~|~y\geq 0\}$
+	\item Let $B(0,1)$ be the unit open ball in $\R^k$. Then $\partial B(0,1) = S^{k-1}$ is the unit $(k-1)$-sphere. In particular, for $k =2, \partial B(0,1) = S^1$ in the unity circle in the plane $\R^2$. Similarly, for the closed unit ball $\overline{B}(0,1)$ in $\R^k$. Now, we define some special sets in $\R^n$
+	\begin{enumerate}[label = $\bullet$]
+		\item Internals in $\R:~- \infty < a \leq b < \infty$
+		
+		$[a,b]$ close interval which is closed in $\R$
+		
+		$(a,b)$ open interval which is closed in $\R$
+		
+		Infinite intervals:
+		
+		$(-\infty,b]:$ close in $\R$~,~$(-\infty,b)$ open in $\R$
+		\item k-dimensional interval (rectangle or k-cell) $I$
+		$$I = I_1 \times \cdots \times I_k$$
+		
+		where $I_j$ is an interval in $\R,~1\leq j \leq k$
+		\begin{enumerate}
+			\item $I$ is bounded $\Leftrightarrow$ each $I_j$ is bounded
+			
+			$I$ is unbounded $\Leftrightarrow I_j \neq \emptyset ~\&~$ some $I_j$ is unbounded
+			\item $I = [a_1,b_1] \times \cdots [a_k,b_k],~ -\infty < a_j \leq b_j < \infty,~ 1 \leq j \leq k$
+			
+			$k$-dimensional closed(compact) interval in $\R^k$
+		\end{enumerate}
+		
+		\item Convex sets in $\R^k$
+		
+		$S \subseteq \R^k$ is convex if $\forall~ x,y \in S,~\overline{xy}$ is the line segment joining $x ~\&~ y$
+		
+		Note that all open balls, closed balls, intervals are convex in $\R^k$
+		
+		\item Star-like sets in $\R^k$ with w.r.t some point $x_0$, $S \subseteq \R^k$ is star-like w.r.t. $x_0 \in S$ if $\forall~x \in S,~\overline{xx_0} \subseteq S$
+		
+	\end{enumerate}
+	\item We know that $\Q$ is dense in $\R$, hence $\Q^k$ is dense in $\R^k$. Note that $\Q^k$ is countable, hence $\R^k$ has a countable dense subset $\Q^k$, i.e. $\R^k$ is separable.
+	\item $\partial \Q = \R,~\partial \Q^k = \R^k$
+	\item $\Z$ is closed in $\R$, $\because \R - \Z = \bigcup^{\infty}_{n = -\infty}(n-1,n)$ is open $\implies \Z$ is close. or $\Z' = \emptyset \subseteq \Z,~\therefore \Z$ is close.
+	\item Let $S \subseteq \R$ be a nonempty set which is bounded above. Then $\alpha = \sup S$ exists. Moreover, $\alpha \in \overline{S}.~\because \forall~r>0,\exists~x_0 \in S \ni \alpha - r < x_0 \leq \alpha < \alpha - r \implies (\alpha - r,\alpha + r) \cap S \neq \emptyset \implies \alpha \in \overline{S}$
+\end{enumerate}
+
+\subsection{Compact Set in Metric Space}
+
+\begin{enumerate}[wide, label = $\bullet$]
+	\item Compact sets in metric space, which is closely related to the extreme value problem.
+	\item Compact set $\R^k$ will be discussed in next section.
+\end{enumerate}
+
+\begin{defn}
+	Let $X$ be a topology space and $S \subseteq X$. A collection $\mathscr{U} = \{U_{\alpha}\}_{\alpha \in I}$ of open sets in $X$ is called an open covering of $S$ if 
+	
+	$$S \subseteq \bigcup \mathscr{U} = \bigcup_{\alpha \in I}U_{\alpha} $$
+\end{defn}
+
+\begin{defn}
+	Let $X$ be a topology space, $S \subseteq X$ and $\mathscr{U} = \{U_{\alpha}\}_{\alpha \in I}$ be an open covering of $S$. We say that $\mathscr{U}$ has a countable(finite) sub covering of $S$ if $\exists$ a countable(finite) sub collection of $\mathscr{U}$ which also covers $S$. i.e. $\mathscr{U}$ has a countable(finite) subcovering in $S$ if 
+	
+	$\exists$ a sequence $\{\alpha_n\}$ in $I \ni S \subseteq \bigcup_{n=1}^{\infty}U_{\alpha_n}$ (countable)
+	
+	$\exists$ a sequence $\{\alpha_n\}$ in $I \ni S \subseteq U_{\alpha} \cup \cdots \cup U_{\alpha_n}$(finite)
+\end{defn}
+
+\textbf{Example} 
+
+\begin{enumerate}
+	\item $X$ is discrete metric space. Then $\{\{x\}~|~x \in X\}$ is an open covering of $X$
+	\item In $\R,~\{(0,1-\frac{1}{n})~|~n \in \N\}$ is an open covering of $(0,1)$. In fact, $(0,1) = \bigcup^{\infty}_{n=1}(0,1-\frac{1}{n})$
+	\item $\{B(0,n)~|~n \in \N\}$ is an open covering of $\R^k$
+\end{enumerate}
+
+\begin{defn}[compact]
+	Let $X$ be a topology space. A subset $K \subseteq X$ is said to be compact if \textbf{every} open covering of $K$ admit a finite subcovering
+\end{defn}
+
+\textbf{Examples}
+
+\begin{enumerate}[wide]
+	\item Let $X$ be a topology space and $K \subseteq X$ be a finite set. Then $K$ is compact.
+	\item In a discrete metric space $X$, a subset $K \subseteq X$ is compact $\Leftrightarrow K$ is a finite set.
+	\item $(0,1)$ is not compact in $\R$($\{0,1-\frac{1}{n}~|~n\in \N\}$), but $[0,1]$ is compact
+\end{enumerate}
+
+\setcounter{thm}{9}
+
+\begin{thm}
+	Let $X$ be a metric space and $K \subseteq Y \subseteq X$. Then $K$ is compact in $X \Leftrightarrow K$ is compact in $Y$.
+\end{thm}
+
+\begin{proof}
+	($\Rightarrow$) Suppose $K$ is compact in $X$. Given an open covering $\{V_{\alpha}\}_{\alpha \in I}$ of open sets in $Y$ which covers $K$. By Prop 2.5, each $V_{\alpha} = U_{\alpha} \cap Y$, where $U_{\alpha}$ is open in $X$. Now, 
+	$$K \subseteq \bigcup_{\alpha \in I}V_{\alpha} = \bigcup_{\alpha \in I}(U_{\alpha} \cap Y) = (\bigcup_{\alpha \in I}U_{\alpha}) \cap Y \implies K \subseteq \bigcup_{\alpha \in I}U_{\alpha}$$
+	
+	By the compactness of $K$ in $X$, $\exists \alpha_1 ,\cdots ,\alpha_n \in I \ni K \subseteq \bigcup^n_{i=1}U_{\alpha_i} \implies K \cap Y \subseteq (\bigcup_{i=1}^{n}U_{\alpha_i}) \implies K \subseteq \bigcup_{i = 1}^n(U_{\alpha_i} \cap Y) = \bigcup^n_{i=1}V_{\alpha_i}$
+
+	$\therefore K$ is compact in $Y$
+	
+	($\Leftarrow$)Suppose $K$ is compact in $Y$. Given a open covering $\{U_{\alpha}\}_{\alpha \in I}$ of $K$ by open sets in $X$. 
+	
+	$$K \subseteq \bigcup_{\alpha \in I}U_{\alpha} \implies K \cap Y \subseteq (\bigcup_{\alpha \in I}U_{\alpha})\cap Y \implies K \cap Y\subseteq \bigcup_{\alpha \in I}(U_{\alpha}\cap Y)$$
+	
+	By Prop 2.5, $\{U_{\alpha} \cap Y ~|~\alpha \in I\}$ is an open covering of $K$ by open set in $Y$. By assumption, $K$ is compact in $Y, \exists~\alpha_1,\cdots,\alpha_n \in I \ni K \subseteq \bigcup^n_{i=1}(U_{\alpha_i} \cap Y) = (\bigcup^n_{i=1}U_{\alpha_i}) \cap Y \implies K \subseteq \bigcup^n_{i=1}U_{\alpha_i}$
+	
+	$\therefore K$ is compact in $X$
+\end{proof}
+
+\begin{defn}
+	Let $X$ be a metric space and $S \subseteq X$ be a nonempty set. The diameter of $S$ is defined to be $\dia (S) = \sup \{d(x,y)~|~x,y \in S\}$ which generated the diameter of a circle in $\R^2$
+\end{defn}
+
+\begin{thm}
+	Let $X$ be a metric space and $K \subseteq X$ be a compact set. Then $K$ is closed and bounded
+\end{thm}
+
+\begin{proof}
+	\textbf{$K$ is bounded}
+	
+	Fix a point $p \in K$. Then $K \subseteq \bigcup^{\infty}_{n=1}B(p,n)$. $\because K$ is compact $\implies \exists N \in \N \ni K \subseteq B(p,1) \cup \cdots \cup B(p,N) \implies K \subseteq B(p,N) ~\therefore K$ is bounded
+	
+	\textbf{K is closed}, i.e. $X - K$ is open
+	
+	Fix $p \in X - K$. Then $p \neq x,~\forall~ x \in K$. Hence, $d(x,p) > 0,~\forall~x \in K$
+	
+	Let $r_x = \frac{1}{2}d(x,p) > 0,x\in K$. Them $\{B(x,r_x)~|~x \in K\}$ is an open covering of $K$. $\because K$ is compact $\implies \exists x_1,\cdots,x_n \in K \ni B(x_1,r_{x_1}) \cup \cdots \cup B(x_n,r_{x_i})$. Let $V = \bigcap_{i=1}^{n}B(p,r_{x_i}) = B(p,r)$, where $r = \min \{r_{x_1},\cdots,r_{x_n}\}$. Then as we can see that $V \subseteq X - K$, all point in $X - K$ are inner point. So $X - K$ is open, i.e. $K$ is close. 
+	
+	\begin{tcolorbox}
+		To show that $V \subseteq X - K$, i.e. $V \cap K \neq \emptyset$, it suffices to show
+		
+		$$V \cap (\bigcup^n_{i=1}B(x_i,r_{x_i})) = \emptyset$$
+		
+		Now, \begin{eqnarray*}
+			V \cap (\bigcup^n_{i=1}B(x_i,r_{x_i})) &=& \bigcup^n_{i=1}(V \cap B(r_i,r_{x_i})) \\
+			&\subseteq &  \bigcup^n_{i=1}(B(p,r_{x_i} \cap B(x_i,r_{x_i}))) = \emptyset
+		\end{eqnarray*}
+	\end{tcolorbox}
+\end{proof}
+
+\begin{rmk*}
+	The converse of Thm 2.11 is false, i.e. closed $\&$ bounded may not be compact, e.g. $X$ is an infinite set with discrete metric. Then $X$ is not compact, but $X$ is closed and bounded.
+\end{rmk*}
+
+\begin{thm}
+	Let $X$ be a metric space, $K \subseteq X$ be compact $\&$ $L \subseteq K$ be a closed set in $X$. Then $L$ is compact.
+\end{thm}
+
+\begin{proof}
+	Let $\{U_{\alpha}\}_{\alpha \in I}$ be an open covering of $L$. Then $\{U_{\alpha}\}_{\alpha \in I} \cup \{X - L\}$ is an open covering of $K$. By the compactness of $K$, $\exists \alpha_1,\cdots,\alpha_n \in I \ni K \subseteq U_{\alpha_1} \cup \cdots \cup U_{\alpha_n} \cup (X-L)$. By $L \subseteq K~ \therefore L$ is compact
+\end{proof}
+
+\newpage
+
+\begin{cor}$ $
+	\begin{enumerate}[wide,label=(\alph*)]
+		\item Let $X$  be a metric space, $K \subseteq X$ be compact and $F$ be a closed set in $X$. Then $K \cap F$ is compact.
+		\item If $X$ is a compact metric space, then every closed subset $F$ of $X$ is compact.
+	\end{enumerate}
+\end{cor}
+
+\begin{proof}$ $
+	\begin{enumerate}[wide,label=(\alph*)]
+		\item 
+		\begin{eqnarray*}
+			K\text{ is compact } &\implies& K\text{ is closed (Thm 2.11)}\\
+			&\implies&K \cap F \text{ is closed in }X \\ 
+			&\implies&K \cap F \text{ is compact}
+		\end{eqnarray*}
+		\item follows (a)
+	\end{enumerate}
+\end{proof}
+
+\begin{rmk*}
+	Let $X$ be a metric space. If $K$ is closed in $X$ and $F$ is closed in $K$, then $F$ is closed in $X$. $\because F$ is closed in $F \implies F = L \cap F,$ where $L$ is closed in $K \implies F = L \cap K,$ where $L$ is closed in $X \implies F$ is closed in $X$. 
+\end{rmk*}
+
+\begin{thm}
+	Let $X$ be a metric space, $\{K_{\alpha}\}_{\alpha \in I}$ be a collection of compact subsets of $X$ with the property:
+	
+	$$\forall \alpha_1,\cdots,\alpha_n \in I, K_{\alpha_1} \cap \cdots \cap K_{\alpha_n} \neq \emptyset$$
+	
+	Them $\bigcap_{\alpha \in I}K_{\alpha} \neq \emptyset$
+\end{thm}
+
+\begin{proof}
+	Fix $\alpha_0 \in I$. Assume that $\bigcap_{\alpha \in I}K_{\alpha} = \emptyset \implies X - \bigcap_{\alpha \in I}K_{\alpha}$\\$\implies X - \emptyset = X \implies X = \bigcup_{\alpha \in I}(X - K_{\alpha})$
+	
+	each $K_{\alpha}$ is compact $\implies K_{\alpha}$ is closed $\implies X - K_{\alpha}$ is open
+	
+	so $\{X - K_{\alpha}\}$ is an open covering of $X$. Now,
+	
+	$$K_{\alpha_0} \subseteq X = \bigcup_{\alpha \in I}(X - K_{\alpha}) \implies K_{\alpha_0} \subseteq \bigcup_{\alpha \in I}(X - K_{\alpha})$$
+	
+	$K_{\alpha}$ is compact $\implies \exists \alpha_1,\cdots,\alpha_n \in I - \{\alpha_0\} \ni K_{\alpha_0} \subseteq (X - K_{\alpha_1})\cup \cdots \cup (X - K_{\alpha_n}) \implies K_{\alpha_0} \cap K_{\alpha_1}\cap \cdots \cap K_n = \emptyset (\rightarrow \leftarrow)$
+\end{proof}
+
+\begin{cor}
+	Let $X$ be a metric space and $\{K_n\}^{\infty}_{n=1}$ be a decrease sequence of nonempty compact sets of $X$. Them $\bigcap^{\infty}_{n=1} \neq \emptyset$. In addition, if $\dia_{n \rightarrow \infty} \infty 0$, them $\bigcap^{\infty}_{n=1}K_n$ is a singleton.
+\end{cor}
+
+\begin{proof}
+	$\forall j1,\cdots,j_k \in \N,~K_{j1}\cap \cdots \cap K_{jk} \neq \emptyset,~K_{j1}\cap\cdots \cap K_{jk} = K_t$, where $t = \max \{j_1,\cdots,j_k\}$. By Thm 2.14 $\bigcap^{\infty}_{n = 1}K_n \neq \emptyset$, if $\lim_{n \rightarrow \infty}\dia(K_n) = 0$ and $p,q \in \bigcap^{\infty}_{n=1}K$ and $p \neq q$, them $\dia(K_n) \geq d(p,q) ~\forall n \geq 1 \implies \lim_{n \rightarrow \infty}\dia(K_n) \geq d(p,q) > 0 (\rightarrow\leftarrow) \because \bigcap^{\infty}_{n = 1}K_n = \{p\}$ is a simpleton.
+\end{proof}
+
+\begin{rmk*}
+	The usual form of Cor 2.15, $X$ is a metric space, $\{K_n\}$ is a decrease sequence of nonempty closed sets in $X$ with $K_i$ is compact $\implies \bigcap^{\infty}_{n=1}K_n \neq \emptyset$
+\end{rmk*}
+
+\textbf{Example} In $\R,~ \{(0,\frac{1}{n}~|~n \geq 1]\}$ is decrease and every finite subcollection of $\{(0,\frac{1}{n})~|~ n \geq 1\}$ is nonempty, but $\bigcap^{\infty}_{n = 1} (0,\frac{1}{n})= \emptyset,~\bigcap[0,\frac{1}{n}] = \emptyset$
+\setcounter{thm}{16}
+
+\begin{thm}
+	Let $X$ be a metric space and $K \subseteq X$, TFAE:
+	
+	\begin{enumerate}[wide,label=(\roman*)]
+		\item $K$ is compact
+		\item Every infinite subset has an accumulation point in $K$
+		\item $K$ is sequentially compact
+		\item $K$ is complete and totally bounded
+	\end{enumerate}
+\end{thm}
+
+\begin{defn}[Convergence]
+	$\{a_n\}$ converge if $\exists ~ a \in X \ni \forall~\epsilon \geq 0 \exists N \ni \N \ni \forall n \geq N,~d(a_n,a) < \epsilon$. Such $a$ is called the limit of $\{a_n\}$, which is denoted by $\lim_{n \rightarrow \infty} a_n = a$ or $a_n \rightarrow a$ on $n \rightarrow \infty$. 
+	
+\end{defn}
+
+\begin{defn}[Cauchy]
+	We say that $\{a_n\}$ is Cauchy if $\forall \epsilon > 0,~\exists N \in \N \ni \forall n,m \geq \N,~d(a_n,a_m) < \epsilon$
+\end{defn}
+
+\begin{defn}
+	A metric $X$ is said to be sequence compact if every sequence has a convergent subsequence
+\end{defn}
+
+
+\begin{defn}
+	A metric space $X$ is said to be complete if every Cauchy sequence in $X$ convergence.
+\end{defn}
+
+\begin{defn}
+	Let $X$ be a metric space $\&$ $K \subseteq X$. We say that $K$ is totally bounded if $\forall r > 0, \exists x_1,\cdots,x_n \in K \ni K \subseteq B(x_1,r) \cup \cdots \cup B(x_n,r)$
+\end{defn}
+
+\begin{rmk*}
+	Totally bounded can implies bounded, but not converse.
+	
+	$K$ is totally bounded, for $r=1, \exists x_1,\cdots,x_n \in K \subseteq B(x_1,1) \cup \cdots \cup B(x_n,1) \implies K \subseteq B(x_1,R)$ for sime large $R$
+	
+	\begin{enumerate}[]
+		\item[$\bullet$] Take an \textbf{"infinite"} set $X$ with discrete metric. Then $X$ is bounded(e.g. $X \subseteq B(x_0,2),$ where $x_0\in X$) but for $r = \frac{1}{2},~X \subsetneqq B(x_1,\frac{1}{2}) \cup \cdots \cup B(x_n,\frac{1}{2}) ~\forall x_1,\cdots,x_n$ 
+	\end{enumerate}
+\end{rmk*}
+
+\begin{proof}(Thm 2.17 (i)(ii))
+	
+	$(i) \Rightarrow (ii)$ Suppose $K$ is compact. Given an infinite set $T \subseteq K$. We must prove that $T$ has an accumulation point in $K$, if not, $\forall x \in K, x$ is not an accumulation point of $K,\exists r_x > 0 \ni B(x,r_n) \cap T - \{x\} = \emptyset \implies B(x,r_x) \cap T \subseteq \{x\}$. Clearly $\{B(x,r_x~|~x \in K)\}$ is an open covering of $K$. By (i), $K$ is compact
+	
+	 \begin{eqnarray*}
+	 	\implies \exists x_1,\cdots,x_n \in K \ni K &\subseteq& B(x_1,r_{x_1}) \cup \cdots \cup B(x_n,r_{x_n})\\
+	 	&=& (T \cap B(x_1,r_{x_1})) \cup \cdots \cup (T \cap B(x_n,r_{x_n}))\\
+	 	&\subseteq& \{x_1\} \cup \{x_2\} \cup \cdots \cup \{x_n\}\\
+	 	&=& \{x_1\} \cup \{x_2\} \cup \cdots \cup \{x_n\}\\
+	 	&=& \{x_1,\cdots,x_n\} (\rightarrow \leftarrow)
+	 \end{eqnarray*}
+	 
+	 to $T$ is an infinite set, $\therefore$ (ii) holds.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

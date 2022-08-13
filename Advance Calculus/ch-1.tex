@@ -1,25 +1,4 @@
-\input{../settings}
-\begin{document}
 
-%\lhead{Linear Algebra} 
-%\rhead{Sabrina Edition} 
-\cfoot{\thepage} %\ of \pageref{LastPage}}
-
-\subsubsection{In calculus}
-
-\begin{enumerate}
-	\item Extreme Value Theorem: Every continuous function $f:[a,b]\rightarrow\mathrm{R}$ admit both max and min value $\Rightarrow$ Compact set
-	\item Intermediate value Theorem: Given continous function $f:[a,b]\rightarrow \mathrm{R}$ for all $f(a) \leq \lambda \leq f(b) \exists c \in [a,b] \ni f(c) = \lambda \Rightarrow$ connected set
-\end{enumerate}
-
-How to prove a statement: $H P,$then $Q$, $P \Rightarrow Q$
-
-$\begin{cases}
-	\begin{cases}
-	\text{Direct Proof}\\\text{Indirect Proof}\begin{cases}\text{contrapositive $\sim Q \Rightarrow \sim P$} \\ \text{by contradiction}\end{cases}
-	\end{cases}\\
-	Mathematical Induction
-\end{cases}$
 
 \section{Some preliminary}
 
@@ -219,8 +198,6 @@ Every nonempty subset $E$ of $\mathrm{R}$ which is bdd above has l.u.b
 	Let $S$ is an ordered set if $S$ has the l.u.b. property, then $S$ has the g.l.b. property, i.e. if $\emptyset \neq B \subseteq S$ is bdd below, then $\inf (B)$ exists in $S$ 
 \end{thm*}
 
-\newpage
-
 \begin{proof}$\color{red}(\star)$
 
 	Given $B(\neq \emptyset) \subseteq S$ which is bdd below
@@ -304,6 +281,8 @@ $\times : \mathrm{R} \times \mathrm{R} \rightarrow \mathrm{R}((a,b)\mapsto a \cd
 
 let $(\mathrm{F},+,\cdot)$ be a field, we list a series of basic identity as you learn in high school in the real number system
 
+\newpage
+
 \begin{enumerate}
 	\item[(a)] Cancellation law for $"+":x+y = x+z \implies y = z$
 	
@@ -369,7 +348,7 @@ let $(\mathrm{F},+,\cdot)$ be a field, we list a series of basic identity as you
 	
 	$\because(-x)(-y) = -(x(-y))$ by (i)
 	
-	$= -(-(xy)) = xy$
+	$= -(-(xy)) = xy$\\
 	\item[(k)] $-x = (-1)x$
 	
 	$\because (1-1)x = 0x = 0 = 1x + (-1)x = x + (-1)x \implies (-1)x = -x$
@@ -430,6 +409,8 @@ let $(\mathrm{F},+,\cdot)$ be a field, we list a series of basic identity as you
 	\end{enumerate}  
 \end{ex*}
 
+\newpage
+
 \begin{rmk*}
 	By (e)(f), we conclude that $\mathrm{C}$ is not an ordered field
 	
@@ -437,6 +418,7 @@ let $(\mathrm{F},+,\cdot)$ be a field, we list a series of basic identity as you
 	
 	$\therefore \mathrm{C}$ is not an order field
 \end{rmk*}
+
 
 \subsection{The Real Number Field $\mathrm{R}$}
 
@@ -543,6 +525,7 @@ $\because \forall n \geq 1,~\exists~r_n \in \mathrm{Q} \implies x < r_n < \frac{
 	$$(y+h)^n - y^n < hn(y-h)^{n-1} < hn(y+1)^{n-1} < x-y^n$$
 	
 	$\implies (y+h)^n < x \implies y+h \in E ~\& y+h > y (\rightarrow\leftarrow) \therefore$ (i) fails
+	\newpage
 	
 	(ii) $y^n > x$, Let $k = \dfrac{y^n - x}{ny^{n-1}}$, Then $0<k<y,~ k = \dfrac{y^n - x}{ny^{n-1}} < \dfrac{y^n}{ny^{n-1}} = \dfrac{y}{n} < y$
 	
@@ -589,7 +572,7 @@ Note that if $A \subseteq B$, then $\sup A \leq \sub B$ \& $\inf A \geq \inf B$
 
 $\therefore \emptyset \subseteq B,~ \forall B \subseteq \mathbb R$, One may define $\sup \emptyset = - \infty, \inf \emptyset = + \infty$
 
-\newpage
+
 \subsection{The Complex Number Field $\mathbb C$} $ $
 
 Consider the contention product $\mathbb R^2 = \mathbb R \times \mathbb R = \sett{(a,b)~|~a,b\in \mathbb R}$
@@ -607,6 +590,8 @@ Note that $(a,b) = (c,d) \Leftrightarrow a=c ~\&~ b = d$, From now, we can write
 	
 	It is easy to see that, with these operations, $\mathbb C$ is a field.
 \end{tcolorbox}
+
+\newpage
 
 \textbf{Note that}
 \begin{enumerate}
@@ -640,14 +625,14 @@ Note that $(a,b) = (c,d) \Leftrightarrow a=c ~\&~ b = d$, From now, we can write
 	
 \end{tcolorbox}
 
-\newpage
-
 \textbf{Change $(a,b)$ to $a+bi$}
 
 \begin{tcolorbox}
 	Now, we can transform an element $(a,b) \in \mathbb C$ into the normal form:
 
-$$(a,b) = (a,0)+(0,b) = (a,0)(1,0)+(b,0)(0,1) = a1+bi = a+ib, \text{ where } i = (0,1) $$
+(a,b) = (a,0)+(0,b) = (a,0)(1,0)+(b,0)(0,1) = a1+bi = a+ib,
+
+\text{ where } i = (0,1)
 
 Therefore, from new on, we write $\mathbb C = \sett{a+ib~|~a,b \in \mathbb C}$
 
@@ -663,6 +648,8 @@ Hence, under this notification, $z = a+ib,w = c+id \in \mathbb C$
 and the $a$ is called the real part of $z$, $a = \text{Re}(z)$, $b$ is called imaginary part of $z$, $b = \text{Im}z$
 
 \end{tcolorbox}
+
+\newpage
 
 \textbf{Some basic properties of complex numbers whose proofs are easy}
 
@@ -698,8 +685,6 @@ $\forall z,w \in \mathbb C$
 		(a) $x^2 + 1$ has no root in $\mathbb R$\\
 		(b) $x^2 + 1$ has two distinct roots in $\mathbb C$
 \end{thm*}
-
-\newpage
 
 \begin{proof}$ $
 	\begin{enumerate}
@@ -749,8 +734,6 @@ Therefore, if $\deg f(x) = n$, then $f(x)$ has $n$ roots in $\mathbb C (C,M)$
 	$\therefore$ if $\deg f(x) = n$, then $f(x)$ has $n$ roots in $\mathbb C (C,M)$
 \end{tcolorbox}
 
-\newpage
-
 \begin{thm*}[Cauchy-Scheming Inequal]
 	Given $z_1\cdots,z_n,w_1,\cdots,w_n \in \mathbb C$, we have
 	
@@ -766,6 +749,8 @@ Therefore, if $\deg f(x) = n$, then $f(x)$ has $n$ roots in $\mathbb C (C,M)$
 \end{thm*}
 
 \textbf{\color{red}The proof is too long, I am lazy}
+
+\newpage
 
 \subsection{Euclidean Spaces $\mathbb R^n$}
 
@@ -799,9 +784,6 @@ We are going to introduce the structure of $\mathbb R^n$
 
 \textbf{\color{red} we skip space example here.}
 
-\newpage
-
-
 \subsection{Countability of Sets}$ $
 
 Given two nonempty set $A,B$ and a function $f:A \rightarrow B$,$f(A) = \sett{f(a)~|~a \in A}$ is called the image of $A$ under $f$
@@ -827,6 +809,8 @@ Given $F \subseteq B$, $f^{-1}(F) = \sett{x \in X~|~f(x) \in \mathrm F}$ called 
 	$f^{-1}([-1,1]) = [-1,1]$
 \end{tcolorbox}
 
+\newpage
+
 \textbf{Properties of inverse image}
 
 \begin{enumerate}
@@ -851,8 +835,6 @@ Given $F \subseteq B$, $f^{-1}(F) = \sett{x \in X~|~f(x) \in \mathrm F}$ called 
 	
 	$f:\mathbb R \rightarrow \mathbb R,~f(x) = x^2,~f^{-1}(1) = \sett{1,-1},~f^{-1}(2) = \emptyset$
 \end{enumerate}
-
-\newpage
 
 \begin{defn}[cardinality]
 	Let $A,B$ are two set ew say that $A$ and $B$ have the same cardinality if $\exists$ a bijective map $f:A \rightarrow B$, which is denoted by $A \sim B$
@@ -893,6 +875,8 @@ Notation For $n \in \mathbb N,~\mathbb N_{m} = \sett{1,2,\cdots,n}$
 	\end{enumerate}
 \end{defn}
 
+\newpage
+
 \begin{rmk*} $ $
 	\begin{enumerate}
 		\item when $A,B$ are finite sets, $A \sim B \Leftrightarrow |A| = |B|$, i.e. $A,B$ have same number.
@@ -904,8 +888,6 @@ Notation For $n \in \mathbb N,~\mathbb N_{m} = \sett{1,2,\cdots,n}$
 		\item Any finite set $A$ can be listed an $A = \sett{a_1,\cdots,a_n}$ where $n = |A|$
 	\end{enumerate}
 \end{rmk*}
-
-\newpage
 
 Now, we consider the case of countable set
 
@@ -953,8 +935,6 @@ Now, we consider the case of countable set
 Now, given a st. $\uparrow$ function $n:\mathbb N \rightarrow \mathbb N$, i.e. $n(k) < n(k+1),~k \geq 1$
 
 i.e. $n_k < n_{k+1},~k \geq 1$, i.e. $n_1<n_2<\cdots<n_k<\cdots$, i.e. $\sett{n_k}^{\infty}_{k=1}$ is a st. sequence in $\mathbb N$
-
-\newpage
 
 \begin{defn}
 	Let $\sett{a_n}$ be a sequence in $X$ and $\sett{n_k}$ be a st. $\uparrow$ sequence in $\mathbb N$, then the sequence $\sett{a_{n_k}}$ is called a subsequence of $\sett{a_n}$
@@ -1038,29 +1018,3 @@ $(a,b)$ is uncountable($\because(0,1) \sim (a,b)$)
 Note that $(0,1)\sim \mathbb R$($\because (0,1) \rightarrow (\dfrac{\pi}{-2},\dfrac{\pi}{2}) \rightarrow \mathbb R$)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\end{document}
