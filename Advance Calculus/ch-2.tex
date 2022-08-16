@@ -718,6 +718,33 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 	\end{enumerate}
 \end{rmk*}
 
+\begin{lmma}[To prove (ii) to (i)]
+	$ $
+	
+	Suppose (ii) holds in Thm 2.17. Then $K$ is totally bounded
+\end{lmma}
+
+\begin{proof}
+	If not, then $\exists ~ r > 0 , \ni$ no finite open balls with radius $r$ and center $K$ cover $K$. Choose $x_1 \in k \implies K \subsetneqq B(x_1,r) \implies \exists x_2 \in K - B(x_1,r),~ K \subsetneqq B(x_1,r) \cup B(x_2,r) \implies \exists x_3 \in K - (B(x_1,r) \cup B(x_2,r))$
+	
+	By induction, counting this process, we obtain an infinite set $T = \{x_1,x_2,\cdots,x_n,\cdots\} \subseteq K$ with $d(x_i,x_j) \geq r \forall i \neq j$. By (ii), $T$ has an accumulation poion $p \in K$. In particular $B(p,\dfrac{r}{4}) \cap T - \{p\}$ is an infinite set, hence, $\exists i \neq j \ni x_i,x_j \in B(p,\dfrac{r}{4}) \cap T - \{p\} \implies d(x_i,x_j) \leq d(x_i,p) + d(x,j) < \dfrac{r}{4} + \dfrac{r}{4} = \dfrac{r}{2} < r (\rightarrow\leftarrow) \therefore K$ is totally bounded.
+\end{proof}
+
+\begin{lmma}
+	Suppose (ii) holds in T and $\{E_{\alpha} ~|~ \alpha \in I\}$ is an open covering of $K$. Then $\exists r > 0$(called a Lebegoue number w.r.t. the open covering $\{E_{\alpha}\}_{\alpha \in I}$) $\ni \forall x \in K,B(x,r) \subseteq E_{\alpha}$ for some $\alpha \in I$
+\end{lmma}
+
+\begin{proof}
+	if $K$ is a finite set, let $K = \{x_1,\cdots,x_n\} K \subseteq \bigcup_{\alpha \in I}E_{\alpha} \implies x_i \in E_{\alpha_i}$ for some $\alpha_i \in I,~ 1 \leq i \leq n \implies \exists r_i > 0 \ni B(x_i,r_i) \subseteq E_{\alpha_i},1\leq i \leq n$. Let $r = \min \{r_1,\cdots,r_n\}$. Then $B(x_i,r) \subseteq B(x_i,r_i) \subseteq E_{\alpha_i},1\leq i \leq \alpha$. Now, assume that $K$ is infinite set. Assume that no such $r > 0$, i.e. $\forall r > 0, \exists x_r \in K \ni B(x_r,r) \subsetneqq E_{\alpha} \forall x \in I$. Now, for $r = \dfrac{1}{k},r=1,2,\cdots,$ we obtain a sequence $\{x_k\}$ in $K$, with $x_k = \dfrac{x_r}{k} \ni B(x_k,\dfrac{1}{k}) \subsetneqq E_{\alpha} \forall a \in I$. Let $T = \{x_1,x_2,\cdots,x_k,\cdots\}$. Then $T \subseteq K$ is an infinite set($\because$ For $k = 1,r=\dfrac{1}{1} = 1 \exists x_1 \in K \ni B(x_1,1) \subsetneq E_{\alpha} \forall \alpha \in I$). The conclusion of Lemma 2.19 failed for $K - \{x_1\}$ ($\because if \exists s> 0 \ni \forall x \in K-\{x_1\} B(x,s) \subseteq E_{\alpha}$ for some $\alpha \in I,~ x_1 \in E_{\alpha} \implies \exists t > 0 \ni B(x_1,t) \subseteq E_{\alpha}$. Let $r = \min \{s,t\}$. Then $\forall x \in K, B(x,r) \subseteq E_{\alpha}$ for some $\alpha \in I (\rightarrow \leftarrow)$)
+	
+	Then for $r = \dfrac{1}{2}, \exists x_2 \in K - \{ x_1\} \ni B(x_2,\dfrac{1}{2}) \subsetneqq E_{\alpha} \forall \alpha \in I$. Continue this process, we conclude that $x_i \neq x_j \forall i \neq j$, so $T$ is an infinite set. By the assumption of (ii). Then an accumulation point $p \in K$. Now $K = \bigcup_{\alpha \in I}E_{\alpha} \implies p \in E_{\alpha}$ for some $\alpha \in I \implies \exists \epsilon > 0 \ni B(p, \epsilon) \subseteq E_{\alpha_0}$. Since $p \ni T',B(p,\epsilon) \cap T - \{p\}$ is an infinite set. Choose $m >> 0 \ni \dfrac{1}{m} < \dfrac{\epsilon}{2} ~\&~ x_m \in B(p,\dfrac{\epsilon}{2}) \cap T$. Claim $B(x_m , \dfrac{1}{m}) \subseteq B(p,\epsilon) \subseteq E_{\alpha_0} (\rightarrow\leftarrow)$ to our constrain, hence Lemma 2.19 holds.
+	
+	$$y \in B(x_m,\dfrac{1}{m}) \Rightarrow d(y,p) \leq d(y,x_m) + d(x_m,p) < \dfrac{1}{m} + \dfrac{\epsilon}{2} < \dfrac{\epsilon}{2} + \dfrac{\epsilon}{2} = \epsilon $$
+	
+	$\Rightarrow y \in B(p,\epsilon)$
+\end{proof}
+
+
 \begin{proof}(Thm 2.17 (i)(ii))
 	
 	$(i) \Rightarrow (ii)$ Suppose $K$ is compact. Given an infinite set $T \subseteq K$. We must prove that $T$ has an accumulation point in $K$, if not, $\forall x \in K, x$ is not an accumulation point of $K,\exists r_x > 0 \ni B(x,r_n) \cap T - \{x\} = \emptyset \implies B(x,r_x) \cap T \subseteq \{x\}$. Clearly $\{B(x,r_x~|~x \in K)\}$ is an open covering of $K$. By (i), $K$ is compact
@@ -731,7 +758,271 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 	 \end{eqnarray*}
 	 
 	 to $T$ is an infinite set, $\therefore$ (ii) holds.
+	 
+	 $(ii) \Rightarrow (i)$ In Thm 2.17 i.e. we must prove that $K$ is compact under the assumption of (ii). Suppose $\mathscr{U} = \{E_{\alpha}\}_{\alpha \in I}$ is an open covering of $K$. By Lemma 2.19, $\exists$ a $r > 0 ~w.r.t.~ \mathscr{U}$, by Lemma 2.18, $\exists x_1,\cdots,x_k \in K \ni K \subseteq B(x_1,r) \cup \cdots \cup B(x_k,r) \subseteq E_{\alpha_1}\cup \cdots\cup E_{\alpha_k}$, where $B(x_i,r) \subseteq E_{\alpha_i}, 1 \leq i \leq k$. Therefore, $\mathscr{U}$ has a finite sub covering. Hence $K$ is compact and (i) holds.
 \end{proof}
+
+\begin{rmk*}$ $
+	\begin{enumerate}[wide]
+		\item (ii) $\implies$ (i) is exercise 26
+		\item More or less, by Lemma 2.18 $\&$ 19, one can see that (i) and (ii) are also equal to (iii) and (iv) 
+	\end{enumerate}
+\end{rmk*}
+
+\newpage
+
+\subsection{Compact Sets in Euclidean Spaces $\R^k$}
+
+\begin{enumerate}[wide,label = $\bullet$]
+	\item We know that any compact set in a metric space is close and bounded
+	\item Close and bounded subset my not be compact(infinite discrete)
+	\item We will see that every closed and bounded subset of $\R^k$ is always compact which is the famous H.B. Theorem, i.e. $K \subseteq R^k$ is compact $\Leftrightarrow K$ is closed and bounded
+\end{enumerate}
+
+\begin{thm}
+	Let $\{I_n = [a_n,b_n]\}^{\infty}_{n=1}$ be a sequence of closed and bounded intervals in $\R$, if $\{I_n\}$ is decreasing i.e. $I_1\subseteq \cdots \subseteq I_n \subseteq \cdots$, then $\bigcap^{\infty}_{n=1}I_n \neq \emptyset$. Moreover, if $\lim_{n \rightarrow \infty}(b_n - a_n) = 0,$ then $\bigcup^{\infty}_{n=1}I_n$ is a simpleton.
+\end{thm}
+
+\begin{proof}
+	Claim $T = \{a_n~|~n \in \N\}$ is bounded above and $x = \sup T$ exists. $\because a_n \leq a_{m+n}$($\because \{a_n\}$ is increasing, i.e. $[a_1,b_2] \supseteq [a_2,b_2] ,~ a_2 \geq a_1$)
+	
+	$a_n \leq a_{m+n} \leq b_{m+n} \leq b_m(\because \{b_n\}$ is decreasing ) $\implies T$ is bounded above by all $b_n \implies x = \sup T$ exists and $x \leq b_n \forall n \geq 1$.
+	
+	Clearly, $a_n \leq x ~\forall n \geq 1$, $\because a_n \leq x \leq b_n ,\forall n \geq 1$, i.e. $x \in [a_n,b_n] \forall n \geq 1 \therefore x \in \bigcap^{\infty}_{n=1}I_n$. Hence, $\bigcap^{\infty}_{n=1}I_n \neq \emptyset \therefore$ The last statement follow the argument as in Corollary 2.16. 
+\end{proof}
+
+\begin{thm}
+	Let $\{I_n = [a_{n,1},b_{n,1}]\times \cdots \times [a_{n,k},b_{n,k}] \}$ be a decreasing sequence of closed and bounded intervals in $\R^k$. Then $\bigcap^{\infty}_{n = 1} \neq \emptyset$. Moreover, if $\lim_{n \rightarrow \infty} \dia (I_n) = 0$, then $\bigcup^{\infty}_{n=1}$ is a simpleton.
+\end{thm}
+
+\begin{proof}
+	$\forall 1 \leq j \leq k, \{[a_{n,j},b_{n,j}]\}$ is a decrease sequence of closed and bounded intervals in $\R$. By Thm 2.20, $\exists x_j \in \bigcap^{\infty}_{n = 1}[a_{n,j},b_{n,j}]$. Set $x = (x_1,\cdots,x_k)$. Then $x \in \bigcap^{\infty}_{n = 1}I_n$. Then last statement also follows from the argument in corollary 2.16.
+\end{proof}
+
+\begin{thm}
+	Every $k$-dimensional closed and bounded interval $I = [a_1,b_1] \times \cdots \times [a_k,b_k]$ in $\R^k$ is compact.
+\end{thm}
+
+\newpage
+
+\begin{proof}
+	Put $\delta = (\sum^{k}_{i=1}(b_i-a_i)^2)^{\dfrac{1}{2}}$ which is the diametric of $I$. Then $\forall x,y \in I, \norm{x - y} \leq \delta$. If $I$ were not compact, them $\exists$ an open covering $\{E_\alpha\}_{\alpha \in J}$ admitting not finite sub covering$(\star)$. Put $c_j = \dfrac{a_j+b_j}{2},~1\leq j \leq k$. The intervals $[a_j,c_j]$ and $[c_j,b_j], 1 \leq j \leq k,$ determines $2^k$ closed and bounded subinterval of $I$ whose union is $I$. By ($\star$), at least one of them, say $I_1$ which cannot be covered by finitely many $E_{\alpha}$. Continuing this process, we get a sequence $\{I_n\}$ of closed and bounded subintervals of $I$ satisfy's
+	
+	\begin{enumerate}[label = \alph*)]
+		\item $I \subseteq I_1 \subseteq \cdots$, i.e. $\{I_n\}^{\infty}_{n=1}$ is decreasing.
+		\item Each $I_n$ cannot be covered by finitely many $E_{\alpha}$
+		\item $\dia (I_n) = 2^{-n},~\delta \rightarrow 0$ on $n \rightarrow \infty$
+	\end{enumerate}
+	By Thm 2.21, $\bigcap^{\infty}_{n=1}I_n = \{x\}$ i.e. $x \in I_n \subseteq I ~\forall~ n \geq 1 \subseteq \bigcup^{\infty}_{\alpha=1}E_{\alpha}$
+	
+	$\because x \in E_{\alpha_0}$ for some $\alpha_0 \in J,~E_{\alpha_0}$ is open $\implies \exists r>0 \ni B(x,r) \subseteq E_{\alpha_0}$. Choose $n_0 >> 0 \ni \dfrac{1}{2^{n_0}} < \dfrac{r}{\delta}(\because \dfrac{1}{2^n} \rightarrow 0)$. Since $x \in I_{n_0}, \forall y \in I_{n_0},~\norm{y - x} \leq 2^{-n_0}\delta < \dfrac{r}{\delta} \cdot \delta = r \implies y \in B(x,r),~\because I_{n_0} \subseteq B(x,r) \subseteq E_{\alpha_0}(\rightarrow\leftarrow)$. Therefore $I$ is compact. 
+\end{proof}
+
+Combining Thm 2.22 and results in section 2.6, we conclude that the following sets in compact:
+
+\begin{enumerate}[wide,label = \roman*)]
+	\item $[a,b]$ is compact in $\R$(Thm 2.22 with $k = 1$)
+	\item $[a,b] \times [c,d]$ is compact in $\R^2$(Thm 2.22 with $k = 2$)
+	\item Every closed ball $\overline{B}(x,r)$ in $\R^k$ is compact by Thm 2.12 and  2.22
+	\item $\{0\} ~\cup\{\dfrac{1}{n}~|~n=1,2,\cdots\}$ is compact in $\R$, In fact, if $a_n \rightarrow a$, them teh set $\{a\} \cup \{a_n~|~n = 1,2,\cdots\}$ is compact in $\R$
+\end{enumerate}
+
+\begin{thm}
+	Every closed and bounded subset $K$ of $\R^k$ is compact.
+\end{thm}
+
+\begin{proof}
+	Choose a large closed and bounded interval $I$ in $\R^k$, $K \subseteq I$. By Thm $2.22$, $I$ is compacted, so $K$ is a closed subset of $I$. By Thm 2.12, $K$ is compacted.
+	
+	Combining Thm 2.17 and Thm 2.23, we can characterize compacted set in $\R^k$
+\end{proof}
+
+\newpage
+
+\begin{thm}
+	Let $K \subseteq R^k$ TFAE:
+	
+	\begin{enumerate}[wide,label=\roman*)]
+		\item $K$ is closed and bounded
+		\item $K$ is compacted
+		\item Every infinite subset of $K$ has an accumulation point
+		\item $K$ is sequence compact
+		\item $K$ is complete and totally bounded
+	\end{enumerate}
+\end{thm}
+
+From these we can deduce:
+
+\begin{thm}[Bolzano-Weiestrace]
+
+Every bounded infinite subset $T$ in $\R^k$ has an accumulation point in $\R^k$
+\end{thm}
+
+\begin{proof}
+	Since $T$ is bounded, choose a large closed and bounded interval $I$ in $\R^k \ni T \subseteq I$. Now, $T$ become an infinite subset of the compact set $I$. By Thm 2.24 (iii), $T$ has an accumulation point in $I$.
+\end{proof}
+
+\begin{thm}[Cantor intersection]
+	Let $\{\Q_n\}$ be a sequence of nonempty set in $\R^k$ satisfying:
+	\begin{enumerate}[label = \alph*)]
+		\item $\{Q_n\}$ is decreasing
+		\item $Q_n$ is closed $\forall~n \geq 1$ $\&$ $Q_1$ is compact.
+	\end{enumerate}
+	
+	Then $\bigcap^{\infty}_{n = 1}Q_n \neq \emptyset,$ Moreover, if $\dia(Q_n) \rightarrow 0$ on $n \rightarrow \infty$, them $\bigcap^{\infty}_{n=1} Q_n$ is a simpleton.
+\end{thm}
+
+\begin{proof}
+	By (b), each $Q_n$ is compact ($\because Q_1 \supseteq Q_n \forall~n \geq 1$). Therefore, it follows form Cor 2.16 and 2.15.
+\end{proof}
+
+\subsection{Countability $\&$ Separability}$ $
+
+Motivation: In $\R^k$, we have two facts:
+
+\begin{enumerate}[wide,label=$\bullet$]
+	\item $\Q^k$ is dense in $\R^k$ i.e. $\overline{\Q^k} = \R^k$ $\&$ $\Q^k$ is countable. i.e. $\R^k$ has a countable dense subset. i.e. $\R^k$ is separable.
+	\item $\left\{B(x,r) ~|~ x \in \Q^k, r \in \Q^+ \right\}$ is a countable collection of open ball in $\R^k$ satisfying: $\forall$ open set $U \subseteq \R^k$ and $y \in U ~\exists B(x,r) \in \mathscr{B} \ni y \in B(x,r) \subseteq U$. In particular, $U$ is a union of some sub collection of $\mathscr B$. $\therefore U = \bigcup_{y \in U} B_y$, i.e. $\R^k$ is of $2^{nd}$ countable.
+	\item $X$ is a metric space $x \in X,~N_x = \{B(x,\dfrac{1}{n})~|~n \in \N\}$ is a countable collection of nbh of $x$. Such $N_x$ satisfies:
+	$\forall$ nbh $U$ of $x,\exists n \in \N \ni B(x,\dfrac{1}{n}) \subseteq U$($\because \exists~ r > 0 \ni B(x,r) \subseteq U,$ choose $n >> 0 \ni \dfrac{1}{n} < r$). Then $x \in B(x,\dfrac{1}{n}) \subseteq B(x,r) \subseteq U$. i.e. Each point of $X$ has a countable nbh base(system) i.e. $X$ is of $1^{st}$ countable, i.e. $\R^k$ has a countable base.
+\end{enumerate}
+
+\begin{defn}
+	Let $X$ be a topological space
+	
+	\begin{enumerate}[wide]
+		\item $X$ is first if every point of $X$ has a countable nbh system(or base), i.e. $\exists$ a countable collection $\{V_n ~|~ n \in \N\}$ of nbh of $x \ni \forall$ nbh $U$ of $x,\exists~ n \in \N,~ V_n \subseteq U$
+		\item $X$ is of second countable if $X$ has a countable a base, i.e. $\exists$ a countable collection $\mathscr B = \{B_n ~|~ n \in \N\}$ of open sets in $X \ni$ every open set $U$ is a union of some subcollection of $\mathscr B$ or $\forall$ open set $U$ in $X$ and $x \in U,~\exists n \in \N \ni x \in B_n \subseteq U$
+		\item $X$ is separable if $X$ has a countable dense subset, i.e. $\exists$ a countable set $D \subseteq X \ni \overline{D} = X$.
+	\end{enumerate}
+\end{defn}
+
+
+\begin{rmk*} $ $
+	\begin{enumerate}[wide]
+		\item Every $2^{nd}$ countable topology space $X$ is of $1^{st}$ countable, but not converse. $\because$ Let $\mathscr{B} = \{B_1,B_2,\cdots\}$ be a countable base for $X$. Given $p \in X$, let $\mathscr B_p = \{B_n ~|~ p \in B_n\}$ Then $\mathscr B$, so $\mathscr B_p$ is countable and is a collection of open set in $X$ containing of $p$.
+		 
+		$ $\\
+		Claim $\mathscr B_p$ is a nbh system (or base) of $p$. Let $U$ be a nbh of $p$. Then $U = \bigcup_{n \in F}B_n,~F\subseteq \N$. In particular, $p \in B_n$ for some $n \in F$. Hence, $B_n \in B_p$ $\&$ $p \in B_n \subseteq U$, $\therefore \mathscr B_p$ is a countable nbh system of $p$. Hence, $X$ is of $1^{st}$ countable.
+		
+		$ $\\
+		Consider $X$ an uncountable set with discrete metric. Hence, $X$ is $1^{st}$ countable. In fact, $\forall ~p\in X,~N_p = \{\{p\}\}$ is a countable nbh base of $p$. However, $X$ is not of $2^{nd}$ countable. Note that if $\mathscr B$ is a base for the discrete space $X$ then $\mathscr B \subseteq \{\{x\} ~|~ x \in X\}$
+		
+		$\because\{x\}$ is open $\implies \{x\} = \bigcup_{\alpha \in I}B_{\alpha},~B_{\alpha} = \{x\}~\forall~ \alpha \in I \implies$
+		
+		$B_\alpha = \{x\} \forall x \in I \implies \{x\} \in \mathscr B$.
+		
+		Now, $X$ is uncountable, so is $\mathscr B$. Hence, $X$ is not of $2^{nd}$ countable.
+		\item We know that every metric space is of $1^{st}$ countable. In fact, $\forall p \in X,~N_p = \{B(p,\dfrac{1}{n})~|~n \in \N\}$ is a countable nbh system of $p$
+		\item We know that $\R$ is separable with countable dense subset $\Q$. In general, $\R^n$ is separable with countable dense subset $\Q^n$(Exercise 22)
+	\end{enumerate}
+\end{rmk*}
+
+\begin{thm}
+	Every $2^{nd}$ countable topology space is separable
+\end{thm}
+
+\newpage
+
+\begin{rmk*}
+	Note that $X$ is a metric space. $D \subseteq X$.
+	
+	\begin{eqnarray*}
+		D \text{ is dense in } X \Leftrightarrow \overline{D} = X &\Leftrightarrow& \forall \text{ nonempty open set } U \text{in} X, U \cap D \neq \emptyset\\
+		&\Leftrightarrow& \forall x \in X, \exists \text{ a sequence } \{a_n\} \text{ in } D \\
+		&\ni& a_n \rightarrow x \text{ on } n \rightarrow \infty
+	\end{eqnarray*}
+	
+\end{rmk*}
+
+\begin{proof}$ $
+
+$(\Rightarrow)$ Suppose $\overline{D} = X$, i.e. $D$ is dense in $X$, i.e. $\forall x \in X,~x \in \overline{D}$. Now, given a nonempty open set $U$ in $X$. Choose $x \in U$ So $U$ is a nbh of $x$, hence $U \cap D \neq \emptyset$
+
+$(\Leftarrow)$ Suppose the condition holds, them $\forall~x \in X$ and nbh $U$ of $x$, $U \cap D \neq \emptyset \implies x \in \overline{D} \implies X \subseteq \overline{D} \subseteq X \implies \overline{D} = X$, i.e. $D$ is dense in $X$.
+\end{proof}
+
+
+\begin{proof}(Theorem 2.27)
+	Let $\mathscr B = \{B_1,B_2,\cdots,B_n,\cdots\}$ be a countable base of $X$. Choose a point $x_n \in B_n,~n \in \N$ and form the set $D = \{x_1,x_2,\cdots,x_n,\cdots\}$, then $D$ is countable.
+	
+	Claim: $D$ is dense in $X$, i.e. $\overline{D} = X$. Given a nonempty open set $U$ in $X$, then $\exists n \in \N \ni B_n \subseteq U \implies x_n \in U \implies U \cap D \neq \emptyset$. Hence, $\overline{D} = X$ by the remark above. So $X$ is separable.
+\end{proof}
+
+\begin{thm}
+	Every separable metric space $X$ is of $2^{nd}$ countable.
+\end{thm}
+
+\begin{proof}
+	Choose a countable dense subset $D$ of $X$. Form the countable collection of open ball $\mathscr{B} = \{B(x,r)~|~ x \in D,r\in \Q^+\}$(it is countable). Claim $\mathscr B$ is a base for $X$. We are done.
+	
+	$ $
+	
+	(Note that $\mathscr B$ is a base for a topology space $X$\\$\Leftrightarrow$ every open set in $X$ is a union of some subcollection of $\mathscr B$\\$\Leftrightarrow \forall~$ open set $U \subseteq X$ and $p \in U,~\exists B \in \mathscr B \ni x \in B \subseteq U$) 
+	
+	$ $
+	
+	($\Rightarrow$) Given an open set $U$ in $X$ and $p \in U$ by assumption $U = \bigcup_{\alpha \in I}B_{\alpha}$, where $B_{\alpha} \in \mathscr B \implies p \in B_{\alpha_0}$ for some $\alpha_0 \in I \implies p \in B_{\alpha_0} \subseteq U$
+	
+	($\Leftarrow$) Suppose the condition holds. To prove $\mathscr B$ is a base for $X$. Given a nonempty open set $U$ in $X$. $\forall~p \in U,\exists B_p \in \mathscr B \ni p in B_p \subseteq U.\\~\because U = \bigcup_{p \in U}B_p \therefore \mathscr B$ is a base for $X$. By the remark above, it is enough to show: Given a nonempty open set $U \subseteq X$ and $p \in U$, $\exists B(x,r) \in \B \ni p \in B(x,r) \subseteq U$. Now, $p \in U$ and $U$ is open $\implies \\ \exists t > 0 \ni B(p,r) \subseteq U$. Choose $r \in \Q^+ \ni \dfrac{t}{4} < r < \dfrac{t}{2}$, Since $D$ is dense in $X$, $B(p,r) \cap D \neq \emptyset$. Choose $x \in B(p,r) \cap D$. Then $B(x,r) \in \B$
+	\newpage
+	
+	Claim $p \in B(x,r) \subseteq U$
+	
+	\begin{enumerate}[wide,label=$\bullet$]
+		\item $d(x,p)<r \implies p \in B(x,r)$
+		\item $\forall y \in B(x,r),~d(y,p) \leq d(y,x) + d(x,p) < r+r = 2r < t \implies \\ y \in B(p,t) \subseteq U~\therefore y \in U \therefore B(x,r) \subseteq U.$
+	\end{enumerate}
+\end{proof}
+
+
+
+\begin{cor}
+	The Euclidean space $\R^k$ is of $2^{nd}$ countable.
+\end{cor}
+
+Note that from the proof of Thm 2.28, $\R^k$ has a countable base of the form:
+
+\begin{eqnarray*}
+	\B &=& \{B(x,r)~|~x \in  \Q^k ~\&~ r \in \Q^+ \}\\
+	&=& = \{A_1,A_2,\cdots\}
+\end{eqnarray*}
+
+\begin{thm}
+	Every compact metric space $X$ is of $2^{nd}$ countable.
+\end{thm}
+
+\begin{proof}
+	The last statement follows from Thm 2.27 To prove $X$ is of $2^{nd}$ countable. For each $n \in \N,~\{B(x,\dfrac{1}{n})~|~x \in X\}$ is an open covering of $X$, i.e. $X = \bigcup_{x \in X}B(x,\dfrac{1}{n})$. By companies of $X$, it has a finite subcovering say $X = \bigcup_{i=1}^{l_n}B(x_{n_i},\dfrac{1}{n})$. Then $\mathscr B$ is a countable collection of open balls in $X$.Claim $\B$ is a base for $X$. It suffices to show: given a nonempty open set $U$ and $p \in　U,\exists B(x_{n_i},\dfrac{1}{n}) \ni \mathscr B \ni p \in B(x_{n_i},\dfrac{1}{n}) \subseteq U$.
+	
+	From $p \in U$ and $U$ is open, $\exists r > 0 \ni B(p,r)\subseteq U$. Choose $n >> 0 \ni \dfrac{2}{n} < r$. Since $X = \bigcup^{l_n}_{i=1}B(x_{n_i},\dfrac{1}{n}),~ p \in B(x_{n_i},\dfrac{1}{n})$ for some $1 \leq i \leq l_n$.
+	
+	Finally, $p \in B(x_{n_i},\dfrac{1}{n}) \subseteq U$
+	
+	\begin{enumerate}[label = $\bullet$]
+		\item $d(p,x_{n_i}) < \dfrac{1}{n} \implies p \in B(x_{n_i},\dfrac{1}{n})$
+		\item $\forall y \in B(x_{n_i},\dfrac{1}{n}),d(y,p) \leq d(y,x_{n_i}) + d(x_{n_i},p) < \dfrac{1}{n} + \dfrac{1}{n} = \dfrac{2}{n}$
+	\end{enumerate}
+	
+	$\therefore p \in B(x_{n_i},\dfrac{1}{n}) \subseteq U$
+\end{proof}
+
+\begin{thm}[Lindelof Covering]
+	Let $S \subseteq \R^k$. Them every open coverning $\mathscr U = \{U_\alpha ~|~ \alpha \in I\}$ of $S$ has a countable subcovernings. 
+\end{thm}
+
+\newpage
+
+\begin{proof}
+	Let $\{a_1,A_2,\cdots\}$ be the countable base of $\R^k$ defined as above. Note that $S \subseteq \bigcup_{\alpha \in I}~\forall x \in S,x \in U_{\alpha}$ for some $\alpha \in I$. Hence $\exists n \in \N \ni x in A_n \subseteq U_\alpha$. Of course, there may be infinitely many such $n$. We choose one of them and fix it, say $x \in A_{m(x)} \subseteq U_{\alpha}$(e.g. $m(x) = \min \{ n \in \N ~|~ x \in A_n \subseteq U_\alpha\}$). Then the collection $\{A_{m(x)}~|~x \in S\}$ is a countable open covering of $S$. Finally, for each $A_{m(x)}$, choose $U_{\alpha_{m(x)}} \ni A_{m(x)} \subseteq U_{\alpha_{m(x)}}$. Then $\{U_{\alpha_{m(x)}}~|~ x \in X\}$ is a countable subcoverning of $S$.
+\end{proof}
+
+\begin{cor}
+	Let $S \subseteq \R^k$ be open, if $S = \bigcup_{\alpha \in I}U_\alpha $ is a union of open sets in $X$, then $S = \bigcup^{\infty}_{n = 1}U_{\alpha_n}$ is a countable union. $\because$ By Lindelof covering theorem.	
+\end{cor}
+
+
+
 
 
 
