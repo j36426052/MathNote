@@ -1,0 +1,314 @@
+\section{Infinite Sequence \& Series}
+
+\begin{enumerate}[wide,label = $\bullet$]
+	\item We will assume you are familiar with all operations of real(complex) sequence
+	\item We have defined sequence in a set $X$
+	\begin{tcolorbox}
+		Recall : let $\{a_n\}$ be a real or complex sequence, $\{a_n\}$ converges if $\exists a \in \R (\C)$ satisfying $\forall \epsilon > 0, \exists N \in \N \ni \forall n \geq N , |a_n = a| < \epsilon$
+	\end{tcolorbox}
+	\item Now, we study the properties of a sequence in a metric space(topological space)
+\end{enumerate}
+
+\subsection{Convergent Sequence}
+
+Let $X$ be a metric space $\& \{ x_n\}$ be a sequence in $X,~ x:\N \rightarrow X$
+
+\begin{defn}
+	We say that $\{x_n\}$ convergences (in $X$) if $\exists p \in X$ satisfying $\forall \epsilon > 0 ,\exists N \in \N \ni \forall n \geq N, d(x_n,p) < \epsilon,$ Otherwise, $\{x_n\}$ divergences.
+\end{defn}
+
+\begin{rmk*}$ $
+	\begin{enumerate}
+		\item If $\{x_n\}$ convergences as in definition, them $p$ is called the limit of the sequence $\{x_n\}$ and is denoted by $\lim_{n \rightarrow \infty}x_n = p$ or $x_n \rightarrow p$ as $n \rightarrow \infty$
+		\item $x_n \rightarrow p$ as $n \rightarrow \infty \Leftrightarrow$ the real sequence $\{d(x_n,p)\}$ convergences to $0$, i.e. $\lim_{n \rightarrow \infty} d(x_n,p) = 0$
+		\item if $\{x_n\}$ convergences, them its limit is !
+		\item The convergence of a sequence depends not only the sequence but also on the space.
+		
+		e.g. $\lim_{n\rightarrow \infty}\frac{1}{n} = 0$ in $\R$, but $\{\frac{1}{n}\}$ divergences in $(0,1)$
+	\end{enumerate}
+\end{rmk*}
+
+\textbf{Recall} Let $\{x_n\}$ are a sequence in a set $X$ with is a function $x:\N \rightarrow X$. The image of the sequence $=$ the image of the function $X$  \\  $=\{x_n~|~ n = 1,2,\cdots\}$
+
+\begin{rmk*}
+	The range of a sequence may be finite. e.g. $\{(-1)^n\}$ in $\R$, whose range $\{-1,1\}$ is finite, but $\{\frac{1}{n}\} $ has range $\{\dfrac{1}{n}~|~ n = 1,2,\cdots\}$
+\end{rmk*}
+
+\begin{defn}
+	A sequence $\{x_n\}$ in $X$ is said to be bounded if its range is a bounded subset of $X$
+\end{defn}
+
+\begin{rmk*}
+	A sequence $\{x_n\}$ in $X$ is said to be bounded if its range is a bounded subset of $X$
+\end{rmk*}
+
+\newpage
+
+\textbf{Example}
+
+\begin{enumerate}[wide]
+	\item Every const sequence $\{p\}$ in a metric space convergence, i.e. $\lim_{n \rightarrow \infty} p = p$
+	\item $\lim_{n \rightarrow \infty}\frac{1}{n} = 0$ in $\R$ and $\{\dfrac{1}{n}\}$ is bounded (but the range is finite)
+	\item $\{(-1)^n\}$ divergences, but $\{(-1)^n\}$ is bounded. (range is finite).
+	\item $\{n^2\}$ divergences in $\R$ and is unbounded. In fact, $\lim_{n \rightarrow \infty}n^2 = + \infty$( which range is infinite)
+	\item $\lim_{n \rightarrow \infty}(1 + \dfrac{(-1)^n}{n}) = 1$ and $\{1 + \dfrac{(-1)^n}{n}\}$ is bounded. (range is infinite)
+	\item $\{i^n\}$ divergence and it's bounded (range is finite)
+	\item Identify all convergence sequence in a discrete metric space $X$. $\{x_n\}$ convergence to $p \Leftrightarrow \forall \epsilon > 0 \exists N \in \N \ni \forall n \geq N, d(x_n,p) < \epsilon \Leftrightarrow \{x)n\}$ is almost constant.
+\end{enumerate}
+
+In metric space, we can use sequences to characterise adherent and accumulation point
+
+\begin{thm}
+	Let $\{x_n\}$ be a sequence in a metric space $X$ and $E \subseteq X$
+	
+	\begin{enumerate}[wide,label = $(\alph*)$]
+		\item $x_n \rightarrow p$ as $n \rightarrow \infty \Leftrightarrow \forall $ neighborhood $U$ of $p, \exists N \in \N \ni \forall n \geq N,x_n \in U$
+		\item If $\{x_n\}$ convergences, them its limit is !
+		\item If $\{x_n\}$ convergences, them its range is bounded, but not converse
+		\item $p \in \overline{E} \Leftrightarrow \exists$ a sequence $\{a_n\}$ in $E \ni a_n \rightarrow p$
+		\item $p \in E' \Leftrightarrow \exists$ a distinct sequence($a_n \neq a_m \forall n \neq m$) $\{a_n\}$ in $E \ni a_n \rightarrow p$
+	\end{enumerate}
+\end{thm}
+
+\begin{proof} $ $
+	\begin{enumerate}[wide,label = $(\alph*)$]
+		\item \begin{eqnarray*}
+			x_n \rightarrow p &\Leftrightarrow & \forall \epsilon > 0, \exists N \in \N \ni d(x_n,p) < \epsilon (\forall n \geq N)\\
+			&\Leftrightarrow & \forall \epsilon > 0, \exists N \in \N \ni x_n \in B(p,\epsilon) (\forall n \geq N)\\
+			&\Leftrightarrow & \forall \text{ neighborhood } U \text{ of } p, \exists N \in \N \ni \forall n \geq N, x_n \in U
+		\end{eqnarray*}
+		\item Suppose $x_n \rightarrow p,~x_n \rightarrow q$ and $p \neq q$, let $\epsilon = \dfrac{1}{2}d(p,q)$. By definition, $\exists N_1 \ni \forall n \geq N_1, d(x_n, p < \epsilon)$ and $\exists N_2 \ni \forall n \geq N_2, d(x_n,q) < \epsilon$
+		
+		Let $N = \max \{N_1,N_2\}$ them $\forall n \geq N, $ above holds. Hence $d(p,q) \leq d(p,x_N) + d(x_N,q) < \epsilon + \epsilon = 2 \epsilon = d(p,q) (\rightarrow \leftarrow) \therefore p = q$
+		
+		\item We have seen bounded sequence may not converges. If $x_n \rightarrow p$, them for $\epsilon = 1, \exists N \in \N \ni \forall n \geq N, d(x_N,p) < 1$, i.e. $\forall n \geq N,~x_n \in B(p,1)$. Let $R = \max \{d(p,x_1),\cdots,d(p,x_{n-1})\} + 1$, Then $x_n \in B(p,R) \forall n \geq 1 \therefore \{x_n\} $ is bounded
+		\newpage
+		\item ($\Rightarrow$) Suppose $p \in \overline{E}$. Them $\forall n \geq 1, B(p, \dfrac{1}{n}) \cap E \neq \emptyset$. Choose $a_n \in B(p,\dfrac{1}{n}) \cap E, n \geq 1$. We get a sequence $\{a_n\}$ in $E$ and $0 \leq d(x_n , p) < \dfrac{1}{n}, \forall n \geq 1$. 
+		 
+		By squeezing lemma, $\lim_{n \rightarrow \infty}d(a_n , p) =0$, i.e. $a_n \rightarrow p $ as $n \rightarrow \infty$
+		
+		($\Leftarrow$) Suppose the conditions holds. $\forall r > 0,~\exists N \in \N \ni \forall n \geq N, d(a_n, p) < r \implies \forall n \geq N , a_n \in B(p,r) \implies B(p,r) \cap E \neq \emptyset \therefore p \in E$
+		
+		\item It's similar to above.
+		
+	\end{enumerate}
+
+\end{proof}
+
+
+\begin{thm}
+	For real or complex sequences $\{x_n\}$ and $\{y_n\}$, $\lim_{n \rightarrow \infty} x_n = x,~\lim_{n \rightarrow \infty} y_n = y$, $a,b \in \R$ or $\C$, $c \in \R$ or $\C$
+	
+	\begin{enumerate}
+		\item $\lim_{n \rightarrow \infty} c = c$
+		\item $\lim_{n \rightarrow \infty} (ax_n + by_n) = ax+by = a\lim_{n \rightarrow \infty} x_n + b\lim_{n \rightarrow \infty}y_n$
+		\item $\lim_{n \rightarrow \infty} x_ny_n = xy = \lim_{n \rightarrow \infty}x_n \lim_{n \rightarrow \infty}y_n$
+		\item If $y \neq 0, \lim_{n \rightarrow \infty} \dfrac{x_n}{y_n} = \dfrac{x}{y} = \dfrac{\lim_{n \rightarrow \infty}x_n}{\lim_{n \rightarrow \infty} y_n}$
+		\item If $\{z_n\}$ is a complex sequence, them $z_n \rightarrow z$ as $n \rightarrow \infty \Leftrightarrow \\ \text{Re}z_n \rightarrow z ~\&~ \text{Im}z_n \rightarrow z$(using $|\text{Re} w|, |\text{Im} w| \leq |w| \leq |\text{Re}w|+|\text{Im}w| \forall w \in \C$)
+		\item (Squeezing Lemma) If $\{x_n\}\{y_n\}$ and $\{t_n\}$ are real sequence $\ni$
+		 $$x_n \leq t_n \leq y_n \text{ for } n >> 0$$
+		 and $\lim x_n = lim y_n = l,~$ them $\lim_{n \rightarrow \infty} t_n = l$
+		 \item $\lim_{n \rightarrow \infty} x_n = x \implies \lim_{n \rightarrow \infty}|x_n| = |x|$(using $||x_n| - |x|| \leq |x_n - x|$)
+	\end{enumerate}
+\end{thm}
+
+\textbf{Examples.} 
+
+\begin{enumerate}[wide,label = $(\roman*)$]
+	\item $\lim_{n \rightarrow \infty}(1 - \frac{i}{n}) = 1$ (Re ($1 - \dfrac{i}{n}) = 1$, Im($1 - \dfrac{i}{n}) = \frac{1}{n}$)
+	\item $\lim_{n \rightarrow \infty} \frac{1}{n} \sin \dfrac{1}{n} = 0$
+	\begin{eqnarray*}
+		0 \leq |\frac{1}{n}\sin \frac{1}{n} | \leq \frac{1}{n} &\implies& \lim_{n \rightarrow \infty}|\frac{1}{n} \sin \frac{1}{n}| = 0\\
+		&\implies & |\lim_{n \rightarrow p} \frac{1}{n} \sin \frac{1}{n} | = 0 \implies \lim_{n \rightarrow \infty} \frac{1}{n} \sin \frac{1}{n}
+	\end{eqnarray*}
+	\item $\{(-1)^n\}$ divergence, but $|(-1)^n| = 1 \rightarrow 1$
+\end{enumerate}
+
+For sequences in $\R^k$ including in $\C \approx \R^2 ,$ we have.
+
+\begin{thm}
+	Let $\{x_n\}$ be a sequence in $\R^k$, where
+	$$x_n = (x_{1,n},x_{2,n},\cdots,x_{k,n}), n = 1,2, \cdots$$
+	
+	\begin{enumerate}[wide,label = $(\alph*)$]
+		\item $x_n \rightarrow p (p_1,\cdots , p_k)$ in $\R^k \Leftrightarrow x_{i,n} \rightarrow p_i \forall 1 \leq i \leq k$, i.e. $\lim_{n \rightarrow \infty}(x_{1,n},\cdots,x_{k,n}) = (\lim_{n \rightarrow \infty}x_{1,n},\cdots,\lim_{n \rightarrow \infty}x_{k,n})$ if exists
+		\item Let $\{x_n\} \{y_n\}$ be sequences in $\R^k$ and $\{d_n\}$ be a sequence in $\C$ and $a,b \in \R$. If $x_n \rightarrow x,y_n \rightarrow y $ and $d_n \rightarrow d$, then
+		
+		\begin{enumerate}[label = $\bullet$]
+			\item $ax_n + by_n \rightarrow ax + by$
+			\item $<x_n,y_n> \rightarrow <x,y>$
+			\item $d_n x_n \rightarrow d_x$
+			\item $||x_n|| \rightarrow ||x||$
+		\end{enumerate}
+		
+		If $k = 3$, them $x_n \times y_n \rightarrow x \times y$
+	\end{enumerate}
+\end{thm}
+
+\begin{proof}$ $
+
+	(a)It follows from the inequation $\forall y \in \R^k |y_i| \leq ||y|| \leq \sum^{k}_{i = 1}|y_i|$
+	
+	$\because \forall 1 \leq i \leq k ~ |x_{i,n} - p_i| \leq ||x_n - p|| \leq \sum^k_{i=1}|x_{j,n} - p_j| \forall n \geq 1$
+	
+	($\Rightarrow$) \begin{eqnarray*}
+		\text{Suppose } x_n \rightarrow p &\implies & ||x_n - p|| \rightarrow 0\\
+		&\implies& \forall 1 \leq i \leq k, |x_{i,n} - p_i| \rightarrow 0 \forall 1 \leq k \leq n\\
+		&\implies& \forall 1 \leq i \leq k, x_{i,n} \rightarrow p_i \text{ as } n \rightarrow \infty 
+	\end{eqnarray*}
+	($\Leftarrow$) 
+	\begin{eqnarray*}
+		\text{Suppose } x_n \rightarrow p_i, 1 \leq i \leq k &\implies & ||x_{i,n} - p_i|| \rightarrow 0 ~\forall 1 \leq k \leq n\\
+		&\implies& \sum^k_{i = 1}|x_{i,n} - p_i| \rightarrow 0 \\
+		&\implies& ||x_n - p|| \rightarrow 0 \implies x_n \rightarrow p
+	\end{eqnarray*}
+	
+	(b) By (a)
+	
+	\begin{eqnarray*}
+		ax_n + by_n &=& (ax_{1,n},ax_{2,n},\cdots,ax_{k,n}) + (by_{1,n},\cdots , by_{k,n})\\
+		&=& (ax_{1,n} + by_{1,n},\cdots,ax_{k,n} + by_{k,n})\\
+		&\rightarrow & (ax1 + by_1,\cdots , ax_k + by_k) = ax + by 
+	\end{eqnarray*}
+	
+	\begin{enumerate}[label = $\bullet$]
+		\item $<x_n,y_n> = \sum^k_{i = 1}x_{i,n}y_{i,n} \rightarrow \sum^n_{i = 1}x_iy_i = <x,y>$
+		\item $d_nx_n = (d_nx_{1,n},\cdots , d_nx_{k,n}) \rightarrow (dx_1,\cdots,dx_k) = dx$
+		
+		$||x_n|| = (\sum^k_{i=1} x_{i,n}^2)^{\frac{1}{2}} \implies (\sum^k_{i=1}x_i^2)^{\frac{1}{2}} = ||x||$
+		\item $x_n \times y_n = (x_{2,n}y_{3,n} - x_{3,n}y_{2,n},\cdots) \rightarrow (x_2y_3 - x_3y_2 , \cdots) = x \times y$
+	\end{enumerate}
+\end{proof}
+
+\subsection{Subsequences}
+
+\begin{thm} $ $
+	\begin{enumerate}[wide, label = $(\alph*)$]
+		\item If $\{x_n\}$ convergences to $p$, i.e. $\lim_{n \rightarrow \infty}x_n = p$, them so is every subsequence of $\{x_n\}$
+		\item If $X$ is compact and $\{x_n\}$ is a sequence in $X$, them $\{x_n\}$ has a convergent subsequence.
+		\item Every bounded sequence $\{x_n\}$ in $\R^k$ has a converge subsequence.
+	\end{enumerate}
+\end{thm}
+
+
+\begin{proof}
+	\begin{enumerate}[wide, label = $(\alph*)$]
+		\item Given a subsequence $\{x_{n_k}\}$ of $\{x_n\}$( Note that $\{n_k\}$ is strictly increasing , i.e. $n_1 < n_2 < \cdots$, hence, $k \leq n_k ~ \forall k \geq 1$), $d(x_{n_k},p) < \epsilon$. This proves $x_{n_k} \rightarrow p$ as $k \rightarrow \infty$
+		\item Let $T = \{x_n ~|~ n \geq 1\}$ be the range of $\{x_n\}$
+		
+		Case 1: $T$ is a finite set. In this case, some $x_{n_0}$ must appear infinitely many times in the sequence $\{x_n\}$. Choose $n_1 = n_0 \ni x_{n_1} = x_{n_0}$, and $n_2 > n_1 \ni x_{n_1} = x_{n_2},\cdots$. In this way, we get a const subsequence $\{x_{n_k}\}$ which convergence to $x_{n_0}$
+		
+		Case 2: $T$ is an infinite set. In this case, $T$ is an infinite subset of the compact metric space $X$. By Thm 2.17 (ii), $T$ has an accumulation point $p$ in $X$. By Thm 3.1 (e), $\exists$ a sequence in $T$ which converges to $p$. We may arrange such sequence to be a subsequence of $\{x_n\}$. We are done
+		
+		\begin{tcolorbox}
+			$y_1 = x_n$, choose $n_2 \rightarrow n_1 \ni x_{n_2}$ appears in $\{y_j\}.$ Then $\{x_{n_k}\}$ is a subsequence of $\{x_n\}$ and $\{y_j\}$, $\therefore x_{n_k} \rightarrow p$
+		\end{tcolorbox}
+		\item $\because$ Since $\{x_n\}$ is bounded, we may choose a closed ball $\overline{B}(0,R)$ or a closed $n$-dimensional interval in $\R^k \ni \{x_n\}$ is a sequence in $K$, By (b), $\{x_n\}$ has a convergence subsequence .
+	\end{enumerate}
+\end{proof}
+
+
+\begin{rmk*}
+		Thm 3.4(a) can be used to detect the divergence of a sequence, e.g. $\{(-1)^n\}$ in $\R$ which divergences, $\because$ It has two subsequences $\begin{cases}
+			x_{2n} \rightarrow 1 \\ x_{2n - 1} \rightarrow -1
+		\end{cases}$ which is different.
+\end{rmk*}
+
+\begin{defn}
+	Let $\{x_n\}$ be a sequence in $X$. A point $p \in X$ is called a subsequential limit of $\{x_n\}$ if $\exists$ a subsequence $\{x_{n_k}\}$ of $\{x_n\} \ni x_{n_k} \rightarrow p$ as $k \rightarrow \infty$
+\end{defn}
+
+\textbf{Examples} 
+
+\begin{enumerate}
+	\item If $\{x_n\}$ convergences to $p$, then $\{x_n\}$ has only on subsequence limit $p$ ($E = \{p\}$)
+	\item $\{(-1)^n\}$ has two subsequence limit $1$ and $-1,~ E = \{1,-1\}$
+	\item $\{n\}$ has no subsequence limit $(E = \emptyset)$ 
+\end{enumerate}
+
+Let $\{x_n\}$ be a sequence in $X$ and $E$ be the set of all subsequence limits of $\{x_n\}$
+
+\begin{thm}
+	As above, $E$ is a closed subset of $X$
+\end{thm}
+
+\begin{proof}
+	If $E$ is a finite set, them $E$ is closed.
+	
+	Now, assume that $E$ is an infinite set, to show that $E$ is closed, we must prove $E' \subseteq E$, i.e. $E$ contains all its accumulation point. Given $q \in E'$, to prove $q \in E$, i.e. $\exists$ a subsequence $\{x_{n)k}\} \ni x_{n_k} \rightarrow q$. Since $E$ is infinite, $\{x_n\}$ is not a constant sequence , so we can choose  $x_{n_1} \neq q$. Let $\delta = d(x_n , q),$ We construct subsequence $\{x_{n_k}\}$ of $\{x_n\}$ satisfying : $d(x_{n_k} , q) \leq \frac{\delta}{2^{k-1}} \forall k \geq 1$. If it is done, them by squeezing lemma, $d(x,q) \rightarrow 0$ as $k \implies \infty$. 
+	
+	Now, to construct such subsequence $\{x_{n_k}\}$. By induction, suppose $k = 1$ we are done, we have found $n_1 < n_2 < \cdots < n_{k-1} , k \geq 2$. To find $x_{n_k}$. Since $q \in E', B(q , \frac{\delta}{2^k}) \cap E - \{q\} \neq \emptyset$. Choose $x \in B(q,\dfrac{\delta}{2^k}) \cap E - \{q\}$. Now, $x \in E, \exists$ a subsequence of $\{x_n\}$ which convergence to $x$. Hence $\exists n_k > n_{k-1} \ni d(x_{n_k},x) < \frac{\delta}{2^k}$. Finally, $d(x_{n_k},q) \leq d(x_{n_k},x) + d(x,q) < \frac{\delta}{2^k} + \frac{\delta}{2^k} = \frac{\delta}{2^{k-1}} \therefore$ By induction, such subsequence $\{x_{n_k}\}$ can be found.
+\end{proof}
+
+
+\subsection{Cauchy Sequences} $ $
+
+\textbf{Recall} $x_n \rightarrow p \implies \forall \epsilon > 0 ~\exists N \in \N \ni \forall n \geq N ,~d(x_n,p) < \frac{\epsilon}{2}$.
+
+$\therefore \forall m,n \geq N, ~d(x_m,x_n) \leq d(x_m,p) + d(p,x_n) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$
+
+\begin{defn}
+	A sequence $\{x_n\}$ in $X$ is called a Cauchy sequence if it satisfies the Cauchy condition: $\forall \epsilon > 0,~\exists N \in \N \ni \forall n,m \geq N, d(x_n,x_m) < \epsilon$
+\end{defn}
+
+\newpage
+
+\begin{rmk*}$ $
+	\begin{enumerate}[label = (\roman*), wide]
+		\item Convergence sequence is Cauchy
+		\item Cauchy sequence may not convergence, e.g. in $(0,1)~\{\dfrac{1}{n}\}$ is Cauchy, but not convergence in $(0,1)$
+		\begin{tcolorbox}
+			$\forall n,m \in \N ,~ m \geq n,~ |\frac{1}{n} - \frac{1}{m}| \leq \dfrac{1}{n} + \dfrac{1}{m} \leq \dfrac{2}{n}$
+			
+			$\forall \epsilon > 0$, Choose $N \in \N \ni \frac{2}{N} < \epsilon$. 
+			
+			Them $\forall n,m \geq N,~|\dfrac{1}{n} - \dfrac{1}{m} | \leq \dfrac{2}{N} < \epsilon ~ \therefore$ $\{\frac{1}{n}\}$ is Cauchy.
+		\end{tcolorbox}
+		\item $\{x_n\}$ is Cauchy $\Leftrightarrow \lim_{n,m \rightarrow \infty} d(x_n,x_m) = 0$
+		
+		\item Let $E_n = \{x_n , x_{n+1} , \cdots\} n \geq 1$. Them $\{x_n\}$ is Cauchy $\Leftrightarrow \lim_{n \rightarrow \infty} $ dia $(E_n) = 0$
+		
+		
+		
+		\begin{tcolorbox}
+			Recall the definition of diameter:
+
+			Let $S \subseteq V, S \neq \emptyset.$ The diameter of $S$ is dia($S$) = sup$\{d(x,y)~|~ x,y \in S\}$
+
+			Let  
+		\end{tcolorbox}
+		
+		
+	\end{enumerate}
+\end{rmk*}
+
+
+\begin{proof}
+	($\Rightarrow$) Suppose $\{x_n\}$ is Cauchy. Then $\forall \epsilon > 0,~\exists N \in \N \ni \forall n,m \geq N, d(x_n,x_m) < \frac{\epsilon}{2}$. Then $\forall n \geq N,$ dia ($E_n$) $\leq \frac{\epsilon}{2} < \epsilon \implies \lim_{n \rightarrow \infty}$ dia ($E_n$) $= 0$
+	
+	($\Leftarrow$) Suppose $\lim_{n \rightarrow \infty}$ dia ($E_n$) $= 0$, $\forall \epsilon > 0 ,\exists N \in \N \ni \forall n \geq N$, dia($E_n$) $< \epsilon \implies \forall n,m \geq N, (x_n,x_m \in E_n), d(x_n,x_m \leq )$ dia ($E_N$) $< \epsilon$ 
+	
+	$\therefore \{x_n\}$ is Cauchy.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

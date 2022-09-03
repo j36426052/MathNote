@@ -1021,31 +1021,187 @@ Note that from the proof of Thm 2.28, $\R^k$ has a countable base of the form:
 	Let $S \subseteq \R^k$ be open, if $S = \bigcup_{\alpha \in I}U_\alpha $ is a union of open sets in $X$, then $S = \bigcup^{\infty}_{n = 1}U_{\alpha_n}$ is a countable union. $\because$ By Lindelof covering theorem.	
 \end{cor}
 
+\subsection{Perfect Sets in Metric Spaces}
+
+\textbf{Recall}
+a subset $E$ in a metric space $X$ is perfect if $E$ is closed in $X$ and and every point of $E$ is its accumulation point. i.e. $E' = E$
+
+\textbf{Example}
+\begin{enumerate}[wide,label=$\bullet$]
+	\item $-\infty < a < b < \infty,~ [a,b]$ is perfect
+	\item $\R$ is perfect
+\end{enumerate}
+
+\begin{thm}
+	Every nonempty perfect set $E$ in $\R^k$ is uncountable
+\end{thm}
+
+\begin{proof}
+	$E$ is an infinite set ($\because$ finite set has no accumulation point), Suppose $E$ were countable, write $E = \{x_1,x_2,\cdots\}$. We use induction to construct a sequence $\{V_n\}$ of open sets in $X$ as follows:
+	
+	Let $V_1$ be any neighborhood of $y_1 = x_1$, e.g. $V_1 = B(x_1,r)$, it's closure is $\overline{V_1} = \overline{B}(x_1,r)$, $x_1 \in E',~V_1 \cap E$ is an infinite set, so $\exists y_2 \in V_1 \cap E \ni y_2 \neq y_1$. Choose a neighborhood $V_2$ of $y_2 \ni$
+	\begin{enumerate}[wide,label=$(\roman*)$]
+		\item $\overline{V_2} \subseteq V_1$
+		\item $x_1 \notin \overline{V_2}$
+		\item $V_2 \cap E \neq \emptyset (\because y_2 \in E = E'$ and it's also an infinite set)
+	\end{enumerate}
+	
+	Suppose that, for $n \geq 3,~V_n$ has been chosen $\ni V_n$ is a neighborhood of some $y_n \in E \ni$
+	
+	\begin{enumerate}
+		\item $\overline{V_n} \subseteq V_{n-1}$
+		\item $x_{n-1} \notin \overline{V_n}$
+		\item $V_n \cap E \neq \emptyset$ is an infinite set 
+	\end{enumerate} 
+	
+	Since $V_n \cap E$ is an infinite set, $\exists y_{n+1} \in V_n \cap E \ni y_{n+1} \neq y_n$. Again, choose a neighborhood  $V_{n+1}$ of $y_{n+1} \ni$
+	
+	\begin{enumerate}
+		\item $\overline{V_{n+1}} \subseteq V_n$
+		\item $x_n \notin \overline{V_{n+1}}$
+		\item $V_{n+1} \cap E \neq \emptyset$ is an infinite set.
+	\end{enumerate}
+	
+	By induction, we have constructed such sequence $\{V_n\}$. Put $K_n = \overline{V_n} \cap E,~n \geq 1$. Then $\{K_n\}$ is a decrease sequence of nonempty compact sets in $\R^k$.
+	
+	\begin{tcolorbox}
+		$\overline{V_n}$ is closed, $E$ is closed $\implies$ $K_n = \overline{V_n} \cap E$ is closed, each $\overline{V_n}$ is bounded $\therefore K_n$ is closed and bounded by H.B. theorem, $K_n$ is compact.
+		
+		\begin{enumerate}[label = $\cdot$]
+			\item $\emptyset \neq V_n \cap E \subseteq \overline{V_n} \cap E \implies E_n = \overline{V_n} \cap E \neq \emptyset$
+			\item $\overline{V_n} \cap E \supseteq \overline{V_{n+1}} \cap E = K_{n+1} \therefore \{K_n\}$ is decrease.
+		\end{enumerate}
+	\end{tcolorbox}
+	
+	By Cantor's intersection theorem, $\bigcap^{\infty}_{n=1}K_n \neq \emptyset$. Pick $y \in \bigcap^{\infty}_{n=1}K_n,~ y \in E(\because K_n \subseteq E \forall n \geq 1)$. Since $x_n \notin \overline{V_{n+1}}~\forall n \geq 1,$ so $x_n \notin K_n \forall n \geq 1 \implies y \notin E (\rightarrow\leftarrow)$ to $E = \{x_1,x_2,\cdots\}$
+	
+	$\therefore E$ is uncountable.
+\end{proof}
+
+\begin{cor}
+	Every nondegenerate intervvl is uncountable.
+\end{cor}
+
+\begin{proof}
+	$\because$ Every nondegenerate interval $I$ in $\R$ must contain a closed and bounded interval $[a,b]$ with $a < b$ which is perfect, so it is uncountable by theorem 2.31. Hence $I$ is uncountable.
+\end{proof}
+
+Construction of the Cantor set $\underline{P} \subseteq [0,1]$ in $\R$ which is a perfect set
+
+\begin{enumerate}[wide,label = $(\alph*)$]
+	\item Remove the middle third open subinterval of $[0,1]$. There are two closed subintervals $[0,\frac{1}{3}]$ and $[\frac{2}{3},1]$. Let $C_1 = (\frac{1}{3},\frac{2}{3})$ and $E_1 = [0,\frac{1}{3}]\cup[\frac{2}{3},1]$
+	\item Remove te middle thirds of $[0,\frac{1}{3}]$ and $[\frac{2}{3},1]$ respectively. There are $2^2 = 4$ subintervals $[0,\frac{1}{3^2}],~[\frac{2}{3^2},\frac{3}{3^2}],~[\frac{6}{3^2},\frac{7}{3^2}],~[\frac{8}{3^2},1]$
+	\item Countinue this process, we get a sequence $\{C_n\}$ of open sets and a sequence $\{E_n\}$ of closed sets satisfy
+	
+	\begin{enumerate}[label = $(\roman*)$]
+		\item $E_0 \supseteq E_1 \supseteq E_2 \subseteq \cdots$, i.e. $\{E_n\}$ is a decrease sequence of closed sets in $[0,1]$
+		\item Each $E_n$ is a union of $2^n$ closed intervals, each of length $3^{-n}$
+		\item Each $C_n$ is a union of $2^{n-1}$ open subintervals, each of length $3^{-n}$. total length is $\frac{2^{n-1}}{3^n}$
+	\end{enumerate}
+\end{enumerate}
+
+\begin{defn}
+	$\underline{P}$(or $C$) $ = \bigcap^{\infty}_{n = 1}E_n = [0,1] - \bigcup^{\infty}_{n = 1}C_n$( $= \bigcap^{\infty}_{n=1}([0,1] - C_n)$)
+\end{defn}
+
+Properties of Cantor set $\underline{P}:$
+
+\begin{enumerate}[wide]
+	\item $\underline{P} \neq \emptyset$ by Cantor's intersection theorem
+	\item $\underline{P}$ is compact ($\because \underline{P}$ is closed bein $\cap$ of closed set and $\underline{P} \subseteq [0,1]$,~ $[0,1]$ is compact )
+	\item $\underline{P}$ is nowhere dense, i.e. $\overline{\underline{P}}^{\circ} = \emptyset,$ i.e. $\underline{P}^{\circ} = \emptyset$
+	
+	$\because \underline{P}$ contains no nonempty open subintervals($\because \underline{P}^{\circ} \neq \emptyset \implies \exists x \in P^{\circ} \implies \exists \delta > 0 ,(x-\delta,x+\delta) \subseteq \underline{P}$).If $\alpha < \beta$ and $(\alpha,\beta) \subseteq \underline{P}$, them $(\alpha , \beta) \subseteq E_n \forall n \geq 1$.Choose $n >> 0 \ni \frac{1}{2^n} < \beta - \alpha$. Then for $n >> 0,~E_n$ contains subinterval of length $\geq \frac{1}{2^n} (\rightarrow\leftarrow)$. Hence, $\underline{P}$ is nowhere dense.
+	
+	\item $\underline{P} = \{\sum^{\infty}_{n=1}\frac{a_n}{3^n} ~|~ a_n = 0 \text{ or } 2 \forall n \geq 1\}$
+	
+	Recall the ternarry representation of a number $x \in [0,1],~ x = \sum^{\infty}_{n = 1} \frac{a_n}{3^n},~a_n = 0,1,2 \forall n \geq 1$
+	
+	\begin{tcolorbox}
+		if $frac{a_n}{3^n}$ the $a_n$ can be $1$, then $\frac{1}{3} + \frac{1}{3} $ is not in $\underline{P}$
+		
+		if you want to represent $\frac{1}{3}$, you need use $0 + \frac{2}{3^2} + \frac{2}{3^3} + \cdots$, i.e. $0.1 = 0.0\overline{9}$ same things.
+	\end{tcolorbox}
+	
+	This can be used to prove that $\underline{P}$ is uncountable by $\underline{P} \rightarrow [0,1],~x = \sum^{\infty}_{n=1}\frac{a_n}{3^n} \rightarrow \sum^{\infty}_{n=1}\frac{a_n / 2}{2^n}$ is bijative $\therefore \underline{P}$ is uncountable.
+	
+	\item $\underline{P}$ is of measure zero (i.e. the length of $\underline{P}$ is zero)
+	
+	$\because$ The totally length remove in the construction of $\underline{P}$ is $\frac{1}{3} + \frac{2}{3^2} + \frac{2^2}{3^3}+ \cdots = 1$. This also proves that $\underline{P}$ is nowhere dence.
+	
+	\item $\underline{P}$ is perfect. In particular, by theorem 2.31, $\underline{P}$ is uncountable
+	
+	$\because$ Obviously $\underline{P}$ is a nonempty closed set. Let $x \in \underline{P}$. Then $\forall (\alpha , \beta) \ni x \in (\alpha , \beta)$. We prove that $(\alpha , \beta) \cap \underline{P} - \{x\} \neq \emptyset$, which says that $x$ is an accumulation points of $\underline{P}$. Hence $\underline{P}$ is perfect. By $x \in \underline{P},~ x \in E_n ~\forall n \geq 1$. Then $\exists$ a closed subinterval $I_n \subseteq E_n \ni x \in I_n$. Choose $n >> 0 \ni I_n \subseteq (\alpha , \beta)$. Let $x_n$ be an end point of $I_n \ni x \neq x_n$. By construction, $x_n \in \underline{P},$ so 
+	
+	$$x_n \in (\alpha , \beta) \cap \underline{P} - \{x\}$$
+	
+	i.e. $x$ is an accumulation point of $\underline{P}$, Hence $\underline{P}$ is perfect.
+	
+\end{enumerate}
+
+\begin{defn}
+	Let $X$ be a metric space (or topological space) $A,B \subseteq X$. We sat that $A$ and $B$ are separated if both $A \cap \overline{B}$ and $\overline{A} \cap B$ are empty sets.
+\end{defn}
+
+\begin{defn}
+	A subset $E \subseteq X$ is called connected if $E$ is not a union of two nonempty separated sets and $E$ is disconnected if $E$ is not connected
+\end{defn}
+
+\begin{rmk*}
+	$X$ is connected $\Leftrightarrow ~X$ is not a union of two nonempty separated sets.
+	
+	$X$ is disconnected $\Leftrightarrow ~ X$ is a union of two nonempty separated sets, say, $X = A \cup B$,$A$ and $B$ are nonempty separated. i.e. $\overline{A} \cap B = \emptyset$ and $A \cap \overline{B} = \emptyset$, i.e. $A = \overline{A},~B = \overline{B}~\therefore A$ and $B$ are closed $\therefore A$ and $B$ are both open and closed.
+	
+\end{rmk*}
 
 
+\textbf{Remarks and Examples}
+
+\begin{enumerate}[wide]
+	\item Separated sets and disjoint
+	\item $[0,1]$ and $(1,2)$ are not separated
+	\item $(0,1)$ and $(1,2)$ are separated
+\end{enumerate}
+
+\begin{thm}
+	Let $E \subseteq \R$ be a set. Then $E$ is connected $\Leftrightarrow ~E$ is an interval
+\end{thm}
+
+\begin{proof}
+	We may assume that $E \neq \emptyset$
+	
+	($\Rightarrow$) Assume that $E$ is connected. If $E$ were not an interval, then $\exists ~x < y $ in $E$ and $z \notin E \ni x < Z < y$. Let $A = (-\infty , z) \cap E$ and $B = (z , \infty) \cap E$. Then $A,B$ are nonempty, $\overline{A} \cap B = \emptyset , ~A \cap \overline{B} = \emptyset$ and 
+	
+	\begin{eqnarray*}
+		E &=& E \cap (\R - \{z\})\\
+		&=& E \cap [(-\infty,z) \cup (z,\infty)]\\
+		&=& (E \cap (-\infty,z)) \cup (E \cap (z,\infty))\\
+		&=& A \cup B
+	\end{eqnarray*}
+	
+	$\therefore \{A,B\}$ is a nonempty separation of $E$ ($\rightarrow\leftarrow$) to connected. $\therefore E$ is an interval
+	
+	($\Leftarrow$) Suppose $E$ is an interval. To show that $E$ is connected. If not, then $\exists$ two nonempty separated sets $A$ and $B \ni E = A \cup B$. Pick $x \in A$ and $y \in B$. Then $x \neq y$($\because A \cap B = \emptyset$). We may assume that $x < y$. Define $z = \sup (A \cap [x,y])$, By (9) in section 2.5, $z \in \overline{A \cap [x,y]} \in \overline{A}$. Hence $z \notin B(\because \overline{A} \cap B = \emptyset)$. Also $x \leq z \leq y$. But $y \in B$ and $z \notin B \implies x \leq z < y$
+	
+	If $z \notin A$, then $x < z < y$ and $z \notin E (\rightarrow\leftarrow)$ to $E$ is an interval.
+	
+	If $z \in A$, then $z \notin \overline{B}(\because A \cap \overline{B} = \empty)$, since $z \notin B,~z \in \R - \overline{B}$ which is open $\implies \exists \delta > 0 \ni (z - \delta , z+\delta) \subseteq \R - \overline{B}$. Choose $z < z_1 < z + \delta < y$, i.e. $z < z_1 < y$. Then $z,y \in E,~z < y$ and $z_1 \notin E (\rightarrow\leftarrow)$ to $E$ is an interval
+\end{proof}
 
 
+\textbf{Application of Connectedness}
 
+$X:$ connected topological space (or metric space)
 
+$P:$ a property on $X$
 
+$D = \{x \in X ~|~ P \text{ holds at } x\}$
 
+If one can prove $D$ is nonempty and closed and open, them $D = X$
 
+$\because X = D \cup (X - D),~\overline{D} \cap (X - D) = \empty$ and $D \cap \overline{(X-D)}$, i.e. $D$ and $X-D$ are separated
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Since $X$ is connected and $D \neq \emptyset$, so $X-D = \emptyset$, i.e. $X = D$ 
 
 
 
