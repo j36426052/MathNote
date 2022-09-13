@@ -1,0 +1,253 @@
+\section{Sequence, Series, and Power Series}
+
+\begin{defn}
+	A sequence $\{a_n\}$ has the limit $L$ and we write 
+	
+	$$\lim_{n \rightarrow \infty}a_n = L \text{ or } a_n \rightarrow L \text{ as } n \rightarrow \infty$$
+	
+	If $\lim_{n \rightarrow \infty} a_n$ exists, we say the sequence converges. Otherwise, we say the sequence diverges (or is divergent).	
+\end{defn}
+
+\begin{defn}
+	A sequence $\{a_n\}$ has the limit $L$ if for every $\epsilon > 0$ there is a corresponding integer $N$ such that if $n > N$ then $|a_n - L| <  \epsilon$
+\end{defn}
+
+\begin{defn}
+The notation $\lim_{n \rightarrow \infty} a_n = \infty$ means that for every positive number $M$ there is an integer $N$ such that if $n > N$ then $a_n > M$	
+\end{defn}
+
+\begin{thm*}
+	If $\lim_{x \rightarrow \infty}f(x) = L$ and $f(n) = a_n$ when $n$ is an integer, then $\lim_{n \rightarrow \infty}a_n = L$	
+\end{thm*}
+
+\textbf{Limit Low}
+
+\textbf{\color{red} not now}
+
+\begin{thm*}
+	If $\lim_{n \rightarrow \infty}|a_n| = 0$, then $\lim_{n \rightarrow \infty}a_n = 0$	
+\end{thm*}
+
+\begin{thm*}
+	If $\lim_{n \rightarrow \infty}a_n = L$ and the function $f$ is continuous at $L$, then $\lim_{n \rightarrow \infty}f(a_n) = f(L)$	
+\end{thm*}
+
+\begin{defn}
+	A sequence $\{a_n\}$ is called 
+	
+	\begin{enumerate}
+		\item increasing if $a_n \leq a_{n+1}$ for all $n \geq 1$,
+		\item decreasing if $a_n \geq a_{n+1}$ for all $n \geq 1$,
+		\item monotonic of it is either increasing or decreasing	
+	\end{enumerate}
+	
+\end{defn}
+
+
+\begin{defn}
+	A sequence $\{a_n\}$ is bounded above if there is a number $M \ni a_n \leq M$ for all $n \geq 1$, and is bounded below if $m \leq a_n$ for all $n \geq 1$.
+	
+	If a sequence is bounded above and below, then it is called a bounded sequence.	
+\end{defn}
+
+
+\begin{thm*}[Monotonic Sequence Theorem]
+	Every bounded, monotonic sequence is convergent. In particular, a sequence that is increasing and bounded above converges, and a sequence that is decreasing and bounded below converges.
+\end{thm*}
+
+\begin{defn}
+	If the sequence $\{S_n\}$ is convergent and $\lim_{n \rightarrow \infty}S_n = S$ exists as a real number, then the series $\sum a_n$ is called "convergent" If the sequence $\{S_n\}$ is divergent, then the series is called divergent.	
+\end{defn}
+
+
+\begin{defn}[Geometric Series]
+	\begin{enumerate}[label = $\bullet$]
+		\item the partial sum of geometric series $S_n = \dfrac{a(1 - r^n)}{1 - r}$
+		\item If $|r| < 1$ on its sum is $\sum^{\infty}_{n = 1}ar^{n-1} = \dfrac{a}{1-r}$
+	\end{enumerate}
+
+\end{defn}
+
+
+\begin{thm*}
+	If the series $\sum^{\infty}_{n=1}a_n$ is convergent, then $\lim_{n \rightarrow \infty} a_n = 0$	
+\end{thm*}
+
+
+\textbf{Properties.} If $\sum a_n$ and $\sum b_n$ are convergent series, then so are the series $\sum ca_n$(where $c$ is a constant), $\sum (a_n + b_n),$ and $\sum(a_n - b_n)$, and
+
+\begin{enumerate}[wide,label = $(roman*)$]
+	\item $\sum^{\infty}_{n = 1}ca_n = c\sum^{\infty}_{n = 1}a_n$
+	\item $\sum^{\infty}_{n = 1}(a_n + b_n) = \sum^{\infty}_{n = 1}a_n + \sum^{\infty}_{n = 1}b_n$
+	\item $\sum^{\infty}_{n = 1}(a_n - b_n) = \sum^{\infty}_{n = 1}a_n - \sum^{\infty}_{b_n}$
+\end{enumerate}
+
+\subsection{Integral Test $\&$ Estimates of Sum}
+
+
+\textbf{Integral Test.} Suppose $f$ is a continuous, positive, decreasing function on $[1,\infty )$ and let $a_n = f(n)$. Then the series $\sum^{\infty}_{n = 1}a_n$ is convergent $\Leftrightarrow$ improper integral $\int^{\infty}_{1}f(x)dx$ is convergent
+
+
+\begin{rmk*}
+	The $p$ series $\sum^{\infty}_{n = 1} \dfrac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$	
+\end{rmk*}
+
+\textbf{Estimate} Suppose $f(k) = a_k$, where $f$ is a continuous, positive, decreasing function for $x \geq n$ and $\sum a_n$ is convergent. If $R_n = S - S_n$, then $\int^{\infty}_{n+1}f(x)dx \leq R_n \leq \int^{\infty}_{n}f(x)dx \implies S_n + \int^{\infty}_{n+1}f(x)dx \leq S \leq S_n + \int^{\infty}_{n}f(x)dx$
+
+\textbf{Comparison Test} Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms
+
+\begin{enumerate}
+	\item If $\sum b_n$ is convergent and $a_n \leq b_n$ for all $n$, then $\sum a_n$ is also.
+	\item If $\sum b_n$ is divergent and $a_n \geq b_n$ for all $n$, then $\sum a_n$ is also divergent.	
+\end{enumerate}
+
+\textbf{The Limit Comparison Test.} Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms If $\lim_{n \rightarrow \infty}\dfrac{a_n}{b_n} = c$, where $c$ is a finite number and $c > 0$, then either \textbf{both} series converge or diverge.
+
+\textbf{Alternating Series Test.} If the alternating series
+
+$$\sum^{\infty}_{n = 1}(-1)^{n-1}b_n = b_1 - b_2 + b_3 + \cdots (b_n > 0)$$
+
+satisfies the conditions
+
+(i) $b_{n+1} \leq b_n$ for all $n$\\
+(ii)$\lim_{n \rightarrow \infty}b_n = 0$
+
+then the series is convergent.
+
+
+\textbf{Alternating Series Estimation Theorem.} If $S = \sum (-1)^{n - 1}$, where $b_n > 0$, is the sum of an alternating series that satisfies
+
+(i) $b_{n+1} \leq b_n$ and (ii) $\lim_{n \rightarrow \infty} b_n = 0$
+
+then 
+
+$$|R_n| = |S - S_n| \leq b_{n+1}$$ 
+
+
+\begin{defn}
+	A series $\sum a_n$ is called absolutely convergent if the series of absolute values $\sum |a_n|$ is convergent.	
+\end{defn}
+
+\begin{defn}
+	A series $\sum a_n$ is called conditionally convergent if it is convergent but not absolutely convergent; that is, if $\sum a_n$ converges but $\sum |a_n|$ diverges.	
+\end{defn}
+
+\begin{thm*}
+	If a series $\sum a_n$ is absolutely convergent, then it is convergent.	
+\end{thm*}
+
+
+\textbf{Ration Test}
+
+\begin{enumerate}[wide,label = $(\roman*)$]
+	\item If $\lim_{n \rightarrow \infty}|\dfrac{a_{n+1}}{a_n}| = L < 1$, then the series $\sum^{\infty}_{n = 1}a_n$ is absolutely convergent
+	\item If $\lim_{n \rightarrow \infty |\dfrac{a_{n+1}}{a_n}|} = L > 1$ or $\lim_{n \rightarrow \infty}|\dfrac{a_{n+1}}{n}| = \infty$, then the series $\sum^{\infty}_{n = 1}a_n$ is divergent
+	\item If $\lim_{n \rightarrow \infty}|\dfrac{a_{n+1}}{a_n}| = 1$, the ration test is inconclusive; that is, no conclusion can be drawn about the convergence or divergence of $\sum a_n$
+\end{enumerate}
+
+\textbf{The Root Test}
+
+\begin{enumerate}[wide, label = $(\roman*)$]
+	\item If $\lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = L < 1$, then the series $\sum^{\infty}_{n = 1}a_n$ is absolutely convergent
+	\item If $\lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = L > 1$ or $\lim_{n \rightarrow \infty}\sqrt[n]{|a_n|} = \infty$, then the series $\sum^{\infty}_{n = 1}a_n$ is divergent.
+	\item If $\lim_{n \rightarrow \infty}\sqrt[n]{|a_n|} = 1$, the Root Test is inconclusive.
+\end{enumerate}
+
+
+\subsection{Power Series}
+
+
+\begin{defn}
+	A power series is a series of the form
+	
+	$$\sum^{\infty}_{n = 1} c_n x^n = c_0 + c_1x+c_2x^2 + c_3x^3+ \cdots$$
+	
+	and a series of the form
+	
+	$$\sum^{\infty}_{n = 1}c_n(x-a)^n = c_0 + c_1(x - a)+c_2(x-a)^2+\cdots$$	
+\end{defn}
+
+\begin{thm*}
+	For a power series $\sum^{\infty}_{n = 0}c_n(x - a)^n$, there are only three possibilities:
+	
+	\begin{enumerate}[wide,label = ($\roman*$)]
+		\item The series converges only when $x=a$
+		\item The series converges for all $x$
+		\item There is a positive number $R$ such that the series converges if $|x-a| < R$ and diverges if $|x-a| > R$ and the number $R$ in case (iii) is called the radius of convergence of the power series.
+	\end{enumerate}
+	
+\end{thm*}
+
+\begin{thm*}
+	If the power series $\sum c_n(x-a)^n$ has radius of convergence $R > 0$, then the function $f$ defined By
+	
+	$$f(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots = \sum^{\infty}_{n=0}c_n(x-a)^n$$	
+	
+	is differeniable on the interval $(a-R,a+R)$ and
+	
+	\begin{enumerate}[label = ($\roman*$)]
+		\item $f'(x) = c_1 + 2c_2(x-a)+3c_3(x-a)^2 + \cdots = \sum_{n=1}^{\infty} c_n (x-a)^{n-1}$
+		\item $\int f(x)dx = C + x_0(x - a) + c_1 \dfrac{(x-a)^2}{2} + c_2 \dfrac{(x-a)^{3}}{3}+\cdots = C + \sum^{\infty}_{n=1}c_n\dfrac{(x-a)^{n+1}}{n+1}$
+	\end{enumerate}
+
+\end{thm*}
+
+\subsection{Taylor $\&$ Maclaurin Series}
+
+\begin{defn}
+	If $f$ has a power series representation (expansion) at $a$, that is, if 
+	
+	$$f(x) = \sum^{\infty}_{n = 0}c_n(x-a)^n~|x - a| < R$$
+	
+	then its coefficients are given by the formula
+	
+	$$c_n = \dfrac{f^{(n)(a)}}{n!}$$
+	
+	$\implies f(x) = \sum^{\infty}_{n = 1}\dfrac{f^{(n)}(a)}{n!}(x-a)^n$
+	
+	and it's called Taylor series of the function $f$ at $a$. If $a = 0$ it's called Maclaurin series and $T_n(x) = \sum^{n}_{i=0}\dfrac{f^{(i)}(a)}{i!}(x-a)^i$ called the nth-degree Taylor polynomial of $f$ at $a$ and $R_n(x) = f(x) - T_n(x)$, so that $f(x) = T_n(x) + R_n (x)$, then $R_n(x)$ is called the remainder of the Taylor series.	
+\end{defn}
+
+
+\begin{thm*}
+	If $f(x) = T_n(x) + R_n(x)$, where $T_n$ is the $n$th-degree Taylor polynomial of $f$ at $a$, and if
+	
+	$$\lim_{n \rightarrow \infty}R_n(x) = 0$$
+	
+	for $|x-a| < R$, then $f$ is equal to the sum of its Taylor series on the interval $|x - a| < R$.	
+\end{thm*}
+
+\textbf{Taylor's Inequality.} If $|f^{n+1}(x)| \leq M$ for $|x-a| \leq d$, then the remainder $R_n(x)$ of the Taylor series satisfies the inequality $|R_n(x)| \leq \dfrac{M}{(n+1)!}|x-a|^{n+1}$ for $|x-a| \leq d$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

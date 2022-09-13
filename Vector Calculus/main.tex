@@ -1,0 +1,436 @@
+\input{../settings}
+\begin{document}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\begin{defn}
+	Let $f: U \subset \R^n \rightarrow \R$. Define the graph of $f$ to be the subset of $\R^{n+1}$ consisting of all the points
+	
+	$$ (x_1,\cdots,x+n,f(x_1,\cdots,x_n))$$
+	
+	in $\R^{n+1}$ for $(x_1,\cdots,x_n)$ in $U$. In symbols,
+	
+	$$\text{graph}f = \{(x_1,\cdots,x_n,f(x_1,\cdots,x_n)) \in \R^{n+1} ~|~(x_1,\cdots,x_n) \in U\}$$	
+\end{defn}
+
+\begin{defn}
+	Let $f: U \subset \R^n \rightarrow \R$ and let $c \in \R$. Then the level set of value $c$ is defined to be the set of those points $x \in U$ at which $f(x) = c$. In symbols, the level set of value $c$ is written
+	
+	$$\{ x \in U ~|~ f(x) = c\} \subset \R^n$$
+	
+	Note that the level set is always in the domain space.
+\end{defn}
+
+\begin{defn}
+	Let $U \subset \R^n$ be an open set and suppose $f:U \subset \R^n \rightarrow \R$ is a real-valued function. Then, $\dfrac{\partial f}{\partial x_1},\cdots,\dfrac{\partial f}{\partial x_n},$ the partial derivatives of $f$ with respect to the first, second, $\cdots$, $n$th variable, are the real-valued functions of $n$ variables, which at the point $(x_1,\cdots, x_n) = x$, are defined by
+	
+\begin{eqnarray*}
+	\dfrac{\partial f}{\partial x_j}(x_1,\cdots,x_n) &=& \lim_{h \rightarrow 0} \dfrac{f(x_1,x_2,\cdots,x_j+h,\cdots,x_n) - f(x_1,\cdots,x+n)}{h}\\
+	&=& \lim_{h \rightarrow 0}\dfrac{f(x+he_j)-f(x)}{h} 
+\end{eqnarray*}
+	
+\end{defn}
+
+\begin{defn}
+	Let $U$ be an open set in $\R^n$ and let $f: U \subset \R^n \rightarrow \R^m$ be a given function. We say that $f$ is differentiable at $x_0 \in U$ if the partial derivatives of $f$ exist at $x_0$ and if 
+	
+	$$\lim_{x \rightarrow x_0} \dfrac{\norm{f(x) - f(x_0) - T(x-x_0)}}{\norm{x-x_0}} = 0,$$
+	
+	where $T = Df(x_0)$ is the $m \times n$ matrix with elements $\dfrac{\partial f_i}{\partial x_j}$ evaluated at $x_0$ and $T(x-x_0)$ means the derivative of $f$ at $x_0$.	
+\end{defn}
+
+\begin{rmk*}
+	In the case where $m = 1$, the matrix $T$ is just the row matrix
+	
+	$$[\dfrac{\partial f}{\partial x_1}(x_0) \cdots \dfrac{\partial f}{\partial x_n}(x_0))]$$	
+	
+	For the general case of $f$ mapping a subset of $\R^n$ to $\R^m$, the derivative is the $m \times n$ matrix given by
+	
+	$$Df(x_0) = \left[ \begin{matrix}
+ \dfrac{\partial f_1}{\partial x_1} & \cdots & \dfrac{\partial f_1}{\partial x_n}\\
+ \vdots & & \vdots\\
+ \dfrac{\partial f_m}{\partial x_1}& \cdots & \dfrac{\partial f_m}{\partial x_n}	
+ \end{matrix}
+\right]$$
+
+	where $\dfrac{\partial f_i}{\partial x_j}$ is evaluated at $x_0$. The matrix $Df(x_0)$ is called the matrix of partial derivatives of $f$ at $x_0$.
+\end{rmk*}
+
+\begin{defn}
+	Consider the special case $f: U \subset \R^n \rightarrow \R$. Here $Df(x)$ is a $1 \times n$ matrix:
+	
+	$$Df(x) = [\dfrac{\partial f}{\partial x_1}~\cdots ~ \dfrac{\partial f}{\partial x_n}].$$
+	
+	We can form the corresponding "vector" $(\dfrac{\partial f}{\partial x_1},\cdots,\partial x_n)$, called the gradient of $f$ and denoted by $\nabla f$, or grad $f$.	 
+\end{defn}
+
+\begin{rmk*}
+	\begin{enumerate}[wide,label = $\bullet$]
+			\item for $\R^3 \rightarrow \R, \nabla f = \dfrac{\partial f}{\partial x} i + \dfrac{\partial f}{\partial y}j + \dfrac{\partial f}{\partial z}k$
+			\item In terms of inner products, we can write the derivative of $f$ as $Df(x)(h) = \nabla f(x) \cdot h$
+	\end{enumerate}
+	
+\end{rmk*}
+
+\begin{defn}
+	\begin{enumerate}[wide, label = $\bullet$]
+		\item A path in $\R^n$ is a map $c:[a,b] \rightarrow \R^n$
+		\item The collection $C$ of points $c(t)$ as t varies in $[a,b]$ is called a curve, and $c(a)$ and $c(b)$ are its endpoints.
+		\item The path $c$ is said to parametrize the curve $C$. We also say $c(t)$ traces out $C$ as $t$ varies.
+		\item If $c$ is a path in $\R^3$, we can write $c(t) = (x(t),y(t),z(t))$, and we also say $c(t)$ traces out $C$ as $t$ varies.
+		\item If $c$ is a path in $\R^3$, we can write $c(t) = (x(t),y(t),z(t))$, and we call $x(t),y(t)$, and $z(t)$ the component functions of $c$.
+	\end{enumerate}
+	
+\end{defn}
+
+\begin{defn}
+	If $c$ is a path and it is differentiable, we say $c$ is a differentiable path. The "velocity" of $c$ at time $t$ is defined by
+	
+	$$c'(t) = \lim_{h \rightarrow 0}\dfrac{c(t+h) - c(t)}{h}$$	
+	and the speed of the path $c(t)$ is $s = \norm{c'(t)}$, the length of the velocity vector.
+\end{defn}
+
+\begin{rmk*}
+	if $c(t) = (x(t),y(t),z(t))$ in $\R^3$, then
+	
+	$$c'(t) = (x'(t),y'(t),z'(t)) = x'(t)i + y'(t)j + z'(t)k$$	
+\end{rmk*}
+
+\begin{defn}
+	The velocity $c'(t)$ is a "vector tangent" to the path $c(t)$ at time $t$. If $C$ is a curve traced out by $c$ and if $c'(t)$ is not equal to $0 \in \R^n$, then $c'(t)$ is a vector tangent to the curve $C$ at the point $c(t)$.	
+\end{defn}
+
+
+\begin{defn}
+	If $c(t)$ is a path, and if $c'(t_0) \neq 0$, the equation of its tangent line at the point $c(t_0)$ is
+	$$l(t) = c(t_0) + (t - t_0)c'(t_0)$$	
+	If $C$ is the curve traced out by $c$, then the line traced out by $l$ is the tangent line to the curve $C$ at $c(t_0)$
+\end{defn}
+
+\begin{defn}
+	If $f: \R^3 \rightarrow \R$, the directional derivative of $f$ at $x$ along the vector $v$ is given by
+	
+	$$\dfrac{d}{dt}f(x+tv)|_{t = 0}$$
+	if this exists.	
+\end{defn}
+
+\begin{thm*}
+	If $f:R^3 \rightarrow \R$ is differentiable, then all directional derivatives exist. The directional derivative at $x$ in the direction $v$ is given by 
+	$$Df(x)v = \text{grad}f(x)\cdot v = \nabla f(x) \cdot v = [\dfrac{\partial f}{\partial x}(x)]v_1 + [\dfrac{\partial f}{\partial y}(x)]v_2 + [\dfrac{\partial f}{\partial z}(x)]v_3$$
+	where $v = (v_1,v_2,v_3)$.
+\end{thm*}
+
+\begin{thm*}
+	Assume $\nabla f(x) \neq 0$. Then $\nabla f(a)$ points in the direction along which $f$ is increasing the fastest.	
+\end{thm*}
+
+\begin{thm*}
+	Let $f:\R^3 \rightarrow \R$ be a $C^1$ map and let $(x_0,y_0,z_0)$ lie on the level surface $S$ defined by $f(x,y,z) = k$, for $k$ a constant. Then $\nabla f(x_0,y_0,z_0)$ is normal to the level surface in the following sense: If $v$ is the tangent vector at $t=0$ of a path $c(t)$ in $S$ with $c(0) = (x_0,y_0,z_0)$, then $\nabla f(x_0,y_0,z_0)\cdot v = 0$	
+\end{thm*}
+
+\begin{defn}
+	Let $S$ be the surface consisting of those $(x,y,z)$ such that $f(x,y,z) = k$ for $k$ a constant. The tangent plane of $S$ at a point $(x_0,y_0,z_0)$ of $S$ is defined by the equation.
+	
+	$$\nabla f(x_0,y_0,z_0)\cdot (x - x_0,y-y_0,z-z_0) = 0$$
+	
+	if $\nabla f(x_0,y_0,z_0) \neq 0$. That is, the tangent plane is the set of points $(x,y,z)$ that satisfy equation.	
+\end{defn}
+
+
+\begin{thm*}
+	If $f(x,y)$ is of class $C^2$( is twice continuously differentiable.), then the mixed partial derivatives are equal, that is,
+	
+	$$\dfrac{\partial^2 f}{\partial x \partial y} = \dfrac{\partial^2 f}{\partial y \partial x}$$	
+\end{thm*}
+
+\begin{defn}
+	\begin{enumerate}[wide,label = $\bullet$]
+		\item If $f:U \subset \R^n \rightarrow \R$ is a given scalar function, a point $x_0 \in U$ is called a local minimum of $f$ if there is a neighborhood $V$ of $x_0$ such that for all points $x$ in $V$, $f(x) \geq f(x_0)$. Same as local maximum.
+		\item The point $x_0 \in U$ is said to be a local, or relative, extremum if it is either a local minimum or a local maximum.
+		\item A point $x_0$ is a critical point of $f$ if either $f$ is not differentiable at $x_0$, or if it is, $Df(x_0) = 0$.
+		\item A critical point that is not a local extremum is called a saddle point.	
+		\end{enumerate}
+\end{defn}
+
+\begin{thm*}
+	If $U \subset \R^n$ is open, the function $f: U \subset \R^n \rightarrow \R$ is differentiable, and $x_0 \in U$ is a local extremum, then $DF(x_0) = 0$	
+\end{thm*}
+
+\begin{defn}
+	Suppose that $f: U \subset \R^n \rightarrow \R$ has second-order continuous derivatives $\left( \dfrac{\partial^2 f}{\partial x_i \partial x_j}  \right) (x_0)$ for $i,j = 1,\cdots , n ,$ at a point $x_0 \in U.$ The Hessian of $f$ at $x_0$ is the quadratic function defined by
+	
+	\begin{eqnarray*}
+	Hf(x_0)(h) &=& \frac{1}{2} \sum^{n}_{i,j = 1}\dfrac{\partial^2 f}{\partial x_i \partial x_j}(x_0)h_ih_j\\
+	&=& \frac{1}{2}[h_1,\cdots,h_n]\left[\begin{matrix} \dfrac{\partial^2 f}{\partial x_1 \partial x_1} & \cdots & \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\ \vdots & & \vdots \\ \dfrac{\partial^2 f}{\partial x_n \partial x_1} & \cdots & \dfrac{\partial^2 f}{\partial x_n \partial x_n}\end{matrix}\right] \left[ \begin{matrix} h_1\\ \vdots \\ h_n \end{matrix}\right]
+	\end{eqnarray*}
+\end{defn}
+
+\begin{thm*}
+	If $f: U \subset \R^n \rightarrow \R$ is of class $C^3$, $x_0 \in U$ is a critical point of $f$, and the Hessian $Hf(x_0)$ is positive-definite, then $x_0$ is a relative minimum of $f$. Similarly, if $Hf(x_0)$ is negative-definite, then $x_0$ is a relative maximum.
+\end{thm*}
+
+\begin{thm*}
+	Let $f(x,y)$ be of class $C^2$ on an open set $U$ in $\R^2$. A point $(x_0,y_0)$ is a local minimum of $f$ provided the following three conditions holds
+	\begin{enumerate}[label = $\roman* )$]
+		\item $\dfrac{\partial f}{\partial x}(x_0,y_0) = \dfrac{\partial f}{\partial y}(x_0,y_0) = 0$
+		\item $\dfrac{\partial^2 f}{\partial x^2}(x_0,y_0) = 0$
+		\item $D = \left( \dfrac{\partial^2 f}{\partial x^2}\right) \left( \dfrac{\partial^2 f}{\partial y^2}\right) - \left( \dfrac{\partial^2 f}{\partial x \partial y}\right)^2 > 0$ at $(x_0,y_0)$	
+	\end{enumerate}
+	
+\end{thm*}
+
+
+\begin{defn}
+	Suppose $f:A \rightarrow \R$ is a function defined on a set $A$	in $\R^2$ or $\R^3$.
+	
+	A point $x_0 \in A$ is said to be an absolute maximum point of $f$ if $f(x) \leq f(x_0)$ for all $x \in A$
+\end{defn}
+
+\begin{thm*}
+	Let $D$ be closed and bounded in $\R^n$ and let $f: D \rightarrow \R$ be continuous. Then $f$ assumes its absolute maximum and minimum values at some points $x_0$ and $x_1$ of $D$.	
+\end{thm*}
+
+
+\textbf{Strategy} Let $f$ be a continuous function of two variables defined on a closed and bounded region $D$ in $\R^2$, which is bounded by a smooth closed curve. To find the absolute maximum and minimum of $f$ on $D$:
+
+\begin{enumerate}[wide, label = \roman*)]
+	\item	Locate all critical points for $f$ in $U$
+	\item Find all the critical points of $f$ viewed as a function only on $\partial U$
+	\item Compute the value of $f$ at all of these critical points.
+	\item Compare all these values and select the largest and the smallest.
+\end{enumerate}
+
+\begin{thm*}
+	Suppose that $f: U \R^n \rightarrow \R$ and $g: U \subset \R^n \rightarrow \R$ are given $C^1$ real-valued function. Let $x_0 \in U$ and $g(x_0) = c$, and let $S$ be the level set for $g$ with value $c$. Assume $\nabla g(x_0) \neq 0$.
+	
+	If $f|S$, which denotes "$f$ restricted $S$", has a local maximum or minimum on $S$ at $x_0$, then there is a real number $\lambda$(which might be zero) such that
+	
+	$$\nabla f(x_0) = \lambda \nabla g (x_0).$$	
+\end{thm*}
+
+
+\begin{thm*}
+	If $f$, when constrained to a surface $S$, has a maximum or minimum at $x_0$, then $\nabla f(x_0)$ is perpendicular to $S$ at $x_0$.	
+\end{thm*}
+
+
+\begin{defn}
+	Let $U$ be an open region in $\R^n$ with boundary $\partial U$. We say that $\partial U$ is smooth if $\partial U$ is the level set of a smooth function $g$ whose gradient $\nabla g$ never vanishes (i.e., $\partial g \neq 0$).	
+\end{defn}
+
+\textbf{Starategy} Let $f$ be a differentiable function on a closed and bounded region $D = U \cup \partial U$, $U$ open in $\R^n$, with smooth boundary $\partial U$. To find the absolute maximum and minimum of $f$ on $D$
+
+\begin{enumerate}[wide, label = $\roman*)$]
+	\item	Locate all critical points of $f$ in $U$
+	\item Use the method of Lagrange multiplier to locate all the critical points of $f|\partial U$
+	\item Compute the values of $f$ at all these critical points
+	\item Select the largest and the smallest
+\end{enumerate}
+
+\begin{defn}
+	The length of the path $c(t) = (x(t),y(t),z(t))$ for $t_0 \leq t \leq t_1$, is 
+	
+	$$L(c) = \int^{t_1}{t_0}\sqrt{[x'(t)]^2 + [y'(t)]^2 + [z'(t)]^2}dt$$	
+\end{defn}
+
+\begin{defn}
+	An infinitesimal displacement of a particle following a path $c(t) = x(t)i + y(t)j + z(t)k$ is 
+	
+	$$ds = dxi + dyj + dzk = \left(\dfrac{dx}{dt}i + \dfrac{dy}{dt}j + \dfrac{dz}{dt}k\right) dt,$$
+	
+	and its length
+	
+	$$ds = \sqrt{dx^2 + dy^2 + dz^2} = \sqrt{\left( \dfrac{dx}{dt}\right)^2 + \left( \dfrac{dy}{dt}\right)^2 + \left( \dfrac{dz}{dt}\right)^2}dt$$
+	
+	is the differential of arc length.	
+\end{defn}
+
+
+\begin{defn}
+	Let $c:[t_0,t_1] \rightarrow \R^n$ be a piecewise $C^1$ path. Its length is defined to be
+	
+	$$L(c) = \int^{t_1}_{t_0}\norm{c'(t)} dt$$
+	
+	The integrand is the square root of the sum of the squares of the coordinate functions of $c'(t)$ If
+	
+	$$c(t) = (x_1(t),x_2(t),\cdots,x_n(t))$$
+	
+	then
+	
+	$$L(c) = \int^{t_1}_{t_0}\sqrt{(x_1'(t))^2 + \cdots + (x_n'(t))^2}dt$$
+\end{defn}
+
+\begin{defn}
+	A vector field in $\R^n$ is a map $F: A \subset \R^n \rightarrow \R^n$ that assigns to each point $x$ in its domain $A$ a vector $F(x)$.	
+\end{defn}
+
+
+\begin{defn}
+	If $F$ is a vector field a "flow line" for $F$ is a path $c(t)$ such that
+	
+	$$c'(t) = F(c(t))$$	
+\end{defn}
+
+\begin{defn}
+	If $F = F_1i + F_2 j + F_3 k$, the divergence of $F$ is the scalar field
+	$$\text{div} F = \nabla \cdot F = \dfrac{\partial F_1}{\partial x} + \dfrac{\partial F_2}{\partial y} + \dfrac{\partial F_3}{\partial z}$$	
+\end{defn}
+
+\begin{defn}
+
+If $F = F_1 i + F_2 j + F_3 k$, the curl of $F$ is the vector field.
+
+\begin{eqnarray*}
+	\text{curl}F = \nabla \times F &=& \left| \begin{matrix} i & j & k \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ F_1 & F_2 & F)3\end{matrix}\right|	\\
+	&=& \left(\dfrac{\partial F_3}{\partial y} - \dfrac{\partial F_2}{\partial z}\right)i + \left( \dfrac{\partial F_1}{\partial z} - \dfrac{\partial F_3}{\partial x}\right)j + \left( \dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y}\right) k
+\end{eqnarray*}
+
+\end{defn}
+
+
+\begin{thm*}
+	For any $C^2$ function $f$, 
+	
+	$$\nabla \times (\nabla f) = 0$$
+	
+	That is, the curl of any gradient is the zero vector.	
+\end{thm*}
+
+\begin{thm*}
+	For any $C^2$	vector field  $F$,
+	
+	$$\text{div curl } = \nabla \cdot (\nabla \times F) = 0$$
+	
+	That is, the divergence of any curl is zero.
+\end{thm*}
+
+
+\begin{defn}
+	The volume of the region above $R$ and under the graph of a nonnegative function $f$ is called the (dobel) integral of $f$ over $R$ and is denoted by
+	
+	$$\int\int_{R}f(x,y)dA \text{ or } \int\int_{R}f(x,y)dxdy$$
+	
+\end{defn}
+
+\begin{defn}
+	If the sequence $\{S_n\}$ converges to a limit $S$ as $n \rightarrow \infty$ and if the limit $S$ is the same for any choice of points $c_{jk}$ in the rectangles $R_{jk}$, then we say that $f$ is integrable over $R$ and we write
+	
+	$$\int\int_{R}f(x,y)dA, \int\int_{R}f(x,y)dxdy \text{ or } \int\int_{R}fdxdy$$ 	
+	for the limit $S$.
+\end{defn}
+
+\begin{thm*}
+	Any continuous function defined on a closed rectangle $R$ is integrable. 	
+\end{thm*}
+
+\begin{thm*}
+	Let $f: \R \rightarrow \R$ be a bounded real-valued function on the rectangle $R$, and suppose that the set of points where $f$ is discontinuous lies on a finite union of graphs of continuous function. The $f$ is integrable over $R$	
+\end{thm*}
+
+\begin{thm*}
+	Let $f$ be a continuous function with a rectangular domain $R = [a,b] \times [c,d].$ Then
+	
+	$$\int^{b}_{a}\int^{d}_{c}f(x,y)dydx = \int^{d}_{c} \int^{b}_{a}f(x,y)dxdy = \int\int_{R}f(x,y)dA$$	
+\end{thm*}
+
+\begin{defn}
+	If $D$ is an elementary region in the plane, choose a rectangle $R$ that contains $D$. Given $f: D \rightarrow \R$, where $f$ is continuous( and hence bounded ), defin $\int\int_{D}f(x,y)dA$, the integral of $f$ over the set $D$, as follows: Extend $f$ to a function $d^*$ defined on all of $R$ by
+	
+	$$f^*(x,y) = \begin{cases} f(x,y) \text{ if }(x,y) \in D \\ 0 \text{ if } (x,y) \notin D \text{ and }(x,y) \in R\end{cases}$$	
+	then
+	
+	$$\int\int_{D}f(x,y)dA = \int\int_{R}f^* (x,y)dA$$
+\end{defn}
+
+\begin{thm*}
+	Suppose that $D$ is the set of points $(x,y)$ such that $y \in [c,d]$ and $\Phi_1(y) \leq x \leq \Phi_2(y)$	If $f$ is continuous on $D$, then
+	
+	$$\int\int_{D}f(x,y)dA = \int^{d}_{c}\left[ \int^{\Phi_2(y)}_{\Phi_1(y)}f(x,y)dx \right]dy$$
+\end{thm*}
+
+
+\begin{thm*}
+	Suppose $f: D \rightarrow \R$ is continuous and $D$ is an elementary region. Then for some point $(x_0,y_0)$ in $D$ we have
+	
+	$$\int\int_{D}f(x,y)dA = f(x_0,y_0)A(D),$$
+	
+	where $A(D)$ denotes the area of $D$.
+\end{thm*}
+
+
+\begin{thm*}
+	Let $A$ be a $2 \times 2$ matrix with det $A \neq 0$ and let $T$ be the linear mapping of $\R^2$ to $\R^2$ given by $T(x) = Ax$. Then $T$	transforms parallelograms into parallelograms and vertices into vertices.
+\end{thm*}
+
+
+\begin{defn}
+	Let $T: D^* \subset \R^2 \rightarrow \R^2$ be a $C^1$ transformation given by $x = x(u,v)$ and $y = y(u,v)$. The Jacobian determinant of $T$, written $\dfrac{\partial (x,y)}{\partial (u,v)},$ is the determinant of the derivative matrix $DT(u,v)$ of $T:$
+	
+	$$\dfrac{\partial (x,y)}{\partial (u,v)} = \left| \begin{matrix} \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}\\ \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}\end{matrix}\right|$$	
+\end{defn}
+
+\begin{thm*}
+	Let $D$ and $D^*$ be elementary regions in the plane and let $T : D^* \rightarrow D$ be of class $C^1$; suppose that $T$ is one-to-one on $D^*$. Furthermore, suppose that $D = T(D^*)$. Then for any integrable function $f: D \rightarrow \R$, we have.
+	
+	$$\int\int_D f(x,y)dxdy = \int\int_{}{D^*} f(x(u,v),y(u,v)) \left|\dfrac{\partial (x,y)}{\partial (u,v)} \right|dudv$$	
+\end{thm*}
+
+\begin{defn}
+	The path integral, or the integral of $f(x,y,z)$ along the path $c$, is defined when $c: I = [a,b] \rightarrow \R^3$ is of class $C^1$ and when the composition $t \mapsto f(x(t),y(t),z(t))$	is continuous on $I$. We define this integral by the equation
+	
+	$$\int_{c}fds = \int^{b}_{a}f(x(t),y(t),z(t))\norm{c'(t)}dt$$
+	
+	or denote
+	
+	$$\int_cf(x,y,z)ds$$
+	
+	or
+	
+	$$\int^{b}_{a}f(c(t))\norm{c'(t)}dt$$
+	
+	If $c(t)$ is only piecewise $C^1$ or $f(c(t))$ is piecewise continuous, we define $\int_c f ds$ by breaking $[a,b]$ into pieces over which $f(c(t))\norm{c'(t)}$ is continuous and summing the integrals over the pieces.
+\end{defn}
+
+\begin{defn}
+	Let $F$ be a vector field on $\R^3$ that is continuous on the $C^1$ path $c:[a,b] \rightarrow \R^3$. We define $\int_c F \cdots ds$, the line integral of $F$ along $c$, by the formula
+	
+	$$\int F \cdots ds = \int^{b}_{a}F(c(t))\cdot c'(t)dt$$
+	
+	that is, we integrate the dot product of $F$ with $c'$ over the interval $[a,b]$
+	
+	As is the case with scalar functions, we can also define $\int_c F \cdot ds$ if $F(c(t)) - c'(t)$ is only piecewise continuous.	
+\end{defn}
+
+
+\begin{defn}
+	Let $h: I \rightarrow I_1$ be a $C^1$ real-valued function that is a one-to-one map of an interval $I = [a,b]$ onto another interval $I_1 = [a_1,b_1]$. Let $c: I_1 \rightarrow \R^3$ be a piecewise $C^1$ path. Then we call the composition
+	
+	$$p = c \circ h: I \rightarrow \R^3$$
+	
+	a reparametrization of 	$c$
+\end{defn}
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
