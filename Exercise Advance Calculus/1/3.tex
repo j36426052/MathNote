@@ -1,0 +1,35 @@
+Let $X$ be a metric space, $S \subseteq X$. Then $S$ is closed if and only if $ \partial S \subseteq S$
+
+
+\begin{tcolorbox}
+	\begin{solution}$ $
+		\begin{enumerate}
+			\item[($\Rightarrow$)]
+			
+			let $p \in \partial S \implies p \in \overline S$(by definition of partial $S$)
+			
+			$\because S$ is close $\therefore \overline{S} \subseteq S \implies p \in S$
+			
+			\textbf{the proof of $S$ is close then $\overline{S} \subseteq S$}
+			
+			let $q \in \overline{S}$, Claim $q \notin S \implies q \in X - S$
+			
+			$\because S$ is close $\therefore X-S$ is open
+			
+			$\implies \exists r > 0 \ni B(q,r) \subseteq X-S \implies B(q,r) \cap S = \emptyset$
+			
+			$\because q \in \overline{S} ~ \therefore \forall R > 0, ~ B(q,R) \cap S \neq \emptyset$
+			
+			pick $R = r$, $B(q,R) \cap S \neq \emptyset$ and $B(q,r) \subseteq X-S$
+			\item[$(\Leftarrow)$]
+			
+			let $p \in X-S \implies p \notin S \implies p \notin \partial S (\because \partial S \subseteq S)$
+			
+			$\implies p \notin \overline{S}$($\because p \in X-S$ and $(X-S) \subseteq \overline{X-S}$ so $p \in \overline{X - S}$ but $p \notin \partial S \implies p \notin \overline{S}$)
+			
+			$\implies \exists R>0 \ni B(p,R) \cap S = \emptyset \implies B(p,R) \in X-S$
+			
+			$\implies X - S$ is open $\implies S$ is close.
+		\end{enumerate}
+	\end{solution}
+\end{tcolorbox}

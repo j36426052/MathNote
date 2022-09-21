@@ -1,0 +1,19 @@
+In any metric space $X$, $\overline{B(x,r)} \subseteq \overline{B}(x,r) $ for all $r \geq 0$
+
+
+\begin{tcolorbox}
+	\begin{solution}$ $
+	
+		let $p \in \overline{B(x,r)} \implies \forall R > 0,~B(p,R) \cap B(x,r) \neq \emptyset$
+		
+		$\implies \exists q \in B(p,R) \cap B(x,r) \ni d(q,x) < r \text{ and } d(p,q) < R$
+		
+		$\implies d(p,x) \leq d(p,q) + d(q,x) < r + R$ (triangular inequality)
+		
+		$\implies d(p,x) < r+R (~\forall ~R) > 0 \implies d(p,x) - r < R (~\forall R > 0)$
+		
+		$\implies r - d(p,x) > -R (~\forall R > 0) \implies r - d(p,x) \geq 0$
+		
+		$\implies r \geq d(p,x) \implies p \in \overline{B}(x,r)$
+	\end{solution}
+\end{tcolorbox}

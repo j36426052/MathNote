@@ -1,0 +1,47 @@
+Show that:
+
+\begin{enumerate}
+	\item $\left( \bigcup_{\alpha \in I}E_{\alpha} \right)^c = \bigcap_{a \in I}\left( E_{\alpha}\right)^c $
+	\item $\left( \bigcap_{\alpha \in I} E_{\alpha}\right)^c = \bigcup_{\alpha \in I} \left( E_{\alpha} \right)^c$
+\end{enumerate}
+
+It is called De Morgan's laws.
+
+
+\begin{tcolorbox}
+	\begin{solution}$ $
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}
+			\item[($\subseteq$)]
+				let $p \in \left( \bigcup_{\alpha \in I}E_{\alpha} \right)^c \implies p \notin \bigcup_{\alpha \in I}E_{\alpha} $
+				
+				$\implies p \notin E_{\alpha} ~\forall \alpha \in I \implies p \in (E_{\alpha})^c~\forall \alpha \in I$
+				
+				$\implies p \in \bigcap_{\alpha \in I}(E_{\alpha})^c$
+			\item[($\supseteq$)]
+			
+			let $p \in \bigcap_{\alpha \in I}(E_\alpha)^c \implies p \in (E_\alpha)^c$
+			
+			$\implies p \in (E_{\alpha})^c \alpha \in I \implies p \notin E_{\alpha} ~\forall \alpha \in I$
+			
+			$\implies p \notin \bigcup_{\alpha \in I}E_{\alpha} \implies p \in \left( \bigcup_{\alpha \in I} E_{\alpha} \right)^c$
+		\end{enumerate}
+		\item 
+		\begin{enumerate}
+			\item[($\subseteq$)]
+			
+			let $p \in \left( \bigcap_{\alpha \in I} E_{\alpha}\right)^c \implies p \notin \bigcap_{\alpha \in I}E_{\alpha}$
+			
+			$\implies p \in (E_{\alpha})^c$ for some $\alpha \in I \implies p \in \bigcup_{\alpha \in I}(E_{\alpha})^c$
+			\item[($\supseteq$)]
+			
+			let $p \in \bigcup_{\alpha \in I}(E_{\alpha})^c \implies p \in (E_{\alpha})^c$ for some $\alpha \in I$
+			
+			$\implies p \notin E_{\alpha}$ for some $\alpha \in I \implies p \notin \bigcap_{\alpha \in I}E_{\alpha}$
+			
+			$\implies p \in \left( \bigcap_{\alpha \in I}E_{\alpha} \right)^c$
+		\end{enumerate}
+	\end{enumerate}
+	\end{solution}
+\end{tcolorbox}

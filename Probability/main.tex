@@ -1,0 +1,274 @@
+\input{../settings}
+\begin{document}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\textbf{Note}
+
+\begin{enumerate}[wide, label = $\bullet$]
+	\item experiment : the process of obtaining an observed result of some phenomenon.
+	\item trial : a performance of an experiment
+	\item outcome : observed result
+\end{enumerate}
+
+\begin{defn}
+	The set of all possible outcomes of an experiment is called the sample space, denoted by $S$.
+\end{defn}
+
+\begin{defn}
+	If a sample space $S$ is either finite or countably, then it is called a discrete sample space. Otherwise, is called a continuous sample space.
+\end{defn}
+
+\begin{defn}
+	An event is a subset of the sample space $S$. If $A$ is an event, then "$A$ occurred" if "$A$ contains the out come that occurred"
+\end{defn}
+
+\begin{defn}
+	An event is called and elementary event if it contains exactly one outcome of the experiment.
+\end{defn}
+
+\begin{defn}$ $
+	\begin{enumerate}[wide, label = $\bullet$]
+		\item Two events $A$ and $B$ are called mutually exclusive if $A \cap B = \emptyset$
+		\item Events $A_1,A_2,A_3,\cdots$ are said to be mutually exclusive if they are pairwise mutually exclusive. That is, if $A_i \cap A_j = \emptyset$ whenever $i \neq j$.
+	\end{enumerate}
+\end{defn}
+
+\begin{defn}
+	For a given experiment, $S$ denotes the sample space and $A_1,\cdots$ represent possible events. A set function that associates a real value $P(A)$ with each event $A$ is called a probability set function, and $P(A)$ is called the probability of $A$, if the following properties are satisfied:
+	
+	\begin{enumerate}[wide, label = $\roman*)$]
+		\item $0 \leq p(A)$ for every $A$
+		\item $P(S) = 1$
+		\item $P(\bigcup_{i=1}^{\infty} A_i) = \sum^{\infty}_{i = 1}P(A_i)$ if $A_1,\cdots$ are pairwise mutually exclusive events.
+	\end{enumerate}
+\end{defn}
+
+%\begin{defn}
+	%If an object is chosen from a finite collection of distinct objects in such a manner that each object has the same probability of begin chosen, then we say that the object was chosen at random.
+%\end{defn}
+
+\begin{thm*}$ $
+	\begin{enumerate}[wide,label = $\bullet$]
+		\item $P(A) = 1 - P(A')$
+		\item $P(A) \leq 1$, for any event $A$
+		\item For any two event $A$ and $B$, $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+		\item If $A \subset B,$ then $P(A) \leq P(B)$
+		\item $P\left( \bigcup^{\infty}_{i = 1} A_i \right) \leq \sum^{\infty}_{i = 1}P(A_i)$ If $A_1,\cdots$ is a sequence of events
+		\item If $A_1,A_2,\cdots,A_k$ are events, then $P(\bigcap_{i=1}^{k}A_i) \geq 1 - \sum_{i=1}^kP(A_i')$ 
+	\end{enumerate}
+\end{thm*}
+
+\newpage
+
+\begin{defn}
+	The conditional probability of an event $A$, given the event $B$, is defined by 
+	
+	$$P(A~|~B) = \frac{P(A \cap B)}{P(B)}$$
+	
+	if $P(B) \neq 0$
+\end{defn}
+
+\begin{thm*}
+	For any events $A$ and $B$,
+	
+	$$P(A \cap B) = P(B)P(A~|~B) = P(A)P(B~|~A)$$
+\end{thm*}
+
+\begin{thm*}
+	If $B_1,\cdots,B_k$ is a collection of mutually exclusive and exhaustive events, then for any event $A$
+	
+	$$P(A) = \sum^{k}_{i = 1}P(B_i)P(A~|~B_i)$$
+\end{thm*}
+
+\textbf{Note.} exhaustive events:  A collection of event which union is sample space.
+
+\begin{thm*}
+	If $B_1,\cdots,B_k$ is mutually exclusive and exhaustive events, then for any event $A$ and each $j = 1,\cdots,k$
+	
+	$$P(B_j ~|~ A) = \dfrac{P(B_j)P(A~|~B_j)}{\sum^{k}_{i=1}P(B_i)P(A~|~B_i)} \left(  = \dfrac{P(A \cap B_j)}{P(A)}\right)$$
+\end{thm*}
+
+\begin{defn}
+	Two events $A$ and $B$ are called independent events if
+	
+	$$P(A \cap B) = P(A)P(B)$$
+	
+	Otherwise, $A$ and $B$ are called dependent event
+\end{defn}
+
+\begin{thm*}
+	If $A$ and $B$ are events such that $P(A) > 0$ and $P(B) > 0$, and $A$ and $B$ are independent, we get
+	
+	$$P(A \cap B) = P(A)P(B) \Leftrightarrow P(A~|~B) = P(A) \Leftrightarrow P(B~|~A) = P(B)$$
+\end{thm*}
+
+\begin{thm*}
+	\begin{eqnarray*}
+		P(A \cap B) &=& P(A)P(B)\\
+		\Leftrightarrow P(A' \cap B) &=& P(A')P(B)\\
+		\Leftrightarrow P(A \cap B') &=& P(A)P(B')\\ 
+		\Leftrightarrow P(A' \cap B') &=& P(A')P(B')
+	\end{eqnarray*}
+\end{thm*}
+
+
+\begin{defn}
+	The $k$ events $A_1,\cdots,A_k$ are said to b independent or mutually independent if for every $j = 2,3,\cdots ,k$ and every subset of distinct indices $i_1,i_2,\cdots,i_j$
+	
+	$$P(A_{i1} \cap A_{i2} \cap \cdots \cap A_{ij}) = P(A_{i1})P(A_{i2})\cdots P(A_{ij})$$
+\end{defn}
+
+\begin{defn}
+	A random variable, say $X$, is a function defined over a sample space $S$, that associated a real number with each possible outcome in $S$
+	
+	$$X(e) = x, \text{ where } e \in S$$
+\end{defn}
+
+\begin{defn}
+	If the set of all possible values of a random variable, $X$, is a countable set, $x_1,x_2,\cdots,x_n,$ or $x_1,\cdots,$ then $X$ is called a discrete random variable.
+	
+	The function
+	
+	$$f(x) = P[X = x]~ x = x_1,x_2,\cdots$$
+	
+	that assigns the probability to each possible value $x$ will be called the discrete probability density function (discrete pdf).
+\end{defn}
+
+\textbf{Property.} $f(x_i) \geq 0,~\sum_{\text{all }x_i}f(x_i) = 1$
+\begin{defn}
+	The cumulative distribution function(CDF) of a random variable $X$ is defined for any real $x$ by
+	
+	$$F(x) = P[X \leq x]$$
+\end{defn}
+
+
+\begin{thm*}
+	Let $X$ be a discrete random variable with pdf $f(x)$ and CDF $F(x)$. If the possible values of $X$ are indexed in increasing order, $x_1 < x_2 < x_3 < \cdots ,$ then:
+	
+	\begin{enumerate}[wide,label = ($\roman*$)]
+		\item $f(x_1) = F(x_i)$
+		\item for any $i>1,~f(x_i) = F(x_i) - F(x_{i-1})$
+		\item if $x < x_1$ then $F(x) = 0$
+		\item $F(x) = \sum_{x_i \leq x}f(x_i)$
+	\end{enumerate}
+\end{thm*}
+
+\begin{thm*}
+	A function $F(x)$ is a CDF for some random variable $X$ if and only if it satisfies: 
+	
+	\begin{enumerate}[wide, label = ($\roman*$)]
+		\item $\lim_{x \rightarrow -\infty}F(x) = 0$
+		\item $\lim_{x \rightarrow \infty}F(x) = 1$
+		\item $\lim_{h \rightarrow 0^+} F(x+h) = F(x)$
+		\item $a < b$ implies $F(a) \leq F(b)$
+	\end{enumerate}
+\end{thm*}
+
+\begin{defn}
+	If $X$ is a discrete random variable with pdf $f(x)$, then the expected value of $X$ is 
+	
+	$$E(X) = \sum_{x}xf(x)$$
+\end{defn}
+
+\begin{defn}
+	A random variable variable $X$ is called a continuous random variable if there is a function $f(x)$, called the probability density function of $X$, such that the CDF can be represented as
+	
+	$$F(x) = \int^{x}_{-\infty}f(t)dt$$
+\end{defn}
+
+\textbf{Properties} A function $f(x)$ is a pdf for some continuous random variable $X$ if and only if it satisfies:
+
+\begin{enumerate}[label = $(\roman*$)]
+	\item $f(x) \geq 0 ~\forall x$
+	\item $\int^{\infty}_{-\infty}f(x)dx = 1$  
+\end{enumerate}
+
+\begin{defn}
+	If $X$ is a continuous random variable with pdf $f(x)$, then the expected value of $X$ is defined by
+	
+	$$E(X) = \int^{\infty}_{-\infty}xf(x)dx$$
+	
+	if it's absolutely convergent. Otherwise we say $E(X)$ does not exist.
+\end{defn}
+
+\textbf{Properties.}
+
+\begin{enumerate}[wide,label = $\bullet$]
+	\item If $X$ is a random variable with pdf $f(x)$ and $u(x)$ is a real-valued function whose domain includes the possible values of $X$, then 
+	
+	$$E[u(X)] = \sum_{x}u(x)f(x) \text{ if $X$ is discrete}$$
+	
+	$$E[u(X)] = \int^{\infty}_{-\infty}u(x)f(x)dx \text{ if $X$ is continuous }$$
+	
+	Note : we can consider $u(X)$ is a new random variable, if $u(x)$ is not one-to-one, $P[u(X) = u(x_1)] \neq P[X - x_1]$, but $P[u(X) = u(x')] = \sum P[X = x_i]$ where $u(x_i) = u(x')$
+	\item If $X$ is a random variable with pdf $f(x)$, $a$ and $b$ are constants,  $g(x)$ and $h(x)$ are real-valued functions whose domains include the possible values of $X$, then 
+	
+	$$E[ag(X) + bh(X)] = aE[g(X)]+bE[h(X)]$$
+	
+	Note: regard $ag(X) + bh(X)$ as $u(X)$, we can use the above properties to proof it.
+\end{enumerate}
+
+\newpage
+
+\begin{defn}
+	The variance of a random variable $X$ is given by 
+	
+	$$\text{Var}(X) = E[(X-\mu)]$$
+	
+	where $\mu = E(X)$
+\end{defn}
+
+\text{Note.}
+
+\begin{enumerate}[wide,label = $\bullet$]
+	\item $k$th moment about the origin of a random variable $X$ is 
+	
+	$$\mu_k' = E(X^k)$$
+	\item and $k$th moment about the mean is
+	
+	$$\mu_k = E[X - E(X)]^k = E(X - \mu)^k$$
+\end{enumerate}
+
+\begin{thm*}$ $
+	\begin{enumerate}[wide,label = $\bullet$]
+		\item $\text{Var}(X) = E(X^2) - E(X)^2$
+		
+		Note: Consider $X^2,1$ as random variable of $S$ and $E(X)$ as constant
+		
+		\item Var$(aX + b) = a^2$Var$(X)$
+	\end{enumerate}
+\end{thm*}
+
+\begin{thm*}
+	$P[u(X) \geq c] \leq \dfrac{E[u(X)]}{c}$
+\end{thm*}
+
+\begin{thm*}
+	$P[|X - \mu| \geq k\sigma] \leq \dfrac{1}{k^2}$
+\end{thm*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

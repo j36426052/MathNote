@@ -434,17 +434,26 @@ let $(\mathrm{F},+,\cdot)$ be a field, we list a series of basic identity as you
 \begin{thm*}
 	There exists an ordered field $\mathrm{R}$ containing $\mathrm{Q}$ which has the l.u.b. property. Moreover, such $\mathrm{R}$ is unique up to order-isomorphism
 	
-	i.e. if $"<"$ and $"<'"$ are two orders on $\mathrm{R}$, them $\exists f_i(\mathrm{R},<) \rightarrow (\mathrm{R},<') \implies$
+	Such $\mathrm{R}$ is called the real number field or real number system or real line
+\end{thm*}
+
+\textbf{Note.}if $"<"$ and $"<'"$ are two orders on $\mathrm{R}$, them 
+
+$$\exists f(\mathrm{R},<) \rightarrow (\mathrm{R},<') \text{ such that}$$
 	
 	\begin{enumerate}
 		\item[(i)] $f$ is a field isomorphism,
 		
-		 i.e. $\forall a,b \in \mathrm{R},~f(a+b)=f(a)+f(b),~f(ab) = f(a)f(b),~f(1)=1$
+		 i.e. $\forall a,b \in \mathrm{R},~f(a+b)=f(a)+f(b), \\ f(ab) = f(a)f(b),~f(1)=1$
 		\item[(ii)] $f$ preserves ordering, $a<b \implies f(a) < f(b)$ 
 	\end{enumerate}
 	
-	Such $\mathrm{R}$ is called the real number field or real number system or real line
-\end{thm*}
+	\text{Note.} In most book, above theorem is taken as axiom, called the least upper bound property of $\R$ or the completeness axiom of $\R$. However, it can be constructed from $\Q$. There are two ways to construct it
+	
+	\begin{enumerate}
+		\item Using Dedekind cut as in the Appendix of Chapter 1.
+		\item Using Cauchy sequence to get the completion of $\Q$.
+	\end{enumerate}
 
 \begin{thm*}$ $
 	\begin{enumerate}
@@ -475,8 +484,6 @@ let $(\mathrm{F},+,\cdot)$ be a field, we list a series of basic identity as you
 		Let $r = \frac{m}{n} \in \mathrm{Q}$, then $x<r<y$ 
 	\end{enumerate}
 \end{proof}
-
-\newpage
 
 An application of the density property of $\mathrm{Q}$ in $\mathrm{R}:$
 
