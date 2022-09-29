@@ -1,0 +1,40 @@
+Let $A,B$ be two nonempty sets of $\R$
+
+\begin{enumerate}
+	\item If $A \subseteq B$, then $\sup A \leq \sup B$ and $\inf A \geq \inf B$.
+	\item Show that $\inf A \leq \sup A$.
+	\item Show that $\inf (-A) = -\sup A$ and $\sup (-A) = -\inf (A)$, where $-A = \{-a ~|~ a \in A\}$
+	\item Show that $\sup (A+B) = \sup A + \sup B$ and $\inf (A+B) = \inf A + \inf B$, where $A + B = \{a + b ~|~ a \in A,b \in B\}$, the Minkowski sum of $A$ and $B$.
+	\item If $A,B$ be two sets of positive numbers which is bounded above. Let $\alpha = \sup A,~b = \sup B$ and $C = \{ab ~|~ a \in A ,~b \in B\}$. Prove that $\sup C = ab$.
+\end{enumerate}
+
+\begin{tcolorbox}
+	\begin{solution}$ $
+		\begin{enumerate}[wide]
+			\item Suppose $A \subseteq B$. To prove $\sup A \leq \sup B$
+			\begin{enumerate}[label = $(*)$]
+				\item If $A$ is unbdd above, then $B$ is also. Thus, $\sup A = + \infty = \sup B$
+				\item If $A$ is bdd above then we have two cases
+					\begin{enumerate}
+						\item[($*_1$)] If $B$ is unbdd above, then the result follows trivilly
+						\item[($*_2$)] If $B$ is bdd above, then $\sup A,~\sup B$ exist and finite, say $\sup A = \alpha$ and $\sup B = \beta$.
+						
+						Now, to prove that $\alpha \leq \beta$. Given $\epsilon > 0$, since $\sup A = \alpha,~\exists a \in A \ni \alpha - \epsilon < a$. Since $A \subseteq B$ and $\beta = \sup B, a \in B$ and $a \leq \beta$
+					\end{enumerate}
+			\end{enumerate}
+			\item 
+			\item 
+			\item To prove $\sup (A+B) = \alpha + \beta$ If $A$ or $B$ is unbdd above, then the result follows trivially
+			
+			If $A$ and $B$ are bdd above,say $\sup A = \alpha$ and $\sup B = \beta$
+			
+			Claim: $\sup (A+B) = \alpha + \beta$
+			\begin{enumerate}
+				\item Given $x \in A + B, x = a+b$ for some $a \in A$ and $b \in B$. Since $\alpha = \sup A$ and $\beta = \sup B,~ a \leq \alpha $ and $b \leq \beta \implies x = a+b \leq \alpha + \beta$
+				\item Given $\epsilon > 0$, since $\alpha = \sup A$ and $\beta = \sup B, \exists a \in A,b \in B,~ \alpha - \dfrac{\epsilon}{2} < a$ and $\beta - \dfrac{\epsilon}{2} < b \implies \alpha + \beta - \epsilon < a+b$ and $a + b \in A + B$
+ 			\end{enumerate}
+ 			Hence $\sup (A+B) = \alpha + \beta$
+			\item
+		\end{enumerate}
+	\end{solution}
+\end{tcolorbox}

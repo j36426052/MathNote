@@ -1,0 +1,30 @@
+Let $f:X \rightarrow Y$ be a function. If $B \subseteq Y$, we denote by $f^{-1}(B)$ the largest subset of $X$ which $f$ maps into $B$. That is,
+
+$$f^{-1}(B) = \{x \in X ~|~ f(x) \in B\}$$
+
+The set $f^{-1}(B)$ is called the inverse image of $B$ under $f$. Prove the following for arbitrary $A,A_1,A_2 \subseteq X$ and $B,B_1,B_2 \subseteq Y$
+
+\begin{enumerate}
+	\item $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$
+	\item $f(A_1 \cap A_2) \subseteq f(A_1) \cap f(A_2)$. Given an example such that the inclusion is strict.
+	\item $A \subseteq f^{-1}[f(A)]$ and $f[f^{-1}(B)] \subseteq B$. Given an example such that the inclusion is strict.
+	\item $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$ and $f^{-1} (B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$
+\end{enumerate}
+
+\begin{tcolorbox}
+	\begin{solution}$ $
+		\begin{enumerate}[wide]
+			\item $ $ 
+			\begin{enumerate}
+				\item[($\subseteq$)] Given $y \in f(A_1 \cup A_2),~y = f(x)$ for some $x \in A_1 \cup A_2 \implies y = f(x),~x \in A_1$ or $y = f(x),x \in A_2 \implies y \in f(A_1)$ or $y \in f(A_2) \implies y \in f(A_1) \cup f(A_2)$
+				\item[($\supseteq$)] 
+			\end{enumerate}
+			\item 
+			\item Given $x \in A,f(x) \in f(A) \implies x \in f^{-1}[f(A)]$.
+			
+			Conversely, it is not true. Consider $f: \Q \rightarrow \R$ by $f(x) = x^2,~A = \{1\},$ Clearly, $f^{-1}[f(A)] = \{-1,1\}$. Thus, $A = \{1\} \subsetneqq \{-1,1\} = f^{-1}[f(A)]$
+			\item 
+			
+		\end{enumerate}
+	\end{solution}
+\end{tcolorbox}
