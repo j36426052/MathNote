@@ -764,9 +764,45 @@ Therefore, if $\deg f(x) = n$, then $f(x)$ has $n$ roots in $\mathbb C (C,M)$
 	and $"="$ holds $\Leftrightarrow \exists~t \in \mathbb R \ni~ y_j = tx_j,~1\leq j \leq n$
 \end{thm*}
 
-\textbf{\color{red}The proof is too long, I am lazy}
-
 \newpage
+
+\textbf{Real Version}
+
+\begin{proof}
+	$\forall t \in \R,~0 \leq \sum^n_{i=1}(x_i + ty_i)^2 = \sum^n_{i=1}(x_i^2 + 2tx_iy_i + t^2y_i^2) = (\sum^n_{i=1}y_i^2)t^2 + t(\sum^n_{i=1}2x_iy_i) + \sum_{i=1}^nx_i^2$ Not all $x_i = 0$ and $y_i = 0$
+	
+	we use $b^2 - 4ac$ $\implies 0 \geq (\sum_{i=1}^n2x_iy_i)^2 - 4(\sum_{i=1}^{n}x_i^2)(\sum_{i=1}^ny_i^2) \implies$
+	
+	$(\sum^n_{i=1}x_iy_i)^2 \leq (\sum^n_{i=1}x_i^2)(\sum^n_{i=1}y_i)^2$
+\end{proof}
+
+\textbf{Complex Version}
+
+\begin{proof}
+	we may assume that not all $z_i = 0$ and not all $w_j = 0$(otherwise it's trivial)
+	
+	\begin{eqnarray*}
+		\forall \lambda \in \C, 0 &\leq& \sum_{j = 1}^n|z_j - \lambda w_j|^2\\
+		&=& \sum^n_{j=1}(z_j - \lambda w_j)(\overline{z_j} - \overline{\lambda}\overline{w_j} )\\
+		&=& \sum^n_{j=1}[|z_j|^2 - \lambda z_j \overline{w_j} - \lambda \overline{z_j}w_j + |\lambda|^2|w_j|^2]
+	\end{eqnarray*}
+	
+	\begin{eqnarray*}
+		\text{Taking } \lambda &=& \dfrac{\sum^n_{j=1}z_j\overline{w_j}}{\sum^{n}_{j=1}|w_j|^2}\\
+		&=& \sum^n_{j=1} |z_j|^2 - \dfrac{2 |\sum^n_{j=1}z_j\overline{w_j}|^2}{\sum^n_{j=1}|w_j|^2}\\
+		&=& \sum^n_{j=1} |z_j|^2 - 2 \dfrac{|\sum^n_{j=1}z_j\overline{w_j}|^2}{\sum^n_{j=1}|w_j|^2} + \left( \dfrac{|\sum^n_{i=1}z_j\overline{w_j}|}{\sum^n_{j=1}|w_j|^2}\right)^2\sum^n_{j=1}|w_j|^2\\
+		&=& \sum^n_{j=1}|z_j|^2 - \dfrac{|\sum^n_{j=1}z_j\overline{w_j}|^2}{\sum^n_{j=1}|w_j|^2}
+	\end{eqnarray*}
+	
+	$$\implies |\sum^n_{j=1}z_j\overline{w_j}|^2 \leq (\sum^n_{j=1}|z_j|^2)^{\frac{1}{2}}(\sum^n_{j=1}|w_j|^2)^{\frac{1}{2}}$$
+\end{proof}
+
+\begin{rmk*}
+	From the proof, the $"="$ holds in CS inequality $\Leftrightarrow ~ \exists \lambda \in \C \ni z_j = \lambda w_j \forall j = 1,2,\cdots,n$, i.e. $(z_1,\cdots,z_n) = \lambda (w_1,\cdots,w_n)$
+\end{rmk*}
+
+
+
 
 \subsection{Euclidean Spaces $\mathbb R^n$}
 
@@ -800,6 +836,17 @@ We are going to introduce the structure of $\mathbb R^n$
 
 \textbf{\color{red} we skip space example here.}
 
+\textbf{Observe.} The real version of the CS inequality can be write:
+
+$$|<x,y>| = |\sum^n_{i=1}x_iy_i| \leq (\sum^n_{i=1}x^2)^{\frac{1}{2}}(\sum^n_{i=1}y^2)^{\frac{1}{2}} = ||x||||y||$$
+
+\begin{eqnarray*}
+	\norm{x+y}^2 = <x+y,x+y> &=& <x,x> + 2<x,y> + <y,y>\\
+	&=& \norm{x}^2 + 2<x,y> + \norm{y}^2\\
+	&\leq& \norm{x}^2 + 2\norm{x}\norm{y} + \norm{y}^2\\
+	&=& (\norm{x}+\norm{y})^2
+\end{eqnarray*}
+
 \subsection{Countability of Sets}$ $
 
 Given two nonempty set $A,B$ and a function $f:A \rightarrow B$,$f(A) = \sett{f(a)~|~a \in A}$ is called the image of $A$ under $f$
@@ -808,9 +855,13 @@ Given two nonempty set $A,B$ and a function $f:A \rightarrow B$,$f(A) = \sett{f(
 \begin{tcolorbox}
 	$E \subseteq A,~f(E) = \sett{f(a)~|~a \in E}$ the image of $E$ under $f$
 	
-	$f$ is infective(one-to-one) $x_1 \neq x_2 \implies f(x_1) \neq f(x_2) \Leftrightarrow f(x_1) = f(x_2) \Leftrightarrow x_1 = x_2$
+	$\bullet$$f$ is infective(one-to-one) 
 	
-	$f$ is surjective(onto) if $f(A) = B$, $f$ is bijective if $f$ is one-to-one and onto
+	$x_1 \neq x_2 \implies f(x_1) \neq f(x_2) \Leftrightarrow f(x_1) = f(x_2) \Leftrightarrow x_1 = x_2$
+	
+	$\bullet$$f$ is surjective(onto) if $f(A) = B$
+	
+	$\bullet$$f$ is bijective if $f$ is one-to-one and onto
 \end{tcolorbox}
 
 Given $F \subseteq B$, $f^{-1}(F) = \sett{x \in X~|~f(x) \in \mathrm F}$ called the inverse image of $f$ under $\mathrm F$
@@ -824,8 +875,6 @@ Given $F \subseteq B$, $f^{-1}(F) = \sett{x \in X~|~f(x) \in \mathrm F}$ called 
 	
 	$f^{-1}([-1,1]) = [-1,1]$
 \end{tcolorbox}
-
-\newpage
 
 \textbf{Properties of inverse image}
 
@@ -853,7 +902,7 @@ Given $F \subseteq B$, $f^{-1}(F) = \sett{x \in X~|~f(x) \in \mathrm F}$ called 
 \end{enumerate}
 
 \begin{defn}[cardinality]
-	Let $A,B$ are two set ew say that $A$ and $B$ have the same cardinality if $\exists$ a bijective map $f:A \rightarrow B$, which is denoted by $A \sim B$
+	Let $A,B$ are two set ew say that $A$ and $B$ have the same cardinality if $\exists$ a bijective map $f:A \rightarrow B$, which is denoted by $A \sim B$. or $R = \{(A,B)~|~\exists \text{a bij map }f: A \rightarrow B\} \subseteq \ni\in$
 	
 	From now on, we write $|A|$ as the cardinality of $A$
 \end{defn}
@@ -866,10 +915,14 @@ Given $F \subseteq B$, $f^{-1}(F) = \sett{x \in X~|~f(x) \in \mathrm F}$ called 
 	\item[(iii)] Transitive: $A \sim^{f} B ~\&~ B\sim^{g}C \implies A \sim^{g o f}C$
 \end{enumerate}
 
+Properties of $"\equiv"$ classes on a set $X$. $"\sim"$ is an $"\equiv"$ relative on $X$
+
+Given $x \in X,~[x] = \overline{x} = \{y \in X~|~y \sim x\}$ the "$\equiv$" class determine by $x$
+
 So we gave some property:
 
 \begin{enumerate}
-	\item[$\bullet$] Any two $"\equiv"$ are either disjoint or identical 
+	\item[$\bullet$] Any two $"\equiv"$ class $[x]$ and $[y]$ are either disjoint or identical, i.e. $[x] = [y]$ or $[x] \cap [y] = \emptyset$
 	\item[$\bullet$] $\overline{\underline{X}}$ is a disjoint union of $"\equiv "$ classes
 	
 	$[A] = \sett{B \in \overline{\underline{X}}~|~B \sim A}$ the $"\equiv "$ class set by $A$
@@ -890,8 +943,6 @@ Notation For $n \in \mathbb N,~\mathbb N_{m} = \sett{1,2,\cdots,n}$
 		\item[(e)] $A$ is at most countable if $A$ is finite or countable
 	\end{enumerate}
 \end{defn}
-
-\newpage
 
 \begin{rmk*} $ $
 	\begin{enumerate}
@@ -916,9 +967,7 @@ Now, we consider the case of countable set
 \end{tcolorbox}
 
 \begin{defn}
-	Let $X$ be a nonempty set, a sequence in $X$ is a function $a:\mathbb N \rightarrow X$
-
-	Given a sequence $=^{a}$ in $X, a$ is $"1"$ determine by $a(n),~ \in \mathbb N$
+	Let $X$ be a nonempty set, a sequence in $X$ is a function $a:\mathbb N \rightarrow X$.Given a sequence $=^{a}$ in $X, a$ is $"1"$ determine by $a(n),~ \in \mathbb N$
 	
 	We write
 	
@@ -982,13 +1031,63 @@ i.e. $n_k < n_{k+1},~k \geq 1$, i.e. $n_1<n_2<\cdots<n_k<\cdots$, i.e. $\sett{n_
 
 Finally, we will assume that you are familiar with the following property of the countability of sets:
 
-\begin{enumerate}
-	\item Every subset of a countable set is at most countable. The proof needs the well ordering of $\mathbb N$: Every nonempty subset of $\mathbb N$ has the smallest element
-	\item Countable union of countable sets is countable
-	\item If $A_1,A_2,\cdots,A_n$ are countable, then so is $A_1 \times \cdots \times A_n$
-	\item If $A$ is countable, then so is $A^n \equiv A \times \cdots \times A~ \forall	n \geq 1$
-	\item $\mathbb N,~\mathbb Z,~\mathbb Q,~\mathbb Q^n,~\forall n \geq 1$ are countable
-	\item The set $\sett{a_n~|~a_n=0\text{ or }1}$ is uncountable
+\begin{enumerate}[wide,label = \textbf{($\arabic*$). }]
+	\item Every subset of a countable set is at most countable. The proof needs the well ordering of $\mathbb N$: Every nonempty subset of $\mathbb N$ has the smallest element.
+	
+	$\because$ Let $X$ be a countable set and $A \subseteq X$ While $X = \{x_1,x_2,\cdots,x_n,\cdots\}$\\
+	Let $n_1 = \min{k ~|~ x_k \in A} \implies x_{n_1} \in A$\\
+	Let $n_2 = \min \{k~|~ x_k \in A - \{x_{n_1}\}\} \implies x_{n_2} \in A - \{x_{n_1}\}$\\
+	$\vdots$\\
+	Let $n_k = \min \{k~|~x_k \in A - \{x_{n-1},\cdots,x_{n_{k-1}}\}\} \implies \\ x_{n_k} \in A - \{x_{n_1},\cdots,x_{n_{k-1}}\}$\\
+	$\vdots$ (The process will not stop if it is countable and finite)
+	
+	$\therefore A = \{x_{n_1},x_{n_2},\cdots\}$ is countable
+	
+	\item $\N \times \N$ is countable. Hence if $X$ and $Y$ are countably then so is $X \times Y$.y induction, if $x_1,\cdots,x_n$ are countable, then so is $X_1 \times \cdots X_n$
+	
+	$\because$ you can list $ \N \times \N$ like below:
+	
+	$$\begin{matrix}
+		(1,1) & (1,2) & (1,3) & \cdots \\
+		(2,1) & (2,2) & (2,3) & \cdots \\
+		\vdots & \vdots & \vdots 
+	\end{matrix}$$
+	
+	\item If $Y$ is countable and $f:X \rightarrow Y$ is injective, then $X$ is countable
+	
+	\begin{eqnarray*}
+		\because f(X) \subseteq Y &\implies& f(X) is countable by (1)\\
+		&\implies&f: X \rightarrow f(X) \text{ is a bij function}\\
+		&\implies& X \text{ is countable}
+	\end{eqnarray*}
+	
+	\item If $f:X \rightarrow Y$ is surjective and $X$ is countable, then $Y$ is countable $\forall y \in Y, f^{-1}(y) \neq \emptyset$. Choose one $x_y \in X \ni f(x_y) = y$ and fix it.
+	
+	$A = \{x_y \in X ~|~ y \in Y\} \subseteq X \implies A$ is countable $f: A \rightarrow Y$
+	
+	$ f(x_y) = y$ is bijective $\therefore Y$ is countable.
+	\item Another way to see that $\N \times \N$ is countable. Consider the function $f: \N \times \N \rightarrow \N$ defined by $f(m,n) = 2^m3^n,~(m,n) \in \N \times \N$.
+	
+	Claim: $f$ is injective $\because f(m,n) = f(k,l) \implies 2^m3^n = 2^k3^l \implies 2^{m-k} = 3^{l - m} \implies m - k = l - n = 0 \implies m = k,~n = l \implies (m,n) = (k,l)$. By (3) $\N \times \N$ is countable.
+	
+	\item Countable union of countable sets is countable i.e. $X_n:$ countable $n \in \N \implies \bigcup^{\infty}_{n=1}$ is countable
+	
+	We may assume that $\{X_n\}$ are pairwise disjoint, i.e. $X_n \cap X_m = \emptyset$ if $n \neq m$. Otherwise consider
+	
+	\begin{eqnarray*}
+		\overline{X_n} &=& X_n \times \{n\} ~ n \in \N \\
+		&=& \{(x,n) ~|~ x \in X_n\}
+	\end{eqnarray*}
+	
+	$$X_n \sim \overline{X_n} $$
+	
+	and $\overline{X_n}$ is countable
+	
+	\item $\Z$ is countable, $\Z = \N \cup \{0\} \cup - \N$
+	\item $\Q$ is countable, $\Q = \{\frac{m}{n},n,m \in \Z\} \rightarrow \Z \times \Z$
+	 
+	or $\Q = \bigcup^{\infty}_{n = -\infty} \{\dfrac{m}{n}~|~ m \in \Z\}$ 
+	\item The set $\sett{a_n~|~a_n=0\text{ or }1}, n \in \N$ is uncountable
 	
 	This can be proved by Canton diagonal process
 	
@@ -997,9 +1096,9 @@ Finally, we will assume that you are familiar with the following property of the
 	$a^{(1)} = \sett{a_n^{(1)}} = a^{(1)}_{1},a^{(1)}_2,\cdots~;~a^{(2)} = \sett{a_n^{(2)}} = a^{(2)}_{1},a^{(2)}_2,\cdots$
 	
 	Now, construct a sequence $\sett{a_n}$ in $A \ni \sett{a_n} \neq a^{(k)} ~\forall~k\geq 1 (\rightarrow\leftarrow)$
+	
+	\item Countable union of countable sets is countable
 \end{enumerate} 
-
-\newpage
 
 Recall, intervals in $\mathbb R,~-\infty < a \leq b < \infty$, following are finite bdd interval
 
@@ -1018,14 +1117,16 @@ An interval $I$ in $\mathbb R$ is said to be non-degenerate if the endpoint of $
 \textbf{Note.}
 
 \begin{tcolorbox}
-	$(0,1)$ is uncountable, $\because (0,1) = \sett{\sum^{\infty}_{n=1} \dfrac{a_n}{2^n}~|~a_n = 0 \text{ or } 1,n\in \mathbb N}$
+	$(0,1)$ is uncountable, \\$\because (0,1) = \sett{\sum^{\infty}_{n=1} \dfrac{a_n}{2^n}~|~a_n = 0 \text{ or } 1,n\in \mathbb N}$
 	
 	$x \in (0,1)$ has a unique binary representation, so $(0,1) \sim A$, 
 	
 	where $A$ is $\sett{\sett{a_n}~|~a_n = 0 \text{ or } 1}$ which is uncountable
 \end{tcolorbox}
 
-All non-degenerate intervals in $\mathbb R$ are uncountable.
+If $a = b$ then it's degenerate
+
+All non-degenerate intervals (the length is greater than $0$) in $\mathbb R$ are uncountable.
 
 $\because$ It sufficient to consider bdd non-degenerate interval in $\mathbb R$, given $\infty < a < b < \infty$
 

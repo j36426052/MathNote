@@ -8,8 +8,8 @@ Let $A,B$ be two nonempty sets of $\R$
 	\item If $A,B$ be two sets of positive numbers which is bounded above. Let $\alpha = \sup A,~b = \sup B$ and $C = \{ab ~|~ a \in A ,~b \in B\}$. Prove that $\sup C = ab$.
 \end{enumerate}
 
-\begin{tcolorbox}
-	\begin{solution}$ $
+
+\begin{solution}$ $
 		\begin{enumerate}[wide]
 			\item Suppose $A \subseteq B$. To prove $\sup A \leq \sup B$
 			\begin{enumerate}[label = $(*)$]
@@ -34,7 +34,16 @@ Let $A,B$ be two nonempty sets of $\R$
 				\item Given $\epsilon > 0$, since $\alpha = \sup A$ and $\beta = \sup B, \exists a \in A,b \in B,~ \alpha - \dfrac{\epsilon}{2} < a$ and $\beta - \dfrac{\epsilon}{2} < b \implies \alpha + \beta - \epsilon < a+b$ and $a + b \in A + B$
  			\end{enumerate}
  			Hence $\sup (A+B) = \alpha + \beta$
-			\item
+			\item Given $c \in C,~ c = xy$ for some $x \in A, y \in B$. Then $0 < x \leq a$ and $0 < y \leq b \implies xy \leq ab$. Hence $\sup C \leq ab$. Now to prove $\sup C \geq ab$.
+			
+			$\forall x \in A, y \in B$
+			
+			\begin{eqnarray*}
+				 \sup C \geq xy &\implies& \dfrac{\sup C}{x} \geq y \implies \dfrac{\sup C}{x} \geq b\\
+				 &\implies& \dfrac{\sup C}{b} \geq x \implies \dfrac{\sup C}{b} \geq a \implies \sup C \geq ab
+			\end{eqnarray*}
+			
+			Hence, $\sup C = ab$
+			
 		\end{enumerate}
-	\end{solution}
-\end{tcolorbox}
+\end{solution}

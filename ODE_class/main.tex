@@ -186,6 +186,145 @@ $\therefore f(x,y)$ is homogeneous
 	$\therefore f(\lambda x,\lambda y) = \dfrac{M(\lambda x ,\lambda y )}{N(\lambda x, \lambda y)} = \dfrac{\lambda^k}{\lambda^k} \cdot \dfrac{M(x,y)}{N(x,y)} = \lambda^0 \dfrac{M(x,y)}{N(x,y)}$
 \end{proof}
 
+\begin{thm*}
+	If $f(x,y)$ is homogeneous of degree zero in $x$ and $y$, then $f(x,y) = g(\frac{y}{x})$ for some function $y$.
+\end{thm*}
+
+\begin{proof}
+	By assumption,
+	
+	$$f(\lambda x, \lambda y) = \lambda^0f(x,y) = f(x,y)$$
+	
+	Take $\lambda = \frac{1}{x}$. Then $f(x,y) = f(1,\frac{y}{x}) = g(\frac{y}{x})$, where $g(v) = f(1,v).$
+\end{proof}
+
+\begin{cor*}
+	If $M(x,y)$ and $N(x,y)$ are both homogeneous and of the same degree, then $\dfrac{M(x,y)}{N(x,y)} = g(\frac{y}{x})$ for some function $g$.
+\end{cor*}
+
+\begin{defn}
+	$M(x,y) + N(x,y)dy = 0$ is said to be homogeneous if it can be written as the form $\dfrac{dy}{dx} = g(\frac{y}{x})$ for some function $g$
+\end{defn}
+
+\textbf{Example.} $(x^2 - 3y^2)dx + 2xydy = 0 (\star)$
+
+$$\dfrac{dy}{dx} = -\dfrac{x^2 - 3y^2}{2xy} = - \dfrac{1 - 3(\frac{y}{x})^2}{2 \cdot \frac{y}{x}} = g(\dfrac{y}{x}) \text{ where } g(v) = \dfrac{1 - 3v^2}{-2v}$$
+
+\begin{rmk*}
+	If $M(x,y)$ and $N(x,y)$ are homogeneous of the same degree, then $M(x,y)dx + N(x,y)dy = 0$ is homogeneous.
+\end{rmk*}
+
+\begin{proof}
+	By assumption and corollary, $\dfrac{M(x,y)}{N(x,y)} = g(\dfrac{y}{x})$ for some function $g$. $\therefore Mdx + Ndy = 0 \implies \dfrac{dy}{dx} = -\dfrac{M(x,y)}{N(x,y)} = -g(\dfrac{y}{x})$
+	
+	$\therefore Mdx + Ndy$ is homogeneous.
+\end{proof}
+
+\textbf{How to solve homogeneous equation}
+
+Suppose$M(x,y)dx + N(x,y)dy = 0 (\star)$ is homogeneous.
+
+Let $y = vx \implies \dfrac{dy}{dx} = \dfrac{dv}{dx}x + v (1)$
+
+$\because (\star)$ is homogeneous $\therefore$ By definition, $(\star) \Leftrightarrow \dfrac{dy}{dx} = g(\dfrac{y}{x})(2)$
+
+where $g$ is a function.
+
+\begin{eqnarray*}
+	\text{put (1) to (2) } &\implies& \dfrac{dv}{dx}x + v = g(v)\\
+	&\implies& \dfrac{dv}{dx}x = g(v) - v\\
+	&\implies& \dfrac{1}{g(v) - v}dv = \dfrac{1}{x}dx, \text{ which is separable}
+\end{eqnarray*}
+
+$\therefore$ The solution is $\int\dfrac{1}{g(v) - b}dv = \int \dfrac{1}{x}dx$
+
+\textbf{Example.} $(x^2 - xy + y^2)dx - xydy = 0$---(1)
+
+\begin{solution}
+	\begin{eqnarray*}
+		M(\lambda x, \lambda y) &=& (\lambda x)^2 - (\lambda x)(\lambda y) + (\lambda y)^2\\
+		&=& \lambda^2(x^2 - xy + y^2)\\
+		&=& \lambda^2 M(x,y)
+	\end{eqnarray*}
+	
+	\begin{eqnarray*}
+		N(\lambda x,\lambda y) &=& -(\lambda x)(\lambda y)\\
+		&=& - \lambda^2 xy\\
+		&=& \lambda^2 N(x,y) 
+	\end{eqnarray*}
+\end{solution}
+
+so  (1) is homogeneous.
+
+Let $y = vx \implies \dfrac{dy}{dx} = \dfrac{dv}{dx}x + v$
+
+\begin{eqnarray*}
+	\text{(1)} &\implies& \dfrac{dy}{dx} = -\dfrac{x^2 - xy + y^2}{xy} = \dfrac{1 - \frac{y}{x} + (\frac{y}{x})^2}{\frac{y}{x}}\\
+	&\implies& \dfrac{dv}{dx}x + v = \dfrac{1 - v + v^2}{v}\\
+	&\implies& \dfrac{dv}{dx}x = \dfrac{1 - v + v^2}{v} - v = \dfrac{1 - v}{v}\\
+	&\implies&\int \dfrac{v}{1-v}dv = \int \dfrac{1}{x}\\
+	&\implies& \dfrac{v-1+1}{1-v} = -1 - \dfrac{1}{v-1}\\
+	&\implies& -v-\ln|v - 1| = \ln |x| + c
+\end{eqnarray*}
+
+
+\textbf{Example.} $xydx + (x^2 + y^2)dy = 0$
+
+\begin{solution}
+	$\dfrac{dy}{dx} = \dfrac{xy}{-(x^2 + y^2)} = -\dfrac{\frac{y}{x}}{1 + (\frac{y}{x})^2} = g(\frac{y}{x}) $ ---(1), 
+	
+	where $g(v) = \dfrac{-v}{1+v^2}$, so the equation is homogeneous.
+	
+	Let $y = vx \implies \dfrac{dy}{dx} = \dfrac{dv}{dx}x + v$
+	
+	\begin{eqnarray*}
+		\text{(1) } &\implies& \dfrac{dv}{dx}x + v = -\dfrac{v}{1+v^2}\\
+		&\implies& \dfrac{dv}{dx} \cdot x = -\dfrac{v}{1+v^2} - v = -\dfrac{2v + v^3}{1 + v}\\
+		&\implies& \int \dfrac{1 + v^2}{2v + v^3}dv = -\int \dfrac{1}{x}dx\\
+		&\implies& \int (\dfrac{0.5}{v} + \dfrac{0.5v + 0}{2 + v^2}) = - \int \dfrac{1}{x}dx\\
+		&\therefore & 0.5 \int \dfrac{1}{v} + \dfrac{v}{2+v^2}dv = - \ln |x| + c\\
+		&\implies& 0.5 \ln|v| + 0.25\ln |2 + v^2| + -\ln|x| + c\\
+		&\implies& 0.5 \ln |\frac{y}{x}| + 0.25 \ln |2 + \dfrac{y^2}{x^2}| = -\ln |x| + c
+	\end{eqnarray*}
+\end{solution}
+
+\textbf{$\S$ Exact equation}
+
+\begin{defn}
+	$M(x,y)dx + N(x,y)dy=0$ is called an exact equation if there exists a function $F(x,y)$ such that $F_x = M$ and $F_y = N$
+\end{defn}
+
+\textbf{Example.}
+
+$y^2 dx + 2xy dy = 0$ Set $F(x,y) = xy^2 \implies Fx = y^2$ and $Fy = 2xy$
+
+$\therefore$ exact equation.
+
+\textbf{How to solve homogeneous equation}
+
+Suppose $M(x,y)dx + N(x,y) = 0$ ---($\star$) is exact
+
+$\implies \exists$ a function $F(x,y)$ such that $Fx = M$ and $Fy = N$
+
+\begin{eqnarray*}
+	(\star) &\implies& Fxdx + Fydy = 0\\
+	&\implies& dF = 0\\
+	&\implies& F = C, \text{ where $C$ is an arbitrary constant}
+\end{eqnarray*}
+
+\begin{thm*}
+	Suppose $M,N,My,Nx$ are continuous. Then $Mdx + Ndy = 0$ is an exact equation $\Leftrightarrow ~ My = Nx$
+\end{thm*}
+
+\begin{proof}
+	($\Leftarrow$) Suppose $My = Nx$. Claim $(\star)$ is exact
+	$$\begin{cases}
+		Fx = M \text{---(1)}\\
+		Fy = N \text{---(2)}
+	\end{cases}$$
+\end{proof}
+
+
 
 
 
