@@ -1,0 +1,43 @@
+A complex number $z$ is said to be algebraic if there are integers $a_0,\cdots,a_n$, not all zero, such that
+
+$$a_0z^n + a_1z^{n-1} + \cdots + a_{n-1}z + a_n = 0.$$
+
+Prove that the set of all algebraic numbers is countable.
+
+\begin{tcolorbox}
+	\begin{solution}
+		Let $A$ be the set of all algebraic numbers. We denoted some notation
+		
+		\begin{enumerate}
+			\item $\Z [x]^X$: the set of all non-zero polynomials having coefficients in $\Z$
+			\item $Z_{p(x)}$: the set of all roots of $p(x)$, where $p(x) \in \Z[n]^X$
+		\end{enumerate}
+		
+		Note that 
+		
+		\begin{enumerate}
+			\item $A \subseteq U_{p(x) \in \Z[x]^X}Z_{p(x)}$ and $Z_{p(x)}$ is finite since a polynomial of degree $n$ has at most $n$ roots
+			\item $\Z[x]^X = \cup^{n=1}_{\infty}F_n$, where $F_n \subseteq \Z[x]^X$ the set of polynomials in $\Z[x]^X$ of degree $n$
+		\end{enumerate}
+		
+		Claim $\Z[x]^X$ is countable. If we are done, then $\cup_{p(x) \in \Z[x]} Z_{p(x)}$ is countable union of finite set, it follows that $A$ is countable.
+		
+		To prove this claim, it satisfies to show that $F_n$ is countable $\forall n \geq 0$($F_n = a_0x^n + a_1x^{n-1} + \cdots + a_{n-1}x + a_n$)
+		
+		Consider the map $G: F_n \rightarrow \Z^{n+1}$
+		
+		$$G(a_0x^n + a_1x^{n+1} + \cdots + a_{n-1}x + a_n) = (a_0,a_1,\cdots,a_n)$$
+		
+		Clearly, $G$ is injective. This implies $F_n$ is countable $\forall n \geq 0$
+	\end{solution}
+\end{tcolorbox}
+
+
+
+
+
+
+
+
+
+

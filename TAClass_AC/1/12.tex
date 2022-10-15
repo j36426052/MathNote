@@ -2,6 +2,35 @@ Under what conditions does equality hold in the Cauchy-Schwartz inequality.
 
 \begin{tcolorbox}
 	\begin{solution}
-		
+		\begin{enumerate}
+			\item[($\Rightarrow$)]
+				Suppose $(a_1,\cdots,a_n) = k(b_1,\cdots,b_n)$
+				
+				$$|\sum^n_{i=1}a_i\overline{b_i}| = |k|^2 \left|\sum^n_{i=1}|b_i|^2\right| = \sum^n_{i=1}|a_i|^2 \sum^n_{i=1}|b_i|^2$$
+			\item[($\Leftarrow$)]
+			Let $A = \sum_{i=1}^n|a_i|^2,~B = \sum^n_{i=1}|b_i|^2,$ and $C = \sum_{i=1}^{n}a_i\overline{b_i}$
+			
+			Suppose $|C|^2 = AB$. If $B = 0$, then the result follows.
+			
+			Recall the proof of Cauchy-Schwartz inequality
+			
+			$\forall \lambda \in \C,~0 \leq \sum^n_{i=1}|a_i - \lambda b_i|^2$
+			
+			Take $\lambda = \dfrac{\sum_{i=1}^n a_i\overline{b_i}}{\sum_{i=1}^n |b_i|^2} = \dfrac{C}{B}$
+			
+			\begin{eqnarray*}
+				0 \leq \sum^n_{i=1}|a_i - \dfrac{C}{B}b_i|^2 &=& A - 2 \dfrac{|C|^2}{B} + \dfrac{|C|^2}{B}\\
+				&=& A - \dfrac{|C|^2}{B} = \dfrac{BA - |C|^2}{B}
+			\end{eqnarray*} 
+			
+			Thus $a_i - \dfrac{C}{B}b_i = 0 \implies a_i = \dfrac{C}{B}b_i ~\forall 1 \leq i \leq n$
+		\end{enumerate}
 	\end{solution}
 \end{tcolorbox}
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+Let $X$ be a metric space and $E \subset X$. Prove that $E'$ is closed. Prove that $E$ and $\overline{E}$ have the same limit points. Do $E$ and $E'$ always have the same limit points?
+
+
+\begin{solution}$ $
+	\begin{enumerate}[label = $\star)$]
+		\item $E'$ is closed i.e. $(E')' \subseteq E'$
+		
+		"Fact $A$ is closed iff $A' \subseteq A$", given $p \in (E')'$ and $r > 0~ B(p,r) \cap E' - \{p\} \neq \emptyset$. Choose $q \in B(p,r) \cap E' - \{p\}$. Since $q \in B(p,r)~\exists \delta > 0 \ni B(q,\delta) \subseteq B(p,r)$. Also $B(q,\delta) \cap E - \{q\} \subseteq B(p,r) \cap E - \{q\}$. Since $q \in E'$, we get $B(q,\delta) \cap E - \{q\} \neq \emptyset$ and it is an infinite set. This implies $B(p,r) \cap E - \{p\} \neq \emptyset \implies p \in E'$. Hence, $E'$ is closed.
+		
+		\item $(E)' = (\overline{E})'$. Clearly $(E)' \subseteq (\overline{E})'$ ($\because E \subseteq \overline{E}$)
+		($\supseteq$) If not, $\exists x \in (\overline{E})',x\notin E'$, i.e. $\exists r>0, B(x,r) \cap E - \{x\} = \emptyset$. Since $x \in (\overline{E})'$, $B(x,r) \cap \overline{E} - \{x\} \neq \emptyset$. Choose $y \in B(x,r) \cap \overline{E} - \{x\}$. Since $y \in B(x,r) \exists \delta > 0 \ni B(y,\delta) \subseteq B(x,r)$
+		
+		$B(y,\delta) \cap E \subseteq B(x,r) \cap E \subseteq \{x\} \implies B(y,\delta) \cap E - \{y\}$ is a finite set $\implies y \notin E'$ From above, we get $y \notin E'$ and $y \in \overline{E} (\rightarrow\leftarrow)$ to $B(x,r) \cap E - \{x\} = \emptyset$. Hence $E' = (\overline{E})'$
+		
+		\item $E$ and $E'$ may not have the same limit points, e.g.Consider $E = \{\dfrac{1}{n}~|~ n \in \N\}$ in $\R$. $E' = \{0\}$ but $(E')' = \emptyset$
+	\end{enumerate}
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

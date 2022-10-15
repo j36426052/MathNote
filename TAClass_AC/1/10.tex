@@ -2,6 +2,33 @@ Suppose $z = a + ib,~w = c+di$. Define $z < w$ if $a<c$, and also if $a=c$ but $
 
 \begin{tcolorbox}
 	\begin{solution}
+		\begin{enumerate}
+			\item Given $z \neq w \in \C$. We must prove $z < w$ or $w < z$ Write $z = a+ib,~w=c+id$.
+			
+			If $a \neq c,$ then if $a<c$, then $z < w$, if $c < a$, then $w < z$
+			
+			If $a = c$, then $b \neq d$ if $b<d$, then $z<w$ If $d < b$ then $w < z$
+			
+			\item $\forall z,w,u \in \C$ with $z < w$ and $w<u \implies z < u$. Write $z = a+ib,~w=c+id$ and $u = e+if$. Since $z < w$ and $w<u$ we have $a \leq c \leq e$. If $a = e$, then $a = c = e \implies b < d < f \implies z < u$
+			
+			If $a < e$ then $z < u$
+		\end{enumerate}
 		
+		Finally, to prove $\C$ doesn't have l.u.b property:
+		
+		Consider the set $S = \{1 + iy ~|~ y \in \R\}$. Then $S$ is bdd above by $2$. If $\sup S$ exists, say $a + ib \in \C$, then $a \geq 1$
+		
+		If $a = 1$, then $b \geq y ~\forall y \in \R (\rightarrow\leftarrow)$
+		
+		If $a>1$, then $\dfrac{a+1}{2}$ is an upper bound of $S (\rightarrow\leftarrow)$
 	\end{solution}
 \end{tcolorbox}
+
+
+
+
+
+
+
+
+

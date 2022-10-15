@@ -142,7 +142,7 @@ In this chapter, we will introduce a class of topology space whose topology in i
 \newpage
 
 \begin{defn}[ball]
-	Given $p \in X \& r > 0$
+	Given $p \in X ~\&~ r > 0$
 	
 	$B(p,r) = \{x \in X ~|~ d(x,p) < r\}:$ open ball with center $p$ and radius $r$
 	
@@ -179,6 +179,12 @@ In this chapter, we will introduce a class of topology space whose topology in i
 	$B_1(0,1) = \{(x,y)~|~|x-0|+|y-0|<1\}$
 	
 	$B_{\infty}(0,1) = \{(x,y) ~|~ \max\{|x|,|y|\} \leq 1\}$
+	\item In $\C,~z \in \C , r>0$
+	
+	$$D(z,r) = \{w \in \C ~|~ |w-z| < r\}$$
+	
+	is called an open disk with center $z$ and radius $r$ 
+	
 	
 	\item What is the open balls in $S = [0,1] \subseteq \mathbb R$?
 	
@@ -303,6 +309,9 @@ Let $X$ be a metric space and $Y \subseteq X$, Then $Y$ is a metric subspace of 
 \end{rmk*}
 
 
+\newpage
+
+
 \subsection{Closed Sets}
 
 \begin{defn}[Closed set]
@@ -369,7 +378,7 @@ In metic space, one can use sequence to detect the closeness of a set
 
 \textbf{Prop 2.9} Let $X$ be a metric space. All sets and point below are subset of $X$
 
-\begin{enumerate}[wide,label=\textbf{(\arabic*)}]
+\begin{enumerate}[wide,label=\textbf{(\arabic*). }]
 	\item $S \subseteq T \implies \overline{S} \subseteq \overline{T} ~\&~ S' \subseteq T'$
 	 
 	$\because p \in \overline{S} \implies \forall~ r>0,B(p,r) \cap S \neq \emptyset \implies B(p,r) \cap T \neq \emptyset \implies p \in \overline{T}$
@@ -395,7 +404,7 @@ In metic space, one can use sequence to detect the closeness of a set
 	$\therefore B(p,r) \subseteq X - \overline{T}$,~$\because p$ is an interior point of $X - \overline{T}$. Hence, $X - \overline{T}$ is open, i.e. $\overline{T}$ is closed.
 	
 	\item $T \subseteq \overline{T}(\because \forall~p \in T, \forall ~ r > 0,B(p,r) \cap T \neq \emptyset)$
-	\newpage
+	
 	\item $p \in T' \implies \forall r > 0,~ B(p,r) \cap T - \{p\}$ is an infinite set, say $x_1,\cdots,x_n$, Let $\delta = \frac{1}{2} \min \{d(p,x_i)~|~1\leq i \leq n\}$. Then $B(p,\delta) \cap T - \{p\} = \emptyset (\rightarrow\leftarrow)$ to $p \in T'$, $x \in B(p,\delta) \cap T - \{p\} \implies d(x,p) < \delta \implies x = x_i$ for some $1 \leq i \leq n \&$ we get $d(x_i,p) < \delta \leq \frac{1}{2}d(x_i,p)$
 	
 	$\therefore$ no such $x$ i.e. $B(p,\delta) \cap T - \{p\} = \emptyset$
@@ -407,7 +416,6 @@ In metic space, one can use sequence to detect the closeness of a set
 		\item $S$ contains all it's accumulation points, i.e. $S' \subseteq S$
 		\item $S = \overline{S}$
 	\end{enumerate}
-	\item $\overline{\overline{S}} = \overline{S}$ by (2) and (6)
 	\begin{proof} of (6)
 
 (a) $\Rightarrow$ (b) Suppose $S$ is closed $\implies X \setminus S$ is open $\implies \forall ~ p \in X - S \implies \exists r > 0 \ni B(p,r) \subseteq X \setminus S \implies B(p,r) \cap S = \emptyset \implies p \notin \overline{S}$

@@ -1,0 +1,62 @@
+Fix $b > 1$.
+
+\begin{enumerate}
+	\item If $m,n,p,q$ are integers, $n > 0,~q > 0$, and $r = m/n = p/q$, prove that
+
+	$$(b^m)^{1/n} = (b^p)^{1/q}.$$
+	
+	Hence, it makes sense to define $b^r = (b^m)^{1/n}$
+	\item Prove that $b^{r+s} = b^rb^s$ if $r$ and $s$ are rational.
+	\item If $x$ is real, define $B(x)$ to be the set of all numbers $b^t$, where $t$ is rational and $t \leq x$. Prove that
+	
+	$$b^r = \sup B(r)$$
+	
+	when $r$ is rational. Hence, it make sense to define
+	
+	$$b^x = \sup B(x)$$
+	
+	for every real $x$.
+	\item Prove that $b^{x+y} = b^xb^y$ for all real $x$ and $y$.
+\end{enumerate}
+
+
+\begin{solution}
+	\textbf{Recall.} Thm (Existence of $n^{th}$ root): $\forall x \in \R, x > 0$ and $n \ in \N \exists 1 y > 0 \ni y^n = x(y = x^{\frac{1}{n}})$ , $x^{\frac{m}{n}} = (x^{\frac{1}{n}})^m = (x^m)^{\frac{1}{n}}$
+	
+	\begin{enumerate}
+		\item If $m=0$ or $p = 1$ then the result trivial. Suppose $m \neq 0$ and $p \neq 0$. Since $\frac{m}{n} = \frac{p}{q},~mq = np$. By the existence of $n^{th}$ root, it satisfies to show that $((b^p)^{\frac{1}{q}})^n = b^m$
+		
+		$$((b^p)^{\frac{1}{q}})^n = ((b^{\frac{1}{q}})^p)^n = (b^{\frac{1}{q}})^{pn} = (b^{\frac{1}{q}})^{mq} = ((b^{\frac{1}{q}})^q)^m = b^m$$
+		
+		\item Given $r,s \in \Q$. We can write $r = \frac{m}{n}$ and $s = \frac{p}{q}$, where $n,m,p,q \in \Z$ with $n,q > 0$. Then $b^{r+s} = b^{\frac{np + mq}{nq}}$. This means $b^{r+s}$ is the unique real number $\ni (b^{r+s})^{nq} = b^{np + mq}$.
+		 
+		Claim: $(b^rb^s)^nq = b^{np + mq}$
+		
+		$(b^rb^s)^{nq} = b^{rnq}b^{snq} = b^{mq}b^{np} = b^{np + mq}$. Thus, $b^{r+s}=b^rb^s$
+		
+		\item First, we prove that if $r < s$, then $b^r < b^s \forall r,s \in \Q$
+			\begin{enumerate}[label = $\star_{\arabic*}$]
+				\item If $r = 0$, then $b^r = 1$ write $s = \frac{m}{n} > r = 0$, where $m,n \in \N$ with $n \neq 0$. Since $b^s$ is the unique real number such that $(b^s)^n = b^m$ and $b > 1$ we get $b^r = 1 < b^m = (b^s)^n \Rightarrow b^r < b^s$
+				\item If $s = 0$, then consider the same result of $\star_1$
+				\item If $r<0<s$, then $b^r < 1$ and $b^s > 1$. Hence $b^r < b^s$
+				\item If $0 < r < s$. Write $r = \frac{p}{q}$ and $s = \frac{m}{n}$, where $n,m,p,q \in \N$. Then $r = \frac{np}{nq} < \frac{mq}{nq} = s$ By (a), we have $b^r = b^{\frac{p}{q}} = b^{\frac{np}{nq}} = (b^{\frac{1}{nq}})^{np} < (b^{\frac{1}{n1}})^{mq} = b^s$
+				\item If $r<s<0$, then consider $0 < -s<-r$. By $\star_4$, we are done.
+			\end{enumerate}
+			Hence, in any case, we have $b^r$ is the upper bound of $B(r)$ where $r \in \Q$
+				Finally, to prove that $b^r$ is the smallest on. We need some facts.
+				
+			\begin{enumerate}
+				\item $\forall n \in \N,~b^n - 1 \geq n(b - 1)$
+				\item If $t>1$ and $n > \frac{(b-1)}{(t-1)}$, then $b^{\frac{1}{n}} < t$. By replacing $b = b^{\frac{1}{n}}$ in (i), we get $\forall n \in \N, b-1 \geq n(b^{\frac{1}{n}} - 1)$ Thus, $n > \frac{b - 1}{t - 1} \geq \frac{n(b^{\frac{1}{n}} - 1)}{t-1} \implies b^{\frac{1}{n}} - 1 < t - 1\implies b^{\frac{1}{n}} \leq t$. 
+				
+				If $\alpha < b^r$, we must find $q \in \Q$ and $q leq r \ni b^q > \alpha$.
+				
+				If $\alpha \leq 0$, then trivial
+				
+				If $0 < \alpha < b^r$ Changing $t = \frac{b^r}{\alpha} > 1$ in (ii) and choose $n \in \N \ni n > \frac{(b - 1)}{(t - 1)}$. We get $b^{\frac{1}{n}} < \frac{b^r}{\alpha} \implies \alpha < b^{r - \frac{1}{n}}$ Choose $q = r - \frac{1}{n}$ and we are done.
+			\end{enumerate}
+			\item Prove that $b^{x + y} = b^{x}b^{y} \forall x,y \in \R$. 
+			
+			From (c), $b^x = \sup\{b^r ~|~ r \in \Q, r\leq X\},~ b^y = \sup\{b^s~|~ s \in \Q, s \leq y\}$.Thus, $b^xb^y = \sup \{b^{r+s}~|~r,s in \Q, r+s \leq x+y\} = b^{x+y}$
+	\end{enumerate}
+\end{solution}

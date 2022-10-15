@@ -1,0 +1,21 @@
+Let $A_1,A_2,\cdots$ be subset of a metric space.
+
+\begin{enumerate}
+	\item Prove that $\bigcup^n_{i = 1}\overline{A_i} = \overline{\bigcup^n_{i=1}A_i} ~ \forall n \in \N$
+	\item Prove that $\bigcup^{\infty}_{i = 1} \subseteq \overline{\bigcup^{\infty}_{i=1}}$. Show by an example that this inclusion can be proper.
+\end{enumerate}
+
+
+\begin{solution} $ $
+
+	\begin{enumerate}
+		\item Since $A_i \subseteq \overline{A_i} \forall i = 1,\cdots,n ~ \bigcup^n_{i=1}A_i \subseteq \bigcup^n_{i=1}\overline{A_i} \implies \overline{\bigcup_{i=1}^nA_i} \subseteq \overline{\bigcup_{i=1}^{n}\overline{A_i}} = \bigcup^n_{i=1}\overline{A_i}$
+		
+		Conversely, given $p \in \bigcup_{i=1}^n\overline{A_i}$, i.e. $p \in A_i$ for some $i = 1,\cdots,n~\forall r > 0, B(p,r) \cap A_i \neq \emptyset$
+		
+		$B(p,r) \cap (\bigcup^n_{i=1}A_i) \neq \emptyset \implies \bigcup^n_{i=1}(B(p,r) \cap A_i) \neq \emptyset \implies p \in \overline{\bigcup^n_{i=1} A_i}$
+		\item Given $p \in \bigcup_{n=1}^{\infty}\overline{A_n}$, i.e. $p \in \overline{A_n}$ for some $n \in \N ~ \forall r > 0, B(p,r) \cap A_n \neq \emptyset \implies B(p,r) \cap (\bigcup^{\infty}_{n = 1}A_n) = \bigcup^{\infty}_{n = 1}(B(p,r) \cap A_n) \neq \emptyset \implies p \in \overline{\bigcup^{\infty}_{n = 1}}A_n$
+		
+		To prove that the inclusion might be strict e.g. $\bigcup_{q \in \Q}\{\overline{q}\} = \Q \subsetneqq \R = \overline{\Q} = \overline{\bigcup_{q \in \Q}\{q\}}$
+	\end{enumerate}		
+\end{solution}

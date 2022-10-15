@@ -1,0 +1,481 @@
+\input{../settings}
+\begin{document}
+
+\section*{Probability}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+%\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\subsection*{1. Review}$ $
+
+\begin{enumerate}[wide, label = $\bullet$]
+	\item experiment, trial: 
+	 
+	the process of obtaining an observed result of some phenomenon.
+	\item outcome : observed result
+\end{enumerate}
+
+\begin{defn}
+	The set of all possible outcomes of an experiment is called the sample space, denoted by $S$.
+\end{defn}
+
+\begin{defn}
+	If a sample space $S$ is either finite or countably, then it is called a discrete sample space. Otherwise, is called a continuous sample space.
+\end{defn}
+
+\begin{defn}
+	An event is a subset of the sample space $S$. If $A$ is an event, then "$A$ occurred" if "$A$ contains the out come that occurred"
+\end{defn}
+
+%\begin{defn}
+%	An event is called and elementary event if it contains exactly one outcome of the experiment.
+%\end{defn}
+%
+%\begin{defn}$ $
+%	\begin{enumerate}[wide, label = $\bullet$]
+%		\item Two events $A$ and $B$ are called mutually exclusive if $A \cap B = \emptyset$
+%		\item Events $A_1,A_2,A_3,\cdots$ are said to be mutually exclusive if they are pairwise mutually exclusive. That is, if $A_i \cap A_j = \emptyset$ whenever $i \neq j$.
+%	\end{enumerate}
+%\end{defn}
+
+\begin{defn}
+	For a given experiment, $S$ denotes the sample space and $A_1,\cdots$ represent possible events. A set function that associates a real value $P(A)$ with each event $A$ is called a probability set function, and $P(A)$ is called the probability of $A$, if the following properties are satisfied:
+	
+	\begin{enumerate}[wide, label = $\roman*)$]
+		\item $0 \leq p(A)$ for every $A$
+		\item $P(S) = 1$
+		\item $P(\bigcup_{i=1}^{\infty} A_i) = \sum^{\infty}_{i = 1}P(A_i)$ if $A_1,\cdots$ are pairwise mutually exclusive events.
+	\end{enumerate}
+\end{defn}
+
+%\begin{defn}
+	%If an object is chosen from a finite collection of distinct objects in such a manner that each object has the same probability of begin chosen, then we say that the object was chosen at random.
+%\end{defn}
+
+%\begin{thm*}$ $
+%	\begin{enumerate}[wide,label = $\bullet$]
+%		\item $P(A) = 1 - P(A')$
+%		\item $P(A) \leq 1$, for any event $A$
+%		\item For any two event $A$ and $B$, $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+%		\item If $A \subset B,$ then $P(A) \leq P(B)$
+%		\item $P\left( \bigcup^{\infty}_{i = 1} A_i \right) \leq \sum^{\infty}_{i = 1}P(A_i)$ If $A_1,\cdots$ is a sequence of events
+%		\item If $A_1,A_2,\cdots,A_k$ are events, then $P(\bigcap_{i=1}^{k}A_i) \geq 1 - \sum_{i=1}^kP(A_i')$ 
+%	\end{enumerate}
+%\end{thm*}
+
+%\begin{defn}
+%	The conditional probability of an event $A$, given the event $B$, is defined by 
+%	
+%	$$P(A~|~B) = \frac{P(A \cap B)}{P(B)}$$
+%	
+%	if $P(B) \neq 0$
+%\end{defn}
+
+%\begin{thm*}
+%	For any events $A$ and $B$,
+%	
+%	$$P(A \cap B) = P(B)P(A~|~B) = P(A)P(B~|~A)$$
+%\end{thm*}
+%
+%\begin{thm*}
+%	If $B_1,\cdots,B_k$ is a collection of mutually exclusive and exhaustive events, then for any event $A$
+%	
+%	$$P(A) = \sum^{k}_{i = 1}P(B_i)P(A~|~B_i)$$
+%\end{thm*}
+
+%\textbf{Note.} exhaustive events:  A collection of event which union is sample space.
+%
+%\begin{thm*}
+%	If $B_1,\cdots,B_k$ is mutually exclusive and exhaustive events, then for any event $A$ and each $j = 1,\cdots,k$
+%	
+%	$$P(B_j ~|~ A) = \dfrac{P(B_j)P(A~|~B_j)}{\sum^{k}_{i=1}P(B_i)P(A~|~B_i)} \left(  = \dfrac{P(A \cap B_j)}{P(A)}\right)$$
+%\end{thm*}
+%
+%\begin{defn}
+%	Two events $A$ and $B$ are called independent events if
+%	
+%	$$P(A \cap B) = P(A)P(B)$$
+%	
+%	Otherwise, $A$ and $B$ are called dependent event
+%\end{defn}
+%
+%\begin{thm*}
+%	If $A$ and $B$ are events such that $P(A) > 0$ and $P(B) > 0$, and $A$ and $B$ are independent, we get
+%	
+%	$$P(A \cap B) = P(A)P(B) \Leftrightarrow P(A~|~B) = P(A) \Leftrightarrow P(B~|~A) = P(B)$$
+%\end{thm*}
+%
+%\begin{thm*}
+%	\begin{eqnarray*}
+%		P(A \cap B) &=& P(A)P(B)\\
+%		\Leftrightarrow P(A' \cap B) &=& P(A')P(B)\\
+%		\Leftrightarrow P(A \cap B') &=& P(A)P(B')\\ 
+%		\Leftrightarrow P(A' \cap B') &=& P(A')P(B')
+%	\end{eqnarray*}
+%\end{thm*}
+
+
+%\begin{defn}
+%	The $k$ events $A_1,\cdots,A_k$ are said to b independent or mutually independent if for every $j = 2,3,\cdots ,k$ and every subset of distinct indices $i_1,i_2,\cdots,i_j$
+%	
+%	$$P(A_{i1} \cap A_{i2} \cap \cdots \cap A_{ij}) = P(A_{i1})P(A_{i2})\cdots P(A_{ij})$$
+%\end{defn}
+
+\textbf{Example.}
+
+Throwing a coin, the outcome is "head" or "tail",  the sample space is $\{head,tail\}$, we can give it an event A like "a head exists", the $A = \{head\} \subseteq S$
+
+\newpage
+
+\subsection*{2. Discrete Random Variable}
+
+\begin{defn}
+	A random variable, say $X$, is a function defined over a sample space $S$, that associated a real number with each possible outcome in $S$
+	
+	$$X(e) = x, \text{ where } e \in S$$
+\end{defn}
+
+\begin{defn}
+	A random variable that can take on at most a countable number of possible values is said to be discrete. For a discrete random variable $X$, we define the probability mass function $p(a)$ of $X$ by
+	
+	$$p(a) = P\{X = a\}$$
+\end{defn}
+
+\textbf{Property.} $f(x_i) \geq 0,~\sum_{\text{all }x_i}f(x_i) = 1$
+%\begin{defn}
+%	The cumulative distribution function(CDF) of a random variable $X$ is defined for any real $x$ by
+%	
+%	$$F(x) = P[X \leq x]$$
+%\end{defn}
+%
+%
+%\begin{thm*}
+%	Let $X$ be a discrete random variable with pdf $f(x)$ and CDF $F(x)$. If the possible values of $X$ are indexed in increasing order, $x_1 < x_2 < x_3 < \cdots ,$ then:
+%	
+%	\begin{enumerate}[wide,label = ($\roman*$)]
+%		\item $f(x_1) = F(x_i)$
+%		\item for any $i>1,~f(x_i) = F(x_i) - F(x_{i-1})$
+%		\item if $x < x_1$ then $F(x) = 0$
+%		\item $F(x) = \sum_{x_i \leq x}f(x_i)$
+%	\end{enumerate}
+%\end{thm*}
+
+%\begin{thm*}
+%	A function $F(x)$ is a CDF for some random variable $X$ if and only if it satisfies: 
+%	
+%	\begin{enumerate}[wide, label = ($\roman*$)]
+%		\item $\lim_{x \rightarrow -\infty}F(x) = 0$
+%		\item $\lim_{x \rightarrow \infty}F(x) = 1$
+%		\item $\lim_{h \rightarrow 0^+} F(x+h) = F(x)$
+%		\item $a < b$ implies $F(a) \leq F(b)$
+%	\end{enumerate}
+%\end{thm*}
+
+\begin{defn}
+	If $X$ is a discrete random variable having a probability mass function $p(x)$, then the expectation, or the expected value, of $X$, denoted by $E\left[X\right]$, is defined by	
+	$$E(X) = \sum_{x}xf(x)$$
+	
+	and we some times denote $E(X)= \mu$
+\end{defn}
+
+\textbf{Note.} Don't just remember that the expected value just the mean.
+
+$ $
+
+\textbf{Example.} If we define $X("head") = 20$, $X("tail") = 100$, we get $E\left[X\right] =60$ but it cannot give us more information.
+
+$ $
+
+\begin{thm*}
+	If $X$ is a discrete random variable that takes on one of the values $x_i,~i\geq 1$, with respective probabilities $p(x_i)$, then, for any real-valued function $g$,
+	
+	$$E[g(X)] = \sum_{i}g(x_i)p(x_i)$$
+\end{thm*}
+
+\newpage
+
+\begin{proof}
+	By grouping together all the terms in $\sum_ig(x_i)p(x_i)$
+	
+	\begin{eqnarray*}
+		\sum_ig(x_i)p(x_i) &=& \sum_j \sum_{i:g(x_i)=y_j}g(x_i)p(x_i)\\
+		&=& \sum_j\sum_{i:g(x_i)=y_j}y_jp(x_i)\\
+		&=& \sum_jy_j\sum_{i:g(x_i)=y_j}p(x_i)\\
+		&=&\sum_{j}y_jP\{g(X) = y_j\}\\
+		&=& E[g(X)] 
+	\end{eqnarray*}
+\end{proof}
+
+\begin{cor*}
+	If $a$ and $b$ are constants, then 
+	
+	$$E[aX + b] = aE[X] + b$$
+\end{cor*}
+
+\begin{defn}
+	If $X$ is a random variable with mean $\mu$, then the variance of $X$, denoted by $\text{Var}(X)$, is defined by
+	
+	$$\text{Var}(X) = E[(X - \mu)^2]$$
+\end{defn}
+
+\textbf{Prop.} An alternative formula for Var($X$) is derived as follows:
+
+$$\text{Var}(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2$$
+
+\begin{proof}
+	think $(X - \mu)^2$ as $g(X),$ use the theorm above you get
+	
+	\begin{eqnarray*}
+		\text{Var}(X) &=& E[(X - \mu)^2]\\
+		&=& \sum_x(x - \mu)^2p(x)\\
+		&=& \sum_x(x^2 - 2\mu x + \mu^2)p(x)\\
+		&=&\sum_x x^2p(x) - 2\mu \sum_x xp(x) + \mu^2\sum_x p(x)\\
+		&=& E[X^2] - 2\mu^2 + \mu^2\\
+		&=& E[X^2] - \mu^2
+	\end{eqnarray*}
+\end{proof}
+
+\newpage
+
+\subsection*{3. Bernoulli and Binomial Random Variables}$ $
+
+$ $
+
+\begin{defn}
+	A trial whose outcome can be classified as either a success or a failure is performed. If we let $X = 1$ when the outcome is a success and $X = 0$ when it is a failure, then the probability mass function of $X$ is given by
+	
+	\begin{eqnarray*}
+		p(0) &=& P\{X = 0\} = 1 - p\\
+		p(1) &=& P\{X = 1\} = p
+	\end{eqnarray*}
+	
+	and the random variable $X$ is said to be a Bernoulli random variable.
+\end{defn}
+
+
+\begin{defn}
+	Suppose now that $n$ independent trials, each of which results in a success with probability $p$ or in a failure with probability $1 - p$, are to be performed. If $X$ represents the \textbf{number of successes} that occur in the $n$ trials, then $X$ is said to be a binomial random variable with parameters $(n,p)$.
+	
+	$ $
+	
+		The probability mass function of a binomial random variable having parameters $(n,p)$ is given by
+	
+	$$p(i) = \left(\begin{matrix}
+		n \\ i
+	\end{matrix}\right) p^i(1 - p)^{n-i} ~|~i = 0,1,\cdots,n$$
+\end{defn}
+
+$ $
+
+\textbf{Note.} A Bernoulli random variable is just a binomial random variable with parameters $(1,p)$.
+
+$ $
+
+\textbf{Example.} We have 10 bulbs in the cases, we know that 2 of 10 is broken. If we pick the bulbs randomly (put it back after pick), what is the probability distribution?
+
+\begin{solution} $ $
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	x & 0 & 1 & 2 & 3\\
+	\hline
+	p(x) & 
+	$C^3_0 \left( \frac{2}{10}\right)^{0}\left(\frac{8}{10}\right)^3$ & 
+	$C^3_1 \left( \frac{2}{10}\right)^{1}\left(\frac{8}{10}\right)^2$ & 
+	$C^3_2 \left( \frac{2}{10}\right)^{2}\left(\frac{8}{10}\right)^1$ & 
+	$C^3_3 \left( \frac{2}{10}\right)^{3}\left(\frac{8}{10}\right)^0$\\
+	\hline
+\end{tabular}
+\end{center}
+\end{solution}
+
+\newpage
+
+\textbf{The Expect Value \& Variance of Binomial}
+$ $
+
+X is a binomial random variable with parameters $(n,p)$.
+
+\begin{center}
+	$E(X) = np~$ \& $~\text{Var}(x) = np(1-p)$
+\end{center}
+
+\begin{proof}
+	Just use the definition of $E(X)$ and Var($X$)
+	
+	\begin{eqnarray*}
+		E(X) &=& \sum_i^n x_ip(x_i)\\
+		&=& \sum_i^n i \left(\begin{matrix}
+		n \\ i
+	\end{matrix}\right) p^i(1 - p)^{n-i}\\
+	&=& \sum^n_i i\dfrac{n!}{i!(n-i)!}p^i(1-p)^{n-i}\\
+	&=& \sum^n_{i=1}\dfrac{n!}{(i-1)!(n-i)!}p^i(1-p)^{n-i}\\
+	&=& n\sum^n_{i=1} \dfrac{(n-1)!}{(i-1)!(n-i)!}p^i(1-p)^{n-i}\\
+	&=& np\sum^n_{k=1}\dfrac{(n-1)!}{(i-1)(n-i)!}p^{i-1}q^{n-k}\\
+	&=& np\sum^n_{i=1}\left(\begin{matrix}
+		n-1 \\ i-1
+	\end{matrix}\right)p^{i-1}(1-p)^{n-i}\\
+	&=& np
+	\end{eqnarray*}
+\end{proof}
+
+\textbf{Example.} A shooter whose shooting rate is $0.6$, today he shoot $100$ times, what is the expect value and variance?
+
+\begin{solution}
+	$E[X] = 0.6 \times 100 = 60,~\text{Var}(X) = 100 \times (1-0.6) \times 0.6$
+\end{solution}
+
+
+
+
+
+
+\newpage
+
+\subsection*{$\text{4}^*$. Moment generating function (Discrete)}$ $
+
+\begin{defn}
+	The moment generating function $M(t)$ of the random variable $X$ is defined for all real values of $t$ by 
+	
+	$$M(t) = E\left[e^{tX}\right] = \sum_x e^{tx}p(x)$$
+	
+	if $X$ is discrete with mass function $p(x)$
+\end{defn}
+
+$ $
+
+\textbf{Mean.} We call $M(t)$ the moment generating function because all of the moments of $X$ can be obtained by successively differentiating $M(t)$ and then evaluating the result at $t = 0$. For example,
+
+\begin{eqnarray*}
+	M'(t) &=& \frac{d}{dt}E[e^{tX}]\\
+	&=& E[\frac{d}{dt}(e^{tX})]\\
+	&=& E[Xe^{tX}]
+\end{eqnarray*}
+
+where we have assumed that the interchange of the differentiation and expectation operators is legitimate. That is, we have assumed that
+
+$$\frac{d}{dt}\left[\sum_xe^{tx}p(x)\right] = \sum_x \frac{d}{dt}\left[e^{tx}p(x)\right]dx$$
+
+in the discrete case
+
+$ $
+
+In general, the $n$th derivative of $M(t)$ is given by
+
+$$M^n(t) = E\left[X^ne^{tX}\right]$$
+
+implying that 
+
+$$M^n(0) = E\left[X^n\right] ~ n\geq 1$$
+
+\newpage
+
+\textbf{Example.} If $X$ is a binomial random variable with parameters $n$ and $p$, then 
+
+\begin{eqnarray*}
+	M(t) &=& E\left[e^{tX}\right]\\
+	&=&\sum^n_{k=0}e^{tk}\left(\begin{matrix}
+		n \\ k
+	\end{matrix}\right) p^k( 1- p)^{n-k}\\
+	&=& \sum^n_{k=0}\left(\begin{matrix}
+		n\\k
+	\end{matrix}\right)(pe^t)^k(1-p)^{n-k}\\
+	&=&(pe^t + 1 - p)^n
+\end{eqnarray*}
+
+where the last equality follows from the binomial theorem. Differentiation yields
+
+$$M'(t) = n(pe^t + 1 - p)^{n-1}pe^t$$
+
+Thus,
+
+$$E[X] = M'(0) = np$$
+
+Differentiating a second time yields
+
+$$M''(t) = n(n - 1)(pe^t + 1 - p)^{n-2}(pe^t)^2 + n(pe^t + 1 - p)^{n-1}pe^t$$
+
+so
+
+$$E[X^2] = M''(0) = n(n-1)p^2 + np$$
+
+The variance of $X$ is given by
+
+\begin{eqnarray*}
+	\text{Var}(X) &=& E[X^2] - (E[X])^2\\
+	& = & n(n - 1)p^2 + np - n^2p^2\\
+	& = & np(1 - p)
+\end{eqnarray*}
+\newpage
+
+\subsection*{5. Poisson Random Variable}$ $
+
+$ $
+
+\begin{defn}
+	A random variable $X$ that takes on one of the values $0,1,2,\cdots$ is said to be a Poisson random variable with parameter $\lambda$ if, for some $\lambda > 0$,
+	
+	$$p(i) = P\{X = i\} = e^{-\lambda}\dfrac{\lambda^i}{i!} ~|~ i = 0,1,2,\cdots$$
+	
+	and above defines a probability mass function, since
+	
+	$$\sum^{\infty}_{i = 0}p(i) = e^{-\lambda}\sum^{\infty}_{i=0}\dfrac{\lambda^i}{i!} = e^{-\lambda}e^{\lambda} = 1$$
+\end{defn}
+
+\textbf{The Expect Value \& Variance of Poisson}
+
+X is a Poisson random variable with parameter $\lambda$
+
+$$E(X) = \lambda ~\&~ \text{Var}(X) = \lambda$$
+
+\begin{thm*}
+	We can think poisson is a binomial distribution with parameter (n,p) where $n \rightarrow \infty$
+\end{thm*}
+
+\begin{proof}
+
+To see this, suppose that $X$ is a binomial random variable with parameters $(n,p),$ and let $\lambda = np$.Then
+	\begin{eqnarray*}
+		P\{X = i\} &=& \dfrac{n!}{(n-i)!i!}p^i(1 - p)^{n - i}\\
+		&=& \dfrac{n!}{(n-1)!i!}\left(\dfrac{\lambda}{n}\right)^i\left(1 - \dfrac{\lambda}{n}\right)^{n - i}\\
+		&=& \dfrac{n(n-1)\cdots(n-i+1)}{n^i}\dfrac{\lambda^i}{i!}\dfrac{(1 - \lambda /n)^n}{(1 - \lambda /n)^i}
+	\end{eqnarray*}
+	
+	Now, for $n$ large and $\lambda$ moderate,
+	
+	\begin{tasks}(2)
+		\task[$\bullet$] $\dfrac{n(n-1)\cdots(n-i+1)}{n^i} \approx 1$
+		\task[$\bullet$] $\dfrac{\lambda^i}{i!} \approx e^{-\lambda}$
+		\task[$\bullet$] $\left( 1 -\dfrac{\lambda}{n}\right)^i \approx 1$
+	\end{tasks}
+	
+	Hence, for $n$ large and $\lambda$ moderate,
+	
+	$$P\{X = i\} \approx e^{-\lambda}\dfrac{\lambda^i}{i!}$$
+\end{proof}
+
+
+
+
+%\subsection*{6. }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
