@@ -1,7 +1,13 @@
 \input{../settings}
 \begin{document}
 
-\section*{Probability}
+\title{Probability}
+
+\author{QSnake Edition}
+
+\maketitle
+
+%\section*{Probability Lecture 1}
 
 %\lhead{Linear Algebra} 
 %\rhead{Sabrina Edition} 
@@ -243,7 +249,7 @@ $$\text{Var}(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2$$
 $ $
 
 \begin{defn}
-	A trial whose outcome can be classified as either a success or a failure is performed. If we let $X = 1$ when the outcome is a success and $X = 0$ when it is a failure, then the probability mass function of $X$ is given by
+	A trial whose outcome can be classified as either a success or a failure is performed. If we let $X = 1$ when the outcome is a \textbf{success} and $X = 0$ when it is a failure, then the probability mass function of $X$ is given by
 	
 	\begin{eqnarray*}
 		p(0) &=& P\{X = 0\} = 1 - p\\
@@ -312,7 +318,7 @@ X is a binomial random variable with parameters $(n,p)$.
 	&=& \sum^n_i i\dfrac{n!}{i!(n-i)!}p^i(1-p)^{n-i}\\
 	&=& \sum^n_{i=1}\dfrac{n!}{(i-1)!(n-i)!}p^i(1-p)^{n-i}\\
 	&=& n\sum^n_{i=1} \dfrac{(n-1)!}{(i-1)!(n-i)!}p^i(1-p)^{n-i}\\
-	&=& np\sum^n_{k=1}\dfrac{(n-1)!}{(i-1)(n-i)!}p^{i-1}q^{n-k}\\
+	&=& np\sum^n_{i=1}\dfrac{(n-1)!}{(i-1)(n-i)!}p^{i-1}q^{n-i}\\
 	&=& np\sum^n_{i=1}\left(\begin{matrix}
 		n-1 \\ i-1
 	\end{matrix}\right)p^{i-1}(1-p)^{n-i}\\
@@ -438,7 +444,7 @@ $$E(X) = \lambda ~\&~ \text{Var}(X) = \lambda$$
 To see this, suppose that $X$ is a binomial random variable with parameters $(n,p),$ and let $\lambda = np$.Then
 	\begin{eqnarray*}
 		P\{X = i\} &=& \dfrac{n!}{(n-i)!i!}p^i(1 - p)^{n - i}\\
-		&=& \dfrac{n!}{(n-1)!i!}\left(\dfrac{\lambda}{n}\right)^i\left(1 - \dfrac{\lambda}{n}\right)^{n - i}\\
+		&=& \dfrac{n!}{(n-i)!i!}\left(\dfrac{\lambda}{n}\right)^i\left(1 - \dfrac{\lambda}{n}\right)^{n - i}\\
 		&=& \dfrac{n(n-1)\cdots(n-i+1)}{n^i}\dfrac{\lambda^i}{i!}\dfrac{(1 - \lambda /n)^n}{(1 - \lambda /n)^i}
 	\end{eqnarray*}
 	
@@ -446,7 +452,7 @@ To see this, suppose that $X$ is a binomial random variable with parameters $(n,
 	
 	\begin{tasks}(2)
 		\task[$\bullet$] $\dfrac{n(n-1)\cdots(n-i+1)}{n^i} \approx 1$
-		\task[$\bullet$] $\dfrac{\lambda^i}{i!} \approx e^{-\lambda}$
+		\task[$\bullet$] $\left( 1 -\dfrac{\lambda}{n}\right)^n\approx e^{-\lambda}$
 		\task[$\bullet$] $\left( 1 -\dfrac{\lambda}{n}\right)^i \approx 1$
 	\end{tasks}
 	
@@ -454,6 +460,16 @@ To see this, suppose that $X$ is a binomial random variable with parameters $(n,
 	
 	$$P\{X = i\} \approx e^{-\lambda}\dfrac{\lambda^i}{i!}$$
 \end{proof}
+
+\textbf{Example.}
+
+In average, it's will has three cars pass the free way, then what is the probability that exactly two cars passing the freeway.
+
+\begin{solution}
+	let $\lambda = 3$, what is $P(x=2)$?
+	
+	$P(x = 2) = \dfrac{e^{-3}\cdot 3^2}{2!}$
+\end{solution}
 
 
 
