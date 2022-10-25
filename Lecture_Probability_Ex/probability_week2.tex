@@ -1,0 +1,110 @@
+\input{../settings}
+\begin{document}
+
+\title{Probability Exercise}
+
+\author{Week 1}
+
+\maketitle
+
+\begin{enumerate}
+\item Compute $$ \int_{-\infty}^{\infty} e^{-x^2/2}\ dx $$
+\item Compute $$ \int_{0}^{\infty} \frac{\sin x}{x}\ dx $$
+\item Show that $$E[Y] = \int_{0}^{\infty} \mathrm{P}\{Y > y\}\ dy - \int_{0}^{\infty} \mathrm{P}\{Y < y\}\ dy$$ 
+\item Show that if $X$ has density function $f$, then $$ E[g(X)] =\int_{-\infty}^{\infty} g(x)f(x)\ dx  $$
+\item Show that $Z$ is a standard normal random variable; then, for $x > 0$,
+	\begin{enumerate}
+	\item $P\{Z > x\} = P\{Z < -x\}$
+	\item $P\{|Z| > x\} = 2P\{X > x\}$
+	\item $P\{|Z| < x\} = 2P\{Z < x\} - 1$
+	\end{enumerate}
+\item Let $f(x)$ denote the probability density function of a normal random variable with mean $\mu$ and variance $\sigma^2$. Show that $\mu - \sigma$ and $\mu + \sigma$ are pints of inflection of this function. That is, show that $f''(x) = 0$ when $x = \mu - \sigma$ or $x = \mu + \sigma$
+\item Let $Z$ be standard normal random variable $Z$, and let $g$ be a differentiable function with derivative $g'$.
+	\begin{enumerate}
+	\item Show that $E[g'(Z)] = E[Zg(Z)]$
+	\item Show that $E[Z^{n+1}] = nE[Z^{n-1}]$
+	\item Find $E[Z^4]$
+	\end{enumerate}
+	
+\newpage
+	
+\item Let $X$ be a random variable with probability density function
+
+$$f(x) = \begin{cases}
+	c(1 - x^2) & -1 < x < 1\\
+	0 & \text{ otherwise}
+\end{cases}$$
+	\begin{enumerate}
+	\item What is the value of $c$?
+	\item What is the cumulative distribution function of $X$?
+	\end{enumerate}
+
+\item The probability density function of $X$, the lifetime of a certain type of electronic device (measured in hours), is given by
+
+$$f(x) = \begin{cases}
+	\dfrac{10}{x^2} & x > 10\\
+	0 & x \leq 10
+\end{cases}$$
+	\begin{enumerate}
+	\item Find $P\{X > 20\}$
+	\item What is the cumulative distribution function of $X$?
+	\item What is the probability that of $6$ such types of devices, at least $3$ will function for at least $15$ hours? What assumptions are you making?
+	\end{enumerate}
+	
+\item Compute $E[X]$ if $X$ has a density function given by
+
+	\begin{enumerate}
+	\item $f(x) = \begin{cases}
+		\dfrac{1}{4}xe^{-x/2} & x>0\\
+		0 & \text{otherwise}
+	\end{cases}$
+	\item $f(x) = \begin{cases}
+		c(1 - x^2) & -1 < x < 1\\
+		0 & \text{otherwise}
+	\end{cases}$
+	\item $f(x) = \begin{cases}
+		\dfrac{5}{x^2} & x> 5\\
+		0 & x \leq 5
+	\end{cases}$
+	\end{enumerate}
+
+\item The density function of $X$ is given by
+
+$$f(x) = \begin{cases}
+	a + bx^2 & 0 \leq x \leq 1\\
+	0 & \textbf{otherwise}
+\end{cases}$$
+
+If $E[X] = \dfrac{3}{5}$, find $a$ and $b$.
+
+\newpage
+
+\item The lifetime in hours of an electronic tube is a random variable having a probability density function given by
+
+$$f(x) = xe^{-x} \hspace{20pt} x \geq 0$$
+
+Compute the expected lifetime of such a tube.
+
+\item You arrive at a bus stop at $q0$ A.M., knowing that the bus will arrive at some time uniformly distributed between $10$ and $10:30$.
+
+\begin{enumerate}
+	\item What is the probability that you will have to wait longer that $10$ minutes?
+	\item If, at $10:15$, the bus has not yet arrived, what is the probability that you will have to wait at least an additional $10$ minutes?
+\end{enumerate}
+
+\item If $X$ is a normal random variable with parameters $\mu = 10$ and $\sigma^2 = 36$, compute
+
+	\begin{enumerate}
+	\item $P\{X > 5\}$
+	\item $P\{4 < X < 16\}$
+	\item $P\{X < 8\}$
+	\item $P\{X < 20\}$
+	\item $P\{X > 16\}$
+	\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+\end{document}

@@ -52,7 +52,6 @@ In the following $X$ is a topology space
 		\item[(c)] Finite union of closed sets is closed
 	\end{enumerate}
 \end{thm} 
-\newpage
 
 \begin{proof}$ $\\
 	\begin{enumerate}
@@ -139,8 +138,6 @@ In this chapter, we will introduce a class of topology space whose topology in i
 	
 \end{enumerate}
 
-\newpage
-
 \begin{defn}[ball]
 	Given $p \in X ~\&~ r > 0$
 	
@@ -213,8 +210,6 @@ We will see that every metric on a set induce a topology on $X$
 \begin{defn}[open]
 	Let $S \subseteq X$, we say that $S$ is open if all points of $S$ are interior points of $S$
 \end{defn}
-
-\newpage
 
 \begin{rmk*}$ $
 	\begin{enumerate}[wide]
@@ -307,9 +302,6 @@ Let $X$ be a metric space and $Y \subseteq X$, Then $Y$ is a metric subspace of 
 \begin{rmk*}
 	Let $S \subseteq X,$ where $X$ is a metric space. Then $S^o$ is the largest(w.r.t inclusion) open set contained in $S$. $\because \forall~$ open set $U \subseteq S,~U^o\subseteq S^o \implies U \subseteq S^o \subseteq S$. In fact, $S^\circ = \bigcup_{U \subseteq S}U$(which is the definition of intension of S in a topology space $X$)
 \end{rmk*}
-
-
-\newpage
 
 
 \subsection{Closed Sets}
@@ -485,9 +477,18 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 		
 		$(a,b)$ open interval which is closed in $\R$
 		
-		Infinite intervals:
+		Infinite intervals: 
 		
 		$(-\infty,b]:$ close in $\R$~,~$(-\infty,b)$ open in $\R$
+		
+		whose length are $\infty$ and boundary
+		
+		$$\begin{cases}
+			\partial(a,+\infty) = \partial(a,+\infty) = \{a\}\\
+			\partial(-\infty,b) = \partial (-\infty,b) = \{b\}
+		\end{cases}$$
+		
+		
 		\item k-dimensional interval (rectangle or k-cell) $I$
 		$$I = I_1 \times \cdots \times I_k$$
 		
@@ -501,18 +502,52 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 			$k$-dimensional closed(compact) interval in $\R^k$
 		\end{enumerate}
 		
-		\item Convex sets in $\R^k$
+	\end{enumerate}
+	\item Convex sets in $\R^k$(In vector space)
 		
-		$S \subseteq \R^k$ is convex if $\forall~ x,y \in S,~\overline{xy}$ is the line segment joining $x ~\&~ y$
+		\begin{defn}
+			$S \subseteq \R^k$ is convex if $\forall~ x,y \in S,~\overline{xy}$ is the line segment joining $x ~\&~ y$
+		\end{defn}
+		
+		Given $p,q \in \R^k$, The parametric equation of
+		
+		\begin{center}
+			$\overleftrightarrow{pq} = \{p + t(q-p) ~|~t \in \R\}$: the line in $\R^k$ throw $p$ and $q$\\
+			$\overrightarrow{pq} = \{p + t(q - p)~|~ t \geq 0\}$: the ray in $\R^k$ throw p and $q$\\
+			$\overline{pq} = \{p+t(q-p)~|~0 \leq t \leq 1\}$: the line segement throw p and q
+		\end{center}
+		
+		\begin{eqnarray*}
+			x \in \overline{pq} \Leftrightarrow x &=& p+t(q-p) \text{ for some } t \in [0,1]\\
+			&=& p + tq - tp\\
+			&=& (1 - t)p + tq\\
+			&=& \alpha p + \beta q, \text{where $\alpha$ $\beta$  $\geq$ 0 and $\alpha + \beta = 1$}
+		\end{eqnarray*}
+		
+		and we called $\alpha p + \beta q$ convex combination of $p$ and $q$.
 		
 		Note that all open balls, closed balls, intervals are convex in $\R^k$
 		
-		\item Star-like sets in $\R^k$ with w.r.t some point $x_0$, $S \subseteq \R^k$ is star-like w.r.t. $x_0 \in S$ if $\forall~x \in S,~\overline{xx_0} \subseteq S$
+		\begin{tcolorbox}
+			Given $B(p,r)$, $\forall x,y \in B(p,r)$ and $\alpha , \beta \geq 0, \alpha + \beta = 1$
+			
+			\begin{eqnarray*}
+				\norm{\alpha x + \beta y - p} &=& \norm{\alpha x + \beta y - (\alpha + \beta)p}\\
+				&=& \norm{\alpha x - \alpha p + \beta y - \beta p}\\
+				&\leq& \norm{\alpha x - \alpha p} + \norm{\beta y - \beta p}\\
+				&=& \alpha \norm{x - p} + \beta \norm{y - p}\\
+				&<& \alpha r + \beta r = (\alpha + \beta)r = r
+			\end{eqnarray*}
+			
+			$\therefore \alpha x + \beta y \in B(p,r \therefore B(p,r))$ is convex
+		\end{tcolorbox}
 		
-	\end{enumerate}
+		
+		
+		\item Star-like sets in $\R^k$ with w.r.t some point $x_0$, $S \subseteq \R^k$ is star-like w.r.t. $x_0 \in S$ if $\forall~x \in S,~\overline{xx_0} \subseteq S$
 	\item We know that $\Q$ is dense in $\R$, hence $\Q^k$ is dense in $\R^k$. Note that $\Q^k$ is countable, hence $\R^k$ has a countable dense subset $\Q^k$, i.e. $\R^k$ is separable.
 	\item $\partial \Q = \R,~\partial \Q^k = \R^k$
-	\item $\Z$ is closed in $\R$, $\because \R - \Z = \bigcup^{\infty}_{n = -\infty}(n-1,n)$ is open $\implies \Z$ is close. or $\Z' = \emptyset \subseteq \Z,~\therefore \Z$ is close.
+	\item $\Z$ is closed in $\R$ and every point in $\Z$ is isolated e.g.$\{n\pi ~|~ n \in \Z\}$, $\because \R - \Z = \bigcup^{\infty}_{n = -\infty}(n-1,n)$ is open $\implies \Z$ is close. or $\Z' = \emptyset \subseteq \Z,~\therefore \Z$ is close.
 	\item Let $S \subseteq \R$ be a nonempty set which is bounded above. Then $\alpha = \sup S$ exists. Moreover, $\alpha \in \overline{S}.~\because \forall~r>0,\exists~x_0 \in S \ni \alpha - r < x_0 \leq \alpha < \alpha - r \implies (\alpha - r,\alpha + r) \cap S \neq \emptyset \implies \alpha \in \overline{S}$
 \end{enumerate}
 
@@ -529,14 +564,6 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 	$$S \subseteq \bigcup \mathscr{U} = \bigcup_{\alpha \in I}U_{\alpha} $$
 \end{defn}
 
-\begin{defn}
-	Let $X$ be a topology space, $S \subseteq X$ and $\mathscr{U} = \{U_{\alpha}\}_{\alpha \in I}$ be an open covering of $S$. We say that $\mathscr{U}$ has a countable(finite) sub covering of $S$ if $\exists$ a countable(finite) sub collection of $\mathscr{U}$ which also covers $S$. i.e. $\mathscr{U}$ has a countable(finite) subcovering in $S$ if 
-	
-	$\exists$ a sequence $\{\alpha_n\}$ in $I \ni S \subseteq \bigcup_{n=1}^{\infty}U_{\alpha_n}$ (countable)
-	
-	$\exists$ a sequence $\{\alpha_n\}$ in $I \ni S \subseteq U_{\alpha} \cup \cdots \cup U_{\alpha_n}$(finite)
-\end{defn}
-
 \textbf{Example} 
 
 \begin{enumerate}
@@ -545,6 +572,14 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 	\item $\{B(0,n)~|~n \in \N\}$ is an open covering of $\R^k$
 \end{enumerate}
 
+\begin{defn}
+	Let $X$ be a topology space, $S \subseteq X$ and $\mathscr{U} = \{U_{\alpha}\}_{\alpha \in I}$ be an open covering of $S$. We say that $\mathscr{U}$ has a countable(finite) sub covering of $S$ if $\exists$ a countable(finite) sub collection of $\mathscr{U}$ which also covers $S$. i.e. $\mathscr{U}$ has a countable(finite) subcovering in $S$ if 
+	
+	$\exists$ a sequence $\{\alpha_n\}$ in $I \ni S \subseteq \bigcup_{n=1}^{\infty}U_{\alpha_n}$ (countable)
+	
+	$\exists$ a sequence $\{\alpha_n\}$ in $I \ni S \subseteq U_{\alpha} \cup \cdots \cup U_{\alpha_n}$(finite)
+\end{defn}
+
 \begin{defn}[compact]
 	Let $X$ be a topology space. A subset $K \subseteq X$ is said to be compact if \textbf{every} open covering of $K$ admit a finite subcovering
 \end{defn}
@@ -552,7 +587,7 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 \textbf{Examples}
 
 \begin{enumerate}[wide]
-	\item Let $X$ be a topology space and $K \subseteq X$ be a finite set. Then $K$ is compact.
+	\item Let $X$ be a topology space and $K \subseteq X$ be a finite set. Then $K$ is compact. $\because$ Given an arbitrary open covering $\{U_{\alpha} ~|~ \alpha \in I\}$ of $K$, i.e. $K \subseteq \bigcup_{\alpha \in I}U_{\alpha} \implies \exists \alpha_i \in I \ni x_i \in U_{\alpha_i},1 \leq i \leq n \implies K = \{x_1,\cdots,x_n\} \subseteq \bigcup_{i = 1}^{n}U_{\alpha_i} \therefore K$ is compact.
 	\item In a discrete metric space $X$, a subset $K \subseteq X$ is compact $\Leftrightarrow K$ is a finite set.
 	\item $(0,1)$ is not compact in $\R$($\{0,1-\frac{1}{n}~|~n\in \N\}$), but $[0,1]$ is compact
 \end{enumerate}
@@ -584,6 +619,17 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 	Let $X$ be a metric space and $S \subseteq X$ be a nonempty set. The diameter of $S$ is defined to be $\dia (S) = \sup \{d(x,y)~|~x,y \in S\}$ which generated the diameter of a circle in $\R^2$
 \end{defn}
 
+\textbf{Recall.} bounded set in a metric space, specially, in $\R^k~X:$ metric space
+
+\begin{enumerate}[label = $\star$]
+	\item $S \subseteq X$ is bdd if $\exists p \in X$ and $r > 0 \ni S \subseteq B(p,r)$
+	\item In $\R^k,~S \subseteq \R^k$ is bounded of $\exists M > 0 \ni \norm{x} \leq M \forall x \in S$
+	
+	$\because S \subseteq B(p,r) \implies \forall x_0 \in \R^k, \exists R_{x_0} > 0 \ni S \subseteq B(x_0,R^{x_0})$ for some $p \in \R^k$ and $r > 0$
+	
+	In particular, $S \subseteq B(0,M) = \{x \in \R^k~|~ \norm{x} < M\}$ for some $M > 0$
+\end{enumerate}
+
 \begin{thm}
 	Let $X$ be a metric space and $K \subseteq X$ be a compact set. Then $K$ is closed and bounded
 \end{thm}
@@ -597,14 +643,16 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 	
 	Fix $p \in X - K$. Then $p \neq x,~\forall~ x \in K$. Hence, $d(x,p) > 0,~\forall~x \in K$
 	
-	Let $r_x = \frac{1}{2}d(x,p) > 0,x\in K$. Them $\{B(x,r_x)~|~x \in K\}$ is an open covering of $K$. $\because K$ is compact $\implies \exists x_1,\cdots,x_n \in K \ni B(x_1,r_{x_1}) \cup \cdots \cup B(x_n,r_{x_i})$. Let $V = \bigcap_{i=1}^{n}B(p,r_{x_i}) = B(p,r)$, where $r = \min \{r_{x_1},\cdots,r_{x_n}\}$. Then as we can see that $V \subseteq X - K$, all point in $X - K$ are inner point. So $X - K$ is open, i.e. $K$ is close. 
+	Let $r_x = \frac{1}{2}d(x,p) > 0,x\in K$. Them $\{B(x,r_x)~|~x \in K\}$ is an open covering of $K$. $\because K$ is compact $\implies \exists x_1,\cdots,x_n \in K \ni B(x_1,r_{x_1}) \cup \cdots \cup B(x_n,r_{x_i})$. Let $V = \bigcap_{i=1}^{n}B(p,r_{x_i}) = B(p,r)$, where $r = \min \{r_{x_1},\cdots,r_{x_n}\}$. Then as we can see that $V \subseteq X - K$, all point in $X - K$ are inner point. So $X - K$ is open, i.e. $K$ is close.
 	
 	\begin{tcolorbox}
 		To show that $V \subseteq X - K$, i.e. $V \cap K \neq \emptyset$, it suffices to show
 		
 		$$V \cap (\bigcup^n_{i=1}B(x_i,r_{x_i})) = \emptyset$$
 		
-		Now, \begin{eqnarray*}
+		Now, 
+		
+		\begin{eqnarray*}
 			V \cap (\bigcup^n_{i=1}B(x_i,r_{x_i})) &=& \bigcup^n_{i=1}(V \cap B(r_i,r_{x_i})) \\
 			&\subseteq &  \bigcup^n_{i=1}(B(p,r_{x_i} \cap B(x_i,r_{x_i}))) = \emptyset
 		\end{eqnarray*}
@@ -622,8 +670,6 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 \begin{proof}
 	Let $\{U_{\alpha}\}_{\alpha \in I}$ be an open covering of $L$. Then $\{U_{\alpha}\}_{\alpha \in I} \cup \{X - L\}$ is an open covering of $K$. By the compactness of $K$, $\exists \alpha_1,\cdots,\alpha_n \in I \ni K \subseteq U_{\alpha_1} \cup \cdots \cup U_{\alpha_n} \cup (X-L)$. By $L \subseteq K~ \therefore L$ is compact
 \end{proof}
-
-\newpage
 
 \begin{cor}$ $
 	\begin{enumerate}[wide,label=(\alph*)]
@@ -649,26 +695,28 @@ We give some simple examples of open sets, closed sets, adherent, accumulation, 
 \end{rmk*}
 
 \begin{thm}
-	Let $X$ be a metric space, $\{K_{\alpha}\}_{\alpha \in I}$ be a collection of compact subsets of $X$ with the property:
-	
-	$$\forall \alpha_1,\cdots,\alpha_n \in I, K_{\alpha_1} \cap \cdots \cap K_{\alpha_n} \neq \emptyset$$
-	
-	Them $\bigcap_{\alpha \in I}K_{\alpha} \neq \emptyset$
+	Let $X$ be a metric space. Then $X$ is compact \textbf{ if and only if }$ \forall$ collection $\{K_{\alpha}\}$ of closed subsets of $X$ with FIP(finite intersection property, i.e. $\forall \alpha_1,\cdots,\alpha_n \in I,K_{\alpha_1} \cap \cdots \cap K_{\alpha_n} \neq \emptyset$), $\bigcap_{\alpha \in I}K_{\alpha} \neq \emptyset$
 \end{thm}
 
-\begin{proof}
-	Fix $\alpha_0 \in I$. Assume that $\bigcap_{\alpha \in I}K_{\alpha} = \emptyset \implies X - \bigcap_{\alpha \in I}K_{\alpha}$\\$\implies X - \emptyset = X \implies X = \bigcup_{\alpha \in I}(X - K_{\alpha})$
+\begin{proof}$ $
 	
-	each $K_{\alpha}$ is compact $\implies K_{\alpha}$ is closed $\implies X - K_{\alpha}$ is open
+	$(\Rightarrow)$ Suppose $X$ is compact. Given a collection $\{K_{\alpha}\}$ of closed subset of $X$ with FIP. We must prove that $\bigcap_{\alpha \in I}K_{\alpha} \neq \emptyset.$ If $\bigcap_{\alpha \in I}K_{\alpha} = \emptyset$, then $X = X - \bigcap_{\alpha \in I}K_{\alpha} = \bigcup_{\alpha \in I}(X - K_{\alpha}) \implies \exists \alpha_1,\cdots,\alpha_m \in I \ni X = \bigcup^n_{i = 1}(X - K_{\alpha_i}) = X - \bigcap^n_{i=1}K_{\alpha_i} \implies \bigcap^n_{i = 1}K_{\alpha_i}K_{\alpha_i} = \emptyset (\rightarrow\leftarrow)$ to FIP.
 	
-	so $\{X - K_{\alpha}\}$ is an open covering of $X$. Now,
+	$(\Leftarrow)$ Suppose the condition holds. To prove that $X$ is compact. If $X$ were not compact, them $\exists$ an open covering $\{U_{\alpha}\}_{\alpha \ni I}$ of $X$ which has no finite subcovering. Let $K_{\alpha} = X - U_{\alpha}, \alpha \in I$. Then $\{K_{\alpha}\}_{\alpha \in I}$ is a collection of closed subsets.
 	
-	$$K_{\alpha_0} \subseteq X = \bigcup_{\alpha \in I}(X - K_{\alpha}) \implies K_{\alpha_0} \subseteq \bigcup_{\alpha \in I}(X - K_{\alpha})$$
+	Claim it satisfies FIP. GIven $\alpha_1,\cdots,\alpha_n \in I,~\bigcap_{i=1}^nK_i = \bigcap^n_{i=1}(X - U_{\alpha_i}) = X - \bigcup_{n=1}^nU_{\alpha_i}$
 	
-	$K_{\alpha}$ is compact $\implies \exists \alpha_1,\cdots,\alpha_n \in I - \{\alpha_0\} \ni K_{\alpha_0} \subseteq (X - K_{\alpha_1})\cup \cdots \cup (X - K_{\alpha_n}) \implies K_{\alpha_0} \cap K_{\alpha_1}\cap \cdots \cap K_n = \emptyset (\rightarrow \leftarrow)$
+	$$\therefore \bigcap_{i=1}^nK_i = \emptyset \Leftrightarrow X - \bigcup^n_{i=1}U_{\alpha} = \emptyset \Leftrightarrow X = \bigcup^n_{i=1}U_{\alpha_i} (\rightarrow\leftarrow)$$
+	
+	$$\therefore \bigcap^n_{i=1}K_{\alpha_i} = \emptyset$$
+	
+	By assumption, $\bigcap_{\alpha \in I}K_{\alpha} \neq \emptyset$, i.e. $\bigcap_{\alpha \in I}(X - U_{\alpha}) \neq \emptyset \implies \X - \bigcup_{\alpha \in I}U_{\alpha} =\emptyset \implies \bigcup_{\alpha \in I}U_{\alpha} \neq X(\rightarrow\leftarrow)$
+	
+	$\therefore X$ must be compact.
+	
 \end{proof}
 
-\begin{cor}
+\begin{cor}[\& ß2.16]
 	Let $X$ be a metric space and $\{K_n\}^{\infty}_{n=1}$ be a decrease sequence of nonempty compact sets of $X$. Them $\bigcap^{\infty}_{n=1} \neq \emptyset$. In addition, if $\dia_{n \rightarrow \infty} \infty 0$, them $\bigcap^{\infty}_{n=1}K_n$ is a singleton.
 \end{cor}
 

@@ -1,0 +1,143 @@
+\input{../settings}
+\begin{document}
+
+\title{Probability}
+
+\author{QSnake Edition}
+
+\maketitle
+
+\subsection*{1. Joint Distribution Functions}$ $
+
+For any two random variables $X$ and $Y$, the joint cumulative probability distribution function of $X$ and $Y$ by
+
+$$F(a,b) = P\{X \leq a,Y \leq b\} \hspace{30pt} - \infty < a,b < \infty$$
+
+The distribution of $X$ can be obtained from the joint distribution of $X$ and $Y$ as follows:
+
+\begin{eqnarray*}
+	F_X(a) &=& P\{X \leq a\}\\
+	&=& P\{X \leq a,Y \leq b\}\\
+	&=&P\left(\lim_{b \rightarrow \infty} \{ X \leq a,Y\leq b \}\right)\\
+	&=& \lim_{b \rightarrow \infty} P\{X \leq a,Y \leq b\}\\
+	&=& \lim_{b \rightarrow \infty} F(a,b)\\
+	&=& F(a,\infty)
+\end{eqnarray*}
+
+and same as the distribution of $X$. The distribution functions $F_X$ and $F_Y$ are sometimes refereed to as the marginal distributions of $X$ and $Y$.
+
+If we want to compute the joint probability that $X$ is greater than $a$ and $Y$ is greater than $b$. This could be done as follows:
+
+\begin{eqnarray*}
+	P\{X > a,Y > b\} &=& 1 - P(\{X > a,Y > b\}^c)\\
+	&=& 1 - P(\{X > a\}^c \cup \{Y > b\}^c)\\
+	&=& 1 - P(\{X \leq a\} \cup \{Y \leq b\})\\
+	&=& 1 - [P\{X \leq a\} + P\{Y \leq b\} - P\{X \leq a,Y \leq b\}]\\
+	&=& 1 - F_X(a) - F_Y(b) + F(a,b)
+\end{eqnarray*}
+
+and the above equation is a special case of the following equation, whose verification is left as an exercise:
+
+$$P\{a_1 < X \leq a_2,~b_1 < Y \leq b_2\} = F(a_2,b_2) + F(a_1,b_1) - F(a_1,b_2) - F(a_2,b_1)$$
+
+whenever $a_1 < a_2,~b_1 < b_2$
+
+In the case when $X$ and $Y$ are both discrete random variables, it is convenient to define the joint probability mass function of $X$ and $Y$ by
+
+$$p(x,y) = P\{X = x,~Y = y\}$$
+
+\subsection*{2. Independent Random Variables}$ $
+
+The random variables $X$ and $Y$ are said to be independent if, for any two sets of real numbers $A$ and $B$,
+
+$$P\{X \in A,Y \in B\} = P\{X \in A\}P\{Y \in B\}$$
+
+In other words, $X$ and $Y$ are independent if, for all $A$ and $B$, the events $E_A = \{X \in A\}$ and $E_B = \{Y \in B\}$ are independent.
+
+It can be shown by using the three axioms of probability that will follow if and only if, for all $a,b,$
+
+$$P\{X \leq a,Y \leq b\} = P\{X \leq a\}P\{Y \leq b\}$$
+
+Hence, in terms of the joint distribution function $F$ of $X$ and $Y$, $X$ and $Y$ are independent if
+
+$$F(a,b) = F_X (a)F_Y(b) \hspace{10pt} \forall~a,b$$
+
+When $X$ and $Y$ are discrete random variables, the condition of independence is equivalent to
+
+$$p(x,y) = p_X(x)p_Y(y)\hspace{20pt} \forall~ x,y$$
+
+\newpage
+
+\textbf{Example.} Buffon's needle problem
+
+A table is ruled with equidistant parallel lines a distance $D$ apart. A needle of length $L$, where $L \leq D$, is randomly thrown on the table. What is the probability that the needle will intersect one of the lines (the other possibility being that the needle will be completely contained in the strip between two lines)?
+
+\textbf{Proposition.} The continuous (discrete) random variables $X$ and $Y$ are independent if and only if their probability density (mass) function can be expressed as
+
+$$f_{X,Y}(x,y) = h(x)g(y) \hspace{20pt} - \infty < x < \infty,~ - \infty < y < \infty$$
+
+
+\begin{proof}
+	Let us give the proof in the continuous case. First, note that independence implies that the joint density is the product of the marginal densities of $X$ and $Y$, so the preceding factorization will hold when the random variables are independent. Now, suppose that
+	
+	$$F_{X,Y}(x,y) = h(x)g(y)$$
+	
+	Then 
+	
+	\begin{eqnarray*}
+		1 &=& \int^{\infty}_{\infty}\int^{\infty}_{\infty}f_{X,Y}(x,y)dxdy\\
+		&=& \int^{\infty}_{-\infty}h(x)dx\int^{\infty}_{-\infty}g(y)dy\\
+		&=& C_1C_2
+	\end{eqnarray*}
+	
+	where $C_1 = \int^{\infty}_{-\infty}h(x)dx$ and $C_2 = \int^{\infty}_{-\infty}g(y)dy$. Also,
+	
+	$$f_X(x) = \int^{\infty}_{-\infty}  f_{X,Y}(x,y)dy = C_2h(x)$$
+	
+	$$f_Y(y) = \int^{\infty}_{-\infty}f_{X,Y}(x,y)dx = C_1g(y)$$
+	
+	Since $C_1C_2 = 1$, it follows that
+	
+	$$F_{X,Y}(x,y) = f_X(x)f_Y(y)$$
+\end{proof}
+
+\subsection*{3. Sums of Independent Random Variables}$ $
+
+Suppose $X$ and $Y$ are independent, continuous random variables having probability density functions $F_X$ and $f_Y$. The cumulative distribution function of $X + Y$ is obtained as follows:
+
+\begin{eqnarray*}
+	F_{X + Y}(a) &=& P\{X + Y \leq a\}\\
+	&=& \iint_{x + y \leq a}f_X(x)f_Y(y)dxdy\\
+	&=& \int^{\infty}_{-\infty}\int^{a - y}_{-\infty}f_X(x)f_Y(y)dxdy\\
+	&=& \int^{\infty}_{-\infty} \int^{a - y}_{-\infty} f_X(x)dxf_Y(x)dy\\
+	&=& \int^{\infty}_{-\infty}F_X(a-y)f_Y(y)dy
+\end{eqnarray*}
+
+The cumulative distribution function $F_{X+Y}$ is called the convolution of the distribution $F_X$ and $F_Y$. By differentiating above equation, we find that the probability density function $F_{X + Y}$ of $X + Y$ is given by
+
+\begin{eqnarray*}
+	f_{X+Y}(a) &=& \dfrac{d}{da}\int^{\infty}_{-\infty}F_X(a - y)f_Y(y)dy\\
+	&=& \int^{\infty}_{-\infty}\dfrac{d}{da}F_X(a-y)f_Y(y)dy\\
+	&=& \int^{\infty}_{-\infty}f_X(a-y)f_Y(y)dy
+\end{eqnarray*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
