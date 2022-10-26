@@ -932,6 +932,8 @@ Every bounded infinite subset $T$ in $\R^k$ has an accumulation point in $\R^k$
 	By (b), each $Q_n$ is compact ($\because Q_1 \supseteq Q_n \forall~n \geq 1$). Therefore, it follows form Cor 2.16 and 2.15.
 \end{proof}
 
+\newpage
+
 \subsection{Countability $\&$ Separability}$ $
 
 Motivation: In $\R^k$, we have two facts:
@@ -947,7 +949,7 @@ Motivation: In $\R^k$, we have two facts:
 	Let $X$ be a topological space
 	
 	\begin{enumerate}[wide]
-		\item $X$ is first if every point of $X$ has a countable nbh system(or base), i.e. $\exists$ a countable collection $\{V_n ~|~ n \in \N\}$ of nbh of $x \ni \forall$ nbh $U$ of $x,\exists~ n \in \N,~ V_n \subseteq U$
+		\item $X$ is first if every point of $X$ has a countable nbh system(or base), i.e. $\forall p \in X \exists$ a countable collection $\{V_n ~|~ n \in \N\}$ of nbh of $p \ni \forall$ nbh $U$ of $p,\exists~ n \in \N,~ V_n \subseteq U$
 		\item $X$ is of second countable if $X$ has a countable a base, i.e. $\exists$ a countable collection $\mathscr B = \{B_n ~|~ n \in \N\}$ of open sets in $X \ni$ every open set $U$ is a union of some subcollection of $\mathscr B$ or $\forall$ open set $U$ in $X$ and $x \in U,~\exists n \in \N \ni x \in B_n \subseteq U$
 		\item $X$ is separable if $X$ has a countable dense subset, i.e. $\exists$ a countable set $D \subseteq X \ni \overline{D} = X$.
 	\end{enumerate}
@@ -955,10 +957,10 @@ Motivation: In $\R^k$, we have two facts:
 
 
 \begin{rmk*} $ $
-	\begin{enumerate}[wide]
-		\item Every $2^{nd}$ countable topology space $X$ is of $1^{st}$ countable, but not converse. $\because$ Let $\mathscr{B} = \{B_1,B_2,\cdots\}$ be a countable base for $X$. Given $p \in X$, let $\mathscr B_p = \{B_n ~|~ p \in B_n\}$ Then $\mathscr B$, so $\mathscr B_p$ is countable and is a collection of open set in $X$ containing of $p$.
-		 
-		$ $\\
+	\begin{enumerate}
+		\item Every finite topological space is 1,2 countable and separable.
+		\item Every $2^{nd}$ countable topology space $X$ is of $1^{st}$ countable, but not converse.\\
+		$\because$ Let $\mathscr{B} = \{B_1,B_2,\cdots\}$ be a countable base for $X$. Given $p \in X$, let $\mathscr B_p = \{B_n ~|~ p \in B_n\}$ Then $\mathscr B$, so $\mathscr B_p$ is countable and is a collection of open set in $X$ containing of $p$.\\
 		Claim $\mathscr B_p$ is a nbh system (or base) of $p$. Let $U$ be a nbh of $p$. Then $U = \bigcup_{n \in F}B_n,~F\subseteq \N$. In particular, $p \in B_n$ for some $n \in F$. Hence, $B_n \in B_p$ $\&$ $p \in B_n \subseteq U$, $\therefore \mathscr B_p$ is a countable nbh system of $p$. Hence, $X$ is of $1^{st}$ countable.
 		
 		$ $\\
@@ -974,9 +976,20 @@ Motivation: In $\R^k$, we have two facts:
 	\end{enumerate}
 \end{rmk*}
 
-\begin{thm}
-	Every $2^{nd}$ countable topology space is separable
-\end{thm}
+\begin{rmk*}
+	An equivalent description of base in a topological space. Let $X$ is a topological space, $\B$ is a collection of open sets in $X$.
+	
+	\begin{eqnarray*}
+		\B \text{ is a base for } X  &\Leftrightarrow & \forall \text{ open set }U \in X ~\&~p\in U\\
+		&&\exists B \in \B \ni p \in B \subseteq U
+	\end{eqnarray*}
+	
+	\begin{proof}
+		$(\Rightarrow)$ Suppose $\B$ is a base. Given an open set $U$ in $X$ and $p \in U$. Since $\B$ is a base, $U = \bigcup_{\alpha \in I}B_{\alpha}$, for some index set $I$ and $B_{\alpha} \in \B,~\forall \alpha \in I$. $p \in U \implies p \in \bigcup_{\alpha \in I}B_{\alpha} \implies p \in B_{\alpha_0}$ for some $\alpha_0 \in I \implies p \in B_{\alpha_0} \subseteq U$ and $B_{\alpha_0} \in \B$
+		
+		$(\Leftarrow)$ Suppose the condition holds. Given an open set $U$ in $X$. By assumption, $\forall x \in U \exists B_x \in \B \ni x \in B_x \subseteq U$. $\therefore U = \bigcup_{x \in U}B_x$, i.e. $U$ is a union of $\{B_x ~|~ x \in U\} \subseteq \B$, $\therefore \B$ is a base for $X$.
+	\end{proof}
+\end{rmk*}
 
 \newpage
 
@@ -984,22 +997,18 @@ Motivation: In $\R^k$, we have two facts:
 	Note that $X$ is a metric space. $D \subseteq X$.
 	
 	\begin{eqnarray*}
-		D \text{ is dense in } X \Leftrightarrow \overline{D} = X &\Leftrightarrow& \forall \text{ nonempty open set } U \text{in} X, U \cap D \neq \emptyset\\
+		D \text{ is dense in } X \Leftrightarrow \overline{D} = X &\Leftrightarrow& \forall \text{ nonempty open set } U \text{ in } X, U \cap D \neq \emptyset\\
 		&\Leftrightarrow& \forall x \in X, \exists \text{ a sequence } \{a_n\} \text{ in } D \\
 		&\ni& a_n \rightarrow x \text{ on } n \rightarrow \infty
 	\end{eqnarray*}
 	
 \end{rmk*}
 
-\begin{proof}$ $
+\begin{thm}
+	Every $2^{nd}$ countable topology space is separable
+\end{thm}
 
-$(\Rightarrow)$ Suppose $\overline{D} = X$, i.e. $D$ is dense in $X$, i.e. $\forall x \in X,~x \in \overline{D}$. Now, given a nonempty open set $U$ in $X$. Choose $x \in U$ So $U$ is a nbh of $x$, hence $U \cap D \neq \emptyset$
-
-$(\Leftarrow)$ Suppose the condition holds, them $\forall~x \in X$ and nbh $U$ of $x$, $U \cap D \neq \emptyset \implies x \in \overline{D} \implies X \subseteq \overline{D} \subseteq X \implies \overline{D} = X$, i.e. $D$ is dense in $X$.
-\end{proof}
-
-
-\begin{proof}(Theorem 2.27)
+\begin{proof}
 	Let $\mathscr B = \{B_1,B_2,\cdots,B_n,\cdots\}$ be a countable base of $X$. Choose a point $x_n \in B_n,~n \in \N$ and form the set $D = \{x_1,x_2,\cdots,x_n,\cdots\}$, then $D$ is countable.
 	
 	Claim: $D$ is dense in $X$, i.e. $\overline{D} = X$. Given a nonempty open set $U$ in $X$, then $\exists n \in \N \ni B_n \subseteq U \implies x_n \in U \implies U \cap D \neq \emptyset$. Hence, $\overline{D} = X$ by the remark above. So $X$ is separable.
@@ -1043,6 +1052,10 @@ Note that from the proof of Thm 2.28, $\R^k$ has a countable base of the form:
 	\B &=& \{B(x,r)~|~x \in  \Q^k ~\&~ r \in \Q^+ \}\\
 	&=& = \{A_1,A_2,\cdots\}
 \end{eqnarray*}
+
+\begin{rmk*}
+	$\R^k$ is of second countable which has a countable base $\B = \{B(x,r) ~|~ x \in \Q^k,~r \in \Q^+\}$
+\end{rmk*}
 
 \begin{thm}
 	Every compact metric space $X$ is of $2^{nd}$ countable.
