@@ -17,7 +17,7 @@ The distribution of $X$ can be obtained from the joint distribution of $X$ and $
 
 \begin{eqnarray*}
 	F_X(a) &=& P\{X \leq a\}\\
-	&=& P\{X \leq a,Y \leq b\}\\
+	%&=& P\{X \leq a,Y \leq b\}\\
 	&=&P\left(\lim_{b \rightarrow \infty} \{ X \leq a,Y\leq b \}\right)\\
 	&=& \lim_{b \rightarrow \infty} P\{X \leq a,Y \leq b\}\\
 	&=& \lim_{b \rightarrow \infty} F(a,b)\\
@@ -80,7 +80,7 @@ $$f_{X,Y}(x,y) = h(x)g(y) \hspace{20pt} - \infty < x < \infty,~ - \infty < y < \
 \begin{proof}
 	Let us give the proof in the continuous case. First, note that independence implies that the joint density is the product of the marginal densities of $X$ and $Y$, so the preceding factorization will hold when the random variables are independent. Now, suppose that
 	
-	$$F_{X,Y}(x,y) = h(x)g(y)$$
+	$$f_{X,Y}(x,y) = h(x)g(y)$$
 	
 	Then 
 	
@@ -92,9 +92,9 @@ $$f_{X,Y}(x,y) = h(x)g(y) \hspace{20pt} - \infty < x < \infty,~ - \infty < y < \
 	
 	where $C_1 = \int^{\infty}_{-\infty}h(x)dx$ and $C_2 = \int^{\infty}_{-\infty}g(y)dy$. Also,
 	
-	$$f_X(x) = \int^{\infty}_{-\infty}  f_{X,Y}(x,y)dy = C_2h(x)$$
+	$$f_X(x) = \int^{\infty}_{-\infty}  f_{X,Y}(x,y)dy = \int^{\infty}_{-\infty}g(y)h(x) =  C_2h(x)$$
 	
-	$$f_Y(y) = \int^{\infty}_{-\infty}f_{X,Y}(x,y)dx = C_1g(y)$$
+	$$f_Y(y) = \int^{\infty}_{-\infty}f_{X,Y}(x,y)dx = \int^{\infty}_{-\infty}h(x)g(y) =  C_1g(y)$$
 	
 	Since $C_1C_2 = 1$, it follows that
 	
@@ -103,7 +103,7 @@ $$f_{X,Y}(x,y) = h(x)g(y) \hspace{20pt} - \infty < x < \infty,~ - \infty < y < \
 
 \subsection*{3. Sums of Independent Random Variables}$ $
 
-Suppose $X$ and $Y$ are independent, continuous random variables having probability density functions $F_X$ and $f_Y$. The cumulative distribution function of $X + Y$ is obtained as follows:
+Suppose $X$ and $Y$ are independent, continuous random variables having probability density functions $f_X$ and $f_Y$. The cumulative distribution function of $X + Y$ is obtained as follows:
 
 \begin{eqnarray*}
 	F_{X + Y}(a) &=& P\{X + Y \leq a\}\\
@@ -121,12 +121,310 @@ The cumulative distribution function $F_{X+Y}$ is called the convolution of the 
 	&=& \int^{\infty}_{-\infty}f_X(a-y)f_Y(y)dy
 \end{eqnarray*}
 
+we denote the equation as $(\star)$
+
+\newpage
+
+\subsubsection*{$\S$ 3-1 Identically Distributed Uniform Random Variables}
+
+If $X$ and $T$ are independent random variables, both uniformly distributed in $(0,1)$, calculate the probability density of $X + Y$.
+
+From the equation above, since
+
+$$f_X(a) = f_Y(a) = \begin{cases}
+	1 & 0 < a < 1\\
+	0 & \text{otherwise}
+\end{cases}$$
+
+we obtain
+
+$$f_{X + Y}(a) = \int^1_0 f_X(a - y)dy$$
+
+For $0 \leq a \leq 1$, this yields
+
+$$f_{X + Y}(a) = \int^a_0dy = a$$
+
+For $1 < a < 2$, we get
+
+$$f_{X + Y}(a) = \int^1_{a - 1}dy = 2-a$$
+
+Hence,
+
+$$f_{X + Y}(a) = \begin{cases}
+	a & 0 \leq a \leq 1\\
+	2 - a & 1 < a < 2\\
+	0 & \text{otherwise}
+\end{cases}$$
+
+Because of the shape of its density function, the random variable $X + Y$ is said to have a triangular distribution.
 
 
+\subsubsection*{3.2 Gamma Random Variables}
 
+A gamma random variable has a density of the form
 
+$$f(y) = \dfrac{\lambda e^{- \lambda y}(\lambda y)^{t - 1}}{\Gamma(t)} \hspace{10pt} 0 < y < \infty$$
 
+\textbf{Prop.} If $X$ and $Y$ are independent gamma random variables with respective parameters $(s , \lambda)$ and $(t,\lambda )$, then $X + Y$ is a gamma random variable with parameters $(s + t,\lambda)$
 
+\begin{proof}
+	Using equation $(\star)$, we obtain
+	
+	\begin{eqnarray*}
+		f_{X + Y}(a) &=& \dfrac{1}{\Gamma(s)\Gamma(t)}\int^a_0 \lambda e^{-\lambda (a - y)}[\lambda (a - y)]^{s - 1}\lambda e^{-\lambda y}(\lambda y)^{t - 1}dy\\
+		&=&K e^{-\lambda a} \int^a_0 (a - y)^{s - 1}y^{t - 1}dy\\
+		&=& Ke^{-\lambda a}a^{s + t - 1}\int^1_0 (1 - x)^{s - 1}x^{t - 1}dx \text{ by letting } x = \dfrac{y}{a}\\
+		&=&Ce^{-\lambda a}a^{s + t - 1}
+	\end{eqnarray*}
+	
+	where $C$ is a constant that does not depend on $a$. But, as the preceding is a density function and thus must integrate to $1$, the value of $C$ is determined, and we have
+	
+	$$f_{X + Y}(a) = \dfrac{\lambda e^{-\lambda a}(\lambda a )^{s + t -1}}{\Gamma(s + t)}$$
+	
+	Hence, the result is proved.
+\end{proof}
+
+\subsubsection*{Normal Random Variables}
+
+We can also use equation $(\star)$ to prove the following important result about normal random variables.
+
+\textbf{Prop.} If $X_i, ~ i = 1,\cdots,n$, are independent random variables that are normally distributed with respective parameters $\mu_i,\sigma_i^2,~ i = 1,\cdots,n$, then $\sum^n_{i = 1}X_i$ is normally distributed with parameters $\sum^n_{i = 1}\mu_i$ and $\sum^n_{i = 1}\sigma_i^2$
+
+\begin{proof}
+	To begin, let $X$ and $Y$ be independent normal random variables with $X$ having mean $0$ and variance $\sigma^2$ and $Y$ having mean $0$ and variance $1$. We will determine the density function of $X + Y$ by utilizing equation $(\star)$. Now, with
+	
+	$$c = \dfrac{1}{2 \sigma^2} + \dfrac{1}{2} = \dfrac{1 + \sigma^2}{2\sigma^2}$$
+	
+	we have
+	
+	\begin{eqnarray*}
+		f_X(a - y)f_Y(y) &=& \dfrac{1}{\sqrt{2\pi}\sigma}\exp\left\{\ -\dfrac{(a - y)^2}{2\sigma^2} \right\} \dfrac{1}{\sqrt{2\pi}}\exp\left\{-\dfrac{y^2}{2} \right\}\\
+		&=& \dfrac{1}{2 \pi \sigma}-\dfrac{a^2}{2\sigma^2} \exp \left\{ -\dfrac{a^2}{2\sigma^2}  \right\} \exp\left\{ -c\left( y^2 - 2y\dfrac{a}{1 + \sigma^2} \right) \right\}
+	\end{eqnarray*}
+	
+	Hence, from equation $(\star)$
+	
+	\begin{eqnarray*}
+		f_{X + Y}(a) &=& \dfrac{1}{2\pi \sigma}\exp \left\{ - \dfrac{a^2}{2\sigma^2} \right\} \exp \left\{ \dfrac{a^2}{2 \sigma^2 (1 + \sigma^2)} \right\}\\
+		&& \times \int^{\infty}_{-\infty}\exp \left\{ -c \left( y - \dfrac{a}{1 + \sigma^2} \right) \right\}\\
+		&=& \dfrac{1}{2\pi \sigma} \exp \left\{ - \dfrac{a^2}{2(1 + \sigma^2)} \right\} \int^{\infty}_{-\infty} \exp \{ -cx^2 \} dx\\
+		&=& C \exp \left\{ - \dfrac{a^2}{2 (1 + \sigma^2)}\right\}
+	\end{eqnarray*}
+\end{proof}
+
+where $C$ does not depend on $a$. But this implies that $X + Y$ is normal with mean $0$ and variance $1 + \sigma^2$.
+
+Now, suppose that $X_1$ and $X_2$ are independent normal random variables with $X_i$ having mean $\mu_i$ and variance $\sigma^2_i$, $i = 1,2$. Then
+
+$$X_1 + X_2 = \sigma_2 \left( \dfrac{X_1 - \mu_1}{\sigma_2} + \dfrac{X_2 - \mu_2}{\sigma_2} \right) + \mu_1 + \mu_2$$
+
+But since $(X_1 - \mu_1)/ \sigma^2$ is normal with mean $0$ and variance $\sigma^2_1/\sigma^2_2$, and $(X_2 - \mu_2)/\sigma^2$ is normal with mean $0$ and variance $1$, it follows from our previous result that $(X_1 - \mu_1)/\sigma_2 + (X_2 - \mu_2)/\sigma_2$ is normal with mean $0$ and variance $1 + \sigma^2_1/\sigma^2_2$, implying that $X_1 + X_2$ is normal with mean $\mu_1 + \mu_2$ and variance $\sigma_2^2(1 + \sigma_1^2/\sigma^2_2) = \sigma_1^2 + \sigma^2_2$. 
+
+$ $
+
+Thus, Proposition  is established when $n = 2$. The general case now follows by induction. That is, assume that Proposition is true when there are $n - 1$ random variables. Now consider the case of $n$, and write
+
+$$\sum^n_{i = 1}X_i = \sum^{n - 1}_{i = 1}X_i + X_n$$
+
+By the induction hypothesis, $\sum_{i = 1}^{n -1}X_i$ is normal with mean $\sum^{n -1}_{i = 1}\mu_i$ and variance $\sum^{n - 1}_{i = 1}\sigma_i^2$. Therefore, by the result for $n = 2$, $\sum^n_{i = 1}X_i$ is normal with mean $\sum^n_{i = 1}\mu_i$ and variance $\sum^n_{i = 1}\sigma_i^2$
+
+\subsubsection*{Poisson and Binomial Random Variables}
+
+Rather than attempt to derive a general expression for the distribution of $X + Y$ in the discrete case, we shall consider some examples.
+
+\textbf{Example.} Sums of independent Poisson random variables
+
+If $X$ and $Y$ are independent Poisson random variables with respective parameters $\lambda_1$ and $\lambda_2$, compute the distribution of $X + Y$.
+
+\begin{solution}
+	Because the event $\{X + Y = n\}$ may be written as the union of the disjoint events $\{X = k,~Y = n-k\},0\leq k \leq n$ may be written as the union of the disjoint events $\{X = k,Y = n - k\},~ 0 \leq k \leq n$, we have
+	
+	\begin{eqnarray*}
+		P\{X + Y = n\} &=& \sum^n_{k = 0}P\{X = k,~Y = n-k\}\\
+		& = &\sum^n_{k = 0}P\{X = k\}P\{Y = n - k\}\\
+		& = &\sum^n_{k = 0}e^{-\lambda_1}\dfrac{\lambda_1^k}{k!}e^{-\lambda_2}\dfrac{\lambda_2^{n - k}}{(n - k)!}\\
+		& = &e^{-(\lambda_1 + \lambda_2)} \sum^n_{k = 1}\dfrac{\lambda_1^k\lambda^{n - k}_2}{k!(n - k)!}\\
+		& = & \dfrac{e^{-\lambda_1 + \lambda_2}}{n!}\sum^n_{k = 0}\dfrac{n!}{k!(n - k)!}\lambda_1^k\lambda_2^{n - k}\\
+		& = &\dfrac{e^{- ( \lambda_1 + \lambda_2)}}{n!}(\lambda_1 + \lambda_2)^n
+	\end{eqnarray*}
+	
+	Thus, $X + Y$ has a Poisson distribution with parameter $\lambda_1 + \lambda_2$
+\end{solution}
+
+\textbf{Example.} Sums of independent binomial random variables
+
+Let $X$ and $Y$ be independent binomial random variables with respective parameters $(n,p)$ and $(m,p)$. Calculate the distribution of $X + Y$.
+
+\begin{solution}
+	\begin{eqnarray*}
+		P \{X + Y = k\} &=& \sum^n_{i = 0}P\{X = i,~Y = k - i\}\\
+		&=& \sum^n_{i = 0}P\{X = i\}P\{Y = k - i\}\\
+		&=&\sum^n_{i = 0}\left(\begin{matrix}
+			n \\ i
+		\end{matrix}\right) p^iq^{n - i} \left( \begin{matrix}
+			m \\ k - i
+		\end{matrix} \right) p^{k - i}q^{m - k + i}
+	\end{eqnarray*}
+	
+	where $q = 1 - p$ and where $\left( \begin{matrix}
+		r \\ j
+	\end{matrix} \right) = 0$ when $j < 0$. Thus,
+	
+	$$P\{X + Y = k\} = p^kq^{n + m-k} \sum^n_0\left( \begin{matrix}
+		n \\ i
+	\end{matrix} \right) \left( \begin{matrix}
+		m \\ k - i
+	\end{matrix}\right)$$
+	
+	and the conclusion follows upon application of the combinatorial identity
+	
+	$$\left( \begin{matrix}
+		n + m \\ k
+	\end{matrix}\right) = \sum^n_{i = 0} \left( \begin{matrix}
+		n \\ i
+	\end{matrix} \right) \left( \begin{matrix}
+		m \\ k-1
+	\end{matrix}\right)$$
+\end{solution}
+
+\newpage
+
+\subsection*{4. Conditional Distributions: Discrete Case}
+
+For any two events $E$ and $F$, the conditional probability of $E$ given $F$ is defined, provided that $P(F) > 0$, by
+
+$$P(E|F) = \dfrac{P(EF)}{P(F)}$$
+
+Hence, if $X$ and $Y$ are discrete random variables, it is natural to define the conditional probability mass function of $X$ given that $Y = y$, by
+
+\begin{eqnarray*}
+	p_{X|Y}(x|y) &=& P\{X = x~|~ Y = y\}\\
+	&=& \dfrac{P\{X = x,~Y = y\}}{P \{Y = y\}}\\
+	&=& \dfrac{p(x,y)}{p_Y(y)}
+\end{eqnarray*}
+
+for all values of $y$ such that $p_Y(y) > 0$. Similarly, the conditional probability distribution function of $X$ given that $Y = y$ is defined, for all $y$ such that $p_Y(y) > 0$, by
+
+\begin{eqnarray*}
+	F_{X|Y}(x|y) &=& P\{X \leq x ~|~ Y = y\}\\
+	&=& \sum_{a \leq x}p_{X|Y}(a|y)
+\end{eqnarray*}
+
+In other words, the definitions are exactly the same as in unconditional case, except that every thing is now conditional on the event that $Y = y$. If $X$ is independent of $Y$, then the conditional mass function and the distribution function are the same as the respective unconditional ones. This follows because if $X$ is independent of $Y$, then 
+
+\begin{eqnarray*}
+	P_{X|Y}(x|y) &=& P\{X = x~|~Y = y\}\\
+	&=& \dfrac{P\{X = x, Y = y\}}{P \{Y = y\}}\\
+	&=& \dfrac{P\{X = x\}P\{Y = y\}}{P\{Y = y\}}\\
+	&=& P\{X = x\}
+\end{eqnarray*}
+
+\textbf{Exmaple.} If $X$ and $Y$ are independent Poisson random variables with respective parameters $\lambda_1$ and $\lambda_2$, calculate the conditional distribution of $X$ given that $X + Y = n$.
+
+\begin{solution}
+	We calculate the conditional probability mass function of $X$ given that $X + Y = n$ as follows:
+	
+	\begin{eqnarray*}
+		P\{X = k ~|~ X + Y = n\} &=& \dfrac{P\{X = k,~X + Y = n\}}{P\{X + Y = n\}}\\
+		&=& \dfrac{P\{X = k,Y = n-k\}}{P \{X + Y = n\}}\\
+		&=& \dfrac{P \{X = k\}P\{Y = n - k\}}{P\{X + Y = n\}}
+	\end{eqnarray*}
+	
+	where the last equality follows from the assumed independence of $X$ and $Y$. Recalling that $X + Y$ has a Poisson distribution with parameter $\lambda_1 + \lambda_2$, we see that the preceding equals
+	
+	\begin{eqnarray*}
+		P\{X = k~|~ X + Y = n\} &=& \dfrac{e^{-\lambda_1} \lambda_1^k}{k!} \dfrac{e^{-\lambda_2} \lambda_2^{n - k}}{(n - k)!}\left[ \dfrac{e^{-(\lambda_1 + \lambda_2)} (\lambda_1 + \lambda_2)^n}{n!} \right]^{-1}\\
+		&=& \dfrac{n!}{(n - k)!k!} \dfrac{\lambda_1^k \lambda_2^{n-k}}{(\lambda_1 + \lambda_2)^n}\\
+		&=& \left( \begin{matrix}
+			n \\ k
+		\end{matrix}\right) \left( \dfrac{\lambda_1}{\lambda_1 + \lambda_2} \right)^k \left( \dfrac{\lambda_2}{\lambda_1 + \lambda_2} \right)^{n - k}
+	\end{eqnarray*}
+	
+	In other words, the conditional distribution of $X$ given that $X + Y = n$ is the binomial distribution with parameters $n$ and $\lambda_1 / (\lambda_1 + \lambda_2)$.
+	
+\end{solution}
+
+\newpage
+
+\subsection*{5. Conditional Distributions: Continuous Case}
+
+If $X$ and $Y$ have a joint probability density function $f(x,y)$, then the conditional probability density function of $X$ given that $Y = y$ is defined, for all values of $y$ such that $f_Y(y)  > y$, by
+
+$$f_{X|Y}(x|y) = \dfrac{f(x,y)}{f_Y(y)}$$
+
+To motivate this definition, multiply the left-hand side by $dx$ and the right-hand side by $(dxdy)/dy$ to obtain
+
+\begin{eqnarray*}
+	f_{X|Y}(x|y)dx &=& \dfrac{f(x,y)dxdy}{f_Y(y)dy} \\ 
+	&\approx& \dfrac{P\{x \leq X \leq x + dx,y \leq Y \leq y + dy\}}{P \{y \leq Y \leq y + dy\}}\\
+	&=& P\{x \leq X \leq x + dx~|~y \leq Y \leq y + dy\}
+\end{eqnarray*}
+
+The use of conditional densities allows us to define conditional probabilities of events associated with one random variable when we are given the value of a second random variable. That is, if $X$ and $Y$ are jointly continuous, then, for any set $A$,
+
+$$P\{X \in A~|~ Y = y\} = \int_A f_{X|Y}(x|y)dx$$
+
+In particular, by letting $A = (-\infty  ,a)$ we can define the conditional cumulative distribution function of $X$ given that $Y = y$ by
+
+$$F_{X|Y}(a|y) \equiv P\{X \leq a ~|~ Y = y\} = \int^a_{-\infty} f_{X|Y}(x|y)dx$$
+
+If $X$ and $Y$ are independent continuous random variables, the conditional density of $X$ given that $Y = y$ is just the unconditional density of $X$. This is so because, in the independent case,
+
+$$f_{X|Y}(x|y) = \dfrac{f(x,y)}{f_Y(y)} = \dfrac{f_X(x)f_Y(y)}{f_Y(y)} = f_X(x)$$
+
+\newpage
+
+\textbf{Example.}
+
+The joint density of $X$ and $Y$ is given by
+
+$$f(x,y) = \begin{cases}
+	\dfrac{12}{5}x(2 - x - y) & 0 < x < 1,~ 0 < y < 1\\
+	0 & \text{otherwise}
+\end{cases}$$
+
+Compute the conditional density of $X$ given that $Y = y$, where $0 < y < 1$.
+
+\begin{solution}
+	For $0 < x < 1$, $0 < y < 1$, we have
+	
+	\begin{eqnarray*}
+		f_{X|Y}(x|y) &=& \dfrac{f(x,y)}{f_Y(y)}\\
+		&=& \dfrac{f(x,y)}{\int^{\infty}_{-\infty} f(x,y)dx}\\
+		&=& \dfrac{x(2 - x - y)}{\int^1_0 x (2 - x - y)dx}\\
+		&=& \dfrac{x(2 - x - y)}{\dfrac{2}{3} - y/2}\\
+		&=& \dfrac{6x(2 - x - y)}{4 - 3y}
+	\end{eqnarray*}
+\end{solution}
+
+\newpage
+
+\subsection*{7. Joint Probability Distribution of Functions of Random Variables}
+
+Let $X_1$ and $X_2$ be jointly continuous random variables with joint probability density function $f_{X_1,X_2}$. It is sometimes necessary to obtain the joint distribution of the random variables $Y_1$ and $Y_2$, whiich arise as functions of $X_1$ and $X_2$. Specifically, suppose that $Y_1 = g_1(X_1,X_2)$ and $Y_2 = g_2(X_1,X_2)$ for some functions $g_1$ and $g_2$.
+
+Assume that the function $g_1$ and $g_2$ satisfy the following conditions:
+
+\begin{enumerate}
+	\item The equations $y_1 = g_1(x_1,x_2)$ and $y_2 = g_2(x_1,x_2)$ can be uniquely solved for $x_1$ and $x_2$ in terms of $y_1$ and $y_2$, with solutions given by, say, $x_1 = h_1(y_1,y_2),x_2 = h_2(y_1,y_2)$
+	\item The functions $g_1$ and $g_2$ have continuous partial derivatives at all points $(x_1,x_2)$ and are such that the $2 \times 2$ determinant
+	
+	$$J(x_1,x_2) = \left| \begin{matrix}
+		\dfrac{\partial g_1}{\partial x_1} & \dfrac{\partial g_1}{\partial x_2} \\
+		\dfrac{\partial g_2}{\partial x_1} & \dfrac{\partial g_2}{\partial x_2}
+	\end{matrix} \right|  = \dfrac{\partial g_1}{\partial x_1} \dfrac{\partial g_2}{\partial x_2} - \dfrac{\partial g_1}{\partial x_2} \dfrac{\partial g_2}{\partial x_1} \neq 0$$
+	at all points $(x_1,x_2)$
+\end{enumerate}
+
+Under these two conditions, it can be shown that the random variables $Y_1$ and $Y_2$ are jointly continuous with joint density function given by
+
+$$f_{Y_1Y_2}(y_1,y_2) = f_{X_1,X_2}(x_1,x_2)~|J(x_1,x_2)|^{-1}$$
+
+where $x_1 = h_1(y_1,y_2),~ x_2 = h_2(y_1,y_2)$.
+
+A proof of equation above would proceed along the following lines:
+
+$$P\{Y_1 \leq y_1,Y_2 \leq y_2\} = \iint_{\stackrel{(x_1,x_2)}{\stackrel{g_1(x_1,x_2) \leq y_1}{g_2(x_1,x_2) \leq y_2}}}f_{X_1,X_2}(x_1,x_2)dx_1dx_2$$
 
 
 

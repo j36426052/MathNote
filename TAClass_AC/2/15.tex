@@ -1,0 +1,7 @@
+A metric space $X$ is called separable if it contains a countable dense subset. Show that $\R^k$ is separable
+
+\begin{proof}
+	Claim $\overline{\Q^k} = \R^k$
+	
+	Given $x = (x_1,\cdots,x_k) \in \R^k,~ \forall r > 0$, we must prove that $B(x,r) \cap \Q^k \neq \emptyset$. Consider $x' = (x_1 + \dfrac{r}{2\sqrt{k}},\cdots,x_k+\dfrac{r}{2\sqrt{k}})$. Then $\norm{x - x'} = \dfrac{r}{2} < r \implies x' \in B(x,r)$. Now, for each $1 \leq i \leq k,~ \exists y \in \Q \ni y_i \in (x_i,x_i + \dfrac{r}{2\sqrt{k}})$. Thus, $y = (y_1,y_2,\cdots,y_k) \in \Q^k \cap B(x,r)$, i.e. $B(x,r) \cap \Q^k \neq \emptyset$, i.e. $x \in \overline{\Q^k}$
+\end{proof}

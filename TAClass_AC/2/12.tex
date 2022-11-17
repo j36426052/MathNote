@@ -1,7 +1,23 @@
-Under what conditions does equality hold in the Cauchy-Schwartz inequality.
+Prove the following results
+
+\begin{enumerate}
+	\item Construct a sequence $\{K_n\}$ of closed sets in $\R$ with $K_{n+1} \subseteq K_n \ni \bigcap^{\infty}_{i = 1}K_n = \emptyset$
+	\item Construct a sequence $\{K_n\}$ of bounded sets in $\R$ with $K_{n + 1} \subseteq K_n \ni \bigcap^{\infty}_{n = 1}K_n = \emptyset$
+\end{enumerate}
 
 \begin{tcolorbox}
 	\begin{solution}
-		
+		\begin{enumerate}
+			\item For each $n \in \N$, set
+			
+			$$K_n = \{n,n+1,\cdots,n+k,\cdots\}$$
+			
+			is closed and $K_{n + 1} \subseteq K_n$. Now, to prove $\bigcap^{\infty}_{n = 1}K_n = \emptyset$. If not, $\exists x \in \bigcap^{\infty}_{n = 1}K_n$. Then $x$ must be an integer but $x \notin K_{x + 1}$
+			\item For each $n \in \N$ set
+			
+			$$K_n = \{\dfrac{1}{n},\dfrac{1}{n+1},\cdots,\dfrac{1}{n+k},\cdots\}$$
+			
+			is bounded and $K_{n+1} \subseteq K_{n}$. For the same argument, $\bigcap^{\infty}_{n = 1}K_n = \emptyset$
+		\end{enumerate}
 	\end{solution}
 \end{tcolorbox}

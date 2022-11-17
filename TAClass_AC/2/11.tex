@@ -1,12 +1,15 @@
-Suppose $z = a + bi,~w=u+iv$ and
-
-$$a = \left( \dfrac{|w|+u}{2}\right)^{1/2} ~,~ b = \left( \dfrac{|w| - u}{2} \right)^{1/2}$$
-
-Prove that $z^2 = w$ if $v \geq 0$ and that $(\overline{z})^2 = w$ if $v \leq 0$. Conclude that every complex number (with one exception!) has two complex square roots.
-
+Let $K = \{0\} \cup \{\dfrac{1}{n}~|~  n \in N\} \subseteq \R$. Prove that $K$ is compact directly from definition.
 
 \begin{tcolorbox}
 	\begin{solution}
+		Give an open covering $\{U_{\alpha}\}_{\alpha \in I}$ of $K$
 		
+		$0 \in K \implies 0 \in U_{\alpha_0}$ for some $\alpha_0 \in I$. Since $U_{\alpha_0}$ is open, $\exists r > 0 \ni (-r,r) \subseteq U_{\alpha_0}$. 
+		
+		By Archi, $\exists N \in \N \ni \dfrac{1}{N} < r$, $\forall n \geq N,~ \dfrac{1}{n} < \dfrac{1}{N} < r$.
+		
+		This implies $\forall n \geq N,~\dfrac{1}{n} \in (-r,r) \subseteq U_{\alpha_0}$. Finally, for $1 \leq i \leq N-1,~ \dfrac{1}{i} \in U_{\alpha_i}$ for some $\alpha \in I$. Therefore, $K \subseteq U_{i = 0}^{N-1}U_{\alpha_i}$, i.e. $K$ is compact
+		
+		$\{x\} \cup \{x_n ~|~ n \in \N\}~ x_n \rightarrow x$ as $n \rightarrow +\infty$
 	\end{solution}
 \end{tcolorbox}
