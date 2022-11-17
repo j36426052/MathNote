@@ -421,7 +421,7 @@ We will show that every monotonic sequence convergences in $\R^* = [-\infty,\inf
 		\item is similar
 		
 		\begin{enumerate}[wide,label = $(\roman* ')$]
-			\item $\{a_n\}$ is bounded below $\implies \{-a_n\}$ is bounded above $\implies \lim_{n \rightarrow \infty}(-a_n) = \text{sup}(-a_n) \implies -\lim a_n = - \text{inf}a_n$
+			\item $\{a_n\}$ is bounded below $\implies \{-a_n\}$ is bounded above $\implies \lim_{n \rightarrow \infty}(-a_n) = \text{sup}(-a_n) \implies -\lim a_n = - \inf a_n$
 			\item Similar
 			
 		\end{enumerate}
@@ -432,17 +432,114 @@ We will show that every monotonic sequence convergences in $\R^* = [-\infty,\inf
 \end{proof}
 
 \begin{rmk*}
-	Let $\{a_n\}$ be a monotonic sequence, then $\{a_n\}$ convergences $\Leftrightarrow \{a_n\}$ is bounded	
+	Let $\{a_n\}$ be a monotonic sequence, then $\{a_n\}$ convergences $\Leftrightarrow \{a_n\}$ is bounded.	
 \end{rmk*}
 
 
+%Here is the start for 11/16
+	%thm 3.6
+	\begin{thm}$ $
+ 		
+	\begin{enumerate}
+			
+		\item Every Cauchy sequence $\{x_n\}$ in compact metric metric space $X$ is convergent.
+		\item In $\R^k$, every Cauchy sequence is convergent.  
+	
+	\end{enumerate}
+	\end{thm}
+	\begin{proof}$ $
 
+		\begin{enumerate}
+		\item Let $E_n = \{x_n,x_{n+1},\cdots\}$ $n\geq 1$, by (2) and (4) $\lim_{n\to \infty} diam(\bar{E_n}) = \lim_{n\to\infty} diam(E_n) = 0\ldots (\star)$. Clearly, $\{E_n\}$ is decreasing so is $\{\bar{E_n}\}$. $\bar{E_n} = \{x_n.x_{n+1}\} \supseteq \{x_{n+1},\cdots\} = \bar{E_{n+1}}$. In fact, $\{\bar{E_n}\}$ is a decreasing sequence of nonempty compact sets in $X$. Hence, by Cantor intersection theorem, $\bigcap_{n=1}^{\infty} E_n \neq \varnothing$. In fact, $\bigcap_{n=1}^{\infty}\overline{E_n} = \{p\}$ by cor 2.16.
+			
+			\textbf{Claim :} $x_n \to p$. $\forall \varepsilon > 0$, by ($\star$), $\exists\ N\in \N $ s.t. $diam(\overline{E_n}) - 0 < \varepsilon$ $\therefore x_n \to p $ as $n\to \infty$.
+		\item Since Cauchy sequence is bounded, $\exists\ R >>0$ s.t. $x_n\in\bar{B}(0,R)$, i.e. $\{x_n\}$ is a Cauchy sequencein the compact set $\bar{B}(0,R)$. Hence $\{x_n\}$ converges in $\bar{B}(0,R)$. 
+		\end{enumerate}
+	\end{proof}
 
+	\begin{defn}
+		A metric space $X$ is said to be complete if every Cauchy sequence in $X$ is convergent.
+	\end{defn}
+	
+	\textbf{Remarks and Examples : }
+	\begin{enumerate}
+	\item I a complete metric space, to show that a sequence is convergent, it is enough to show that it is Cauchy.
+\item Thm 3.8 says compact metric space is complete. $\R^k$ is complete. Discrete metric space is complete. $X$ be a discrete metric space, $\{x_n\}$ is convergent $\Leftrightarrow$ $\{x_n\}$ is almost constant, i.e. $\exists n_0\in\N$ s.t. $\forall n\geq n_0$, $x_n = x_{n_0}$. $\{x_n\}$ is Cauchy $\Leftrightarrow$ $\forall\ 0 < \varepsilon < 1$, $\exists N \in \N$ s.t.$\forall\ m,n \geq N$  $d(x_m,x_n) < \varepsilon < 1 \Leftrightarrow \forall\ m,n \geq N, x_m = x_{n} = \cdots = x_N$.
+\item Complete normed linear space over $(\mathcal{F})$ is called a Banach space, so $\R^k$ is a Banach space.
+\item A Hilbert space is a complete inner product space over $(\mathcal{F})$.
+\item Closed subset $F$ is a complete metric space $X$ is complete. ($\because $ Given a Cauchy sequence $\{x_n\}$ in $F$, so it is also a Cauchy sequence in $X$. $X$ is complete, $x_n\to p$ as $n\to \infty$ for some $p\in X$. By thm, $p\in\bar{F} = F$($\because F$ is closed) $\therefore F$ is complete ).
+\item The closeness in (5) is necessary, e.g. $(0,1) \subseteq \R$ and $\R$ is complete, $\{1/n\}$ is a Cauchy sequence in $(0,1)$ but it does not converge in $(0,1)$.
+\item Every closed ball and closed bounded interval in $\R^k$ are complete.
+\item $(0,1)$ , $\Q$, $\Q^k$ are not complete. Now we prove a class of real sequence which has limit, namely, all nonconstant sequence has limits in $\R^k = [-\infty ,\infty]$.
+	\end{enumerate}
 
+\begin{defn}
+Let $\{x_n\}$ be a real sequence.
+	\begin{enumerate}
+	\item $\{x_n\}$ is incerasing, $\{x_n\}$ is $\nearrow$, if $x_n \leq x_{n+1}$, $\forall\ n\geq 1$
+\item  $\{x_n\}$ is strictly incerasing, $\{x_n\}$ is st $\nearrow$, if $x_n < x_{n+1}$, $\forall\ n\geq 1$
+\item  $\{x_n\}$ is decerasing, $\{x_n\}$ is $\searrow$ , if $x_n \geq x_{n+1}$, $\forall\ n\geq 1$
+\item  $\{x_n\}$ is strictly decerasing, $\{x_n\}$ is st $\searrow$, if $x_n > x_{n+1}$, $\forall\ n\geq 1$
+\item We say that $\{x_n\}$ is monotonic if either $\{x_n\}$ is increasing or decreasing. (Similar description in strictly case).
+	\end{enumerate}
+\end{defn}
+Note that $\{x_n\}$ is $\nearrow\ \Leftrightarrow \{-x_n\}$ is $\searrow$ , so we only discuss increasing sequence. 
 
+\textbf{Examples :}
+\begin{enumerate}
+\item $\{2n+1\}$ is $\nearrow$ but it diverges. In fact, $\lim_{n\to\infty}(2n+1) = +\infty = \sup \{2n+1\ |\ n\geq 1\}$. (not bounded above)
+\item $\{1/n\}$ is $\searrow$ and it converges, $\lim_{n\to\infty} 1/n = 0 = \inf \{1/n\ |\ n\geq 1\}$.
+\end{enumerate} 
+%thm3.7
+\begin{thm}Let $\{a_n\}$ be a real sequence, we have
+ 	\begin{enumerate}
+ 	\item If $a_n$ is $\nearrow$ , then $\lim_{n\to\infty} a_n = \sup_{n\geq 1} a_n  = \sup\{a_n\ |\ n \geq 1\}$
+	\item If $a_n$ is $\searrow$ , then $\lim_{n\to\infty} a_n = \inf_{n\geq 1} a_n  = \inf\{a_n\ |\ n \geq 1\}$
+	\item If $a_n$ is monotonic , then $\{a_n\}$ is convergent $\Leftrightarrow$ it is bounded. 
+ 	\end{enumerate}
+\end{thm}
+	
+	\begin{proof}$ $
+		\begin{enumerate}
+		\item We have 2 cases, (i) $\{a_n\}$ is not bounded above, i.e. $\sup_{n \geq 1} a_n = +\infty$. Given $M > 0$, $\because \{a_n\}$ is not bounded above, $\exists N \in \N$ s.t. $a_N \geq M \implies \forall\ n \geq N$, $a_n\geq a_N \geq M \therefore \lim_{n\to\infty } = +\infty$. (ii) $\{a_n\}$ is bounded above. Then $\lim_{n\geq 1}a_n = \alpha\in \R$. Now, we claim that $\lim_{n\to\infty}a_n = +\infty$. $\forall\ \varepsilon > 0,  \exists\ N\in\N$ s.t. $\alpha - \varepsilon < a_N \implies \forall\ n\geq N$, $\alpha +\varepsilon > \alpha \geq a_n\geq a_N > \alpha-\varepsilon$ i.e. $|a_n-\alpha| < \varepsilon$, i.e. $\lim_{n\to\infty} a_n = \alpha$.
+		\item First, we use (1) to prove it. $\{a_n\}$ is $\searrow$ $\implies\{-a_n\}$ is $\nearrow$, by (1) $\implies \lim_{n\to\infty}(-a_n) = \sup_{n \geq 1}(-a_n) = -\inf_{n \geq 1} a_n$. Next, using the argument of (1). (i) $\{a_n\}$ is not bounded below i.e. $\inf_{n \geq 1}a_n = -\infty$. Given $M > 0, \exists\ N\in\N $ s.t. $a_N \leq -M$, $\forall n\geq N$ $a_n \leq a_N \leq -M \implies \lim_{n\to\infty}a_n = - \infty =\inf_{n\geq 1}a_n$ (ii) $\{a_n\}$ is bounded below , i.e. $\inf_{n\geq 1}a_n = \beta$. Now, we claim $\lim_{n\to\infty}a_n = \beta$. $\forall\ \varepsilon> 0\exists\ N\in\N$ s.t. $a_N < \beta + \varepsilon\implies\forall\ n\geq N , \beta-\varepsilon<\beta\leq a_n\leq a_N\leq \beta+\varepsilon\implies\forall\ n\geq N, |a_n-\beta|<\varepsilon$ i.e. $\lim_{n\to\infty}a_n = \beta$.
+		\item Follows from (1) and (2). $\because \{a_n\}$ is monotonic, ($\Rightarrow$) Suppose $\{a_n\}$ converges, then $\{a_n\}$ is bounded. ($\Leftarrow$) Suppose $\{a_n\}$ is bounded, so $\{a_n\}$ is bounded above and below. If $\{a_n\}$ is $\nearrow$, then by (1) $\{a_n\}$ converges. If $\{a_n\}$ is $\searrow$, then by (2) $\{a_n\}$ converges.    
+	\end{enumerate}
+	\end{proof}
 
+	\begin{rmk*}
+	In the extended real line or system $\R^{\star} = [-\infty,\infty]$, all monotonic sequence converges in $\R^{\star}$.
+	\end{rmk*}
 
+\subsection{Limit Superior and Limit inferior}
 
+	\begin{defn}%this definition should be checked
+		Given a real sequence $\{x_n\}$. Let 
+   \begin{flalign*}
+   E & = \{x\in\R^{\star}\ |\ x\ \text{is a subsequence of}\ \{x_n\}\}&\\
+	 & = \{x\in\R\ |\ x\ \text{is a subsequence of}\ \{x_n\}\}\cup \{\infty\}\ \text{if $\infty$ is a subsequence limit of $\{x_n\}$}&\\
+     & = \{x\in\R\ |\ x\ \text{is a subsequence of}\ \{x_n\}\}\cup \{-\infty\}\ \text{or} & \\
+	 & = \{x\in\R\ |\ x\ \text{is a subsequence of}\ \{x_n\}\}\cup \{-\infty,\infty\} &		
+	\end{flalign*}	
+	\end{defn}
+\textbf{Claim : }$E\neq\varnothing$.
+\begin{itemize}
+\item $\{x_n\}$ is not bounded above $\implies \exists$ a subsequence $\{x_{n_k}\}$ of $\{x_n\}$ s.t. $x_{n_k}\to\infty$ as $k\to\infty$. $\forall\ k=1, \exists\ n_1$ s.t. $x_{n_1} > 1$, $\exists\ n_2 > n_1$ s.t. $x_{n_2} > \max\{x_{n_1},2\}\cdots$ $\implies x_{n_k} > k,\ \forall\ k\geq 1 \implies \lim_{n\to\infty}x_{n_k} = \infty\,,\,\therefore \infty \in E$.
+\item $\{x_n\}$ is bounded above and below $\implies x_n \in [ -a,a]\ \forall\ n\geq 1$ for some $a > 0\implies \{x_n\}$ has a convergent subsequence say $x_n\to x\in[a,-a]\,,\,\therefore x\in E$.
+\item Therefore in any case, $E\subseteq \R^{\star}$ is nonempty, so $\sup E$ and $\inf E$ exists in $\R^{\star}$. 
+\end{itemize}
+\begin{defn}
+Define the limit superior or say upper limit of $\{x_n\}$ is denoted by $$\limsup_{n\to\infty}x_n = \overline{\lim_{n\to\infty}}x_n = x^{\star} = \sup E $$ The limit inferior or lower limit of $\{x_n\}$ is denoted by $$ \liminf_{n\to\infty}x_n = \underline{\lim_{n\to\infty}} = x_{\star} = \inf E $$  The following are equivalent : 
+	$$ \limsup_{n\to\infty}a_n = \inf_{n\geq 1}\left(\sup_{k\geq 1}a_k\right) = \lim_{n\to\infty}\left(\sup_{k\geq 1}a_k\right) $$ and $$ \liminf_{n\to\infty}a_n = \sup_{n\geq 1}\left(\inf_{k\geq 1}a_k\right) = \lim_{n\to\infty}\left(\inf_{k\geq 1}a_k\right) $$
+\end{defn}
+Let $X$ be a set, $\{A_n\}$ a sequence of subset of $X$. Define $$\limsup_{n\to\infty}A_n = \overline{\lim_{n\to\infty}}A_n = \bigcap_{n=1}^{\infty}\left(\bigcup_{k=n}^{\infty}A_k\right) $$ and $$\liminf_{n\to\infty}A_n = \underline{\lim_{n\to\infty}}A_n = \bigcup_{n=1}^{\infty}\left(\bigcap_{n=k}^{\infty}A_k\right) $$
+We say that the limit exists if $\limsup_{n\to\infty} A_n = \liminf_{n\to\infty}A_n$. In this case, $\lim_{n\to\infty}A_n = \limsup_{n\to\infty} A_n = \liminf_{n\to\infty} A_n$
+
+\textbf{Example :} Let $X = \{0,1\}$ then $A_{2n} = \{0\}$ and $A_{2n-1} = \{1\}$, $\limsup_{n\to\infty}A_n = \{0,1\}$ and $\liminf_{n\to\infty}A_n = \varnothing$.
+
+\textbf{Facts : }$x\in\limsup_{n\to\infty}A_n \Leftrightarrow x\in \cap_{k=n}^{\infty}A_k\ \forall\ n\geq 1 \Leftrightarrow \{x\in X\ |\ x\in A_n\ \text{infinitely open}\}$ and $x\in \liminf_{n\to\infty} A_n \Leftrightarrow x\in \cup_{n=1}^{\infty}(\cap_{n=k}^{\infty}A_n)\Leftrightarrow \exists\ n_0\in\N $ s.t. $x\in\cap_{k=n_0}^{\infty}A_k\Leftrightarrow \{x\in X\ |\ x\in A_n\ \text{almost always}\}$.
+\textbf{Examples : } If $\{A_n\}$ is $\nearrow (\searrow)$, then $\lim_{n\to\infty}A_n = \cup_{n=1}^{\infty} A_n(\cap_{n=1}^{\infty} A_n)$ also $\limsup_{n\to\infty}A_n = \lim_{n\to\infty}A_n = \liminf_{n\to\infty} A_n$.
+%Here is the end of 11/16
 
 
 
