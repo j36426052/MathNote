@@ -541,6 +541,108 @@ We say that the limit exists if $\limsup_{n\to\infty} A_n = \liminf_{n\to\infty}
 \textbf{Examples : } If $\{A_n\}$ is $\nearrow (\searrow)$, then $\lim_{n\to\infty}A_n = \cup_{n=1}^{\infty} A_n(\cap_{n=1}^{\infty} A_n)$ also $\limsup_{n\to\infty}A_n = \lim_{n\to\infty}A_n = \liminf_{n\to\infty} A_n$.
 %Here is the end of 11/16
 
+\newpage
+
+$\{x_n\}:$ a real sequence, $E = \{x \in \R^{\star} ~|~ x $ is a subseq limit of $\{x_n\}\}$.
+
+We have proved that $E \subseteq \R^{\star}$ is nonempty, so $x^{\star} = \sup E$ and $x_{\star} = \inf E$ both exist in $\R^{\star}$
+
+% thm 3.8
+
+\begin{thm*}
+	Let $\{x_n\},~E,x^{\star},~x_{\star}$ as above. Then $x^{\star}$ is the unique value in $\R^{\star}$ satisfying
+	
+	\begin{enumerate}
+		\item $x^{\star} \in E$
+		\item $\forall \epsilon > 0,~\exists N \ni \forall n \geq N,~ x_n < x^{\star} + \epsilon$
+	\end{enumerate}
+	
+	Similarly for $x_{\star}$, i.e. $x_{\star}$ is the "1" value in $\R^{\star}$ satisfying
+	
+	\begin{enumerate}
+		\item[(1')] $x_{\star} \in E$
+		\item[(2')] $\forall \epsilon > 0,~\exists N \in \N \ni x_{\star} - \epsilon < x_n$
+	\end{enumerate}
+\end{thm*}
+
+\begin{proof}
+	\begin{enumerate}[]
+		\item[(a)] We have three cases   
+		\begin{enumerate}[label = $(\roman*)$]
+		\item $x^\star = + \infty$. In this case, $E$ is not bdd above, hence $\{x_n\}$ is not bdd above ($\because$ If $\{x_n\}$ were bdd above, then $\exists M > 0 \ni x_n \leq M ~\forall n \geq 1 \implies \forall $ subsequence $\{x_{n_k}\}$ of $\{x_n\}$, $x_{n_k} \leq M ~\forall k \geq 1 \cdots$)
+		\item $x^{\star} \in \R$.
+		
+		In this case, $E$ is bdd above and $x^{\star} \in \overline{E}$ by (9) in $\S 2.5$, By Thm 3.5, $x^{\star} \in E$
+		\item $x^{\star} = -\infty$. Then $E = \{ - \infty\}$, i.e. $-\infty$ is the only subseq limit of $x_n$, i.e. $\exists$ a subseq $\{x_{n_k}\}$ of $\{x_n\} \ni x_{n_k} \rightarrow -\infty$
+		
+		$\therefore x^{\star} = -\infty \in E$
+		\end{enumerate}
+		
+		This prove (a)
+		
+		\item[(b)] Suppose (b) were false, i.e. $\exists \epsilon > 0 \ni x_n \geq x^{\star} + \epsilon$ for infinity many n's. Hence, $\exists$ a subseq $\{x_{n_k}\}$ of $\{x_n\} \ni x_{n_k} \geq x^{\star} + \epsilon ~ \forall k \geq 1 \implies \exists y \in E \ni y \geq x^{\star} + \epsilon > x^{\star} (\rightarrow \leftarrow)$ to the definition of $x^{\star}$
+		
+		$\therefore (b)$ is true  
+		
+		Finally, to show that $x^{\star}$ is the "1" value satisfying (1) and (2)
+		
+		Suppose $p,q \in \R^{\star}$ both satisfy (1) and (2) and $p \neq q$, We may assume that $p < q$. Choose $p < x < q$. By (2), $\exists N \in \N \ni \forall n \geq N,~ x_n < x \implies q \notin E (\rightarrow \leftarrow) \therefore p = q$
+		
+		By a similar argument or apply the previous case to $\{-x_n\}$
+	\end{enumerate}
+\end{proof}
+
+By definition and Thm 3.8, we have
+
+% thm 3.9
+
+\begin{thm*}
+	Let $\{x_n\}$ and $\{y_n\}$ be real seqs,
+	
+	\begin{enumerate}
+		\item[(a)] $\liminf x_n \leq \limsup x_n (\because \in E \leq sup E)$
+		\item[(b)] $\lim_{n \rightarrow \infty} x_n = x \Leftrightarrow \limsup x_n = \liminf x_n = x$
+		
+		\begin{proof}$ $
+	\begin{enumerate}
+		\item[($\Rightarrow$)]
+		Suppose $x_n \rightarrow x$ as $n \rightarrow \infty$. In this case, $E = \{x\} \Rightarrow x^\star = x_\star$, i.e. $\limsup x_n = \liminf x_n = x$
+		\item[($\Leftarrow$)] Suppose $\limsup x_n = \liminf x_n = x$. Then by Thm 3.8 (b) $\forall \epsilon > 0,~ \exists N \in \N \ni x- \epsilon < x_n < x + \epsilon$
+	\end{enumerate}
+\end{proof}
+
+	\item[(c)] $\limsup_{n \rightarrow \infty}(-x_n) = -\liminf_{n \rightarrow \infty} x_n$
+	\begin{proof}
+		$\because$ It suffices to prove the second one
+		
+		\begin{eqnarray*}
+			\liminf_{n \rightarrow \infty}(- x_n) & = & \inf \{y \in \R^\star ~|~ y \text{ is a subseq limit of } \{-x_n\}\}\\
+			&=& \inf \{-(-y) \in \R^\star ~|~ -y \text{ is a subseteq limit of } \{x_n\} \} \\
+			&=& -\sup \{-y \in \R^\star ~|~ -y \text{ is a subseq limit of } \{x_n\}\}\\
+			&=& -\sup \{x \in \R^\star ~|~ x \text{ is a subseq limit of } \{x_n\}\}\\
+			&=& -\limsup_{n \rightarrow \infty} x_n 
+		\end{eqnarray*}
+	\end{proof}
+	
+	\item[(d)] If $x_n \leq y_n~ \forall n \geq N$ for some $N \in \N$, then 
+	
+	$$\liminf_{n \rightarrow \infty} x_n \leq \liminf_{n \rightarrow \infty} y_n$$
+	
+	$$\limsup_{n \rightarrow \infty} x_n \leq \limsup_{n \rightarrow \infty}y_n$$
+	
+	\begin{proof}
+		Let $E = \{x \in \R^\star ~|~ x \text{ is a sequential limit of } \{x_n\}\}$, $F = \{y \in \R^\star ~|~ y \text{ is a sequential limit of } \{y_n\}$
+		
+		$\because x \in E \implies \exists$ a subseteq $\{x_{n_k}\}$ of $\{x_n\} \ni x_{n_k} \rightarrow x,~k \rightarrow \infty$.
+		
+		By assumption, $x_{n_k} \leq y_{n_k} \forall k \geq 1$, and $\{y_{n_k}\}$ is a subseteq of $\{y_n\}$
+		
+		$\therefore~\{y_{n_k}\}$ has a sequential limit  
+	\end{proof}
+	 
+	\end{enumerate}
+\end{thm*}
+
 
 
 
