@@ -1,0 +1,412 @@
+\input{../settings}
+\begin{document}
+
+\title{Probability}
+
+\author{QSnake Edition}
+
+\maketitle
+
+\subsection*{0. Property of Expectation}$ $
+
+Since $X$ is a weighted average of the possible values of $X$, it follows that if $X$ must lie between $a$ and $b$, then so must its expected value. That is, if 
+
+$$P\{a \leq X \leq b\} = 1$$
+
+then $a \leq E[X] \leq b$
+
+\begin{proof}
+	Suppose $X$ is a discrete random variable for which $P\{a \leq X \leq b\} = 1$. Since this implies that $p(x) = 0$ for all $x$ outside of the interval $[a,b]$, it follows that
+	
+	\begin{eqnarray*}
+		E[x] &=& \sum_{x:p(x)>0}xp(x) \\
+		&\geq& \sum_{x:p(x)>0} ap(x) \\
+		&=& a\sum_{x:p(x)>0} p(x) \\
+		&=& a
+	\end{eqnarray*}
+	
+	and the proof in the continuous case is similar, the result follows. 
+\end{proof}
+
+\subsection*{1. Expectation of Sums of Random Variables} $ $
+
+\textbf{Recall.} $X$ is a non-negative random variable, we have
+
+$$E[X] = \int^{\infty}_0 P\{X > t\}dt$$
+
+\begin{proof}
+	\begin{eqnarray*}
+		E[X] &=& \int^{\infty}_0 xf(x)dx\\
+		&=& \int^{\infty}_{0}\left(\int^x_0 1 dt \right)f(x)dx\\
+		&=& \int^{\infty}_{0}\int^x_0 f(x) dt dx\\
+		&=& \int^{\infty}_{0}\left(\int^{\infty}_{t}f(x)dx\right)dt\\
+		&=& \int^{\infty}_{0}P\{X > t\}dt
+	\end{eqnarray*}
+\end{proof}
+
+\begin{prop*}
+	If $X$ and $Y$ have a joint probability mass function $p(x,y)$ then 
+	
+	$$E[g(X,Y)] = \sum_y\sum_x g(x,y)p(x,y)$$
+	
+	If $X$ and $Y$ have a joint probability density function $f(x,y)$, then
+	
+	$$E[g(X,Y)] = \int^{\infty}_{-\infty}\int^{\infty}_{-\infty} g(x,y)f(x,y)dxdy$$
+\end{prop*}
+
+\begin{proof}
+	Use the recall above we get
+	$$E[g(X,Y)] = \int^{\infty}_0 P\{g(X,Y) > t\}dt$$
+	Writing 
+	$$P\{g(X,Y) > t\} = \iint_{(x,y):g(x,y) > t}f(x,y)dydx$$
+	shows that
+	$$E[g(X,Y)] = \int^{\infty}_{0}\iint_{(x,y):g(x,y)>t}f(x,y)dydx$$
+	Interchanging the order of integration gives
+	
+	\begin{eqnarray*}
+		E[g(X,Y)] &=& \int_x\int_y\int^{g(x,y)}_{t = 0}f(x,y)dtdydx\\
+		&=& \int_x\int_yg(x,y)f(x,y)dydx
+	\end{eqnarray*}
+\end{proof}
+
+\begin{cor*}
+	$E[X]$ and $E[Y]$ are finite,
+	
+	$$E[X + Y] = E[X] + E[Y]$$
+	
+\end{cor*}
+
+\begin{proof}
+	Suppose $E[X]$ and $E[Y]$ are both finite and let $g(X,Y) = X + Y$. Then, in the continuous case,
+	
+	\begin{eqnarray*}
+		E[X + Y] &=& \int^{\infty}_{\infty}\int^{\infty}_{\infty}(x + y)f(x,y)dxdy\\
+		&=& \int^{\infty}_{-\infty}\int^{\infty}_{-\infty}xf(x,y)dydx + \int^{\infty}_{-\infty}\int^{\infty}_{-\infty}yf(x,y)dxdy\\
+		&=& \int^{\infty}_{-\infty}xf_X(x)dx + \int^{\infty}_{-\infty}yf_Y(y)dy\\
+		&=& E[X] + E[Y]
+	\end{eqnarray*}
+\end{proof}
+
+\newpage
+
+\subsection*{2*. Moments of the Number of Events that Occur} $ $
+
+For given events $A_1,\cdots,A_n$, find $E[X]$, where $X$ is the number of these events that occur. The solution then involved defining an indicator variable $I_i$ for event $A_i$ such that
+
+$$I_i = \begin{cases}
+	1 & $if $ A_i $ occurs$ \\
+	0 & $otherwise$
+\end{cases}$$
+
+Because
+
+$$X = \sum^n_{i = 1}I_i$$
+
+we obtained the result
+
+$$E[X] = E\left[ \sum^n_{i = 1} I_i \right] = \sum^n_{i = 1}E[I_i] = \sum^n_{i = 1}1 \cdot P(A_i) + 0 \cdot P(A_i^c) =  \sum^n_{i = 1}P(A_i)$$
+
+Consider the number of pairs of events that occur. Because $I_i I_j$  will equal $1$ if both $A_i$ and $A_j$ occur and will equal $0$ otherwise, it follows that the number of pairs is equal to $\sum_{i < j}I_iI_j$. But because $X$ is the number of events that occur, it also follows that the number of pairs of events that occur is $(\begin{matrix}
+	X \\ 2
+\end{matrix})$. Consequently,
+
+$$\left( \begin{matrix}
+	X \\ 2 
+\end{matrix} \right) = \sum_{i < j}I_iI_j$$
+
+and taking expectations yields
+
+$$E\left[ \left( \begin{matrix} X \\ 2\end{matrix} \right) \right] = \sum_{i < j}E[I_iI_j] = \sum_{i < j}P(A_iA_j)$$
+
+or 
+
+$$E\left[ \dfrac{X(X - 1)}{2} \right] = \sum_{i < j}P(A_iA_j)$$
+
+giving that 
+
+$$E[X^2] - E[X] = 2\sum_{i < j}P(A_iA_j)$$
+
+Moreover, by considering the number of distinct subsets of $k$ events that all occur, we see that
+
+$$\left( \begin{matrix}
+	X \\ k
+\end{matrix}\right) = \sum_{i_1 < i_2 < \cdots < i_k} I_{i_1}I_{i_2}\cdots I_{i_k}$$
+
+Taking expectations gives the identity
+
+$$E\left[ \left( \begin{matrix}
+	X \\ k
+\end{matrix} \right) \right] = \sum_{i_1 < i_2 < \cdots < i_k}E[I_{i_1} I_{i_2}\cdots I_{i_k}] = \sum_{i_1 < i_2 < \cdots < i_k} P{A_{i_1}A_{i_2} \cdots A_{i_k}}$$
+
+\newpage
+
+\subsection*{3. Covariance, Variance of Sums, and Correlations}$ $
+
+\begin{prop*}
+	If $X$ and $Y$ are independent, then for any functions $h$ and $g$, 
+	
+	$$E[g(X)h(Y)] = E[g(X)]E[h(Y)]$$
+\end{prop*}
+
+\begin{proof}
+	Suppose that $X$ and $Y$ are jointly continuous with joint density $f(x,y)$. Then
+	
+	\begin{eqnarray*}
+		E[g(X)h(Y)] &=& \int^{\infty}_{\infty} \int^{\infty}_{-\infty} g(x)h(x)f(x,y)dxdy\\
+		&=& \int^{\infty}_{\infty} \int^{\infty}_{-\infty} g(x)h(x)f_X(x)f_Y(y)dxdy \\
+		&=& \int^{\infty}_{-\infty} h(y)f_Y(y)dy \int^{\infty}_{-\infty}g(x)f_X(x)dx \\
+		&=& E[h(Y)]E[g(X)]
+	\end{eqnarray*}
+	
+	The proof in the discrete case is similar.
+\end{proof}
+
+\begin{defn}
+	The covariance between $X$ and $Y$, denote by Cov$(X,Y)$, is defined by
+	
+	$$ \text{Cov}(X,Y) = E[(X - E[X])(Y - E[Y])] $$
+\end{defn}
+
+Upon expanding the right side of the preceding definition, we see that
+
+\begin{eqnarray*}
+	\text{Cov}(X,Y) &=& E[XY - E[X] Y - XE[Y] + E[Y]E[E]] \\
+	&=& E[XY] - E[X]E[Y] - E[X]E[Y] + E[X]E[Y] \\
+	&=& E[XY] - E[X]E[Y]
+\end{eqnarray*}
+
+\begin{rmk*}
+	If $X$ and $Y$ are independent, then Cov$(X,Y) = 0$. However, the converse is not true.
+\end{rmk*}
+
+\textbf{Example.}
+
+$$P\{X = 0\} = P\{X = 1\} = P\{X = -1\} = \dfrac{1}{3}$$
+
+and defining 
+
+$$Y = \begin{cases}
+	0 & $if $ X \neq 0\\
+	1 & $if $ X = 0
+\end{cases}$$ 
+
+Now, $XY = 0$, so $E[XY] = 0$. Also, $E[X] = 0$.
+
+\begin{prop*} $ $
+	\begin{enumerate}[label = (\roman*)]
+		\item Cov$(X,Y) =$ Cov$(Y,X)$
+		\item Cov$(X,X) =$ Var$(X)$
+		\item Cov$(aX, Y = a$Cov$(X,Y)$ 
+		\item Cov$\left(  \sum^{n}_{i = 1}X_i,\sum^m_{j = 1} \right) = \sum^n_{i = 1}\sum^m_{j = 1}$Cov $(X_i,Y_j)$
+	\end{enumerate}
+\end{prop*}
+
+\begin{proof}
+	We only proof (iv) here, let $\mu_i = E[X_i]$ and $v_j = E[Y_j]$. Then
+	
+	$$E\left[ \sum^n_{i = 1}X_i \right] = \sum^n_{i = 1}\mu_i,\quad E\left[ \sum^m_{j = 1}Y_i \right] = \sum^m_{j = 1}v_j$$
+	
+	and 
+	
+	\begin{eqnarray*}
+		Cov\left( \sum^n_{i = 1}X_i,\sum^m_{j=1}Y_j \right) &=& E\left[ \left( \sum^n_{i = 1}X_i - \sum^n_{i = 1}\mu_i \right)\left( \sum^m_{j = 1}Y_j - \sum^m_{j =1}v_j \right) \right] \\
+		&=& E\left[ \sum^n_{i = 1}(X_i - \mu_i)\sum^m_{j = 1}(Y_j - v_j) \right] \\
+		&=& E\left[ \sum^n_{i = 1}\sum^{m}_{j = 1}(X_i - \mu_i)(Y_j - v_j) \right]\\
+		&=& \sum^n_{i = 1}\sum^m_{j = 1}E[(X_i - \mu_i)(Y_j - v_j)]
+	\end{eqnarray*}
+\end{proof}
+
+\begin{cor*}
+	$$Var\left( \sum^n_{i = 1}X_i \right) = \sum^n_{i = 1}Var(X_i) + 2{\sum\sum}_{i < j}Cov(X_i,X_j)$$
+\end{cor*}
+
+\begin{proof}
+	\begin{eqnarray*}
+		Var\left(\sum^n_{i = 1}X_i\right) &=& Cov\left(\sum^n_{i = 1}X_i,\sum^n_{j = 1}X_j\right) \\
+		&=& \sum^{n}_{i = 1}\sum^{n}_{j = 1}Cov(X_i,X_j)\\
+		&=& \sum^n_{i = 1}Var(X_i) + \sum\sum_{i \neq j}Cov(X_i,X_j)
+	\end{eqnarray*}
+\end{proof}
+
+
+\newpage
+
+\subsection*{4. Conditional Expectation}
+
+\begin{defn}
+	If $X$ and $Y$ are jointly discrete random variables, then the conditional probability mass function of $X$, given that $Y = y$, is defined for all $y$ such that $P\{Y = y \} > 0$, by
+	
+	$$p_{X|Y}(x|y) = P\{X = x ~|~ Y = y\} = \dfrac{p(x,y)}{p_Y(y)}$$
+	
+	It is therefore natural to define, in this case, the conditional expectation of $X$ given that $Y = y$, for all value of $y$ such that $p_Y(y) > 0$, by
+	
+	\begin{eqnarray*}
+		E[X|Y =  y] &=& \sum_x xP\{X = x~|~ Y = y\}\\
+		&=& \sum_x xp_{X|Y}(x|y)
+	\end{eqnarray*}
+\end{defn}
+
+\begin{prop*}
+	$$E[X] = E[E[X|Y]]$$
+\end{prop*}
+
+\begin{proof}
+	We only proof the equation when $X$ and $Y$ are discrete
+	
+	Observe that $E[X|Y]$ is a random variable of $Y$, so we can rewrite
+	
+	$$E[E[X|Y]] = \sum_yE[X|Y = y]P\{Y = y\}$$
+	
+	Now, the equation can be written as
+	
+	\begin{eqnarray*}
+		\sum_yE[X|Y = y]P\{Y = y\} &=& \sum_y\sum_xxP\{X = x ~|~ Y = y\}P\{Y = y\}\\
+		&=& \sum_y\sum_xx\dfrac{P\{X = x,Y = y\}}{P\{Y = y\}}P\{Y = y\}\\
+		&=& \sum_y\sum_xxP\{X = x,Y = y\}\\
+		&=& \sum_x x \sum_y P\{X = x,Y = y\}\\
+		&=& \sum_x xP\{ X = x\} = E[X]
+	\end{eqnarray*}
+\end{proof}
+
+\begin{defn}[Conditional Variance]
+
+$$Var(X~|~Y) = E[(X - E[X|Y])^2|Y]$$
+	
+\end{defn}
+
+\begin{prop*}
+	$$Var(X) = E[Var(X|Y)] + Var(E[X|Y])$$
+\end{prop*}
+
+\begin{proof}$ $
+	\begin{enumerate}
+		\item Observe $E[Var(X|Y)]$ first, rewrite 
+		
+		$$Var(X|Y) = E[X^2 | Y] - (E[X|Y])^2$$
+		
+		so 
+		
+		\begin{eqnarray*}
+			E[Var(X|Y)] &=& E[E[X^2|Y]] - E[(E[X|Y])^2] \\
+			&=& E[X^2] - E[(E[X|Y])^2] \quad(\star_1)
+		\end{eqnarray*}
+		\item Observe $Var(E[X|Y])$
+		
+		\begin{eqnarray*}
+			Var(E[X|Y]) &=& E[(E(X|Y))^2] - (E[E[X|Y]])^2\\
+			&=& E[(E[X|Y])^2] - (E[X])^2 \quad(\star_2)
+		\end{eqnarray*}
+		
+	\end{enumerate}
+	
+	Combine $(\star_1)$ and $(\star_2)$, we get
+	
+	\begin{eqnarray*}
+		E[Var(X|Y)] + Var(E[X|Y]) &=& E[X^2] - (E[X])^2\\
+		&=& Var(X)
+	\end{eqnarray*}
+\end{proof}
+
+\newpage
+
+\subsection*{5. Moment Generating Function}
+
+\begin{defn}
+	The moment generating function $M(t)$ of the random variable $X$ is defined for all real values of $t$ by
+	
+	\begin{eqnarray*}
+		M(t) &=& E[e^{eX}] \\
+		&=& \begin{cases}
+			\sum_x e^{tx}p(x) & $if $ X $ is discrete with mass function $ p(x)\\
+			\int^{\infty}_{-\infty}e^{tx}f(x)dx & $if $ X $ is continuous with density$ f(x)
+		\end{cases}
+ 	\end{eqnarray*}
+ 	
+ 	We call $M(t)$ the moment generating function because all of the moments of $X$ can be obtained by successively differentiating $M(t)$ and then evaluating the result at $t = 0$. For example.
+ 	
+ 	\begin{eqnarray*}
+ 		M'(t) &=& \dfrac{d}{dt}E[e^{tX}] \\
+ 		&=& E\left[\dfrac{d}{dt}(e^{tX})\right]\\
+ 		&=& E[Xe^{tX}]
+ 	\end{eqnarray*}
+ 	
+ 	where we have assumed that the interchange of the differentiation and expectation operator is legitimate. That is, we have assumed that
+ 	
+ 	$$\dfrac{d}{dt}\left[ \sum_xe^{tx}p(x) \right] = \sum_x \dfrac{d}{dt}[e^{tx}p(x)]$$
+ 	
+ 	in the discrete case and
+ 	
+ 	$$\dfrac{d}{dt}\left[ \int e^{tx}f(x)dx \right] = \int \dfrac{d}{dt}[e^{tx}f(x)]dx$$
+ 	
+ 	in the continuous case. This assumption can almost always be justified. Hence, evaluated at $t = 0$, we obtain
+ 	
+ 	$$M'(0) = E[X]$$
+ 	
+ 	Similarly,
+ 	
+ 	\begin{eqnarray*}
+ 		M''(t) &=& \dfrac{d}{dt}M'(t) \\
+ 		&=& \dfrac{d}{dt}E[Xe^{tX}] \\
+ 		&=& E\left[ \dfrac{d}{dt}(Xe^{tX}) \right] \\
+ 		&=& E[X^2 e^{tX}]
+ 	\end{eqnarray*}
+ 	
+ 	Thus,
+ 	
+ 	$$M''(x) = E[X^2]$$
+ 	
+ 	In general, the $n$th derivative of $M(t)$ is given by
+ 	
+ 	$$M^n(t) = E[X^ne^{tX}] \quad n \geq 1$$
+ 	
+ 	implying that
+ 	
+ 	$$M^n(0) = E[X^n] \quad n \geq 1$$
+\end{defn}
+
+\begin{defn}
+	For any $n$ random variables $X_1,\cdots,X_n$ the joint moment generating function, $M(t_1,\cdots,t_n)$, is defined, for all real values of $t_1,\cdots,t_n$, by
+	
+	$$M(t_1,\cdots,t_n) = E[e^{t_1X_1 + \cdots + t_n X_n}]$$
+	
+	The individual moment generating functions can be obtained from $M(t_1,\cdots,t_n)$ by letting all but one of the $t_j$'s be $0$. That is,
+	
+	$$M_{X_i}(t) = E[e^{tX_i}] = M(0,\cdots,0,t,0,\cdots,0)$$
+	
+	where the $t$ is in the $i$th place.
+\end{defn}
+
+\begin{prop*}
+	the joint moment generating function $M(t_1,\cdots,t_n)$ uniquely determines the joint distribution of $X_1,\cdots,X_n$. and the $n$ random variables $X_1,\cdots, X_n$ are independent if and only if 
+	
+	$$M(t_1,\cdots,t_n) = M_{X_1}(t_1)\cdots M_{X_n}(t_n)$$
+\end{prop*}
+
+\newpage
+
+\subsection*{6*. General Definition of Expectation}
+
+There also exist random variables that are neither discrete nor continuous, and they too, may possess an expectation.
+
+\textbf{Example.} $X$ be a Bernoulli random variable with parameter $p = \frac{1}{2}$, and let $Y$ be a uniformly distributed random variable over the interval $[0,1]$. and suppose that $X$ and $Y$ are independent, and define the new random variable $W$ by
+
+$$W = \begin{cases}
+	X & $if $ X = 1\\
+	Y & $if $ X \neq 1
+\end{cases}$$
+
+Clearly, $W$ is neither a discrete (since its set of possible values, [0,1], is uncountable) nor a continuous (since $P\{W = 1\} = \frac{1}{2}$)
+
+In order to define the expectation of an arbitrary random variable, we require the notion of a Stieltjes integral. For instance, for any function $g$, $\int^b_a g(x)dx$ is defined by
+
+$$\int^b_a g(x)dx = \lim \sum^n_{i = 1}g(x_i)(x_i - x_{i-1})$$
+
+where the limit is taken over all $a = x_0 < x_1 < x_2 < \cdots < x_n = b$ as $n \rightarrow \infty$ and where $\max_{i = 1,\cdots,n}(x_i - x_{i - 1} \rightarrow 0)$.
+
+For any distribution function $F$, we define the Stieltjes integral of the nonnegative function $g$ over the interval $[a,b]$ by
+
+$$\int^b_a g(x)dF(x) = \lim \sum^n_{i = 1}g(x_i)[F(x_i) - F(x_{i - 1})]$$
+
+
+
+\end{document}
