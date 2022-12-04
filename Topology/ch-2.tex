@@ -703,6 +703,58 @@ $\overline{A}^Y = \overline{A} \cap Y = [0,\dfrac{1}{2}] \cap (0,1] = (0,\dfrac{
 	$\because \forall x \neq y$ and $U$ of $x$ and $V$ of $y$. If $U \cap V~X-(U \cap V) = (X - U) \cup (X - V) \implies X$ is finite$(\rightarrow\leftarrow)$.
 \end{rmk*}
 
+\begin{defn}
+	A topological space $X$ is said to be $T_1$ if every singleton is closed in $X$.
+	
+	Equivalently, $\forall x \neq y$ in $X,~ \exists$ a neighborhood $U$ of $x$ such that $y \notin U$ and $\exists$ a neighborhood of $y$ such that $a \notin V$
+\end{defn}
+
+\begin{thm*}
+	Let $X$ be a $T_1$ space and $A \subseteq X$. Then $x \in A$ iff $\forall$ neighborhood $U$ of $x$, $U \cap A$ is an infinite set
+\end{thm*}
+
+\begin{proof}$ $
+	\begin{enumerate}
+		\item[($\Leftarrow$)] trivial (By definition)
+		\item[($\Rightarrow$)] Suppose $x \in A$. If $\exists$ a neighborhood $U$ of $x \ni ~ U\cap A$ is a finite set, so is $U \cap A - \{x\}$, say, $U \cap A - \{x\} = \{x_1,\cdots,x_n\}$.\\
+		Since $X$ is $T_1 \{x_1,\cdots,x_n\}$ is closed in $X$\\
+		$\implies X - \{x_1,\cdots,x_n\}$ is open\\
+		$\implies V \equiv U \cap (X - \{x_1,\cdots,x_n\})$ is a neighborhood of $x$ with $V \cap A - \{x\} = \emptyset (\rightarrow\leftarrow)$ to $x \in A'$
+	\end{enumerate}
+\end{proof}
+
+\begin{defn}
+	A topological space $X$ is said to be $T_0$ if every two distinct points $x$ and $y$ in $X$ one of them has a neighborhood not containing the other one.
+\end{defn}
+
+\begin{rmk*}
+	$T_1 \implies T_1 \implies T_0$, but the converse fails, e.g. $T_0 \rightarrow T_1$, $X = a,b$ with topology $\T = \{\emptyset,\{a\},X\}$ which is $T_0$ but not $T_1$
+\end{rmk*}
+
+\begin{thm*}
+	If $X$ is Hausdorff space, then a sequence $\{x_n\}$ in $X$ can converge to at most on point in $X$.
+\end{thm*}
+
+\begin{proof}
+	If $\{x_n\}$ converges to $x$ and $x'$, $x \neq x'$ choose neighborhood $U$ of $x$ and $U'$ of $x' \ni U \cap U' = \emptyset$. Choose $N >> 0 \ni \forall n \geq N,~x_n \in U \cap U' (\rightarrow \leftarrow)$ to $U \cap U' = \emptyset$
+\end{proof}
+
+\begin{thm*}$ $
+	\begin{enumerate}
+		\item Every order set $X$ with order topology is $T_2$
+		\item If $X$ and $Y$ are $T_2$, so is $X \times Y$
+		\item If $X$ is $T_2$, then so is it's subspace.
+	\end{enumerate}
+\end{thm*}
+
+\begin{proof}
+	skip in latex :).
+\end{proof}
+
+\newpage
+
+\subsection*{$\S$ 18 Continuous Mapping}
+
 
 
 
