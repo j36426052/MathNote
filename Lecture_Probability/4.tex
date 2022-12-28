@@ -228,6 +228,12 @@ Now, $XY = 0$, so $E[XY] = 0$. Also, $E[X] = 0$.
 	\end{eqnarray*}
 \end{proof}
 
+\begin{cor*}
+	If $X_1$ and $X_2$ are random variables with joint pdf $f(x_1,x_2)$, then 
+	
+	$$Var(X_1 + X_2) = Var(X_1) + Var(X_2) + 2Cov(X_1,X_2)$$
+\end{cor*}
+
 
 \newpage
 
@@ -306,6 +312,14 @@ $$Var(X~|~Y) = E[(X - E[X|Y])^2|Y]$$
 		&=& Var(X)
 	\end{eqnarray*}
 \end{proof}
+
+\begin{thm*}
+	If $X$ and $Y$ are jointly distributed random variables, and $g(x)$ is a function, then
+	
+	$$E[g(X)Y~|~x] = g(x)E(Y~|~x)$$
+\end{thm*}
+
+
 
 \newpage
 
