@@ -1,0 +1,331 @@
+\input{pptset}
+\title{Ch.3 Transformation}
+\institute{An Introduction to Optimization}
+\author{QSnake}
+\date{2/24,2023}
+\begin{document}
+
+% 標題頁面
+\begin{frame}
+	\titlepage
+\end{frame}
+% 大綱頁面
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+%%%%%%%%常用指令區
+% \begin{frame}  \end{frame}	% 開始簡報
+% \section{}					% 開始某一章節
+% \includegraphics[scale=]{path}% 插入圖片
+% \frametitle{}					% 左上角那個標題
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Presentation structure
+
+\begin{frame}
+	\section{Little Review}
+	\begin{center}
+	\textbf{Little Review}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definition inner product}
+
+	The inner product is a real-valued function $\left< \cdot , \cdot \right>:\R^n \times \R^n \rightarrow \R$ having the following properties:
+
+	\begin{enumerate}
+		\item Positivity: $\left<x,x\right> \geq 0,~\left<x,x\right> = 0$ if and only if $x = 0$
+		\item Symmetry: $\left<x,y\right> = \left<y,x\right>$
+		\item Additivity: $\left<x+y,z\right> = \left<x,z\right> + \left<y,z\right>$.
+		\item Homogeneity: $\left< rx,y\right> = r\left<x,y\right>$ for every $r \in \R$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definition of Norm}
+	The Euclidean norm of a vector $||x||$ has the following properties:
+
+	\begin{enumerate}
+	\item Positivity: $||x|| \geq 0,~||x||=0$ if and only if $x = 0$
+	\item Homogeneity: $||rx|| = |r|||x||,r\in \R$
+	\item Triangle inequality: $||x + y|| \leq ||x|| + ||y||$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Orthogonal}
+
+	Let $V$ be an inner product space. Vectors $x$ and $y$ in $V$ are orthogonal if $\left< x, y \right> = 0$. A subset $S$ of $V$ is orthogonal.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Review}
+	A function $L: \R^n \rightarrow \R^m$ is called a linear transformation if:
+	\begin{enumerate}
+	\item $L(ax) = aL(x)$ for every $x \in \R^n$ and $a \in \R.$
+	\item $L(x + y) = L(x) + L(y)$ for every $x,y \in \R^n$
+	\end{enumerate}
+
+	and the linear transformation $L$ can be represented by a matrix.(Friedberg Ch.2)
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{Transformation matrix}
+%
+%	Let $\{e_1,e_2,\cdots,e_n\}$ and $\{e_1',e_2',\cdots,e_n'\}$ be two bases for $\R^n$. Define the matrix
+%
+%	$$T = [e_1,e_2,\cdots,e_n]^{-1}[e_1',e_2',\cdots,e_n']$$
+%
+%	We call $T$ the transformation matrix from $\{e_1,e_2,\cdots,e_n\}$ and $\{e_1',e_2',\cdots,e_n'\}$
+%\end{frame}
+
+%\begin{frame}
+%	\frametitle{Transformation matrix}
+%	let $A$ be its representation with respect to $\{e_1,\cdots,e_n\}$ and $B$ its representation with respect to $\{e_1',\cdots,e_n'\}$. Let $y = Ax$ and $y' = Bx'$. Therefore, $y' = Ty = TAx = Bx' = BTx$, and hence $TA = BT$, or $A = T^{-1}BT$.
+%\end{frame}
+
+%\begin{frame}
+%	\frametitle{Terminology}
+%	Two $n \times n$ matrices $A$ and $B$ are similar if there exists a nonsingular matrix $T$ such that $A = T^{-1}BT$.
+%\end{frame}
+
+\begin{frame}
+	\frametitle{Adjoint Operator}
+
+	$\left< Ax,x \right> = \left< x, A^*x\right>$
+
+	if A is a real matrix
+
+	$\left< Ax,x \right> = \left< x, A^T\right>$
+\end{frame}
+
+\begin{frame}
+	\section{Eigenvalues and Eigenvectors}
+	\begin{center}
+	\textbf{Eigenvalues and Eigenvectors}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definition}
+	Let $A$ be an $n \times n$ real square matrix. A scalar $\lambda$ and a \alert{non-zero} vector $v$ satisfying the equation $Av = \lambda v$ are said to be, respectively, an \textbf{eigenvalue} and an \textbf{eigenvector} of $A$.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Property}
+	For $\lambda$ to be an eigenvalue it is necessary and sufficient for the matrix $\lambda I - A$ to be singular, i.e. the \textbf{characteristic polynomial} of the matrix $A$ equal $0$.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Theorem}
+	Suppose that the characteristic equation $\det [\lambda I - A] = 0$ has $n$ distinct roots $\lambda_1,\lambda_2,\cdots,\lambda_n$. Then, there exist $n$ \textbf{linearly independent} vectors $v_1,\cdots,v_n$ such that
+
+	$$Av_i = \lambda_iv_i,\hspace{10pt}i=1,2,\cdots,n$$
+\end{frame}
+
+% \begin{frame}
+% 	\frametitle{proof of Thm 3.1}
+
+% 	Use the induction to proof it.(Theorem 5.5 in Fredberg)
+% \end{frame}
+
+\begin{frame}
+	\frametitle{Theorem}
+	All eigenvalues of a real \textbf{symmetric} matrix are \textbf{real}.
+\end{frame}
+
+% \begin{frame}
+% 	\frametitle{proof of Thm 3.2}
+% 	Choose an eigenvalue and non-zero eigenvector, and use the adjoint operator to check it.
+% \end{frame}
+
+\begin{frame}
+	\frametitle{Theorem}
+	Any real symmetric $n \times n$ matrix has a set of $n$ eigenvectors that are \textbf{mutually orthogonal}.
+\end{frame}
+
+% \begin{frame}
+% 	\frametitle{proof (n distinct case)}
+
+% 	also use the inner product and adjoint operator to check
+
+% \end{frame}
+
+\begin{frame}
+	\section{Orthogonal Projections}
+	\begin{center}
+	\textbf{Orthogonal Projections}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{orthogonal complement}
+	If $V$ is a subspace of $\R^n$, then the orthogonal complement of $V$, denoted $V^{\perp}$, consists of all vectors that are orthogonal to every vector in $V$. Thus,
+
+	$$V^{\perp} = \{x:\left<v,Tx\right>=0 \forall v\in V\}$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{orthogonal decomposition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{orthogonal projector}
+
+	We say that a linear transformation $P$ is an \textbf{orthogonal projector} onto $V$ if for all $x \in \R^n$, we have $Px \in V$ and $x - Px \in V^{\perp}$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Example of orthogonal projector}
+
+	we consider $\R^2$ here
+\end{frame}
+
+\begin{frame}
+	\frametitle{Theorem}
+
+	Let $A$ be a given matrix.
+
+	Then, $R(A)^{\perp} = N(A^{T})$ and $N(A)^{\perp} = R(A^T)$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Theorem}
+	A matrix $P$ is an orthogonal projector [onto the subspace $V = R(P)$] if and only if $P^2 = P = P^T$
+\end{frame}
+
+\begin{frame}
+	\section{Quadratic Forms}
+	\begin{center}
+	\textbf{Quadratic Forms}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Quadratic Forms}
+	A quadratic form $f:\R^n \rightarrow \R$ is a function
+
+	$$f(x) = x^TQx = <x,Qx>$$
+
+	where $Q$ is an $n \times n$ real matrix.
+\end{frame}
+
+\begin{frame}
+	\frametitle{the generality of quadratic form}
+	There is no loss of generality in assuming $Q$ t be symmetric: $Q = Q^T$. For if the matrix $Q$ is not symmetric, we can always replace it with the symmetric matrix
+
+	$$Q_0 = Q_0^T = \dfrac{1}{2}\left( Q + Q^T \right)$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{reason}
+\end{frame}
+
+\begin{frame}
+	\frametitle{terminology}
+	\begin{enumerate}
+	\item positive definite: $x^TQx > 0$ for all $x$ non-zero vectors $x$.
+	\item positive semidefinite if $x^TQx \geq 0$ for all $x$
+	\end{enumerate}
+
+	and the negative is similar
+\end{frame}
+
+\begin{frame}
+	\frametitle{principal minors and leading principal minor}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sylvester's Criterion}
+	A quadraic form $x^TQx,~Q = Q^T$, is positive definite if and only if the leading principal minors of $Q$ are positive.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Example}
+
+	Consider $Q = \left[ \begin{matrix}
+	1 & 0\\
+	-4 & 1
+	\end{matrix} \right]$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Theorem 3.7}
+
+	A symmetric matrix $Q$ is positive definite (or positive semidefinite) if and only if all eigenvalue of $Q$ are positive (or nonnegative).
+\end{frame}
+
+\begin{frame}
+	\section{Matrix Norms}
+	\begin{center}
+	\textbf{Matrix Norms}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Frobenius norm}
+
+	$$||A||_F = \left( \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}\left(a_{ij}\right)^2\right)^{\frac{1}{2}}$$
+
+	where $A \in \R^{m \times n}$, and clearly it's a norm.
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{matrix induced norms}
+
+	In many problems, both matrices and vectors appear simultaneously.
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{induced norms}
+
+	We say that the matrix norm is induced by the given vector norms if for any matrix $A \in \R^{m \times n}$ and any vector $x \in \R^n$, the following inequality is satisfied:
+
+	$$||Ax||_{(m)} \leq ||A||||x||_{(n)}$$
+
+	We can define an induced matrix norm as
+
+	$$||A|| = \max\limits_{||x||_{(n)}=1}||Ax||_{(m)}$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{proof of matrix induced norms is norms}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Theorem 3.8}
+
+	Let
+	$$||x|| = \left( \sum\limits^n_{k=1}|x_k|^2\right)^{1/2} = \sqrt{\left( x,x\right>}$$
+
+	The matrix norm induced by this vector norm is
+
+	$$||A|| = \sqrt{\lambda_1}$$
+
+	where $\lambda_1$ is the largest eigenvalue of the matrix $A^TA$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Rayleigh's Inequalities}
+
+	If an $n \times n$ matrix $P$ is real symmetric positive definite, then
+
+	$$\lambda_{\min}(P)||x||^2 \leq <x,Px> \leq \lambda_{\max}(P)||x||^2$$
+
+	where $\lambda_{\min}(P)$ denotes the smallest eigenvalue of $P$, and $\lambda_{\max}(P)$ denotes the largest eigenvalue of $P$.
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+	\textbf{Conclustion}
+	\end{center}
+\end{frame}
+\end{document}
