@@ -1,0 +1,675 @@
+\documentclass
+%[answers]
+{exam}
+\usepackage{mathrsfs}  
+\usepackage{xeCJK}
+\setCJKmainfont{標楷體}
+\XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt %這兩行是texWorks範例中所缺少的。
+%\usepackage[top=2cm,bottom=3cm,right=3cm,left=3.5cm]{geometry}
+\usepackage[a4paper, margin = 2cm]{geometry}
+%\geometry{a4paper,margin=1in, bindingoffset=0.5in}
+%版面
+\usepackage{
+%amsthm, 
+amsmath, amssymb, multicol}
+\usepackage{colortbl}
+\usepackage{nopageno}
+\addpoints
+\thispagestyle{empty}
+\pointname{ pts}
+\newcommand{\ra}{\Rightarrow}
+\newcommand{\hs}{\hspace{1em}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\abs[1]{\left\lvert#1 \right\rvert}
+
+\title{{\Huge{高等微積分}}}
+\author{Exercise 1 (chapter 1 to 3)}
+\date{}
+\begin{document}
+\maketitle
+\begin{questions}
+%%%%%%% 
+\question %第八題 Apostol 3.2%
+Determine all the accumulation points of the following sets in $\R$ and decide whether the sets are open or closed (or neither).
+\begin{parts}
+\part Intervals $(a,b), (a,b], [a,b), [a,b]$.
+\part $\mathbb{Z}:$ the set of all integers.
+\part $\{\frac{1}{n}~|~n=1,2,\cdots\}$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part To find all accumulation point of $(a,b].$
+\begin{itemize}
+\item If $\forall~x\in (a,b]~r>0,~B(x,r)\cap (a,b]\setminus \{x\}\neq \varnothing$ trivially. i.e. $\forall~x\in (a,b]$ is an accumulation point in $(a,b].$
+\item If $\forall~x\in (-\infty, a)$ then choose $r=\frac{a-x}{2},~B(x,r)\cap (a,b]\setminus \{x\}=\varnothing.$ i.e. $x$ is not an accumulation point in $(a,b].$
+\item If $\forall~x\in (b,\infty)$ then choose $r=\frac{x-b}{2},~B(x,r)\cap (a,b]\setminus \{x\}=\varnothing.$ i.e. $x$ is not an accumulation point in $(a,b].$
+\item If $x=a,~\forall~r>0,~B(x,r)\cap (a,b]\setminus \{x\}\neq\varnothing.$ i.e. $a$ is an accumulation point in $(a,b].$
+\end{itemize}
+ Hence, the set of all accumulation point in $(a,b]$ is $[a,b].$\\
+ Claim: $(a,b]$ is not open and closed.\\
+ If $(a,b]$ is open then $b\in (a,b]$ but $\forall~r>0,~B(b,r)\nsubseteq (a,b]\rightarrow \leftarrow$\\
+ Since $a$ is an accumulation point in $(a,b]$ but $a\not\in (a,b],~(a,b]$ is not closed.\\
+ Similarly for the other cases.
+ \part To find all accumulation point of $\Z.$
+ \begin{itemize}
+\item If $\forall~x\in \Z,~B(x,\frac{1}{2})\cap\Z\setminus\{x\}=\varnothing.$ i.e. $x$ is not an accumulation point of $\Z.$
+\item If $\forall~x\in\R\setminus \Z,~n<x<n+1$ for some $n\in\Z.$ Choose $r=\frac{\min\{x-n,n+1-x\}}{2}$ then $B(x,r)\cap \Z\setminus \{x\}=\varnothing.$ i.e. $x$ is not an accumulation point of $\Z.$
+\end{itemize} 
+ Hence, $\Z$ has no accumulation points.\\
+  Clearly, $\Z$ is not open. Clearly, $\Z=\overline {\Z}$ then $\Z$ is closed. 
+  \part Let $S=\{\frac{1}{n}~|~n=1,2,\cdots\}.$ To find all accumulation point of $S.$
+  \begin{itemize}
+  \item  $\forall~x=\frac{1}{n}\in S,$ choose $r=\frac{\min\{\frac{1}{n-1}-\frac{1}  {n},\frac{1}{n}-\frac{1}{n+1}\}}{2}$ then $B(x,r)\cap S\setminus \{x\}=\varnothing.$ i.e. $x$ is not an accumulation point of $S.$
+  \item  If $x<0$ and $x>1$ then they are not accumulation points of $S,$ clearly.
+  \item  If $\forall~x\in (\frac{1}{n},\frac{1}{n-1}),~n\in\N.$ Choose $r=\frac{\min\{x-\frac{1}{n},\frac{1}{n-1}-x\}}{2}$ then $B(x,r)\cap S\setminus \{x\}=\varnothing.$ i.e. $x$ is not an accumulation point of $S.$
+  \item  If $x=0,~\forall~r>0~\exists~n\in\N$ such that $nr>1\Rightarrow r>\dfrac{1}{n}$, hence, $B(x,r)\cap S\setminus \{x\}\neq \varnothing.$ i.e. $x$ is an accumulation point of $S.$
+\end{itemize}  
+Hence, $0$ is only accumulation point of $S.$\\
+Since $0$ is an accumulation point of $S$ and $0\not\in S,~S$ is not closed.\\
+$1\in S~\forall~r>0~B(1,r)\nsubseteq S\Rightarrow S$ is not open.  
+\end{parts}
+
+\end{solution}
+
+%%%%%%% 
+\question %第九題 Apostol 3.3%
+Determine all the accumulation points of the following sets in $\R^2$ and decide whether the sets are open or closed (or neither).
+\begin{parts}
+\part All complex $z$ such that $|z|\geq 1$.
+\part All points $(x,y)$ such that $x^2-y^2<1$.
+\part All points $(x,y)$ such that $x>0$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Let $S=\{z\in\C~|~\abs{z}\geq 1\}.$ To find all accumulation point of $S.$
+\begin{itemize}
+\item $\forall~x\in S$ is an accumulation point of $S,$ clearly.
+\item $\forall~x\in \C\setminus S,$ choose $r=1-\abs{x}$ then $B(x,r)\cap S\setminus \{x\}=\varnothing.$
+\end{itemize}
+Hence, $S'=S\Rightarrow S$ is closed in $\C.$\\
+Since $1\in S$ but $\forall~r>0,~B(1,r)\nsubseteq S\Rightarrow S$ is not open.
+\part Let $S=\{(x,y)\in\R^2~|~x^2-y^2<1\}.$ To find all accumulation point of $S.$
+\begin{itemize}
+\item Clearly, the elements of $S_1=\{(x,y)\in\R^2~|~x^2-y^2\leq 1\}$ are accumulation points of $S.$
+\item Fixed $k=(\sec \theta, \tan\theta)$ be the point in $S_2=\{(x,y)\in\R^2~|~x^2-y^2=1\}.$\\
+$\forall~u=(x,y)\in\R^2\setminus S_1,$ choose $r=\min\{\abs{u-k}~|~k\in S_2\}$ then $B(u,r)\cap S\setminus \{x\}=\varnothing.$
+\end{itemize}
+Hence, $S'=S_1.$\\
+Since $S'\subsetneq S,~S$ is not closed.\\
+$\forall~u=(x,y)\in S,$ choose $r=\min\{\abs{u-k}~|~k\in S_2\}$ then $B(u,r)\subseteq S\Rightarrow S$ is open. 
+  
+\part Let $S=\{(x,y)\in\R^2~|~x>0\}.$ To find all accumulation points of $S.$
+\begin{itemize}
+\item Clearly, the elements of $S_1=\{(x,y)\in\R^2~|~x\geq 0\}$ are accumulation points of $S.$
+\item $\forall~u=(x,y)\in \R^2\setminus S_1,$ choose $r=\abs{x}$ then $B(u,r)\cap S\setminus \{u\}=\varnothing.$
+\end{itemize}
+Hence, $S'=S_1.$\\
+Since $S'\subsetneq S,~S$ is not closed.\\
+$\forall~u=(x,y)\in S,$ choose $r=\abs{x}$ then $B(u,r)\subseteq S\Rightarrow S$ is open.
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第十題 Apostol 3.4%
+Prove that every non-empty open set in $\R$ contains both rational and irrational numbers.
+
+\begin{solution}
+$ $\newline
+Given an open set $U\neq \varnothing$ in $\R.$ Let $p\in U,~\exists~r>0$ such that $B(p,r)=(p-r,p+r)\subseteq U.$\\
+\textbf{(Rational)}\\
+Since $p-r$ and $p+r$ are real numbers and $p-r<p+r,~\exists~q\in\Q$ such that $p-r<q<p+r$\\
+$\Rightarrow q\in (p-r,p+r)\subseteq U\Rightarrow q\in U.$\\
+\textbf{(Irrational)}\\
+Claim: $\forall~x\in Q,~y\in Q^c$ then $x+y\in \Q^c$\\
+If not, $\exists~x\in Q$ and $y\in Q^c$ but $x+y\in Q$
+$\Rightarrow x+y-x=y\in\Q\rightarrow \leftarrow$\\
+Fixed $k\in \Q^c,~p-r-k<p+r-k\in\R.$ Then
+$$\exists~q\in Q~\text{such that}~p-r-k<q<p+r-k\Rightarrow p-r<q+k<p+r.$$
+Choose $q'=k+q\in\Q^c,~p-r<q'<p+r\Rightarrow q'\in (p-r,p+r)\subseteq U\Rightarrow q'\in U.$  
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\question %第十一題 Apostol 3.7%
+Prove that a non-empty bounded closed set $S$ in $\R$ is either a closed interval or that $S$ can be obtained from a closed interval be removing a countable disjoint collection of open intervals whose endpoints belong to S.
+
+\begin{solution}
+$ $\newline
+Given a non-empty bounded closed set $S$ in $\R.$ If $S$ is an interval then $S$ is a closed interval trivially.\\
+If $S$ is not an interval. Since $S$ is bounded, $\sup S$ and $\inf S$ exist and finite. Since $S$ is closed, $\sup S,~\inf S\in S.$ Let $I=[\inf S,\sup S].$ Hence, 
+$$S\subseteq I\Rightarrow \R\setminus (S\cup (-\infty ,\inf S]\cup [\sup S,\infty))= I\setminus S.$$
+Since $S$ is closed, $I\setminus S=\R\setminus (S\cup (-\infty ,\inf S]\cup [\sup S,\infty))$ is open.\\
+$\Rightarrow I\setminus S=\bigcup\limits_{m=0}^\infty I_m,$ where $I_m$ is an open interval in $\R$ $\forall~m>0\Rightarrow S=I\setminus \bigcup\limits_{m=0}^\infty I_m$ and the result follows.
+\end{solution}
+
+
+%%%%%%% 
+\question %第十二題 Apostol 3.10,3.12(f)%
+If $S\subseteq\R^n$, prove that 
+\begin{parts}
+\part $S^\circ$ is the union of all open subsets of $\R^n$ which are contained in $S$. i.e ${S^\circ~\text{is the largest open set contained in}~S.}$
+\part $\overline{S}$ is the intersection of all closed subsets of $\R^n$ which containing $S$. i.e ${\overline{S}~\text{is the smallest closed set containing}~S.}$
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part We must prove that $S^\circ =\bigcup\limits_{\stackrel{U\subseteq S}{U~\text{is open}}} U.$\\
+$(\subseteq)$ Given $x\in S^\circ~\exists~r>0$ such that $x\in B(x,r)\subseteq S$ and $B(x,r)$ is open. Therefore, $x\in \bigcup\limits_{\stackrel{U\subseteq S}{U~\text{is open}}} U.$\\
+$(\supseteq)$ Given $x\in \bigcup\limits_{\stackrel{U\subseteq S}{U~\text{is open}}} U\Rightarrow x\in U$ for some $U\subseteq S$ with $U$ is open.\\
+\hspace*{11.5em}$\Rightarrow \exists~r>0$ such that $B(x,r)\subseteq U\subseteq S\Rightarrow x\in S^\circ.$
+\part We must show that $\overline{S}=\bigcap\limits_{\stackrel{S\subseteq F}{F~\text{is closed}}} F.$\\
+$(\subseteq)$ Given $x\in \overline{S}.~\forall~r>0,~B(x,r)\cap S\neq \varnothing.$ If $S\subseteq F$ with $F$ is closed then 
+$$\forall~r>0,~B(x,r)\cap F\neq \varnothing\Rightarrow x\in \overline{F}=F\Rightarrow x\in \bigcap\limits_{\stackrel{S\subseteq F}{F~\text{is closed}}}F.$$
+$(\supseteq)$ Given $x\in \bigcap\limits_{\stackrel{S\subseteq F}{F~\text{is closed}}}F\Rightarrow x\in F,$ where $S\subseteq F$ with $F$ is closed $\Rightarrow x\in \overline{S}.$
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第十三題 Apostol 3.11-3.13%
+If $S$ and $T$ are subsets of $\R^n$, prove that
+\begin{parts}
+\part $S^\circ \cap T^\circ = (S\cap T)^\circ$.
+\part $S^\circ\cup T^\circ \subseteq(S\cup T)^\circ$. Give an example such that the inclusion is strict.
+\part $S'$ is closed in $\R^n$; that is $(S')'\subseteq S'$.
+\part If $S\subseteq T$, then $S'\subseteq T'$.
+\part $(S\cup T)'=S'\cup T'$.
+\part $(\overline{S})'=S'$.
+\part $\overline{S}$ is closed in $\R^n$.
+\part $\overline{S\cap T}\subseteq \overline{S}\cap\overline{T}$.
+\part If $S$ is open, then $S\cap\overline{T}\subseteq\overline{S\cap T}$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part $(\subseteq)$ Given $x\in S^\circ \cap T^\circ\Rightarrow x\in S^\circ$ and $x\in T^\circ.$ Then $\exists~r_1,~r_2>0$ such that $B(x,r_1)\subseteq S$ and $B(x,r_2)\subseteq T.$ Choose $r=\min\{r_1,r_2\}>0,$ we get $B(x,r)\subseteq S\cap T\Rightarrow x\in (S\cap T)^\circ.$\\
+$(\supseteq)$ Given $x\in (S\cap T)^\circ.$ Then $\exists~r>0$ such that $B(x,r)\subseteq S\cap T\Rightarrow B(x,r)\subseteq S$ and $B(x,r)\subseteq T$\\
+$\Rightarrow x\in S^\circ$ and $x\in T^\circ\Rightarrow x\in S^\circ\cap T^\circ.$
+\part  Given $x\in S^\circ \cup T^\circ\Rightarrow x\in S^\circ$ or $x\in T^\circ.$\\
+If $x\in S^\circ$ then $\exists~r>0$ such that $B(x,r)\subseteq S\subseteq S\cup T\Rightarrow x\in (S\cup T)^\circ.$\\
+If $x\in T^\circ$ then $\exists~r>0$ such that $B(x,r)\subseteq T\subseteq S\cup T\Rightarrow x\in (S\cup T)^\circ.$\\
+Consider $S=(0,1)$ and $T=[1,2]$ in $\R.~S^\circ =(0,1)$ and $T^\circ =(1,2)\Rightarrow S^\circ \cup T^\circ =(0,1)\cup (1,2).$\\
+$S\cup T= (0,2]\Rightarrow (S\cup T)^\circ =(0,2).~1\in (S\cup T)^\circ$ but $1\not\in S^\circ \cup T^\circ.$
+\part Given $x\in (S')'.~\forall~r>0,~B(x,r)\cap S'\setminus \{x\}\neq \varnothing.$ Choose $y\in B(x,r)\cap S'\setminus \{x\}.$\\
+Since $y\in B(x,r),~\exists~r'>0$ such that $B(y,r')\subseteq B(x,r).$\\
+Since $y\in S',~B(y,r')\cap S\setminus \{y\}\neq \varnothing\Rightarrow B(x,r)\cap S\setminus \{y\}\neq \varnothing.$\\
+Note that $B(x,r)\cap S\setminus \{y\}$ is an infinite set $\Rightarrow B(x,r)\cap S\setminus \{x\}\neq \varnothing\Rightarrow x\in S'.$ Hence, $S'$ is closed.
+\part Given $x\in S'.~\forall~r>0,~B(x,r)\cap S\setminus \{x\}\neq \varnothing.$ Since $S\subseteq T,~B(x,r)\cap T\setminus \{x\}\neq \varnothing\Rightarrow x\in T'.$
+\part $(\subseteq )$ Given $x\in (S\cup T)'.~\forall~r>0,~B(x,r)\cap (S\cup T)\setminus \{x\}\neq \varnothing.$\\
+$\Rightarrow (B(x,r)\cap S)\cup (B(x,r)\cap T)\setminus \{x\}\neq\varnothing.$\\
+$\Rightarrow B(x,r)\cap S\setminus \{x\} \neq \varnothing$ or $B(x,r)\cap T\setminus \{x\} \neq \varnothing \Rightarrow x\in S'\cup T'.$\\
+$(\supseteq ) $ Given $x\in S'\cup T'\Rightarrow x\in S'$ or $x\in T'.~\forall~r>0,~B(x,r)\cap S\setminus \{x\} \neq \varnothing $ or $B(x,r)\cap T\setminus \{x\}\neq \varnothing.$\\
+$\Rightarrow (B(x,r)\cap S)\cup (B(x,r)\cap T)\setminus \{x\}\neq \varnothing\Rightarrow B(x,r)\cap (S\cup T)\setminus \{x\}\neq \varnothing\Rightarrow x\in (S\cup T)'.$  
+\part We know that $S\subseteq \overline{S}\Rightarrow S'\subseteq (\overline{S})'.$ We must show that $(\overline{S})'\subseteq S'.$\\
+Given $x\in (\overline{S})'.~\forall~r>0,~B(x,r)\cap \overline{S}\setminus \{x\}\neq \varnothing.$ Choose $y\in B(x,r)\cap \overline{S}\setminus \{x\}.$\\
+Since $y\in B(x,r),~\exists~r'>0$ small such that $x\not\in B(y,r')\subseteq B(x,r).$\\
+Since $y\in \overline{S},~B(y,r')\cap S\setminus \{x\}\neq \varnothing\Rightarrow B(x,r)\cap S\setminus \{x\}\neq \varnothing\Rightarrow x\in S'.$
+\part We must show that $\R^n\setminus \overline {S}$ is open. Given $x\in \R^n\setminus \overline{S},~x\not\in \overline{S}\Rightarrow\exists~r>0$ such that $B(x,r)\cap S=\varnothing.$\\
+Claim: $B(x,r)\subseteq \R^n\setminus \overline{S}.$\\
+Given $y\in B(x,r),~\exists~\delta >0$ such that $B(y,\delta)\subseteq B(x,r).$ Since $B(x,r)\cap S=\varnothing,~B(y,\delta )\cap S=\varnothing \Rightarrow y\not\in \overline{S}.$
+\part Given $x\in \overline{S\cap T}.~\forall~r>0,~B(x,r)\cap S\cap T\setminus \{x\}\neq \varnothing.$\\
+$\Rightarrow B(x,r)\cap S\setminus \{x\}\neq \varnothing$ and $B(x,r)\cap T\setminus \{x\}\neq \varnothing\Rightarrow x\in \overline{S}$ and $x\in \overline{T}\Rightarrow x\in \overline{S}\cap\overline{T}.$
+\part Suppose $S$ is open. Given $x\in S\cap \overline{T},$ since $S$ is open, $\exists~r'>0$ such that $B(x,r')\subseteq S.~\forall~r>0.$\\
+If $r\leq r'$ then $B(x,r)\subseteq S$ and $B(x,r)\cap T\neq \varnothing\Rightarrow B(x,r)\cap S\cap T\neq \varnothing \Rightarrow x\in \overline{S\cap T}.$\\
+If $r>r'$ then $B(x,r')\subseteq B(x,r)\cap S.$ Then
+$$B(x,r)\cap (S\cap T)=(B(x,r)\cap S)\cap T\supseteq B(x,r')\cap T\neq \varnothing\Rightarrow x\in \overline{S\cap T}.$$
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第十四題 Apostol 3.14% 
+A set $S\subseteq\R^n$ is called {\bf{convex}} if $\forall$ $x,y\in S$ and for any $\lambda\in(0,1)$, we have $\lambda x + (1-\lambda) y\in S$. Prove that
+\begin{parts}
+\part All open balls and closed balls in $\R^n$ are convex.
+\part Every $n$-dimensional open interval in $\R^n$ is convex.
+\part The interior of a convex set is convex.
+\part The closure of a convex set is convex.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Given an open ball $B(x,r)$ in $\R^n.$ Given $u,~v\in B(x,r)$ and $\lambda \in (0,1).$\\
+Claim: $\lambda u +(1-\lambda)v\in B(x,r).$
+\begin{align*}
+\norm{\lambda u+(1-\lambda )v-x}&=\norm{\lambda (u-v) +v-x}\\
+&=\norm{\lambda (u-x)+(1-\lambda)(v-x)}\\
+&<\lambda\norm{u-x}+(1-\lambda)\norm{v-x}\\
+&<\lambda r+(1-\lambda)r=r
+\end{align*}
+Hence, $\lambda u +(1-\lambda)v\in B(x,r).$ Same argument for closed balls in $\R^n.$
+\part Given an $n$-dimensional open interval $(a_1,b_1)\times \cdots \times (a_n,b_n).$\\
+Given $x=(x_1,\cdots ,x_n),~y=(y_1,\cdots ,y_n)\in (a_1,b_1)\times \cdots \times (a_n,b_n)$ and $\lambda \in (0,1).$\\
+Claim: $\lambda x+(1-\lambda)y\in (a_1,b_1)\times \cdots \times (a_n,b_n).$\\
+It suffices to show that $\lambda x_1+(1-\lambda)y_1\in (a_1,b_1).$\\
+$\lambda x_1+(1-\lambda)y_1> \lambda a_1+(1-\lambda)a_1=a_1$ and $\lambda x_1+(1-\lambda)y_1< \lambda b_1+(1-\lambda)b_1=b_1$\\
+$\Rightarrow a_1< \lambda x_1+(1-\lambda)y_1< b_1\Rightarrow \lambda x_1+(1-\lambda)y_1\in (a_1,b_1).$\\
+Hence, $\lambda x+(1-\lambda )y\in (a_1,b_1)\times \cdots \times (a_n,b_n).$
+\part Suppose $S$ is a convex set. Given $x,~y\in S^\circ$ and $\lambda\in (0,1).~\exists~r>0$ such that $B(x,r)\subseteq S,~B(y,r)\subseteq S.$\\
+Claim: $B(\lambda x+(1-\lambda)y,r)\subseteq S.$ i.e. $\lambda x+(1-\lambda)y\in S^\circ.$\\
+Given $z\in B(\lambda x+(1-\lambda)y,r).$ Let $x'=z-[\lambda x+(1-\lambda)y]+x$ and $y'=z-[\lambda x+(1-\lambda)y]+y.$\\
+$\norm{x'-x}<r$ and $\norm{y'-y}<r\Rightarrow x'\in B(x,r)\subseteq S$ and $y'\in B(y,r)\subseteq S.$\\
+Since $S$ is convex, $\lambda x' +(1-\lambda)y'=z\in S\Rightarrow \lambda x+(1-\lambda)y \in S^\circ. $
+\part Suppose $S$ is convex set. Given $x,~y\in \overline{S}$ and $\lambda\in (0,1).$\\
+Claim: $\lambda x+(1-\lambda)y\in\overline{S}.$\\
+Given $r>0,$ it suffices to show that $B(\lambda x+(1-\lambda)y ,r)\cap S\neq \varnothing.$ Since $x\in \overline{S}$ and $y\in \overline{S},~B(x,r)\cap S\neq \varnothing$ and  $B(y,r)\cap S\neq \varnothing.$ Choose $x'\in B(x,r)\cap S$ and $y'\in B(y,r)\cap S.$\\
+Claim: $\lambda x'+(1-\lambda)y'\in B(\lambda x+(1-\lambda)y ,r)\cap S.$\\
+Since $S$ is convex, $\lambda x'+(1-\lambda )y'\in S.$
+\begin{align*}
+\norm{\lambda x'+(1-\lambda)y'-[\lambda x+(1-\lambda)y]}&=\norm{\lambda (x'-x)+(1-\lambda)(y'-y)}\\
+&\leq \lambda \norm{x'-x}+(1-\lambda)\norm{y'-y}\\
+&<\lambda r+(1-\lambda )r=r
+\end{align*}
+$\therefore \lambda x'+(1-\lambda)y'\in B(\lambda x+(1-\lambda)y ,r)\cap S.$ i.e. $B(\lambda x+(1-\lambda)y,r)\cap S\neq \varnothing\Rightarrow \lambda x+(1-\lambda)y \in \overline{S}.$ 
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第十五題 Apostol 3.15%
+Let $F$ be a collection of sets in $\R^n$, and let $S=\bigcup\limits_{A\in F}A$ and $T=\bigcap\limits_{A\in F}A$. For each of the following statements, either give a proof or exhibit a counterexample.
+\begin{parts}
+\part If $x$ is an accumulation point of $T$, then $x$ is an accumulation point of each set $A$ in $F$.
+\part If $x$ is an accumulation point of $S$, then $x$ is an accumulation point of at least one set $A$ in $F$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Suppose $x\in T',~\forall~r>0,~B(x,r)\cap T\setminus\{x\}\neq \varnothing.$\\
+$\Rightarrow B(x,r)\cap \bigcap\limits_{A\in F}A\setminus\{x\}\neq \varnothing\Rightarrow B(x,r)\cap A\setminus \{x\}\neq \varnothing ~\forall~A\in F\Rightarrow x\in A'~\forall~A\in F.$ 
+\part No. Consider $F=\{\{x\}~|~x\in \R^n\}.$ Then $S=\bigcup\limits_{A\in F}A=\R^n.$\\
+If $x$ is an accumulation point of $S$, but $x$ is not an accumulation point of any set in $F.$
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第十六題 Apostol 3.17%
+If $S\subseteq\R^n$, prove that the collection of isolated points of $S$ is countable.
+
+\begin{solution}
+$ $\newline
+Let $I=\{x\in S~|~x~\text{is an isolated point of}~S \}.~\forall~x\in I,~\exists~r_x>0$ such that $B(x,r_x)\cap S=\{x\}.$\\
+Consider the collection $\{B(x,r_x)~|~x\in I\}$ is an open covering of $I.$ By Lindel\" of covering theorem, there is a countable sub-covering of $I$ such that $I\subseteq \bigcup\limits_{i=1}^\infty B(x_i,r_{x_i}).$ Then
+$$ I=I\cap S\subseteq (\bigcup\limits_{i=1}^\infty B(x_i,r_{x_i})\cap S)=\bigcup\limits_{i=1}^\infty (B(x_i,r_{x_i})\cap S)=\bigcup\limits_{i=1}^\infty \{x_i\}$$
+Therefore, $I$ is countable.
+\end{solution}
+
+%%%%%%% 
+\question %第十七題 Apostol 3.19%
+The collection of $F$ of open intervals of the form $(\frac{1}{n},\frac{2}{n})$, where $n=1,2,\cdots$, is an open covering of the open interval $(0,1)$. Prove, by the definition of compactness, that $F$ has no finite subcovering covers $(0,1)$.
+
+\begin{solution}
+$ $\newline
+Let $F=\{(\frac{1}{n},\frac{2}{n})~|~n\in\N\}$ be an open covering of $(0,1).$ If not, $F$ has finite sub-covering of $(0,1).$ i.e. $(0,1)\subseteq \bigcup\limits_{i=1}^k (\frac{1}{n_i},\frac{2}{n_i}).$ Let $n=\max\{n_i~|~1\leq i\leq k\},$ choose $p\in (0,1)$ such that $p<\dfrac{1}{n}$ (by Archi.) then $p\not\in (\frac{1}{n_i},\frac{2}{n_i})~,\forall~1\leq i\leq k\rightarrow \leftarrow$
+
+\end{solution}
+
+%%%%%%% 
+\question %第十八題 Apostol 3.21,3.23%
+Assume that $S\subseteq\R^n$. A point $x\in\R^n$ is said to be a {\bf{condensation point}} of $S$ if every $r>0$, $B(x,r)\cap S$ is uncountable. Prove the following statements.
+
+\begin{parts}
+\part If for every $x$ in $S$, there is a $r_x>0$ such that $B(x,r_x)\cap S$ is countable then $S$ is countable.
+\part If $S$ is not countable, then there exists a point $x$ in $S$ such that $x$ is a condensation point of $S$.
+\end{parts}
+\begin{solution}
+$ $
+\begin{parts}
+\part $\forall~x\in S~\exists~r_x>0,~B(x,r_x)\cap S$ is countable. Consider the collection $\mathscr{B}=\{B(x,r_x)~|~x\in S\}$ is an open covering of $S.$ By Lindel\" of covering theorem, $S\subseteq \bigcup\limits_{i=1}^\infty B(x_i,r_{x_i}).$ Then
+$$S=(\bigcup\limits_{i=1}^\infty B(x_i,r_{x_i}))\cap S=\bigcup\limits_{i=1}^\infty B(x_i,r_{x_i})\cap S$$ is countable.
+\part If not, $S$ has no condensation point i.e $\forall~x\in S,~\exists~r_x>0$ such that $B(x,r_x)\cap S$ is countable\\
+By (a), $S$ is countable $\rightarrow \leftarrow$
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第十九題 Apostol 3.25%
+A set in $\R^n$ is called {\bf{perfect}} if $S=S'$, that is, $S$ is a closed set which contains no isolated points. Prove the following {\bf{Cantor-Bendoxon theorem}}:
+
+Every uncountable closed set $F$ in $\R^n$ can be expressed in the form $F=A\cup B$, where $A$ is perfect and $B$ is countable.
+
+\begin{solution}
+$ $\newline
+Let $A=\{x\in F~|~x~\text{is an condensation point of}~F\}\neq \varnothing$ (by Exercise 18 (b)) and let $B=F\setminus A.$\\
+$\forall~x\in B,~\exists~r_x>0$ such that $B(x,r_x)\cap F$ is countable. Since $B(x,r_x)\cap B\subseteq B(x,r_x)\cap F,~B(x,r_x)\cap B$ is countable $\Rightarrow B$ is countable (by Exercise 18 (a))\\
+Claim: $A$ is perfect. i.e. $A=A'.$ i.e. $A$ is closed and has no isolated point.\\
+First, we prove $A$ is closed. $\forall~x\in \R^n\setminus A,~x$ is not an condensation point of $F.$ Then $\exists~r_x>0$ such that $B(x,r_x)\cap F$ is countable. $\forall~y\in B(x,r_x),~\exists~r_y>0$ such that $B(y,r_y)\subseteq B(x,r_x)\Rightarrow B(y,r_y)\cap F$ is countable $\Rightarrow y\not\in A\Rightarrow B(x,r_x)\subseteq \R^n\setminus A.\therefore \R^n\setminus A$ is open $\Rightarrow A$ is closed.\\
+Suppose $A$ has an isolated point, say $x,~\exists~r_x>0,~B(x,r_x)\cap A=\{x\}.$
+$$B(x,r_x)\cap F=B(x,r_x)\cap (A\cup B)=(B(x,r_x)\cap A )\cup (B(x,r)\cap B)\subseteq\{x\}\cup B.$$
+$\Rightarrow B(x,r_x)\cap F$ is countable $\rightarrow \leftarrow$\\
+$A$ has no isolated point $\Rightarrow A$ is perfect. 
+\end{solution}
+
+%%%%%%% 
+\question %第二十題%
+A set $A,B\subseteq\R^n$ be two sets. Prove or disprove the following statements by counterexample.
+\begin{parts}
+\part If $A,B$ are open, then $A+B$ is open.
+\part If $A,B$ are closed, then $A+B$ is closed.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Claim: $\{x\}+A$ is open, where $x\in \R.$ If we are done then $A+B=\bigcup\limits_{x\in B}\{x\}+A$ is open.\\
+Given $y\in \{x\}+A,~y=x+a$ for some $a\in A.~\exists~r>0$ such that $B(a,r)\subseteq A$ since $A$ is open.\\
+Claim: $B(y,r)\subseteq \{x\}+A$\\
+Given $z\in B(y,r).$ Since $z=x+(z-x),$ it suffices to show that $z-x\in B(a,r)\subseteq A.$\\
+$\norm{z-x-a}=\norm{z-(x+a)}=\norm{z-y}<r\Rightarrow z-x\in B(a,r)\subseteq A\Rightarrow z\in \{x\}+A.$
+\part No. Consider $A=\{n~|~n\in\N\}$ and $B=\{-n+\frac{1}{n}~|~n\in \N\}$ are closed. But $A+B$ is not closed since $0\not\in A+B$ and $0$ is an accumulation point of $A+B$.
+\end{parts}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question %第二十一題 Apostol 3.28%
+Consider the following two metrics in $\R^n$:
+\begin{center}
+$d_1(x,y) =\sum\limits_{i=1}^n |x_i-y_i|, ~~
+d_2(x,y) =\max\limits_{1\leq i\leq n} |x_i-y_i|$.
+\end{center}
+\begin{parts}
+\part Show that $d_1$ and $d_2$ are metrics in $\R^n$.
+\part Prove the following inequalities for all $x,y\in\R^n$:
+\[
+d_2(x,y)\leq ||x-y||\leq d_1(x,y)\mbox{ and }d_1(x,y)\leq \sqrt{n}||x-y||\leq nd_2(x,y).
+\]
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part First, we prove that $d_1$ is a metric.\\
+$\forall~x,~y\in\R^n,~d_1(x,y)\geq 0$ and
+$$d_1(x,y)=0\Leftrightarrow \abs{x_i-y_i}=0~\forall~1\leq i\leq n\Leftrightarrow x_i=y_1~\forall~1\leq i\leq n\Leftrightarrow x=y.$$
+$\forall~x,~y\in \R^n,~d_1(x,y)=\sum\limits_{i=1}^n\abs{x_i-y_i}=\sum\limits_{i=1}^n \abs{y_i-x_i}=d_1(y,x).$\\
+$\forall~x,~y,~z\in\R^n,~d_1(x,y)=\sum\limits_{i=1}^n\abs{x_i-y_i}\leq \sum\limits_{i=1}^n \abs{x_i-z_i}+\sum\limits_{i=1}^n\abs{z_i-y_i}=d_1(x,z)+d_1(z,y).$\\
+Hence, $d_1$ is a metric. Now to prove that $d_2$ is a metric.\\
+$\forall~x,~y\in\R^n,~d_2(x,y)\geq 0$ and $$d_2(x,y)=0\Leftrightarrow \max\limits_{1\leq i\leq n}\abs{x_i-y_i}=0\Leftrightarrow \abs{x_i-y_i}=0~\forall~1\leq i\leq n\Leftrightarrow x=y.$$
+$\forall~x,~y\in\R^n,~d_2(x,y)=\max\limits_{1\leq i\leq n}\abs{x_i-y_i}=\max\limits_{1\leq i\leq n}\abs{y_i-x_i}=d_2(y,x).$\\
+$\forall~x,~y,~z\in\R^n,~d_2(x,y)=\max\limits_{1\leq i\leq n}\abs{x_i-y_i}\leq \max\limits_{1\leq i\leq n}\abs{x_i-z_i}+\max\limits_{1\leq i\leq n}\abs{z_i-y_i}=d_2(x,z)+d_2(z,y).$\\
+Hence, $d_2$ is a metric.
+\part $$d_2(x,y)=\max\limits_{1\leq i\leq n}\abs{x_i-y_i}=(\max\limits_{1\leq i\leq n}\abs{x_i-y_i}^2)^\frac{1}{2}\leq (\sum\limits_{i=1}^n\abs{x_i-y_i}^2)^\frac{1}{2}=\norm{x-y}.$$
+$$\norm{x-y}=(\sum\limits_{i=1}^n\abs{x_i-y_i}^2)^\frac{1}{2}\leq([\sum\limits_{i=1}^n \abs{x_i-y_i}]^2)^\frac{1}{2}=d_1(x,y).$$
+Therefore, $d_2(x,y)\leq \norm{x-y}\leq d_1(x,y).$
+\begin{align*}
+\norm{x-y}=(\sum\limits_{i=1}^n\abs{x_i-y_i}^2)^\frac{1}{2}&\leq (\sum\limits_{i=1}^n \max\limits_{1\leq i\leq n}\abs{x_i-y_i}^2)^\frac{1}{2}\\
+&=(n\max\limits_{1\leq i\leq n}\abs{x_i-y_i}^2)^\frac{1}{2}\\
+&=\sqrt{n}\max\limits_{1\leq i\leq n}\abs{x_i-y_i}=\sqrt{n}d_2(x,y)
+\end{align*}
+$\Rightarrow \sqrt{n}\norm{x-y}\leq nd_2(x,y).$\\
+We first to prove that $$\sum\limits_{1\leq i<j\leq n}2\abs{x_i-y_i}\abs{x_j-y_j}\leq (n-1)\sum\limits_{i=1}^n (x_i-y_i)^2$$
+Note that $$\abs{x_i-y_i}^2+\abs{x_j-y_j}^2\geq 2\abs{x_i-y_i}\abs{x_j-y_j}~\forall~1\leq i<j\leq n.$$
+$\sum\limits_{1\leq i<j\leq n}2\abs{x_i-y_i}\abs{x_j-y_j}$\\
+$=[2\abs{x_1-y_1}\sum\limits_{j=2}^n\abs{x_j-y_j}]+[2\abs{x_2-y_2}\sum\limits_{j=3}^n\abs{x_j-y_j}]+\cdots +[2\abs{x_{n-1}-y_{n-1}}\abs{x_n-y_n}]$\\
+$\leq [(n-1)\abs{x_1-y_1}^2+\sum\limits_{j=2}^n\abs{x_j-y_j}^2]+\cdots +[\abs{x_{n-1}-y_{n-1}}^2+\abs{x_n-y_n}^2]=(n-1)\sum\limits_{i=1}^n(x_i-y_i)^2$\\
+Now, 
+\begin{align*}
+d_1(x,y)^2&=(\sum\limits_{i=1}^n\abs{x_i-y_i})^2\\
+&=\sum\limits_{i=1}^n\abs{x_i-y_i}^2+\sum\limits_{1\leq i<j\leq n}2\abs{x_i-y_i}\abs{x_j-y_j}\\
+&\leq \sum\limits_{i=1}^n (x_i-y_i)^2+(n-1)\sum\limits_{i=1}^n (x_i-y_i)^2\\
+&=n\sum\limits_{i=1}^n (x_i-y_i)^2
+\end{align*}
+$\Rightarrow d_1(x,y)\leq \sqrt{n}\norm{x-y}.$ Hence, $d_1(x,y)\leq \sqrt{n}\norm{x-y}\leq nd_2(x,y).$
+\end{parts}
+\end{solution}
+
+%%%%%%%
+\question %第二十二題 Apostol 3.29%
+Let $(M,d)$ be a metric space. Show that 
+\[
+\hat{d}(x,y)=\frac{d(x,y)}{1+d(x,y)}
+\]
+is also a metric for $M$.
+
+\begin{solution}
+$ $\newline
+$\forall~x,~y\in M,~\hat{d}(x,y)\geq 0$ and $\hat{d}=0\Leftrightarrow d(x,y)=0\Leftrightarrow x=y.$\\
+$\forall~x,~y\in M,~\hat{d}(x,y)=\dfrac{d(x,y)}{1+d(x,y)}=\dfrac{d(y,x)}{1+d(y,x)}=\hat{d}(y,x).$\\
+$\forall~x,~y,~z\in M,$
+\begin{align*}
+\hat{d}(x,y)=\dfrac{d(x,y)}{1+d(x,y)}&=1-\dfrac{1}{1+d(x,y)}\\
+&\leq 1-\dfrac{1}{1+d(x,z)+d(z,y)}\\
+&=\dfrac{d(x,z)+d(z,y)}{1+d(x,z)+d(z,y)}\\
+&=\dfrac{d(x,z)}{1+d(x,z)+d(z,y)}+\dfrac{d(z,y)}{1+d(x,z)+d(z,y)}\\
+&\leq \dfrac{d(x,z)}{1+d(x,z)}+\dfrac{d(z,y)}{1+d(z,y)}=\hat{d}(x,z)+\hat{d}(z,y)
+\end{align*}
+Hence, it is a metric for $M.$
+\end{solution}
+
+
+
+%%%%%%%
+\question %第二十三題 Apostol 3.31%
+Let $(M,d)$ be a metric space and for any $x\in M$, $r>0.$ Prove that $\overline{B(x,r)}\subseteq \overline{B}(x,r)$. Give an exampe of a metric space such that the inclusion is strict.
+
+\begin{solution}
+$ $\newline
+Given $y\in \overline{B(x,r)},~\forall~\delta>0$ such that $B(y,\delta)\cap B(x,r)\neq \varnothing.$ If $y\not\in \overline{B}(x,r).$ i.e. $d(y,x)>r.$\\
+Taking $\delta =d(y,x)-r>0,$ we get $B(y,\delta)\cap B(x,r)\neq \varnothing,$ but
+$$\forall~z\in B(y,\delta),~d(z,x)\geq d(y,x)-d(z,y)\geq d(y,x)-\delta=r\Rightarrow z\not\in B(x,r).$$
+i.e. $B(y,\delta)\cap B(x,r)=\varnothing \rightarrow \leftarrow$\\
+The inclusion may not be true. Consider discrete metric space $X,~x\in X,~\overline{B(x,1)}=\{x\}\subsetneq \overline{B}(x,1)=X.$ 
+\end{solution}
+
+%%%%%%%
+\question %第二十四題 Apostol 3.32%
+In a metric space $M$, if $A,S\subseteq M$ satisfies that $A\subseteq S\subseteq\overline{A}$, then $A$ is said to be {\bf{dense}} in $S$. \\
+Show that if $A$ is dense in $S$ and $S$ is dense in $T$, then $A$ is dense in $T$.
+
+\begin{solution}
+$ $\newline
+Suppose $A$ is dense in $S$ and $S$ is dense in $T\Rightarrow A\subseteq S\subseteq \overline{A}$ and $S\subseteq T\subseteq  \overline{S}.$ Then
+$$A\subseteq S\subseteq T\subseteq \overline{S}\subseteq \overline{A}\Rightarrow A\subseteq T\subseteq \overline{A}.$$
+Therefore, $A$ is dense in $T.$ 
+\end{solution}
+
+%%%%%%%
+\question %第二十五題 Apostol 3.33%
+A metric space $M$ is said to be {\bf{separable}} if $M$ has a countable dense subset. Prove that $\R^n$ is separable for every $n\in\mathbb{N}$.
+
+\begin{solution}
+$ $\newline
+It satisfies to show that $\R^n\subseteq \overline{\Q^n}.$ Given $x\in\R^n$ and $r>0.$ We must prove that $B(x,r)\cap \Q^n\neq \varnothing.$\\
+Claim: $\prod\limits_{i=1}^n (x_i-\frac{r}{\sqrt{n}},x_i+\frac{r}{\sqrt{n}})\subseteq B(x,r).$\\
+If we are done then $(x_i-\frac{r}{\sqrt{n}},x_i+\frac{r}{\sqrt{n}})\cap \Q\neq \varnothing,$ say $z_i\in (x_i-\frac{r}{\sqrt{n}},x_i+\frac{r}{\sqrt{n}})\cap Q.$\\
+$\Rightarrow z=(z_1,\cdots ,z_n)\in \prod\limits_{i=1}^n (x_i-\frac{r}{\sqrt{n}},x_i+\frac{r}{\sqrt{n}})\subseteq B(x,r)\Rightarrow z\in B(x,r)\cap \Q^n\Rightarrow B(x,r)\cap \Q^n\neq \varnothing.$\\
+Now, to prove the claim.\\
+Given $y\in \prod\limits_{i=1}^n (x_i-\frac{r}{\sqrt{n}},x_i+\frac{r}{\sqrt{n}})$
+$\Rightarrow \norm{y-x}=(\sum\limits_{i=1}^n\abs{y_i-x_i}^2)^\frac{1}{2}<(\sum\limits_{i=1}^n\dfrac{r^2}{n})^\frac{1}{2}=r\Rightarrow y\in B(x,r).$
+\end{solution}
+
+%%%%%%%
+\question %第二十六題 Apostol 3.34%
+Prove that if a metric space is separable, then it has the Lindel$\ddot{o}$f property.
+
+\begin{solution}
+$ $\newline
+Let $M$ be separable metric space with metric $d.$ i.e. $\exists$ a countable dense subset $S.$ i.e. $\overline{S}=M.$\\
+Let $\mathscr{B}=\{B(x,q)~|~x\in S,~q\in \Q^+\}$ be countable set.\\
+Claim: For all open set $U$ in $M~\exists~s\in S,~q\in \Q^+$ such that $B(s,q)\subseteq U.$\\
+Given $U$ is an open set in $M$ and $x\in U~\exists~r>0$ such that $B(x,r)\subseteq U.$ Since $S$ is dense, $B(x,\frac{r}{4})\cap S\neq \varnothing,$ say $s\in B(x,\frac{r}{4})\cap S.$ Since $\Q$ is dense in $\R~\exists~q\in \Q^+$ such that $\dfrac{r}{4}<q<\dfrac{r}{2}.$\\
+Claim: $x\in B(s,q)\subseteq B(x,r)\subseteq U.$\\
+Since $s\in B(x,\frac{r}{4}),~d(x,s)<\frac{r}{4}<q\Rightarrow x\in B(s,q).$\\
+$\forall~y\in B(s,q),$ $$d(y,x)\leq d(y,s)+d(s,x)<q+\dfrac{r}{4}<\dfrac{r}{2}+\dfrac{r}{4}=\dfrac{3r}{4}<r\Rightarrow y\in B(x,r).$$
+Hence, $B(s,q)\subseteq U.$
+Now to prove that $M$ has the Lindel\" of property. Let $A\subseteq M$ and $\{U_\alpha\}_{\alpha \in I}$ be an open covering of $A.$ We must prove that it has countable sub-covering of $A.$\\
+Given $a\in A,~a\in U_{\alpha_a}$ for some $\alpha_a\in I,$ by claim, $\exists~x_a\in S$ and $q_a\in\Q^+$ such that $a\in B(x_a,q_a)\subseteq U_{\alpha_a}.$\\
+Hence, $A\subseteq \bigcup\limits_{a\in A}B(x_a,q_a).$ Since $\{B(x_a,q_a)~|~a\in A\}\subseteq \mathscr{B},~\{B(x_a,q_a)~|~a\in A\}$ is countable. Then
+$$A\subseteq \bigcup\limits_{i=1}^\infty B(x_{a_i},q_{a_i})\subseteq \bigcup\limits_{i=1}^\infty U_{a_i}.$$
+Hence, Lindel\" of property holds.
+\end{solution}
+
+%%%%%%%
+\question %第二十七題 Apostol 3.38-3.40%
+Let $(M,d)$ be a metric space and $S,T\subseteq M$.
+\begin{parts}
+\part Assume that $S\subseteq T\subseteq M$. Then $S$ is compact in $(M,d)$ if and only if $S$ is compact in $(T,d)$.
+\part If $S$ is closed and $T$ is compact, then $S\cap T$ is compact.
+\part The intersection of arbitrary collection of compact sets of $M$ is compact.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part $(\Rightarrow)$ Suppose $S$ is compact in $(M,d).$ Given an open covering $\{U_\alpha\}_{\alpha \in I}$ be an open covering in $T.$\\
+$\forall~\alpha \in I,~U_\alpha =V_\alpha \cap T,$ where $V_\alpha$ is open in $M.$ Then $\{V_\alpha~|~\alpha \in I\}$ is an open covering of $S$ in $M.$\\
+Since $S$ is compact, $\exists~\alpha_1,\cdots ,\alpha_n\in I$ such that $S\subseteq \bigcup\limits_{i=1}^nV_{\alpha_i}.$ Then
+$$S=S\cap T\subseteq\bigcup\limits_{i=1}^n V_{\alpha_i}\cap T=\bigcup\limits_{i=1}^n U_{\alpha_i}.$$
+Therefore, $S$ is compact in $T.$\\
+$(\Leftarrow )$ Suppose $S$ is compact in $(T,d).$ Given an open covering $\{U_\alpha\}_{\alpha\in I}$ of $S$ in $M.$\\
+$\forall~\alpha\in I,$ let $V_\alpha =U_\alpha \cap T$ is open in $T\Rightarrow \{V_\alpha\}_{\alpha\in I}$ is an open covering of $S$ in $T.$\\
+Since $S$ is compact in $T,~\exists~\alpha_1,\cdots ,\alpha_n\in I$ such that $S\subseteq \bigcup\limits_{i=1}^n V_{\alpha_i}\subseteq \bigcup\limits_{i=1}^n U_{\alpha_i}.$\\
+Hence, $S$ is compact in $M.$
+\part Suppose $S$ is closed and $T$ is compact $\Rightarrow T$ is closed $\Rightarrow S\cap T$ is closed.\\
+Since $S\cap T\subseteq T$ and closed subset of compact set is compact, $S\cap T$ is compact.
+\part Let $F=\{K\subseteq M~|~K~\text{is compact in}~M\}$ and $F_1\subseteq F.$ We know that $\bigcap\limits_{K\in F_1}K$ is closed. Given $K_1\in F_1.$ Since $\bigcap\limits_{K\in F_1}K\subseteq K_1$ and closed subset of compact set is compact, $\bigcap\limits_{K\in F_1}K$ is compact.
+\end{parts}
+\end{solution}
+
+%%%%%%%
+\question %第二十八題 Apostol 3.43-3.52%
+Let $M$ be a metric space and $A,B\subseteq M$ be subsets.
+\begin{parts}
+\part $A^\circ = M \setminus\overline{M\setminus A}$.
+\part $(M\setminus A)^\circ=M \setminus\overline{A}$.
+\part $(\bigcap\limits_{i=1}^nA_i)^\circ=\bigcap\limits_{i=1}^nA_i^\circ.$
+\part 
+$(\bigcap\limits_{A\in F}A)^\circ\subseteq\bigcap\limits_{A\in F} A^\circ,$ where F is an infinite collection of subsets of $M$. Give an example such that the inclusion is strict.
+\part 
+$\bigcup\limits_{A\in F} A^\circ\subseteq(\bigcup\limits_{A\in F}A)^\circ,$ where F is an infinite collection of subsets of $M$. Give an example such that the inclusion is strict.
+\part $\partial A =\overline{A}\cap\overline{M\setminus A}$ and $\partial A=\partial(M\setminus A)$.
+\part If $A$ is open or closed in $M$, then $(\partial A)^\circ=\phi$.
+\part Give an example that $(\partial A)^\circ=M$.
+\part If $A^\circ = B^\circ=\phi$ and $A$ is closed, then $(A\cup B)^\circ=\phi.$ Give an example in which $A^\circ = B^\circ=\phi$ but $(A\cup B)^\circ=M$.
+\part If $\overline{A}\cap\overline{B}=\phi$, then $\partial(A\cup B)=\partial A \cup \partial B$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part $(\subseteq )$ Given $x\in A^\circ,~\exists~r>0$ such that $B(x,r)\subseteq A.$ Then
+$$B(x,r)\cap (M\setminus A)=\varnothing\Rightarrow x\not\in \overline{M\setminus A}\Rightarrow x\in M\setminus \overline{M\setminus A}.$$
+$(\supseteq )$ Given $x\in M\setminus \overline{M\setminus A},~x\not\in \overline{M\setminus A}.$ i.e. $\exists~r>0,~B(x,r)\cap (M\setminus A)=\varnothing$
+$\Rightarrow B(x,r)\subseteq A\Rightarrow x\in A^\circ.$
+\part $(\subseteq )$ Given $x\in (M\setminus A)^\circ.~\exists~r>0$ such that $B(x,r)\subseteq M\setminus A.$ Then
+$$B(x,r)\cap A=\varnothing\Rightarrow x\not\in\overline{A}\Rightarrow x\in M\setminus\overline{A}.$$
+$(\supseteq )$ Given $x\in M\setminus\overline{A}\Rightarrow \exists~r>0$ such that $B(x,r)\cap A=\varnothing\Rightarrow B(x,r)\subseteq M\setminus A\Rightarrow x\in (M\setminus A)^\circ.$
+\part $(\subseteq )$ Given $x\in (\bigcap\limits_{i=1}^n A_i)^\circ,~\exists~r>0$ such that $B(x,r)\subseteq \bigcap\limits_{i=1}^n A_i.$ Then
+$$B(x,r)\subseteq  A_i~\forall~1\leq i\leq n\Rightarrow x\in A_i^\circ~\forall~1\leq i\leq n\Rightarrow x\in \bigcap\limits_{i=1}^n A_i^\circ.$$
+$(\supseteq )$ Given $x\in \bigcap\limits_{i=1}^n A_i^\circ\Rightarrow x\in A_i^\circ~\forall~1\leq i\leq n\Rightarrow \exists~r_{i}>0$ such that $B(x,r_i)\subseteq A_i~\forall~1\leq i\leq n.$\\
+Taking $r=\min\{r_i~|~1\leq i\leq n\}>0,~B(x,r)\subseteq \bigcap\limits_{i=1}^n A_i\Rightarrow x\in (\bigcap\limits_{i=1}^n A_i)^\circ.$
+\part Given $x\in (\bigcap\limits_{A\in F} A)^\circ,~\exists~r>0$ such that $B(x,r)\subseteq \bigcap\limits_{A\in F} A.$ Then
+$$B(x,r)\subseteq A~\forall~A\in F\Rightarrow x\in A^\circ~\forall~A\in F\Rightarrow x\in \bigcap\limits_{A\in F} A^\circ.$$
+The inclusion may not be true. Consider $F=\{(-\frac{1}{n},\frac{1}{n})~|~n\in\N\}.$
+$$(\bigcap\limits_{n=1}^\infty (-\frac{1}{n},\frac{1}{n}))^\circ =\{0\}^\circ=\varnothing \subsetneq \bigcap\limits_{n=1}^\infty (-\frac{1}{n},\frac{1}{n})^\circ=\bigcap\limits_{n=1}^\infty (-\frac{1}{n},\frac{1}{n})=\{0\}.$$
+\part Given $x\in \bigcup\limits_{A\in F} A^\circ\Rightarrow x\in A^\circ$ for some $A\in F.~\exists~r>0$ such that $$B(x,r)\subseteq A\subseteq \bigcup\limits_{A\in F} A\Rightarrow x\in (\bigcup\limits_{A\in F} A)^\circ.$$
+The inclusion may not be true. Consider $F=\{\{x\}~|~x\in \R\}.$
+$$\bigcup\limits_{A\in F} A^\circ =\bigcup\limits_{x\in M} \{x\}^\circ=\varnothing \subsetneq (\bigcup\limits_{A\in F} A)^\circ =\R^\circ =\R.$$
+\part $(\subseteq )$ Given $x\in \partial A,~\forall~r>0$ such that $B(x,r)\cap A\neq \varnothing$ and $B(x,r)\cap (M\setminus A)\neq \varnothing.$ Then
+$$ x\in \overline{A}~\text{and}~x\in \overline{X\setminus A}\Rightarrow x\in \overline{A}\cap \overline{M\setminus A}.$$
+$(\supseteq )$ Given $x\in \overline{A}\cap \overline{M\setminus A}.~\forall~r>0$ such that $B(x,r)\cap A\neq \varnothing$ and $B(x,r)\cap (M\setminus A)\neq \varnothing\Rightarrow x\in \partial A.$
+$$\partial A=\overline{A}\cap \overline{M\setminus A}=\overline{M\setminus (M\setminus A)}\cap\overline{M\setminus A}=\partial (M\setminus A).$$
+\part By (f) and (c), we have $(\partial A)^\circ =(\overline{A}\cap \overline{M\setminus A})^\circ=\overline{A}^\circ\cap \overline{M\setminus A}^\circ.$\\
+If $A$ is open then $M\setminus A$ is closed $\Rightarrow \overline{M\setminus A}=M\setminus A.$ Therefore,
+$$(\partial A)^\circ=\overline{A}^\circ\cap (M\setminus A)^\circ=\overline{A}^\circ \cap (M\setminus \overline{A})=\varnothing.$$
+Same argument for $A$ is closed.
+\part $(\partial Q)^\circ =(\overline{Q}\cap \overline{\R\setminus Q})^\circ =\R^\circ =\R.$
+\part If not, $(A\cup B)^\circ\neq \varnothing\Rightarrow \exists~x\in (A\cup B)^\circ.~\exists~r>0$ such that $B(x,r)\subseteq A\cup B.$\\
+If $B(x,r)\subseteq A$ or $B(x,r)\subseteq B$ then $A^\circ \neq \varnothing$ or $B^\circ \neq \varnothing\rightarrow \leftarrow$\\
+If $B(x,r)\nsubseteq A$ then $B(x,r)\cap (M\setminus A)\neq \varnothing.$ i.e. $\exists~y\in B(x,r)\cap (M\setminus A)\neq \varnothing.$ Since $A$ is closed, $M\setminus A$ is open. $\exists~r_1,~r_2>0$ such that $B(y,r_1)\subseteq B(x,r)$ and $B(y,r_2)\subseteq M\setminus A.$ Choose $\epsilon =\min\{r_1,r_2\}$ such that $B(y,\epsilon)\subseteq B(x,r)\cap (M\setminus A).$ Since $B(y,\epsilon)\subseteq B(x,r)\subseteq A\cup B$ and $B(y,\epsilon )\cap A=\varnothing.$ Then $B(y,\epsilon )\subseteq B\Rightarrow y\in B^\circ\rightarrow\leftarrow$\\
+Hence, $(A\cup B)^\circ =\varnothing.$\\
+Counterexample. Let $A=\Q$ and $B=\Q^c.$ Clearly, $A^\circ =B^\circ =\varnothing $ but $(A\cup B)^\circ =\R^\circ =\R.$ 
+\part $(\subseteq )$ Given $x\in \partial (A\cup B),~\forall~r>0$ such that $B(x,r)\cap (A\cup B)\neq \varnothing $ and $B(x,r)\cap (M\setminus (A\cup B))\neq \varnothing.$\\
+$\Rightarrow B(x,r)\cap A\neq \varnothing$ or $B(x,r)\cap B\neq \varnothing$ and $B(x,r)\cap A^c\cap B^c\neq \varnothing.$\\
+$\Rightarrow x\in \partial A$ or $x\in\partial B\Rightarrow x\in \partial A\cup \partial B.$\\
+$(\supseteq)$ Given $x\in \partial A\cup \partial B\Rightarrow x\in \overline{A}\cap \overline{M\setminus A}$ or $x\in \overline{B}\cap \overline{M\setminus B}.$ We may assume that $x\in \partial A$ (o.w consider the same argument)\\
+Claim: $x\in\partial (A\cup B).$ i.e. $x\in \overline{A\cup B}\cap \overline{M\setminus (A\cup B)}.$\\
+$\forall~r>0$ such that $B(x,r)\cap A\neq \varnothing$ and $B(x,r)\cap (M\setminus A)\neq \varnothing.$ Since $A\subseteq A\cup B,~B(x,r)\cap (A\cup B)\neq \varnothing\Rightarrow x\in \overline{A\cup B}.$\\
+Now, we prove that $x\in \overline{M\setminus (A\cup B)}.$ If not, $x\not\in \overline{M\setminus (A\cup B)}.$ i.e. $\exists~r_1>0$ such that $B(x,r_1)\cap (M\setminus A)\cap (M\setminus B)=\varnothing.$ Since $x\in \overline{A},~x\not\in \overline{B}\Rightarrow \exists~r_2>0$ such that $B(x,r_2)\subseteq (M\setminus B).$ Choose $r= \min\{r_1,r_2\}>0.$ Then we have
+$$B(x,r)\subseteq (M\setminus B)~\text{and}~B(x,r)\cap (M\setminus A)\cap (M\setminus B)=\varnothing.$$
+This implies $B(x,r)\cap (M\setminus A)=\varnothing\rightarrow\leftarrow $ Hence, we get $x\in \overline{M\setminus (A\cup B)}.$
+\end{parts}
+\end{solution}
+
+%%%%%%%
+\question %第二十九題%
+Prove the following three important inequalities:
+\begin{parts}
+\part {\bf{(Young)}} Let $a,b\geq 0$ and $p,q>0$ such that $\frac{1}{p}+\frac{1}{q}=1$. Then $$ab\leq\dfrac{a^p}{p}+\dfrac{b^q}{q}.$$
+\part {\bf{(H$\ddot{o}$lder)}} Let $x=(x_1,x_2,\cdots,x_n)$, $y=(y_1,y_2,\cdots,y_n)\in\R^n$, and $1<p,~q<\infty$ such that $\frac{1}{p}+\frac{1}{q}=1$. Then 
+$$\sum\limits_{j=1}^n|x_jy_j|\leq \Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}\Big(\sum\limits_{j=1}^n |y_j|^q\Big)^{1/q}.$$
+\part {\bf{(Minkowski)}} Let $x=(x_1,x_2,\cdots,x_n)$, $y=(y_1,y_2,\cdots,y_n)\in\R^n$, and $p\geq 1$. Then 
+$$\Big(\sum\limits_{j=1}^n |x_j+y_j|^p\Big)^{1/p}\leq\Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}+\Big(\sum\limits_{j=1}^n |y_j|^p\Big)^{1/p}.$$
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part We may assume that $a,~b>0$ (if $a=0$ or $b=0$ then inequality holds trivially) Given $a>0.$ Define the function 
+$$f:\R^+\rightarrow \R~\text{by}~f(x)=\dfrac{a^p}{p}+\dfrac{x^q}{q}-ax.$$
+Claim: $f(x)\geq 0~\forall~x\in\R^+.$ If we are done then since $a>0$ is arbitrary then the result follows.\\
+$f'(x)=x^{q-1}-a=0\Leftrightarrow x=a^\frac{1}{q-1}.$ Moreover, $f'(x)<0$ if $x<a^\frac{1}{q-1}$ and $f'(x)>0$ if $x>a^\frac{1}{q-1}.$ Hence, $x=a^\frac{1}{q-1}$ is a global minimum.
+Since $\frac{1}{p}+\frac{1}{q}=1,~\frac{1}{p}=\frac{q-1}{q}\Rightarrow \frac{p}{q}=\frac{1}{q-1}.$ Hence, $\forall~x\in\R^+,$
+$$f(x)\geq f(a^\frac{1}{q-1})=f(a^\frac{p}{q})=\dfrac{a^p}{p}+\dfrac{(a^\frac{p}{q})^q}{q}-aa^\frac{p}{q}=\dfrac{a^p}{p}+\dfrac{a^p}{q}-a^p=a^p-a^p=0.$$
+\part We may assume $x,~y\neq 0$ (o.w $x=0$ or $y=0$ then the inequality holds trivially)
+$$\sum\limits_{i=1}^n \dfrac{\abs{x_i}}{\norm{x}_p}\dfrac{\abs{y_i}}{\norm{y}_q}\leq \sum\limits_{i=1}^n[\dfrac{1}{p}(\dfrac{\abs{x_i}}{\norm{x}_p})^p+\dfrac{1}{q}(\dfrac{\abs{y_i}}{\norm{y}_q})^q]=\dfrac{1}{p}\dfrac{\sum\limits_{i=1}^n \abs{x_i}^p}{\norm{x}_p^p}+\dfrac{1}{q}\dfrac{\sum\limits_{i=1}^n \abs{y_i}^q}{\norm{y}_q^q}=\dfrac{1}{p}+\dfrac{1}{q}=1.$$
+Therefore,
+$$\sum\limits_{i=1}^n\abs{x_iy_i}\leq \norm{x}_p\norm{y}_q=\Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}\Big(\sum\limits_{j=1}^n |y_j|^q\Big)^{1/q}.$$
+\part
+If $p=1$ then the result trivially. If $1<p<\infty$ then choose $q=\frac{p}{p-1}\Rightarrow \frac{1}{p}+\frac{1}{q}=1.$ We may assume $\norm{x+y}_p>0$ (o.w $\norm{x+y}_p=0$ then the result holds trivially)
+\begin{align*}
+\norm{x+y}_p^p=\sum\limits_{j=1}^n |x_j+y_j|^p&\leq \sum\limits_{j=1}^n (\abs{x_j}+\abs{y_j})|x_j+y_j|^{p-1}\\
+&=\sum\limits_{j=1}^n \abs{x_j}|x_j+y_j|^{p-1}+\sum\limits_{j=1}^n \abs{y_j}|x_j+y_j|^{p-1}\\
+&\leq \Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}\Big(\sum\limits_{j=1}^n |x_j+y_j|^{(p-1)q}\Big)^{\frac{1}{q}}+\Big(\sum\limits_{j=1}^n |y_j|^p\Big)^{1/p}\Big(\sum\limits_{j=1}^n |x_j+y_j|^{q(p-1)}\Big)^{1/q}\\
+&=[\Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}+\Big(\sum\limits_{j=1}^n |y_j|^p\Big)^{1/p}]\Big(\sum\limits_{j=1}^n |x_j+y_j|^{p}\Big)^{1/q}
+\end{align*}
+$\Rightarrow \Big(\sum\limits_{j=1}^n |x_j+y_j|^{p}\Big)^{1/p}\leq \Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}+\Big(\sum\limits_{j=1}^n |y_j|^p\Big)^{1/p}.$
+\end{parts}
+\end{solution}
+
+%%%%%%%
+\question %第三十題%
+For $1\leq p \leq \infty$, write $x=(x_1,x_2,\cdots,x_n)\in\R^n$, define $p$-norm $||\cdot||_p:\R^n\to\R$ by
+\[
+||x||_p = \Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}\mbox{, if }1\leq p< \infty\mbox{, and }||x||_\infty = \max\limits_{1\leq j\leq n}|x_j|\mbox{, if }p=\infty.
+\]
+Show that $p$-norm is indeed a norm on $\R^n$, $1\leq p \leq \infty$.
+
+\end{questions}
+
+\begin{solution}
+$ $\newline
+For $p=1.$\\
+$\forall~x\in\R^n,~\norm{x}_1\geq 0$ and $\norm{x}_1=0\Leftrightarrow \sum\limits_{i=1}^n |x_i|=0\Leftrightarrow x_i=0~\forall~1\leq i\leq n\Leftrightarrow x=0.$\\
+$\forall~x\in\R^n,~\lambda\in\R,~\norm{\lambda x}_1=\sum\limits_{i=1}^n \abs{\lambda x_i}=\sum\limits_{i=1}^n\abs{\lambda}\abs{x_i}=\abs{\lambda}\sum\limits_{i=1}^n\abs{x_i}=\abs{\lambda}\norm{x}_1.$\\
+$\forall~x,~y\in\R^n,~\norm{x+y}_1=\sum\limits_{i=1}^n \abs{x_i+y_i}\leq \sum\limits_{i=1}^n\abs{x_i}+\sum\limits_{i=1}^n\abs{y_i}=\norm{x}_1+\norm{y}_1.$\\
+For $p=\infty.$\\
+$\forall~x\in\R^n,~\norm{x}_\infty\geq 0$ and $\norm{x}_\infty=0\Leftrightarrow \max\limits_{1\leq i\leq n}\abs{x_i}=0\Leftrightarrow x_i=0~\forall~1\leq i\leq n\Leftrightarrow x=0.$\\
+$\forall~x\in\R^n,~\lambda\in\R,~\norm{\lambda x}_\infty=\max\limits_{1\leq i\leq n}\abs{\lambda x_i}=\abs{\lambda}\max\limits_{1\leq i\leq n}\abs{x_i}=\abs{\lambda}\norm{x}_\infty.$\\
+$\forall~x,~y\in\R^n,~\norm{x+y}_\infty=\max\limits_{1\leq i\leq n}\abs{x_i+y_i}\leq \max\limits_{1\leq i\leq n}\abs{x_i}+\max\limits_{1\leq i\leq n}\abs{y_i}=\norm{x}_\infty+\norm{y}_\infty.$\\
+For $1<p<\infty.$\\
+$\forall~x\in\R^n,~\norm{x}_p\geq 0$ and $\norm{x}_p=0\Leftrightarrow \Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}=0\Leftrightarrow x_i=0~\forall~1\leq i\leq n\Leftrightarrow x=0.$\\
+$\forall~x\in\R^n,~\lambda\in\R,~\norm{\lambda x}_p=\Big(\sum\limits_{j=1}^n |\lambda x_j|^p\Big)^{1/p}=\abs{\lambda}\Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}=\abs{\lambda}\norm{x}_p.$\\
+$\forall~x,~y\in\R^n,~\norm{x+y}_p=\Big(\sum\limits_{j=1}^n |x_j+y_i|^p\Big)^{1/p}\leq \Big(\sum\limits_{j=1}^n |x_j|^p\Big)^{1/p}+\Big(\sum\limits_{j=1}^n |y_j|^p\Big)^{1/p}=\norm{x}_p+\norm{y}_p$ (by Minkowski)
+\end{solution}
+
+
+\end{document}

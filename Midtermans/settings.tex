@@ -1,4 +1,4 @@
-\documentclass[12pt,reqno,a4paper]{amsart}
+\documentclass[12pt,reqno]{amsart}
 %\usepackage[margin=1in]{geometry}
 \usepackage{tcolorbox}
 \usepackage{amssymb}
@@ -30,10 +30,8 @@
 
 \linespread{1.2}
 \parindent = 0pt
-
+\pagestyle{fancy}
 \setlength{\parindent}{0pt}
-
-\pagestyle{plain}
 %\everymath{\displaystyle}
 %new area
 %\usepackage[utf8]{inputenc}
@@ -41,23 +39,15 @@
 %\xeCJKsetup{AutoFakeBold=true, AutoFakeSlant=true}
 
 % 設定頭部
-%\fancyhead[L]{QSnake Edition} % 左邊頭部清空
-%\fancyhead[C]{} % 中間頭部清空
-%\fancyhead[R]{} % 右邊頭部顯示頁碼
+\fancyhead[L]{Midterm} % 左邊頭部清空
+\fancyhead[C]{} % 中間頭部清空
+\fancyhead[R]{} % 右邊頭部顯示頁碼
 
 % Adjust the footer as desired:
-%\fancyfoot[L]{} % Left footer: Empty.
-%\fancyfoot[C]{\thepage} % Center footer: Empty.
-%\fancyfoot[R]{} % Right footer: Empty.
+\fancyfoot[L]{} % Left footer: Empty.
+\fancyfoot[C]{\thepage} % Center footer: Empty.
+\fancyfoot[R]{} % Right footer: Empty.
 
-%\fancypagestyle{plain}{%
-%  \fancyhf{} % 清除所有頁眉和頁腳
-%  \fancyfoot[C]{\thepage} % 中間頁腳顯示頁碼
-%  \renewcommand{\headrulewidth}{0pt} % 移除頁眉線
-%  \renewcommand{\footrulewidth}{0pt} % 移除頁腳線
-%}
-
-%\pagestyle{fancy}
 
 
 % we will modify sections, subsections and sub subsections

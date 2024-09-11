@@ -1,0 +1,166 @@
+\documentclass
+%[answers]
+{exam}
+\usepackage{mathrsfs}  
+\usepackage{xeCJK}
+\setCJKmainfont{標楷體}
+\XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt %這兩行是texWorks範例中所缺少的。
+%\usepackage[top=2cm,bottom=3cm,right=3cm,left=3.5cm]{geometry}
+\usepackage[a4paper, margin = 2cm]{geometry}
+%\geometry{a4paper,margin=1in, bindingoffset=0.5in}
+%版面
+\usepackage{wallpaper}
+\CenterWallPaper{.180}{../qsnake-logo.jpg}
+\usepackage{
+%amsthm, 
+amsmath, amssymb, multicol}
+\usepackage{tasks}
+\usepackage{enumerate}
+\usepackage{colortbl}
+\usepackage{nopageno}
+\addpoints
+\thispagestyle{empty}
+\pointname{ pts}
+\newcommand{\ra}{\Rightarrow}
+\newcommand{\hs}{\hspace{1em}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\abs[1]{\left\lvert#1 \right\rvert}
+
+\title{{\Huge{Advanced Calculus}}}
+\author{Exercise 1 (Chapter 1 and 2)}
+\date{}
+\begin{document}
+\maketitle
+\begin{questions}
+%%%%%%%
+\question
+\begin{parts}
+\part If $r,s\in \Q$ then $r+s$ and $rs$ are rational.
+\part If $r\in \Q$ with $r\neq 0$ and $x\in \R\setminus \Q,$ then $r+x$ and $rx$ are irrational.
+\end{parts}
+
+
+%%%%%%% 
+\question
+\begin{parts}
+\part Show that $\mathbb{N}$ is unbounded above.
+\part Show that for any real number $x$, there exists a positive integer $n$ such that $n>x$.
+\part Using (b) to prove the following {\bf{Archimedean property}}: 
+
+If $x>0$ and $y\in\R$, then there exists a positive integer $n$ such that $nx>y$.
+\part Using (c) to prove the denseness of $\mathbb{Q}$ in $\R$:
+
+Let $a<b\in\R$ be distinct real numbers, then there exists a rational number $q\in\mathbb{Q}$ such that $a<q<b$.
+\end{parts}
+
+
+
+%%%%%%% 
+\question
+Let $A,B$ be two nonempty sets of $\R$.
+\begin{parts}
+\part Show that $\inf A\leq \sup A$.
+\part Show that $\inf(-A)= -\sup A$ and $\sup(-A) = - \inf(A)$, where
+$-A=\{-a~|a\in A\}$.
+\part If $A$, $B$ be two sets of positive numbers which is bounded above.\\
+Let $a=\sup A$, $b=\sup B$ and $C=\{ab~|a\in A,b\in B \}$. Prove that $\sup C =ab$.
+\end{parts}
+
+%%%%%%% 
+\question
+Prove or disprove the following statement by given a counterexample:
+\begin{parts}
+\part $\sup(A\cap B)\leq \inf\{\sup A, \sup B\}$.
+\part $\sup(A\cap B)= \inf\{\sup A, \sup B\}$.
+\part $\sup(A\cap B)\geq \sup\{\sup A, \sup B\}$.
+\part $\sup(A\cap B)= \sup\{\sup A, \sup B\}$.
+\end{parts}
+
+%%%%%%% 
+\question
+Let $A,B\subseteq\R$ such that $\sup A=\sup B $ and $\inf A=\inf B$. Does $A=B$?
+
+
+%%%%%%% 
+\question
+Prove the following three important inequalities:
+\begin{parts}
+\part \textbf{(Young)} Let $a,b \geq 0$ and $p,q > 0$ such that $\frac{1}{p} + \frac{1}{q} = 1$. Then
+
+$$ab \leq \frac{a^p}{p}+\frac{b^q}{q}$$
+\part \textbf{(H\"older)} Let $x = (x_1,x_2,\cdots,x_n),y = (y_1,y_2,\cdots,y_n) \in \R^n$, and $1 < p,q < \infty$ such that $\frac{1}{p} + \frac{1}{q} = 1.$ Then
+
+$$\sum^n_{j=1}|x_jy_j| \leq \left( \sum^n_{j=1}|x_j|^p \right)^{1/p}\left( \sum^n_{j=1}|y_j|^q \right)^{1/q}$$
+\part \textbf{(Minkowski)} Let $x = (x_1,x_2,\cdots,x_n),y=(y_1,y_2,\cdots,y_n) \in \R^n$, and $p \geq 1$. Then
+
+$$\left( \sum^n_{j=1}|x_j + y_j|^p \right)^{1/p} \leq \left( \sum^n_{j=1}|x_j|^p \right)^{1/p} + \left( \sum^n_{j=1}|y_j|^p \right)^{1/p}$$
+\end{parts}
+
+%%%%%%%
+\question
+Prove the following statements of \textbf{De Morgan's Laws}: Let \( A_1, A_2, \ldots, A_n \) be a collection of sets. Then
+
+\begin{tasks}(2)
+\task[(a)] $\left( \bigcup_{i=1}^{n} A_i \right)^c = \bigcap_{i=1}^{n} A_i^c$
+\task[(b)] $\left( \bigcap_{i=1}^{n} A_i \right)^c = \bigcup_{i=1}^{n} A_i^c$
+\end{tasks}
+
+%%%%%%%
+\question %Apostol 2.6-2.7%
+Let $f:X\rightarrow Y$ be a function. If $B\subseteq Y,$ we denote by $f^{-1}(B)$ the largest subset of $X$ which $f$ maps into $B.$ That is,
+$$f^{-1}(B)=\{x\in X~|~f(x)\in B\}$$
+The set $f^{-1}(B)$ is called the {\bf{inverse image}} of $B$ under $f.$ Prove the following for arbitrary $A,A_1,A_2\subseteq X$ and $B,B_1,B_2\subseteq Y.$
+\begin{parts}
+\part $f(A_1\cup A_2)=f(A_1)\cup f(A_2).$
+\part $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2).$ Given an example such that the inclusion is strict.
+\part $A\subseteq f^{-1}[f(A)]$ and $f[f^{-1}(B)]\subseteq B.$ Given an example such that the inclusion is strict.
+\part $f^{-1}(B_1\cup B_2)=f^{-1}(B_1)\cup f^{-1}(B_2)$ and $f^{-1}(B_1\cap B_2)=f^{-1}(B_1)\cap f^{-1}(B_2).$
+\end{parts}
+
+
+%%%%%%%
+\question %Apostol 2.2
+Let $S$ be a relation and let $\mathscr{D}(S)$ be its domain. The relation $S$ is said to be
+
+\begin{enumerate}[i)]
+	\item \textit{reflexive} if $a \in \mathscr{D}(S)$ implies $(a,a) \in S$
+	\item \textit{symmetric} if $(a,b) \in S$ implies $(b,a) \in S$,
+	\item \textit{transitive} if $(a,b) \in S$ and $(b,c) \in S$ implies $(a,c) \in S$.
+\end{enumerate}
+
+A relation which is symmetric, reflexive, and transitive is called an equivalence relation.
+
+Determine which of these properties is possessed by $S$, if $S$ is the set of all pairs of real numbers $(x,y)$ such that
+
+\begin{tasks}(3)
+	\task $x \leq y$,
+	\task $x < y$,
+	\task $x < |y|$,
+	\task $x^2 + y^2 = 1$,
+	\task $x^2 + y^2 < 0$,
+	\task $x^2 + x = y^2 + y$.
+\end{tasks}
+
+%%%%%%%
+\question %Apostol 2.18
+Let $S$ be the collection of all sequences whose terms are the integers $0$ and $1$. Show that $S$ is uncountable.
+
+%%%%%%%
+\question %Apostol 2.22
+Let $S$ denote the collection of all subsets of a given set $T$. Let $f: S \rightarrow \R$ be a real-valued function defined on $S$. The function $f$ is called \textit{additive} if $f(A \cup B) = f(A) + f(B)$ whenever $A$ and $B$ are disjoint subsets of $T$. If $f$ is additive, prove that for any two subsets $A$ and $B$ we have:
+
+\begin{parts}
+	\part $f(A \cup B) = f(A) + f(B - A)$
+	\part $f(A \cup B) = f(A) + f(B) - f(A \cap B)$
+\end{parts}
+
+\end{questions}
+\end{document}

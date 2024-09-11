@@ -1,0 +1,58 @@
+\input{../settings}
+\begin{document}
+
+\title{LA Cheat Sheet Nov week 3}
+
+\author{QSnack (piece of cake) Edition}
+
+\maketitle
+
+%\section*{Probability Lecture 1}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+%\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\begin{defn}
+	Let $\beta = \{ u_1, u_2, \cdots, u_n\}$ be a basis for FDVS $V$. For $x \in V$, let $a_1,a_2,\cdots,a_n$ be the unique scalars $\ni$
+	
+	$$x = \sum^n_{i=1}a_iu_i$$
+	
+	the coordinate vector of $x$ relative to $\beta$, denoted $[x]_{\beta}$, by
+	
+	$$[x]_{\beta} = \left(
+	\begin{matrix}
+	a_1 \\ a_2 \\ \vdots \\ a_n
+	\end{matrix}
+	\right)$$
+	
+\end{defn}
+
+\begin{defn}
+	$V$ and $W$ are FDVS with basis $\beta = \{v_1,v_2,\cdots,v_n\}$ and $\gamma = \{w_1,w_2,\cdots,w_m\}$, respectively. Let $T: V \rightarrow W$ be linear. Then for each $j, 1 \leq j \leq n$, there exist unique scalars $a_{ij} \in F, 1 \leq i \leq m, \ni$
+	
+	$$T(v_j) = \sum^m_{i = 1} a_{ij}w_{i} \vspace{10pt} \text{for } 1 \leq j \leq n$$
+	
+	Let $A_{ij} = a_{ij}$, the matrix $A = [T]^{\gamma}_{\beta}$ is call the matrix representation of $T$ in the ordered bases $\beta$ and $\gamma$. If $V = W$ and $\beta = \gamma$, then we write $A = [T]_{\beta}$
+\end{defn}
+
+\begin{thm*}
+	Let $V$ and $W$ be FDVS with basis $\beta$ and $\gamma$, respectively, and let $T,U: V \rightarrow W$ be linear transformations. Then
+	
+\begin{enumerate}
+	\item[(a)] $[T + U]^{\gamma}_{\beta} = [T]^{\gamma}_{\beta} + [U]^{\gamma}_{\beta}$
+	\item[(b)] $[aT]^{\gamma}_{\beta} = a[T]^{\gamma}_{\beta}$ for all scalars $a$.	
+\end{enumerate}		
+	
+\end{thm*}
+
+
+
+
+
+
+
+
+
+
+\end{document}

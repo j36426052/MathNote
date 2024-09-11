@@ -1,0 +1,209 @@
+\input{../settings}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\begin{document}
+
+\title{Some Result}
+\author{KANG,WEI-HSIANG}
+\date{}
+
+\maketitle
+
+\subsection*{1. When n=1}$ $
+
+$f_1(p) = (1-p)^9 + 3p(1-p)^8$
+
+$g_1(p) = 2p(1-p)^8 + 2p^2(1-p)^7$
+
+$h_1(p) = 3p^2(1-p)^7$
+
+$t_1(p) = 2p^3(1-p)^6$
+
+\textbf{Ratios}
+
+$\alpha_1(p)=\frac{g_1(p)}{f_1(p)} = \frac{2pq + 2p^2}{q^2+3pq} = \frac{2p}{q(1+2p)} = \frac{2p}{(1-p)(1+2p)}$
+
+$\beta_1(p)=\frac{h_1(p)}{g_1(p)}=\frac{3p}{2q+2p}=\frac{3p}{2}$
+
+$\gamma_1(p)=\frac{t_1(p)}{h_1(p)}=\frac{2p}{3q}$
+
+Note: $q = (1-p)$
+
+\textbf{Difference}
+
+$\tilde{\epsilon_1}(p) = \alpha_1(p)-\beta_1(p)=\frac{2p}{q(1+2p)}-\frac{3p}{2} 
+= \frac{4p}{2q(1+2p)} - \frac{3pq(1+2p)}{2q(1+2p)} = \frac{p}{q}(\frac{4-3q-6pq}{2+4p})
+= \frac{p}{q}(\frac{6p^2-3p+1}{2+4p})$
+
+$\tilde{\epsilon'_1}(p) = \beta_1(p) - \gamma_1(p) = \frac{3p}{2} - \frac{2p}{3q}
+= \frac{9pq - 4p}{6q} = \frac{p}{q}\frac{9q-4}{6}=\frac{p}{q}\frac{5-9p}{6}$
+
+
+$\tilde{\epsilon_1}(p) + \tilde{\epsilon'_1}(p) = \alpha_1(p)-\gamma_1(p) = \frac{2p}{q(1+2p)} - \frac{2p}{3q} 
+= \frac{6p - 2p(1+2p)}{3q(1+2p)} = \frac{6p - 2p - 4p^2}{3q(1+2p)} = \frac{p}{q}\frac{4q}{3(1+2p)}$
+
+Define $c_p = \frac{q}{p}$
+
+$\epsilon_1 = c_p(\alpha_1(p) - \beta_1(p)) = \frac{6p^2 - 3p + 1}{2 + 4p}$
+
+$\epsilon_1' = c_p(\beta_1(p) - \gamma_1(p)) = \frac{5-9p}{6}$
+
+$\epsilon_1(p) + \epsilon_1'(p) = c_p(\alpha_1(p) - \gamma_1(p)) = \frac{4q}{3(1+2p)}$
+
+\subsection*{2. Iterated}$ $
+
+In this section, we shorten the notation of $(p)$, like $f_k(p)$ denote $f_k$
+
+$f_{k+1} = f_k^3 + 6_k^2g_k + 3f_k^2h_k + 9f_kg_k^2 + 6f_kg_kh_k + 2g_k^3$
+
+$g_{k+1} = f_k^2g_k + 4f_kg_k^2 + 2f_k^2h_k + f_k^2t_k + 8f_kg_kh_k + 3g_k^3 + 2f_kg_kt_k + 2f_kh_k^2 + 4g_k^2h_k$
+
+$h_{k+1} = f_kg_k^2 + 4f_kg_kh_k + 2g_k^3 + 2f_kg_kt_k + 7g_k^2h_k + 3f_kh_k^2 + 2g_k^2t_k + 4g_kh_k^2 + 2f_kh_kt_k$
+
+$t_{k+1} = g_k^3 + 6g_k^2h_k + 3g_k^2t_k + 9g_kh_k^2 + 6g_kh_kt_k + 2h_k^3$
+
+\textbf{Ratios}
+
+$\alpha_{n+1} = \alpha_n\frac{B_n}{A_n}$, $\beta_{n+1} = \alpha_n\frac{C_n}{B_n}$, $\gamma_{n+1} = \alpha_n\frac{D_n}{C_n}$
+
+$A_n = 1 + 6\alpha_n + 3\alpha_n\beta_n + 9\alpha_n^2 + 6\alpha_n^2\beta_n + 2\alpha_n^3$
+
+$B_n = 1 + 4\alpha_n + 2\beta_n + \beta_n\gamma_n + 8\alpha_n\beta_n + 3\alpha_n^2 + 2\alpha_n\beta_n\gamma_n + 2\alpha_n\beta_n^2 + 4\alpha_n^2\beta_n$
+
+$C_n = 1 + 2\alpha_n + 4\beta_n + 2\beta_n\gamma_n + 7\alpha_n\beta_n + 3\beta_n^2 + 2\alpha_n\beta_n\gamma_n + 4\alpha_n\beta_n^2 + 2\beta_n^2\gamma_n$
+
+
+$D_n = 1 + 6\beta_n + 3\beta_n\gamma_n + 9\beta_n^2 + 6\beta_n\gamma_n + 2\beta_n^3$
+
+\newpage
+
+\textbf{Difference}
+
+\begin{align*}
+\tilde{\epsilon}_{n+1} &= \alpha_{n+1} - \beta_{n+1} = \alpha_n\left( \frac{B_n}{A_n} - \frac{C_n}{B_n} \right) = \frac{\alpha_n}{A_nB_n}\left( B_n^2 - A_nC_n \right)\\
+&= \frac{1}{A_nB_n}\left[ 
+\begin{array}{l}
+\tilde{\epsilon}_n^2
+(4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 2\alpha^2\beta^2 + 5\alpha^3
++ 7\alpha_n^2\beta_n + \alpha_n\beta_n^2 + 4\alpha_n^2 + 2\alpha_n\beta_n + \alpha_n)+\\
+\tilde{\epsilon}_n\tilde{\epsilon}_n'
+(4\alpha_n^4\beta_n + 4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 6\alpha_n^2\beta_n^2+
+8\alpha_n^2\beta_n + 2\alpha_n\beta_n^2 + 2\alpha_n\beta_n)+\\
+\tilde{\epsilon}_n'^2
+(4\alpha_n^3\beta_n^2 + 4\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]
+\end{align*}
+
+\begin{align*}
+\tilde{\epsilon'}_{n+1} &= \beta_{n+1} - \gamma_{n+1} = \alpha_n\left( \frac{C_n}{B_n} - \frac{D_n}{C_n} \right) = \alpha_n\left( \frac{C_n^2 - B_nD_n}{B_nC_n} \right)\\
+&= \frac{1}{B_nC_n}\left[
+\begin{array}{l}
+\tilde{\epsilon}_n^2
+(4\alpha_n\beta_n^4 + 12\alpha_n\beta_n^3 + 13\alpha_n\beta_n^2 + 
+6\alpha_n\beta_n + \alpha_n)+\\
+\tilde{\epsilon}_n\tilde{\epsilon}_n'
+(4\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n - 8\alpha_n\beta_n^4 + 
+18\alpha_n\gamma_n^3 + 2\alpha_n^2\beta_n^2 + 9\alpha_n\beta_n^2 +
+\alpha_n^2\beta_n + 2\alpha_n\beta_n)+\\
+\tilde{\epsilon}_n'^2
+(4\alpha_n\beta_n^4 + 2\alpha_n\beta_n^3 + 2\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]
+\end{align*}
+
+\begin{align*}
+\tilde{\epsilon}_{n+1} + \tilde{\epsilon}_{n+1}' &= \alpha_{n+1} - \gamma_{n+1} = 
+\alpha_{n}\left( \frac{B_n}{A_n} - \frac{D_n}{C_n} \right) = 
+\alpha_n\left( \frac{B_nC_n - A_nD_n}{A_nC_n} \right)\\
+&= \frac{\alpha_n}{A_nC_n}(2\alpha_n + 1)(\alpha_n^2 + 3\alpha_n\beta_n + 4\alpha_n + 1)\\
+&\quad (4\alpha_n\beta_n^2 + 2\alpha_n\beta_n\gamma_n - 2\beta_n^3 - 4\beta_n^2\gamma_n + 7\alpha_n\beta_n - 6\beta_n^2 - \beta_n\gamma_n + 2\alpha_n - 2\beta_n)\\
+&= \frac{\alpha_n}{A_nC_n}(2\alpha_n + 1)(\alpha_n^2 + 3\alpha_n\beta_n + 4\alpha_n + 1)\\
+&\quad [2\beta_n^2\tilde{\epsilon}_n + 2\beta_n^2(\tilde{\epsilon}_n+\tilde{\epsilon}_n') + 2\beta_n\gamma_n\tilde{\epsilon}_n +
+6\beta_n\tilde{\epsilon}_n + \beta_n(\tilde{\epsilon}_n + \tilde{\epsilon}_n') + 2\tilde{\epsilon}_n] \hspace{10cm} \\
+&= \frac{\alpha_n}{A_nC_n}(2\alpha_n + 1)(\alpha_n^2 + 3\alpha_n\beta_n + 4\alpha_n + 1)\\
+&\quad [\tilde{\epsilon}_n(2\beta_n^2 + 2\beta_n\gamma_n + 6\beta_n + 2)+(\tilde{\epsilon}_n+\tilde{\epsilon'}_n)(2\beta_n^2 + \beta_n)]
+\end{align*}
+
+\newpage
+
+\begin{align*}
+A_nB_n =& 8 \alpha_n^{5} \beta_n + 28 \alpha_n^{4} \beta_n^{2} + 4 \alpha_n^{4} \beta_n \gamma_n + 12 \alpha_n^{3} \beta_n^{3} + 12 \alpha_n^{3} \beta_n^{2} \gamma_n \\
+ &+ 6 \alpha_n^{5} + 70 \alpha_n^{4} \beta_n + 78 \alpha_n^{3} \beta_n^{2} + 20 \alpha_n^{3} \beta_n \gamma_n + 6 \alpha_n^{2} \beta_n^{3} + 12 \alpha_n^{2} \beta_n^{2} \gamma_n \\
+ &+ 35 \alpha_n^{4} + 133 \alpha_n^{3} \beta_n + 48 \alpha_n^{2} \beta_n^{2} + 21 \alpha_n^{2} \beta_n \gamma_n + 3 \alpha_n \beta_n^{2} \gamma_n \\
+ &+ 56 \alpha_n^{3} + 88 \alpha_n^{2} \beta_n + 8 \alpha_n \beta_n^{2} + 8 \alpha_n \beta_n \gamma_n + 36 \alpha_n^{2} + 23 \alpha_n \beta_n + \beta_n \gamma_n + 10 \alpha_n + 2 \beta_n + 1 
+\end{align*}
+
+\begin{align*}
+B_nC_n =& 16 \alpha_n^{3} \beta_n^{3} + 8 \alpha_n^{3} \beta_n^{2} \gamma_n + 8 \alpha_n^{2} \beta_n^{4} \\
+&+ 20 \alpha_n^{2} \beta_n^{3} \gamma_n + 4 \alpha_n^{2} \beta_n^{2} \gamma_n^{2} + 4 \alpha_n \beta_n^{4} \gamma_n + 4 \alpha_n \beta_n^{3} \gamma_n^{2} + 40 \alpha_n^{3} \beta_n^{2} + 6 \alpha_n^{3} \beta_n \gamma_n + 58 \alpha_n^{2} \beta_n^{3} + 44 \alpha_n^{2} \beta_n^{2} \gamma_n\\
+&+ 6 \alpha_n \beta_n^{4} + 30 \alpha_n \beta_n^{3} \gamma_n + 6 \alpha_n \beta_n^{2} \gamma_n^{2} + 2 \beta_n^{3} \gamma_n^{2} \\
+&+ 29 \alpha_n^{3} \beta_n + 101 \alpha_n^{2} \beta_n^{2} + 18 \alpha_n^{2} \beta_n \gamma_n + 40 \alpha_n \beta_n^{3} \\
+&+ 43 \alpha_n \beta_n^{2} \gamma_n + 7 \beta_n^{3} \gamma_n + 2 \beta_n^{2} \gamma_n^{2} + 6 \alpha_n^{3} + 60 \alpha_n^{2} \beta_n + 64 \alpha_n \beta_n^{2} + 14 \alpha_n \beta_n \gamma_n + 6 \beta_n^{3} + 10 \beta_n^{2} \gamma_n \\
+&+ 11 \alpha_n^{2} + 35 \alpha_n \beta_n + 11 \beta_n^{2} + 3 \beta_n \gamma_n + 6 \alpha_n + 6 \beta_n + 1
+\end{align*}
+
+
+\begin{align*}
+\epsilon_{n+1} &= c_p(\alpha_{n+1} - \beta_{n+1}) = c_p\alpha_n\left( \frac{B_n}{A_n} - \frac{C_n}{B_n} \right) = \frac{c_p\alpha_n}{A_nB_n}\left( B_n^2 - A_nC_n \right)
+= c_p\tilde{\epsilon}_{n+1}\\
+&= \frac{c_p}{A_nB_n}
+\left[ 
+\begin{array}{l}
+\tilde{\epsilon}_n^2
+(4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 2\alpha^2\beta^2 + 5\alpha^3
++ 7\alpha_n^2\beta_n + \alpha_n\beta_n^2 + 4\alpha_n^2 + 2\alpha_n\beta_n + \alpha_n)+\\
+\tilde{\epsilon}_n\tilde{\epsilon}_n'
+(4\alpha_n^4\beta_n + 4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 6\alpha_n^2\beta_n^2+
+8\alpha_n^2\beta_n + 2\alpha_n\beta_n^2 + 2\alpha_n\beta_n)+\\
+\tilde{\epsilon}_n'^2
+(4\alpha_n^3\beta_n^2 + 4\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]\\
+&= \frac{1}{c_pA_nB_n}
+\left[ 
+\begin{array}{l}
+\epsilon_n^2
+(4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 2\alpha^2\beta^2 + 5\alpha^3
++ 7\alpha_n^2\beta_n + \alpha_n\beta_n^2 + 4\alpha_n^2 + 2\alpha_n\beta_n + \alpha_n)+\\
+\epsilon_n\epsilon_n'
+(4\alpha_n^4\beta_n + 4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 6\alpha_n^2\beta_n^2+
+8\alpha_n^2\beta_n + 2\alpha_n\beta_n^2 + 2\alpha_n\beta_n)+\\
+\epsilon_n'^2
+(4\alpha_n^3\beta_n^2 + 4\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]\\
+&= \frac{1}{A_nB_n}
+\left[
+\begin{array}{l}
+\epsilon_n 
+( 4\alpha_n^4\beta_n^2 - 4\alpha_n^3\beta_n^3 + 10\alpha_n^4\beta_n - 8\alpha_n^3\beta_n^2 + 2\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n \\
++ 5\alpha_n^4 + 2\alpha_n^3\beta_n - 6\alpha_n^2\beta_n\gamma_n - \alpha_n\beta_n^2\gamma_n + 4\alpha_n^3 - 2\alpha_n^2\beta_n - 2\alpha_n\beta_n\gamma_n + \alpha_n^2 - \alpha_n\beta_n ) + \\
+\epsilon_n'
+(4\alpha_n^5\beta_n - 4\alpha_n^3\beta_n^2\gamma_n + 10\alpha_n^4\beta_n - 8\alpha_n^3\beta_n^2 + 2\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n \\
++ 2\alpha_n^3\beta_n - \alpha_n\beta_n^2\gamma_n - \alpha_n^2\beta_n^2 )
+\end{array}\right]
+\end{align*}
+
+\begin{align*}
+\epsilon'_{n+1} &= c_p(\beta_{n+1} - \gamma_{n+1}) = c_p\alpha_n\left( \frac{C_n}{B_n} - \frac{D_n}{C_n} \right) = c_p\alpha_n\left( \frac{C_n^2 - B_nD_n}{B_nC_n} \right)\\
+&= \frac{1}{c_pB_nC_n}\left[
+\begin{array}{l}
+\epsilon_n^2
+(4\alpha_n\beta_n^4 + 12\alpha_n\beta_n^3 + 13\alpha_n\beta_n^2 + 
+6\alpha_n\beta_n + \alpha_n)+\\
+\epsilon_n\epsilon_n'
+(4\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n - 8\alpha_n\beta_n^4 + 
+18\alpha_n\gamma_n^3 + 2\alpha_n^2\beta_n^2 + 9\alpha_n\beta_n^2 +
+\alpha_n^2\beta_n + 2\alpha_n\beta_n)+\\
+\epsilon_n'^2
+(4\alpha_n\beta_n^4 + 2\alpha_n\beta_n^3 + 2\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]\\
+&= \frac{1}{B_nC_n}\left[
+\begin{array}{l}
+\epsilon_n(4\alpha_n^2\beta_n^4 - 4\alpha_n\beta_n^3\gamma_n^2 + 14\alpha_n^2\beta_n^3 - 12\alpha_n\beta_n^3\gamma_n - 2\alpha_n^2\beta_n^2\gamma_n \\
+- 12\alpha_n\beta_n^3 - \alpha_n\beta_n^2\gamma_n + 13\alpha_n^2\beta_n^2 - 2\alpha_n\beta_n\gamma_n + 6\alpha_n^2\beta_n - 4\alpha_n\beta_n^2 + \alpha_n^2 - \alpha_n\beta_n) + \\
+\epsilon_n' (4\alpha_n^3\beta_n^3 - 4\alpha_n^3\beta_n^2\gamma_n + 14\alpha_n^2\beta_n^3 - 2\alpha_n\beta_n^3\gamma_n - 10\alpha_n^2\beta_n^3 \\
+- 2\alpha_n^2\beta_n^2\gamma_n - 7\alpha_n\beta_n^3 - \alpha_n\beta_n^2\gamma_n + \alpha_n^3\beta_n + 7\alpha_n^2\beta_n^2)
+\end{array}\right]\\
+\end{align*}
+
+
+\end{document}

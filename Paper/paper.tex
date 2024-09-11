@@ -1,0 +1,325 @@
+\input{../settings}
+
+\usepackage{tikz}
+\usetikzlibrary{lindenmayersystems}
+
+% 其他可能需要的包
+\usepackage{parskip}
+\setlength{\parskip}{1em}  % 設置段落之間的間距
+\setlength{\parindent}{20pt} % 設置段落縮排為 0
+\usepackage{amsmath}
+\usepackage{xeCJK}  % 使用 xeCJK 替代 CJKutf8
+\usepackage[a4paper,margin=1in]{geometry}
+\newtheorem{define}{Definition}
+\newtheorem{lemma}{Lemma}
+
+% 設置中文字體（請根據您系統中可用的字體進行調整）
+\setCJKmainfont{SimSun}  % 或其他適合的中文字體
+
+% 設置頁面邊距
+%\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
+
+% Sierpinski 三角形的定義
+\pgfdeclarelindenmayersystem{Sierpinski triangle}{
+    \symbol{X}{\pgflsystemdrawforward}
+    \symbol{Y}{\pgflsystemdrawforward}
+    \rule{X -> X-Y+X+Y-X}
+    \rule{Y -> YY}
+}
+
+\begin{document}
+
+\title{Some Result}
+\author{KANG,WEI-HSIANG}
+\date{}
+
+\maketitle
+
+\subsection*{Abstract}
+
+{\color{blue} maybe later}
+
+% Maybe the last one 
+
+\subsection*{1. Introduction}
+
+{\color{blue} maybe later}
+
+% Maybe the last one 
+
+\subsection*{2. Preliminaries}
+
+% Read the associated paper and expand the entropy
+
+Some definition of graph, {\color{red}some text here}
+
+Symbolic dynamic and it's entropy, {\color{red}some text here}
+
+Construct Sierpinski gasket, {\color{red}some text here}
+
+Concept of percolation, {\color{red}some text here}, {\color{blue} maybe later}
+
+Let us denote the number of edges of $SG_n$ by $|V_n|$, which is equal to $3^{n+1}$ for any $n \geq 0$. To define generalized model, we first consider the graph $SG_n$, with $\mathscr{A}_{\mathscr{M}} = \{0,1,2, \ldots,\mathscr{M}\}$ for a fixed positive integer $\mathscr{M} \geq 1$, and $\mathscr{F} = 00$. A symbol $x \in \{0,1,2,\ldots,\mathscr{M}\}$ is assigned to each vertex uniformly and independently. For each configuration, the probability distribution is 
+$$p^{\text{the number of vertex with symbol 0}} \times (1-p)^{\text{the number of vertex with any symbol but 0}}$$ 
+where $p:=\frac{1}{\mathscr{M}+1}\in (0,\frac{1}{2}]$ is the probability that any edge has the symbol $0$, and
+\begin{center}
+the number of $\mathscr{A}^{SG_n}_{\mathscr{F}} 
+= \sum\limits_{C \in \mathscr{A}^{SG_n}_{\mathscr{F}}}\mathscr{M}^{I_0^C} 
+= (\mathscr{M} + 1)^{|V_n|}\sum\limits_{C \in \mathscr{A}^{SG_n}_{\mathscr{F}}}
+p^{|V_n|-I_0^C} \times (1 - p)^{I_0^C}$
+\end{center}
+where $I_0^C$ is the number of edge of a configuration $C \in \mathscr{A}^{SG_n}_{\mathscr{F}}$ that does not have the symbol $0$.
+
+Note that the range of $p$ may be relaxed and not only in $(0,\frac{1}{2}]$ for other consideration. For example, if $\mathscr{F} = \{ij:i,j \in \{1,2,\ldots,\mathscr{M}\}\}$, and $p$ is the probability that each edge of $SG(n)$ with a symbol in $\{1,2,\ldots,\mathscr{M}\}$, then $p = \frac{\mathscr{M}}{\mathscr{M}+1} \in [\frac{1}{2},1)$.
+
+We now consider a more general model such that the probability $p$ is independent of $\mathscr{M}$ and in general can be any value in $(0,1)$, namely, it is not uniform distribution. Let $\mathscr{A}_{\mathscr{M}}$ be a set of symbol and given a subset $\mathscr{S}$ of $\mathscr{A}_{\mathscr{M}}$. Let $\mathscr{F} = \{ij:i,j \in \mathscr{S}\}$ be forbidden blocks between nearest-neighbor edges, and $p$ the probability of each edge of $SG_n$ with a symbol that is in $\mathscr{S}$ while $(1-p)$ is the probability of each edge of $SG_n$ with a symbol that is not in $\mathscr{S}$. The assignment of a symbol to each edge remains independent. It follows that
+\begin{center}
+the number of $\mathscr{A}^{SG_n}_{\mathscr{F}} = (\mathscr{M} + 1)^{|V_n|}\sum\limits_{C \in \mathscr{A}^{SG_n}_{\mathscr{F}}}p^{|V_n| - I^C_{\mathscr{S}}}\times (1-p)^{I^C_{\mathscr{S}}}$
+\end{center}
+where $I^C_{\mathscr{S}}$ is the number of edge of a configuration $C \in \mathscr{A}^{SG_n}$ that does not have the symbols in $\mathscr{S}$. The entropy per site is given by
+$$z_{SG}(p,\mathscr{M})=\log (\mathscr{M} + 1) + \mathscr{E}_{SG}(p)$$
+where we define $\mathscr{E}_{SG}(p):=\lim_{n\rightarrow \infty}\frac{\log m_n(p)}{|V_n|}$ and $m_n(p):=\sum_{C \in \mathscr{A}^{SG_n}_{\mathscr{F}}}p^{|V_n|-I^C_{S_n}}(1-p)^{I^C_{S_n}}$ which is a kind of random cluster model. Note that $m_n(p)$ only depends on $p$, and $z_{SG}(p,\mathscr{M})$ can be computed once we have $\mathscr{E}_{SG}(p)$ and $\mathscr{M}$. The purpose of the following paper is to obtain the asymptotic behavior of $m_n(p)$ as $n \rightarrow \infty$ and derive upper and lower bounds for $\mathscr{E}_{SG}(p)$.
+
+organization some text here
+
+
+
+\subsection*{3. Main result}$ $% The value of m_n(p)
+
+% Draw the triangle
+
+\begin{define}\label{def:aa}
+Consider the two-dimensional Sierpinski gasket $SG_n$ at stage $n$. (i) Define $f_n(p)$ as the value of $m_n(p)$ such that none of the three outermost edges have symbols that are in $\mathscr{S}$. (ii) Define $g_n(p)$ as the value of $m_n(p)$ such that exactly one of the three outermost edges has a symbol that is in $\mathscr{S}$. (iii) Define $h_n(p)$ as the value of $m_n(p)$ such that exactly two of the three outermost edges has a symbol that is in $\mathscr{S}$. (iv) Define $t_n(p)$ as the value of $m_n(p)$ such that all three outermost edges have symbols that are in $\mathscr{S}$.
+\end{define}
+
+The quantities $f_n(p), g_n(p), h_n(p)$ and $t_n(p)$ are illustrated in figure, where only the outermost edges are shown. Because of rotational symmetry, there are three possible $g_n(p)$ and three possible $h_n(p)$ such that
+$$m_n(p) = f_n(p) + 3g_n(p) + 3h_n(p) + t_n(p)$$
+The initial values at stage one are {\color{red} $f_1,g_1,h_1,t_1$ here.} so that {\color{red}$m_n$}
+
+The four quantities $f_n(p), g_n(p), h_n(p)$ and $t_n(p)$ satisfy recursion relations given in the following lemma.
+
+\begin{lemma}\label{def:cc}
+For any positive integer $n$ and $p \in (0,1)$,
+\begin{align}
+f_{k+1} &= f_k^3 + 6_k^2g_k + 3f_k^2h_k + 9f_kg_k^2 + 6f_kg_kh_k + 2g_k^3\\
+g_{k+1} &= f_k^2g_k + 4f_kg_k^2 + 2f_k^2h_k + f_k^2t_k + 8f_kg_kh_k + 3g_k^3 + 2f_kg_kt_k + 2f_kh_k^2 + 4g_k^2h_k\\
+h_{k+1} &= f_kg_k^2 + 4f_kg_kh_k + 2g_k^3 + 2f_kg_kt_k + 7g_k^2h_k + 3f_kh_k^2 + 2g_k^2t_k + 4g_kh_k^2 + 2f_kh_kt_k\\
+t_{k+1} &= g_k^3 + 6g_k^2h_k + 3g_k^2t_k + 9g_kh_k^2 + 6g_kh_kt_k + 2h_k^3
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Trivial. {\color{red} graph and proof here}
+\end{proof}
+
+
+
+
+% Write the definition of m_n(p)~f_{n+1},...,t_{n+1}
+
+% Define the ratio to epsilon
+
+% The result of epsilon(state and proof)
+
+
+\newpage
+
+
+
+\subsection*{1. When n=1}$ $
+
+$f_1(p) = (1-p)^9 + 3p(1-p)^8$
+
+$g_1(p) = 2p(1-p)^8 + 2p^2(1-p)^7$
+
+$h_1(p) = 3p^2(1-p)^7$
+
+$t_1(p) = 2p^3(1-p)^6$
+
+\textbf{Ratios}
+
+$\alpha_1(p)=\frac{g_1(p)}{f_1(p)} = \frac{2pq + 2p^2}{q^2+3pq} = \frac{2p}{q(1+2p)} = \frac{2p}{(1-p)(1+2p)}$
+
+$\beta_1(p)=\frac{h_1(p)}{g_1(p)}=\frac{3p}{2q+2p}=\frac{3p}{2}$
+
+$\gamma_1(p)=\frac{t_1(p)}{h_1(p)}=\frac{2p}{3q}$
+
+Note: $q = (1-p)$
+
+\textbf{Difference}
+
+$\tilde{\epsilon_1}(p) = \alpha_1(p)-\beta_1(p)=\frac{2p}{q(1+2p)}-\frac{3p}{2} 
+= \frac{4p}{2q(1+2p)} - \frac{3pq(1+2p)}{2q(1+2p)} = \frac{p}{q}(\frac{4-3q-6pq}{2+4p})
+= \frac{p}{q}(\frac{6p^2-3p+1}{2+4p})$
+
+$\tilde{\epsilon'_1}(p) = \beta_1(p) - \gamma_1(p) = \frac{3p}{2} - \frac{2p}{3q}
+= \frac{9pq - 4p}{6q} = \frac{p}{q}\frac{9q-4}{6}=\frac{p}{q}\frac{5-9p}{6}$
+
+
+$\tilde{\epsilon_1}(p) + \tilde{\epsilon'_1}(p) = \alpha_1(p)-\gamma_1(p) = \frac{2p}{q(1+2p)} - \frac{2p}{3q} 
+= \frac{6p - 2p(1+2p)}{3q(1+2p)} = \frac{6p - 2p - 4p^2}{3q(1+2p)} = \frac{p}{q}\frac{4q}{3(1+2p)}$
+
+Define $c_p = \frac{q}{p}$
+
+$\epsilon_1 = c_p(\alpha_1(p) - \beta_1(p)) = \frac{6p^2 - 3p + 1}{2 + 4p}$
+
+$\epsilon_1' = c_p(\beta_1(p) - \gamma_1(p)) = \frac{5-9p}{6}$
+
+$\epsilon_1(p) + \epsilon_1'(p) = c_p(\alpha_1(p) - \gamma_1(p)) = \frac{4q}{3(1+2p)}$
+
+\subsection*{2. Iterated}$ $
+
+In this section, we shorten the notation of $(p)$, like $f_k(p)$ denote $f_k$
+
+$f_{k+1} = f_k^3 + 6_k^2g_k + 3f_k^2h_k + 9f_kg_k^2 + 6f_kg_kh_k + 2g_k^3$
+
+$g_{k+1} = f_k^2g_k + 4f_kg_k^2 + 2f_k^2h_k + f_k^2t_k + 8f_kg_kh_k + 3g_k^3 + 2f_kg_kt_k + 2f_kh_k^2 + 4g_k^2h_k$
+
+$h_{k+1} = f_kg_k^2 + 4f_kg_kh_k + 2g_k^3 + 2f_kg_kt_k + 7g_k^2h_k + 3f_kh_k^2 + 2g_k^2t_k + 4g_kh_k^2 + 2f_kh_kt_k$
+
+$t_{k+1} = g_k^3 + 6g_k^2h_k + 3g_k^2t_k + 9g_kh_k^2 + 6g_kh_kt_k + 2h_k^3$
+
+\textbf{Ratios}
+
+$\alpha_{n+1} = \alpha_n\frac{B_n}{A_n}$, $\beta_{n+1} = \alpha_n\frac{C_n}{B_n}$, $\gamma_{n+1} = \alpha_n\frac{D_n}{C_n}$
+
+$A_n = 1 + 6\alpha_n + 3\alpha_n\beta_n + 9\alpha_n^2 + 6\alpha_n^2\beta_n + 2\alpha_n^3$
+
+$B_n = 1 + 4\alpha_n + 2\beta_n + \beta_n\gamma_n + 8\alpha_n\beta_n + 3\alpha_n^2 + 2\alpha_n\beta_n\gamma_n + 2\alpha_n\beta_n^2 + 4\alpha_n^2\beta_n$
+
+$C_n = 1 + 2\alpha_n + 4\beta_n + 2\beta_n\gamma_n + 7\alpha_n\beta_n + 3\beta_n^2 + 2\alpha_n\beta_n\gamma_n + 4\alpha_n\beta_n^2 + 2\beta_n^2\gamma_n$
+
+
+$D_n = 1 + 6\beta_n + 3\beta_n\gamma_n + 9\beta_n^2 + 6\beta_n\gamma_n + 2\beta_n^3$
+
+\newpage
+
+\textbf{Difference}
+
+\begin{align*}
+\tilde{\epsilon}_{n+1} &= \alpha_{n+1} - \beta_{n+1} = \alpha_n\left( \frac{B_n}{A_n} - \frac{C_n}{B_n} \right) = \frac{\alpha_n}{A_nB_n}\left( B_n^2 - A_nC_n \right)\\
+&= \frac{1}{A_nB_n}\left[ 
+\begin{array}{l}
+\tilde{\epsilon}_n^2
+(4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 2\alpha^2\beta^2 + 5\alpha^3
++ 7\alpha_n^2\beta_n + \alpha_n\beta_n^2 + 4\alpha_n^2 + 2\alpha_n\beta_n + \alpha_n)+\\
+\tilde{\epsilon}_n\tilde{\epsilon}_n'
+(4\alpha_n^4\beta_n + 4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 6\alpha_n^2\beta_n^2+
+8\alpha_n^2\beta_n + 2\alpha_n\beta_n^2 + 2\alpha_n\beta_n)+\\
+\tilde{\epsilon}_n'^2
+(4\alpha_n^3\beta_n^2 + 4\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]
+\end{align*}
+
+\begin{align*}
+\tilde{\epsilon'}_{n+1} &= \beta_{n+1} - \gamma_{n+1} = \alpha_n\left( \frac{C_n}{B_n} - \frac{D_n}{C_n} \right) = \alpha_n\left( \frac{C_n^2 - B_nD_n}{B_nC_n} \right)\\
+&= \frac{1}{B_nC_n}\left[
+\begin{array}{l}
+\tilde{\epsilon}_n^2
+(4\alpha_n\beta_n^4 + 12\alpha_n\beta_n^3 + 13\alpha_n\beta_n^2 + 
+6\alpha_n\beta_n + \alpha_n)+\\
+\tilde{\epsilon}_n\tilde{\epsilon}_n'
+(4\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n - 8\alpha_n\beta_n^4 + 
+18\alpha_n\gamma_n^3 + 2\alpha_n^2\beta_n^2 + 9\alpha_n\beta_n^2 +
+\alpha_n^2\beta_n + 2\alpha_n\beta_n)+\\
+\tilde{\epsilon}_n'^2
+(4\alpha_n\beta_n^4 + 2\alpha_n\beta_n^3 + 2\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]
+\end{align*}
+
+\begin{align*}
+\tilde{\epsilon}_{n+1} + \tilde{\epsilon}_{n+1}' &= \alpha_{n+1} - \gamma_{n+1} = 
+\alpha_{n}\left( \frac{B_n}{A_n} - \frac{D_n}{C_n} \right) = 
+\alpha_n\left( \frac{B_nC_n - A_nD_n}{A_nC_n} \right)\\
+&= \frac{\alpha_n}{A_nC_n}(2\alpha_n + 1)(\alpha_n^2 + 3\alpha_n\beta_n + 4\alpha_n + 1)\\
+&\quad (4\alpha_n\beta_n^2 + 2\alpha_n\beta_n\gamma_n - 2\beta_n^3 - 4\beta_n^2\gamma_n + 7\alpha_n\beta_n - 6\beta_n^2 - \beta_n\gamma_n + 2\alpha_n - 2\beta_n)\\
+&= \frac{\alpha_n}{A_nC_n}(2\alpha_n + 1)(\alpha_n^2 + 3\alpha_n\beta_n + 4\alpha_n + 1)\\
+&\quad [2\beta_n^2\tilde{\epsilon}_n + 2\beta_n^2(\tilde{\epsilon}_n+\tilde{\epsilon}_n') + 2\beta_n\gamma_n\tilde{\epsilon}_n +
+6\beta_n\tilde{\epsilon}_n + \beta_n(\tilde{\epsilon}_n + \tilde{\epsilon}_n') + 2\tilde{\epsilon}_n] \hspace{10cm} \\
+&= \frac{\alpha_n}{A_nC_n}(2\alpha_n + 1)(\alpha_n^2 + 3\alpha_n\beta_n + 4\alpha_n + 1)\\
+&\quad [\tilde{\epsilon}_n(2\beta_n^2 + 2\beta_n\gamma_n + 6\beta_n + 2)+(\tilde{\epsilon}_n+\tilde{\epsilon'}_n)(2\beta_n^2 + \beta_n)]
+\end{align*}
+
+\newpage
+
+\begin{align*}
+A_nB_n =& 8 \alpha_n^{5} \beta_n + 28 \alpha_n^{4} \beta_n^{2} + 4 \alpha_n^{4} \beta_n \gamma_n + 12 \alpha_n^{3} \beta_n^{3} + 12 \alpha_n^{3} \beta_n^{2} \gamma_n \\
+ &+ 6 \alpha_n^{5} + 70 \alpha_n^{4} \beta_n + 78 \alpha_n^{3} \beta_n^{2} + 20 \alpha_n^{3} \beta_n \gamma_n + 6 \alpha_n^{2} \beta_n^{3} + 12 \alpha_n^{2} \beta_n^{2} \gamma_n \\
+ &+ 35 \alpha_n^{4} + 133 \alpha_n^{3} \beta_n + 48 \alpha_n^{2} \beta_n^{2} + 21 \alpha_n^{2} \beta_n \gamma_n + 3 \alpha_n \beta_n^{2} \gamma_n \\
+ &+ 56 \alpha_n^{3} + 88 \alpha_n^{2} \beta_n + 8 \alpha_n \beta_n^{2} + 8 \alpha_n \beta_n \gamma_n + 36 \alpha_n^{2} + 23 \alpha_n \beta_n + \beta_n \gamma_n + 10 \alpha_n + 2 \beta_n + 1 
+\end{align*}
+
+\begin{align*}
+B_nC_n =& 16 \alpha_n^{3} \beta_n^{3} + 8 \alpha_n^{3} \beta_n^{2} \gamma_n + 8 \alpha_n^{2} \beta_n^{4} \\
+&+ 20 \alpha_n^{2} \beta_n^{3} \gamma_n + 4 \alpha_n^{2} \beta_n^{2} \gamma_n^{2} + 4 \alpha_n \beta_n^{4} \gamma_n + 4 \alpha_n \beta_n^{3} \gamma_n^{2} + 40 \alpha_n^{3} \beta_n^{2} + 6 \alpha_n^{3} \beta_n \gamma_n + 58 \alpha_n^{2} \beta_n^{3} + 44 \alpha_n^{2} \beta_n^{2} \gamma_n\\
+&+ 6 \alpha_n \beta_n^{4} + 30 \alpha_n \beta_n^{3} \gamma_n + 6 \alpha_n \beta_n^{2} \gamma_n^{2} + 2 \beta_n^{3} \gamma_n^{2} \\
+&+ 29 \alpha_n^{3} \beta_n + 101 \alpha_n^{2} \beta_n^{2} + 18 \alpha_n^{2} \beta_n \gamma_n + 40 \alpha_n \beta_n^{3} \\
+&+ 43 \alpha_n \beta_n^{2} \gamma_n + 7 \beta_n^{3} \gamma_n + 2 \beta_n^{2} \gamma_n^{2} + 6 \alpha_n^{3} + 60 \alpha_n^{2} \beta_n + 64 \alpha_n \beta_n^{2} + 14 \alpha_n \beta_n \gamma_n + 6 \beta_n^{3} + 10 \beta_n^{2} \gamma_n \\
+&+ 11 \alpha_n^{2} + 35 \alpha_n \beta_n + 11 \beta_n^{2} + 3 \beta_n \gamma_n + 6 \alpha_n + 6 \beta_n + 1
+\end{align*}
+
+
+\begin{align*}
+\epsilon_{n+1} &= c_p(\alpha_{n+1} - \beta_{n+1}) = c_p\alpha_n\left( \frac{B_n}{A_n} - \frac{C_n}{B_n} \right) = \frac{c_p\alpha_n}{A_nB_n}\left( B_n^2 - A_nC_n \right)
+= c_p\tilde{\epsilon}_{n+1}\\
+&= \frac{c_p}{A_nB_n}
+\left[ 
+\begin{array}{l}
+\tilde{\epsilon}_n^2
+(4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 2\alpha^2\beta^2 + 5\alpha^3
++ 7\alpha_n^2\beta_n + \alpha_n\beta_n^2 + 4\alpha_n^2 + 2\alpha_n\beta_n + \alpha_n)+\\
+\tilde{\epsilon}_n\tilde{\epsilon}_n'
+(4\alpha_n^4\beta_n + 4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 6\alpha_n^2\beta_n^2+
+8\alpha_n^2\beta_n + 2\alpha_n\beta_n^2 + 2\alpha_n\beta_n)+\\
+\tilde{\epsilon}_n'^2
+(4\alpha_n^3\beta_n^2 + 4\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]\\
+&= \frac{1}{c_pA_nB_n}
+\left[ 
+\begin{array}{l}
+\epsilon_n^2
+(4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 2\alpha^2\beta^2 + 5\alpha^3
++ 7\alpha_n^2\beta_n + \alpha_n\beta_n^2 + 4\alpha_n^2 + 2\alpha_n\beta_n + \alpha_n)+\\
+\epsilon_n\epsilon_n'
+(4\alpha_n^4\beta_n + 4\alpha_n^3\beta_n^2 + 10\alpha_n^3\beta_n + 6\alpha_n^2\beta_n^2+
+8\alpha_n^2\beta_n + 2\alpha_n\beta_n^2 + 2\alpha_n\beta_n)+\\
+\epsilon_n'^2
+(4\alpha_n^3\beta_n^2 + 4\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]\\
+&= \frac{1}{A_nB_n}
+\left[
+\begin{array}{l}
+\epsilon_n 
+( 4\alpha_n^4\beta_n^2 - 4\alpha_n^3\beta_n^3 + 10\alpha_n^4\beta_n - 8\alpha_n^3\beta_n^2 + 2\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n \\
++ 5\alpha_n^4 + 2\alpha_n^3\beta_n - 6\alpha_n^2\beta_n\gamma_n - \alpha_n\beta_n^2\gamma_n + 4\alpha_n^3 - 2\alpha_n^2\beta_n - 2\alpha_n\beta_n\gamma_n + \alpha_n^2 - \alpha_n\beta_n ) + \\
+\epsilon_n'
+(4\alpha_n^5\beta_n - 4\alpha_n^3\beta_n^2\gamma_n + 10\alpha_n^4\beta_n - 8\alpha_n^3\beta_n^2 + 2\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n \\
++ 2\alpha_n^3\beta_n - \alpha_n\beta_n^2\gamma_n - \alpha_n^2\beta_n^2 )
+\end{array}\right]
+\end{align*}
+
+\begin{align*}
+\epsilon'_{n+1} &= c_p(\beta_{n+1} - \gamma_{n+1}) = c_p\alpha_n\left( \frac{C_n}{B_n} - \frac{D_n}{C_n} \right) = c_p\alpha_n\left( \frac{C_n^2 - B_nD_n}{B_nC_n} \right)\\
+&= \frac{1}{c_pB_nC_n}\left[
+\begin{array}{l}
+\epsilon_n^2
+(4\alpha_n\beta_n^4 + 12\alpha_n\beta_n^3 + 13\alpha_n\beta_n^2 + 
+6\alpha_n\beta_n + \alpha_n)+\\
+\epsilon_n\epsilon_n'
+(4\alpha_n^2\beta_n^3 - 4\alpha_n^2\beta_n^2\gamma_n - 8\alpha_n\beta_n^4 + 
+18\alpha_n\gamma_n^3 + 2\alpha_n^2\beta_n^2 + 9\alpha_n\beta_n^2 +
+\alpha_n^2\beta_n + 2\alpha_n\beta_n)+\\
+\epsilon_n'^2
+(4\alpha_n\beta_n^4 + 2\alpha_n\beta_n^3 + 2\alpha_n^2\beta_n^2 + \alpha_n\beta_n^2)
+\end{array}\right]\\
+&= \frac{1}{B_nC_n}\left[
+\begin{array}{l}
+\epsilon_n(4\alpha_n^2\beta_n^4 - 4\alpha_n\beta_n^3\gamma_n^2 + 14\alpha_n^2\beta_n^3 - 12\alpha_n\beta_n^3\gamma_n - 2\alpha_n^2\beta_n^2\gamma_n \\
+- 12\alpha_n\beta_n^3 - \alpha_n\beta_n^2\gamma_n + 13\alpha_n^2\beta_n^2 - 2\alpha_n\beta_n\gamma_n + 6\alpha_n^2\beta_n - 4\alpha_n\beta_n^2 + \alpha_n^2 - \alpha_n\beta_n) + \\
+\epsilon_n' (4\alpha_n^3\beta_n^3 - 4\alpha_n^3\beta_n^2\gamma_n + 14\alpha_n^2\beta_n^3 - 2\alpha_n\beta_n^3\gamma_n - 10\alpha_n^2\beta_n^3 \\
+- 2\alpha_n^2\beta_n^2\gamma_n - 7\alpha_n\beta_n^3 - \alpha_n\beta_n^2\gamma_n + \alpha_n^3\beta_n + 7\alpha_n^2\beta_n^2)
+\end{array}\right]\\
+\end{align*}
+
+
+\end{document}

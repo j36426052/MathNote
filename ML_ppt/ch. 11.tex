@@ -1,0 +1,304 @@
+\input{pptset}
+%----------------------------------------------------------------------------------------
+% PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Ch.11 Quasi-Newton methods} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title 
+
+%\subtitle{generalization error bounds} % Presentation subtitle, remove this command if a subtitle isn't required
+
+\author[QSnake]{QSnake} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+\institute{An Introduction to Optimization}
+%\institute[UC]{NCCU \\ \smallskip \textit{109751014@g.nccu.edu.tw}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+%\date[\today]{International Symposium of Explorers \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+\date{4/21,2023}
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+% 標題頁面
+\begin{frame}
+	\titlepage
+\end{frame}
+% 大綱頁面
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+%%%%%%%%常用指令區
+% \begin{frame}  \end{frame}	% 開始簡報
+% \section{}					% 開始某一章節
+% \includegraphics[scale=]{path}% 插入圖片
+% \frametitle{}					% 左上角那個標題
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Presentation structure
+
+\begin{frame}
+	\section{Ideas of Newton methods}
+	\begin{center}
+	\begin{Huge}
+	\textbf{Ideas of Newton methods}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+%今天的主題是Quasi，也就是準、假的意思，類似用逼近的方法去近似本體，那在了解這個方法之前，勢必要了解一下原本的方法是甚麼，還有為什麼要去逼近他。
+
+\begin{frame}
+	\frametitle{Ideas of Newton methods}
+	
+	$$x_{k+1} = x_k - F(x_k)^{-1}g_k$$
+	
+	Key idea is $1^{st} + 2^{nd}$ derivatives more efficient
+	
+\end{frame}
+
+%牛頓法上次俊暉有講一些，那他的主要核心概念就是用到一階和二階導數，他的收斂速度會比較快和有效率，他的Form長這樣，大家可以觀察一下他跟以前的Gradient的差異，主要就那個alpha變成F(x)-1。
+
+\begin{frame}
+	\frametitle{Shortcoming of Newton methods}
+	
+	\begin{enumerate}
+	\item May have numerical problem
+	\item for a general non-linear function, may be no converge.
+	\end{enumerate}
+	
+\end{frame}
+
+%不過這個方法會遇到一些問題，第一個是算他的二階導數之後要把它inverse，所以會有數值上的問題。第二個是它有可能會不收斂
+
+\begin{frame}
+	\section{Introduction}
+	\begin{center}
+	\begin{Huge}
+	\textbf{Introduction}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+%所以要帶到我們今天的主角，有它當然就要解決以上提到的一些問題
+
+\begin{frame}
+	\frametitle{First step: add the alpha}
+	$$x^{(k+1)} = x_k - \alpha_k F(x^{(k)})^{-1}$$
+	
+	where $\alpha_k$ is chosen to ensure that
+	
+	$$f(x_{k+1}) < f(x_k)$$
+\end{frame}
+
+%首先我們增加上面的alpha，讓它可以每一步都往小的地方走
+
+\begin{frame}
+	\frametitle{Second step: change the second derivative}
+	
+	$$x_{k+1} = x_k - \alpha H_kg_k$$
+	
+	where $H_k$ is an $n \times n$ real matrix
+\end{frame}
+
+%接著為了避免直接計算，因此我們用一坨matrix去逼近它
+
+\begin{frame}
+	\frametitle{Proposition}
+	
+	$$x^{k+1} = x^{(k)} - \alpha_kH_kg_k$$
+	
+	where $\alpha_k = \arg\min_{\alpha \geq 0} f(x^{(k)}  - \alpha H_kg_k)$
+	
+	then $\alpha_k > 0$ and $f(x_{k+1}) < f(x_k)$
+\end{frame}
+
+%那當然我們訂完之後要去確定這個訂法合不合理，因此有證明在說明它保證了以上的性質。
+
+\begin{frame}
+	\section{Approximating the Inverse Hessian}
+	\begin{center}
+	\begin{Huge}
+	\textbf{Approximating the Inverse Hessian}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+%接著我們要來談如何近似的那陀矩陣
+
+\begin{frame}
+	\frametitle{Assumption}
+	
+	\begin{enumerate}
+	\item $F(x)$ is constant and independent of $x$
+	\item $F(x) = Q$ for all $x$ ($Q = Q^T$)
+	\end{enumerate}
+\end{frame}
+
+%為了方便觀察他們的性質，我們先有一些假設先，第一個是二階導數與變數無關，也就是它最高二次，第二個是F(X)是symmetric的，方便我們使用工具。
+
+\begin{frame}
+	\frametitle{The Performance of Q}
+	
+	$$g^{(k+1) - g^{(k)}} = Q(x^{k+1} - x^{(k)})  \equiv \Delta g^{(k)} = Q \Delta x^{(k)}$$
+	
+	$$Q^{-1} \Delta g^{(i)} = \Delta x^{(i)} \quad 0 \leq i \leq k$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Performance of H}
+	
+	Therefore, we also impose the requirement that the approximation $H_{k+1}$ of the Hessian satisfy:
+	
+	$$H_{k+1} \Delta g^{(i)} = \Delta x^{(i)} \quad 0 \leq i \leq k$$
+	
+\end{frame}
+
+\begin{frame}
+	This set of equation can be represented as
+	
+	$$Q^{-1}[\Delta g^{(0)},\cdots,\Delta g^{(n-1)}] = [\Delta x^{(0)},\cdots,\Delta x^{(n-1)}]$$
+	
+	%$\therefore$ if $[\Delta g^{(0)},\cdots,\Delta g^{(n-1)}]$ is non-singular, then $Q^{-1}$ is determined uniquely after $n$ steps.
+\end{frame}
+
+%所以綜合上面有的性質，我們可以得到這一行式子，那代表甚麼？假如左邊的這個一次導數所形成的矩陣是invertible的，那我們就可以搬到左邊去，那也就代表，我們的Q可以在n-1步就算出來。
+
+\begin{frame}
+	\frametitle{Quasi-Newton methods}
+	
+	$$x^{k+1} = x^{k} + \alpha_k d^{k}$$
+	
+	where $d^{(k)} = -H_kg^{(k)}$
+	
+	$H_0,\cdots$ are symmetric and satisfy $H_{k+1}\Delta g^{(i)} = \Delta x^{(i)}, \quad 0\leq i \leq k$
+	
+	$\alpha_k = {\arg\min}_{\alpha \geq 0} f(x^{k} + \alpha d^{(k)})$
+\end{frame}
+
+%所以我們的演算法可以寫成上面的樣子，有個點，要到下一個點要決定方向還有要踏多大步。
+
+\begin{frame}
+	\frametitle{Also Q-conjugate}
+	
+	$If \alpha_i \neq 0,~0\leq i \leq k,$ then $d^{(0)},\cdots , d^{k+1}$ are Q-conjugate.
+\end{frame}
+
+%那剛剛我們就有發現一件事情，就是它沒有意外的話，可以在n-1步的時候就把答案算出來，在這個定理我們還去證明它是Q-conjugate，那接下來開始思考Hk要怎麼生出來，以下我們會介紹三種方法
+
+\begin{frame}
+	\section{The Rnak One Correction Formula}
+	\begin{center}
+	\begin{Huge}
+	\textbf{The Rnak One Correction Formula}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Key Idea}
+	
+	$$H_{k+1} = H_k + a_k z^{(k)}z^{(k)T}$$ where $a_k \in \R \& z^{(k)} \in \R^n$
+\end{frame}
+
+%主要的Idea就長這個樣子，基本上上面的ak就是個值而已，而z是一個在Rn裡面的函數，又因為那個tendor product的矩陣zz^T的rank是一，因此得名
+
+\begin{frame}
+	\frametitle{Final Form}
+	
+	$$H_{k+1} = H_k + \dfrac{(\Delta x^{(k)} - H_k\Delta g^{(k)})(\Delta x^{(k)} - H_k \Delta g^{(k)})^T}{\Delta g^{(k)T} (\Delta x^{(k)} - H_k \Delta g^{(k)})}$$
+\end{frame}
+
+%最後加上一些些的計算，我們就可以得到以下的式子了
+%TODO 用甚麼IDEA算出來的
+
+\begin{frame}
+	\frametitle{Rank one Algorithm}
+	\begin{enumerate}
+	\item Set $k=0$, select $x^{(0)}$ and a real symmetric positive definite $H_0$
+	\item If $g^{(k)} = 0$, stop; else, $d^{(k)} = -H_k g^{(k)}$
+	\item Compute $x^{(k+1)}$ by $x^{(k)} + \alpha_k d^{(k)}$
+	\item Compute $H_{k+1}$
+	\item continue to step 2.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Problem}
+	\begin{enumerate}
+	\item $H_{k+1}$ may not be positive definite
+	\item If $\Delta g^{(k)}(\Delta x^{(k)} - H_k \Delta g^{(k)})$ is close to zero, then there may be numerical problems in evaluating $H_{k+1}$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\section{The DFP Algorithm}
+	\begin{center}
+	\begin{Huge}
+	\textbf{The DFP Algorithm}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{DFD Algorithm}
+	\begin{enumerate}
+	\item Set $k = 0$; select $x^{(0)}$ and a real symmetric positive definite $H_0$
+	\item $d^{(k)} = -H_kg^{(k)}$
+	\item Compute $x^{(k+1)} = x^{(k)} + \alpha_k d^{(k)} (\alpha_k = {\arg\min}_{\alpha \geq 0} f(x^{(k)} - \alpha d^{(k)}))$
+	\item Compute $H_{k+1}$ where
+	
+	$$H_{k+1} = H_k + \dfrac{\Delta x^{(k)}\Delta x^{(k)T}}{\Delta x^{(k)T}\Delta g^{(k)}} - \dfrac{[H_k\Delta g^{(k)}][H_k \Delta g^{(k)}]^T}{\Delta g^{(k)T}H_k\Delta g^{(k)}}$$
+	\item continue to step 2
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Property}
+	
+	In the DFP algorithm applied to the quadratic with Hessian $Q = Q^T$, we have $H_{k+1}\Delta g^{(i)} = \Delta x^{(i)}$
+\end{frame}
+
+% 那接著我們要確定他是不是一個好的Quasi Newton Method，所以去確定它有沒有前幾個小節的性質，確認完之後，再依照以前的證明，可以得到它的direction也是Q-conjugate
+
+\begin{frame}
+	\frametitle{Problem}
+	
+	In the case of larger non-quadratic problems,the algorithm has the tendency of sometimes getting 'stuck'.
+\end{frame}
+
+\begin{frame}
+	\section{The BFGS Algorithm}
+	\begin{center}
+	\begin{Huge}
+	\textbf{The BFGS Algorithm}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ideas}
+	
+	Approx $Q$ not $Q^{-1}$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ideas}
+	
+	$$\Delta g^{(i)} = B_{k+1}\Delta x^{(i)}, \quad 0 \leq i \leq k$$
+	
+	where $B_k$ be our estimate of $Q$ at $k$th step
+\end{frame}
+
+\begin{frame}
+	$$H^{DFP}_{k+1} = H_k + \dfrac{\Delta x^{(k)}\Delta x^{(k)T}}{\Delta x^{(k)T}\Delta g^{(k)}} - \dfrac{[H_k\Delta g^{(k)}][H_k \Delta g^{(k)}]^T}{\Delta g^{(k)T}H_k\Delta g^{(k)}}$$
+	
+	$$B_{k+1} = B_k + \dfrac{\Delta g^{(k)}\Delta g^{(k)T}}{\Delta g^{(k)T}\Delta x^{(k)}} - \dfrac{[B_k\Delta x^{(k)}][B_k \Delta x^{(k)}]^T}{\Delta x^{(k)T}B_k\Delta x^{(k)}}$$
+	
+	so $H^{BFGS}_{k+1} = (B_{k+1})^{-1}$(use Shermon-Morrison formular)
+\end{frame}
+
+
+
+\end{document}

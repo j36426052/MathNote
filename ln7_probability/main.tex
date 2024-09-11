@@ -1,0 +1,347 @@
+\input{../settings}
+
+
+\begin{document}
+
+\title{A First Course In Stochastic Processes}
+
+\author{QSnake Edition}
+
+\maketitle
+
+%\section*{Probability Lecture 1}
+
+%\lhead{Linear Algebra} 
+%\rhead{Sabrina Edition} 
+%\cfoot{\thepage} %\ of \pageref{LastPage}}
+
+\section*{1. 03/08/2024}$ $
+
+\subsection*{Chapter 1}
+
+\begin{enumerate}
+	\item $(\Omega,\mathscr{F},P)$ a sample space
+	\item random variable $X$
+	\item $P(X \in A) \in \mathscr{F}$ for all $A \in mathscr{B}$
+	\item moment generating function $\phi_X(\lambda) = E[e^{\lambda X}]$
+\end{enumerate}
+
+
+\begin{prop*}
+	If $\phi_X(\lambda) = \phi_Y(\lambda) \Rightarrow X$ and $Y$ has same distribution.
+\end{prop*}
+
+\begin{ex*}
+	$X = N(0,1)$
+	
+	\begin{eqnarray*}
+		\phi_X(\lambda) = E[e^{\lambda X}] &=& \int_{\R}e^{\lambda X}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} dx \\
+		&=& \int_R \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}[x^2 - \frac{\lambda x}{2} + (\frac{\lambda}{2})^2] + \frac{\lambda^2}{2}}dx\\
+		&=& \int_{\R}\frac{1}{2\pi}e^{-\frac{1}{2}(x - \frac{\lambda}{2})^2 + \frac{\lambda^2}{2}}dx \\
+		&=& e^{\frac{\lambda^2}{2}} \cdots (\star)
+	\end{eqnarray*}
+	
+	If $X = N(\mu,\sigma^2)$
+	
+	\begin{eqnarray*}
+		\phi_X(\lambda) &=& \int_{\R}e^{\lambda X}e^{-\frac{(X - \mu)^2}{2\sigma^2}\frac{1}{\sqrt{2\pi\sigma^2}}}dx \\
+		&=& \int_{\R}e^{\lambda(\mu + \sigma y)}e^{-\frac{y^2}{2}\frac{1}{\sqrt{2\pi}}}dy  \quad\text{   (let y = $\frac{X - \mu}{\sigma}$)}\\
+		&=& e^{\lambda\mu}\int_{\R}e^{\lambda \sigma y}e^{-\frac{y^2}{2}\frac{1}{\sqrt{2\pi}}}dy \\
+		&=& e^{\lambda\mu}\int_{\R}e^{\lambda\sigma y}e^{-\frac{y^2}{2}\frac{1}{2\pi}}dy\\
+		&=& e^{\lambda\mu + \frac{\lambda^2\sigma^2}{2}} \text{(by $(\star)$)}
+	\end{eqnarray*}
+	
+	If we want to calculate $EX^{2n}$ when $X = N(0,1)$
+	
+	$$\int_\R x^{2n}\frac{1}{2\pi}e^{-\frac{x^2}{2}}$$
+	
+	but we have moment
+	
+	\begin{eqnarray*}
+		E[e^{\lambda X}] &=& e^{-\frac{x^2}{2}} = \sigma^{\infty}_{n = 0}\frac{1}{n!}(\frac{\lambda^2}{2})^n \\
+		&=& E[\sigma^{\infty}_{n = 0}\frac{\lambda^n}{n!}] = \sum^{\infty}_{n=0}\frac{\lambda^n}{n!}E[X^n]
+	\end{eqnarray*}
+	
+	$\implies E[X^{2n + 1}] = 0$ and
+	
+	$$\frac{\lambda^{2^n}}{(2n)!} E[X^{2n}] = \frac{1}{n!}(\frac{\lambda^{2n}}{2^n}) \text{\quad for all $\lambda \in \R$}$$
+	
+	$\implies E[X^{2n}] = \frac{(2n)!}{n!2^n}\quad n = 1,2,\cdots$
+\end{ex*}
+
+
+
+\begin{ex*}
+	If $X,Y$ are independent and standard normal (i.e. $N(0,1)$). Then $(X,Y)$, we can define a moment generating function
+	
+	\begin{eqnarray*}
+	\phi(a_1,a_2) &=& E[e^{a_1X + a_2Y}] \\
+	&=& E[e^{a_1X}]E[e^{a_2^Y}] \\
+	&=& \phi(a_1)\phi(a_2) \\
+	&=& e^{\frac{a_1^2 + a_2^2}{2}}
+	\end{eqnarray*}
+	
+	On the other hand the distribution
+	
+	\begin{eqnarray*}
+	P(X \leq c_1, Y \leq c_2) &=& P(X \leq c_1)P(Y \leq c_2) \\
+	&=& \left(\int^{c_1}_{-\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx\right)\left(\int^{c_2}_{-\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}dy\right)\\
+	&=& \int^{c_1}_{-\infty}\int^{c_2}_{-\infty}\frac{1}{2\pi}e^{-(\frac{x^2+y^2}{2})}dxdy\\
+	& & \implies f(x,y) = \frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}
+	\end{eqnarray*}
+	
+	$X_1,\cdots,X_n$ are $N(0,1)$ and independent
+	
+	$\implies f(x_1,\cdots,x_n) = (\frac{1}{2\pi})^{\frac{n}{2}}e^{-(\frac{x_1^2+\cdots+x_n^2}{2})},\quad n\geq 1$
+	
+	and the MGF $\phi(a_1,\cdots,a_n) = e^{\frac{a_1^2 + \cdots + a_n^2}{2}}$
+\end{ex*}
+
+Important inequality:
+
+\begin{enumerate}
+	\item Markov inequality: $P(X > a) \leq \frac{E|X|}{a}$
+	\item Chebyshev inequality: $P(X > a) \leq \frac{EX^2}{a^2}$
+\end{enumerate}
+
+\subsection*{An n dimensional boll's volume}
+
+
+\subsection*{Chapter 2}
+
+\begin{rmk*}
+	$Cov(X,Y) = 0 \Leftrightarrow X \text{ and } Y$ are not correlated $\centernot\implies$ they are independent.
+\end{rmk*}
+
+Consider a random vector $X = (X_1,\cdots,X_n):(\Omega,\mathscr{F},P) \rightarrow \R^n$
+
+and
+
+$$E[X] = (EX_1,\cdots,EX_n) = m = (m_1,\cdots,m_n)$$
+
+The covariance matrix is defined as follow:
+
+$$\mathscr{C} = (\mathscr{C})_{1 \leq 1,j \leq n}, \mathscr{C}_ij = E[(X_i - E[X_i])(X_j - E[X_j])], i,j = 1,2,\cdots,n$$
+
+\begin{prop*}
+	$\mathscr{C}$ is symmetry and $\geq 0$
+	
+	Consider for any $a = (a_1,\cdots,a_n)^T \in \R^n$
+	
+	\begin{eqnarray*}
+		0 &\leq & E[a_1X_1 + \cdots + a_nX_n - E(aX_1 + \cdots + a_nX_n)]^2 \\
+		&=& E[\sum^n_{k = 1}(a_kX_k - a_kE[x_k])(\sum^n_{j=1}(a_jX_j - a_j E[X_j]))]^2 \\
+		&=& \sum^n_{k,j = 1}a_ja_kE[(X_k - E[X_k])(X_jE[X_j])] \\
+		&=& \sum^n_{k,j=1}a_ka_j\mathscr{C}_{k,j} = a^T\mathscr{C}a \implies e \geq 0
+	\end{eqnarray*}
+\end{prop*}
+
+\begin{defn} $X,Y$ are uncorrelated if $(\mathscr{C})_{ij} = 0$ for all $i \neq j$
+
+\end{defn}
+
+\begin{prop*}
+	$E[X^n] = E[Y^n]$ for all $n \in \N \implies X,Y$ has the same distribution.
+	
+	$$\phi(e^{\lambda X}) = \phi_X(\lambda) = \phi_Y(\lambda) = \phi(e^{\lambda Y})$$
+\end{prop*}
+
+\begin{defn}
+	A n-dimensional random variable $X = (X_1,\cdots,X_n)$ is called to be Gaussian $\Leftrightarrow \quad a_1X_1 + \cdots + a_nX_n$ is Gaussian for any $a_1,\cdots,a_n \in \R$
+\end{defn}
+
+\begin{rmk*}
+\begin{enumerate}
+	\item If $X$ is Gaussian $\Rightarrow X_k$ is Gaussian for $k = 1,2,\cdots,n$
+	\item If $X$ and $Y$ are independent $N(0,1)$ then $a_1X + a_2Y$ is a $N(0,a_1^2 + a_2^2)$ for all $a_1,a_2 \in \R \implies (X,Y)$ is Gaussian
+\end{enumerate}
+\end{rmk*}
+
+\begin{lmma*}
+	If $X$ is an n'dimensional Gaussian vector and $M$ is $m*n$ matrix then $MX$ is m-dimensional Gaussian vector.
+	
+	$$\left( \begin{matrix}
+	M_1 \\ M_2 \\ \vdots \\ M_m
+	\end{matrix}\right)
+	X = 
+	\left(\begin{matrix}
+	X_1X \\ M_2X \\ \vdots \\ M_nX
+	\end{matrix}\right)$$
+\end{lmma*}
+
+\begin{prop*}
+	A random variable $X = (X_1,\cdots X_n)$
+	
+	$X$ is Gaussian $\Leftrightarrow$ MGF of $X$ is $e^{a^Tm + \frac{1}{2}a^Tea} = E[e^{a^TX}] = \phi(a_1,\cdots,a_n) = \phi(a)$
+	
+	$X = N(\mu,\sigma^2) \implies \phi_X(\lambda) = e^{E(\lambda X) + \frac{E(\lambda(X - EX))^2}{2}}$
+	
+	\begin{eqnarray*}
+	\phi(a) = E[e^{a^TX}] &=& e^{E(a^TX) + \frac{E(a^T(X-E[X^2]))}{2}} \\
+	&=& e^{a^Tm + \frac{E(a^TXX^Ta)}{2}} \\
+	&=& e^{a^Tm + \frac{a^Tea}{2}}
+	\end{eqnarray*}
+	
+	note $E[a^TX - E(a^TX)]^2 = (a^TE(X-EX))^2 = a^TE(X - EX)(E(X-EX))^Ta = e$
+\end{prop*}
+
+\begin{prop*}
+	The covariance matrix is diagonal $\Leftrightarrow$ the random variable are independent.
+	
+	\begin{proof}
+	\begin{enumerate}
+	\item[$(\Rightarrow)$] By $e^{a^Tm + \frac{1}{2}a^T\mathscr{C}a}$
+	
+	\begin{eqnarray*}
+		\phi(a) &=& e^{\sum^n_{j=1}m_ja_j + \frac{1}{2}\sum^n_{j=1}d_{jj}^2a_{j}^2} \\
+		&=& \prod^n_{j=1}e^{m_ja_j + \frac{d_jja_j^2}{2}} \\
+		&=& \prod^n_{j=1}\phi_{X_j}(a_j) \text{ where }X_j = N(m_{jj},d_j^2) \\
+		&\implies & f(x_1,\cdots,x_n) = \prod^n_{j=1}f_{X_j}(x_j)
+	\end{eqnarray*}	
+	\item[$(\Leftarrow)$] If $X_1,\cdots,X_n$ is independent
+	
+	$\Rightarrow \mathscr{C}_{ij} = E[(X_i - EX_i)(X_j - EX_j)] = 0$ for all $i \neq j$
+	
+	\end{enumerate}
+	\end{proof}
+\end{prop*}
+
+Example: $Z_1, Z_2, Z_3 = N(0,1)$ are independent
+
+$X = Z_1 + Z_2 + Z_3$
+
+$Y = Z_1 + Z_2$
+
+$Z = Z_3$
+
+$(X,Y,Z)$ is Gaussian vector with mean $(0,0,0)$
+
+covariance $\mathscr{C} =
+\left(\begin{matrix}
+EX^2 & EXY & EXZ \\
+EYX & EY^2 & EYZ \\
+EZX & EZY & EZ^2
+\end{matrix}\right)
+= 
+\left(\begin{matrix}
+3 & 2 & 1 \\
+2 & 2 & 0\\
+1 & 0 & 1
+\end{matrix}\right)$
+
+det$\mathscr{C} = 0$(degenerate Gaussan vector)
+
+Note $X - Y - Z =0$ independent.
+
+\begin{lmma}
+	Let $X = (X_1,\cdots,X_n)$ be a Gaussian vector. Then $X$ is degerate (i.e. det$\mathscr{C} = 0$) $\Leftrightarrow$ the coordinates are linear dependent.
+\end{lmma}
+
+\begin{prop*}
+	$X = (X_1,\cdots,X_n)$ be a non-degenerate Gaussian vector with mean $m$ and covariance matrix $\mathscr{C}$ then the joint distribution of $X$ is given by the joint PDF.
+	
+	$$f(x_1,\cdots,x_n) = \frac{e^{-\frac{1}{2}(x - m)^Te^{-1}(x-m)}}{(2\pi)^{\frac{n}{2}\text{det}(e)^{\frac{1}{2}}}}$$
+\end{prop*}
+
+Example: Consider a Gaussian random variable $X_1,X_2$ mean $0$ and covariance $\mathscr{C} =
+\left(\begin{matrix}
+2 & 1 \\ 1 & 2
+\end{matrix}\right)$
+
+$\implies \mathscr{C}^{-1} =
+\left(\begin{matrix}
+\frac{2}{3} & \frac{-1}{3} \\ -\frac{1}{3} & \frac{2}{3}
+\end{matrix}\right)$
+and det$(\mathscr{C}) = 3$
+
+$\implies f(x,y) = \frac{e^{(-\frac{x^2}{3} + \frac{1}{3}xy - \frac{1}{3}y^2)}}{2\pi\sqrt{3}}$
+
+
+
+\begin{prop*}
+	Let $X = (X_1,\cdots,X_n)$ be a Gaussian vector with mean $0$. If $X$ is Non-degenerate $\exists \quad n$ i.i.d. $N(0,1)$ random variable $Z = (Z_1,\cdots,Z_n)$ and invertible $n*n$ matrix $A \ni X = AZ$.
+\end{prop*}
+
+Example:
+
+$X_1 = W_1 + W_2$
+
+$X_2 = W_1 - W_2$
+
+$W_1,W_2 = N(0,1)$, independent
+
+$X = AW$ where $A =
+\left(\begin{matrix}
+1 & 1 \\ 1 & -1
+\end{matrix}\right)$
+
+The covariance matrix of $X$ is 
+$\left(\begin{matrix}
+2 & 0 \\ 0 & 2
+\end{matrix}\right)$
+
+$\implies$ Let $Z_1 = \frac{X_1}{\sqrt{2}},~Z_2 = \frac{X_2}{\sqrt{2}}$
+
+$\implies Z_1,Z_2$ is $N(0,1)$
+
+\begin{proof}
+	Take $Z_1 = \frac{X_1}{\sqrt{c_{11}}} \implies Z_1$ is $N(0,1)$ define $Z_2' = X_2 - E[X_2Z_1]Z_1 \implies E[Z_2X_2] = 0$
+	
+	Let $Z_2 = \frac{Z_2'}{\sqrt{\text{var}(Z_2')}} = N(0,1)$
+	
+	$\vdots$
+	
+	$Z = (Z_1,Z_2,\cdots,Z_n),~Z_k = N(0,1)$ is independent
+	
+	$A = 
+	\left(\begin{matrix}
+	\frac{1}{\sqrt{var}X_1} & 0 & \cdots & 0\\
+	\sqrt{X_1Z_1} & c & \cdots & 0 \\
+	\vdots & \cdots & \vdots
+	\end{matrix}\right)
+	\left(\begin{matrix}
+	X_1\\
+	X_2\\
+	\vdots
+	\end{matrix}\right)$
+	
+	$$f(x_1,\cdots,x_n) = \frac{e^{-\frac{1}{2}(x-m)^T\mathscr{C}^{-1}(x-m)}}{(2\pi)^{\frac{n}{2}}\text{det}(\mathscr{C})^{\frac{1}{2}}}$$\
+	
+	WLOG let $m = \vec{0}$ and $\mathscr{C} = AA^T$
+	
+	$\because$ det$\mathscr{C} =$ det$(AA^T) =$ det$(A)^2 > 0$
+	
+	$\therefore A$ is invertible.
+	
+	Let $X = AZ$ where $Z_i = N(0,1)$
+	
+	Consider
+	
+	\begin{eqnarray*}
+		P(X \in B) &=& P(Z \in  A^{-1}B) \\
+		&=& \int_{A^{-1}B} \frac{1}{(2\pi)^{\frac{\pi}{2}}}e^{\frac{1}{2}Z^TZ}dz_1,\cdots dz_n
+	\end{eqnarray*}
+	
+	change variable $x = AZ \implies Z = A^{-1}x$
+	
+	$Z \in A^{-1}B \implies x \in B$
+	
+	\begin{eqnarray*}
+		Z^TZ &=& (A^{-1}x)^T(A^{-1}x) \\
+		&=& x^T(A^{-1})^TA^{-1}x\\
+		&=& x^T(A^T)^{-1}A^{-1}x\\
+		&=& x^T(AA^T)^{-1}x \\
+		&=& x^T\mathscr{C}^{-1}x
+	\end{eqnarray*}
+	
+	\begin{eqnarray*}
+		dz_1,\cdots ,dz_n &=& |det A^{-1}|dx_1,\cdots,dx_n \\
+		&=& (det \mathscr{C})^{\frac{-1}{2}}dx_1,\cdots , dx_n
+	\end{eqnarray*}
+	
+	$$\therefore \int_B \frac{1}{(2\pi)^{\frac{n}{2}}}e^{-\frac{x^T-\mathscr{C}x}{2}} \frac{1}{(det \mathscr{C})^{\frac{1}{2}}}dx_1,\cdots,dx_n$$
+\end{proof}
+
+
+
+\end{document}

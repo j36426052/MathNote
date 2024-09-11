@@ -1,0 +1,61 @@
+\input{../settings}
+
+\usepackage{tikz}
+\usetikzlibrary{lindenmayersystems}
+
+% 其他可能需要的包
+\usepackage{amsmath}
+\usepackage{xeCJK}  % 使用 xeCJK 替代 CJKutf8
+\usepackage{geometry} % 用於設置頁面邊距
+
+% 設置中文字體（請根據您系統中可用的字體進行調整）
+\setCJKmainfont{SimSun}  % 或其他適合的中文字體
+
+% 設置頁面邊距
+%\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
+
+% Sierpinski 三角形的定義
+\pgfdeclarelindenmayersystem{Sierpinski triangle}{
+    \symbol{X}{\pgflsystemdrawforward}
+    \symbol{Y}{\pgflsystemdrawforward}
+    \rule{X -> X-Y+X+Y-X}
+    \rule{Y -> YY}
+}
+
+\begin{document}
+
+\title{數學考卷示例}
+\author{您的名字}
+\date{}
+
+\maketitle
+
+\section{分形幾何}
+
+1. 請觀察下面的 Sierpinski 三角形，並回答問題：
+
+\begin{center}
+\def\trianglewidth{4cm}  % 定義三角形寬度
+
+\begin{tikzpicture}
+    \fill [black] (0,0) -- ++(0:\trianglewidth) -- ++(120:\trianglewidth) -- cycle;
+    \draw [draw=none] (0,0) l-system
+    [l-system={Sierpinski triangle, axiom=X, step=\trianglewidth/8, order=3, angle=-120},fill=white];
+\end{tikzpicture}
+\end{center}
+
+a) 這個圖形是如何構造的？請簡要描述其生成過程。
+
+\vspace{5cm}
+
+b) 如果我們繼續這個過程無限次，最終圖形的面積會是多少？請解釋你的推理。
+
+\vspace{5cm}
+
+2. Sierpinski 三角形是一個著名的分形圖形。請列舉兩個在自然界中可以觀察到類似分形結構的例子。
+
+\vspace{5cm}
+
+% 更多題目...
+
+\end{document}

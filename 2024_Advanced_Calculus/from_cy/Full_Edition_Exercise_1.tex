@@ -1,0 +1,220 @@
+\documentclass
+%[answers]
+{exam}
+\usepackage{mathrsfs}  
+\usepackage{xeCJK}
+\setCJKmainfont{標楷體}
+\XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt %這兩行是texWorks範例中所缺少的。
+%\usepackage[top=2cm,bottom=3cm,right=3cm,left=3.5cm]{geometry}
+\usepackage[a4paper, margin = 2cm]{geometry}
+%\geometry{a4paper,margin=1in, bindingoffset=0.5in}
+%版面
+\usepackage{
+%amsthm, 
+amsmath, amssymb, multicol}
+\usepackage{colortbl}
+\usepackage{nopageno}
+\addpoints
+\thispagestyle{empty}
+\pointname{ pts}
+\newcommand{\ra}{\Rightarrow}
+\newcommand{\hs}{\hspace{1em}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\abs[1]{\left\lvert#1 \right\rvert}
+
+\title{{\Huge{高等微積分}}}
+\author{Exercise 1 (chapter 1 to 3)}
+\date{}
+\begin{document}
+\maketitle
+\begin{questions}
+%%%%%%% 
+\question %第一題%
+Given two real number $a$ and $b$ such that $a\leq b+\epsilon$ for any $\epsilon>0$, then $a\leq b$.
+
+\begin{solution}
+$ $\newline
+Suppose not, $a>b.$ For $\epsilon =\dfrac{a-b}{2},~a\leq b+\epsilon =b+\dfrac{a-b}{2}\Rightarrow a\leq b\rightarrow \leftarrow$
+\end{solution}
+
+%%%%%%%
+\question %第二題%
+\begin{parts}
+\part If $r,s\in \Q$ then $r+s$ and $rs$ are rational.
+\part If $r\in \Q$ with $r\neq 0$ and $x\in \R\setminus \Q,$ then $r+x$ and $rx$ are irrational.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Given $r,s\in \Q,$ write $r=\frac{a}{b}$ and $s=\frac{c}{d},$ where $a,b,c,d\in\Z,~b,d>0$ and gcd$(a,b)=1=$gcd$(c,d).$\\
+$r+s=\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}\in \Q$ and $rs=\frac{a}{b}\frac{c}{d}=\frac{ac}{bd}\in \Q.$
+\part If not, $r+x$ and $rx$ are rational.\\
+Since $r+x$ and $r$ are in $\Q,~(r+x)-r=x\in \Q\rightarrow\leftarrow$ to $x\in\R\setminus \Q.$\\
+Since $rx$ and $r$ are in $\Q,~r^{-1}\in\Q$ and $r^{-1}(rx)=x\in\Q\rightarrow\leftarrow$ to $x\in \R\setminus \Q.$
+\end{parts}
+\end{solution}
+
+
+
+%%%%%%%
+\question %第三題 Apostol 2.6-2.7%
+Let $f:X\rightarrow Y$ be a function. If $B\subseteq Y,$ we denote by $f^{-1}(B)$ the largest subset of $X$ which $f$ maps into $B.$ That is,
+$$f^{-1}(B)=\{x\in X~|~f(x)\in B\}$$
+The set $f^{-1}(B)$ is called the {\bf{inverse image}} of $B$ under $f.$ Prove the following for arbitrary $A,A_1,A_2\subseteq X$ and $B,B_1,B_2\subseteq Y.$
+\begin{parts}
+\part $f(A_1\cup A_2)=f(A_1)\cup f(A_2).$
+\part $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2).$ Given an example such that the inclusion is strict.
+\part $A\subseteq f^{-1}[f(A)]$ and $f[f^{-1}(B)]\subseteq B.$ Given an example such that the inclusion is strict.
+\part $f^{-1}(B_1\cup B_2)=f^{-1}(B_1)\cup f^{-1}(B_2)$ and $f^{-1}(B_1\cap B_2)=f^{-1}(B_1)\cap f^{-1}(B_2).$
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part $(\subseteq)$ Given $y\in f(A_1\cup A_2),~y=f(x),$ where $x\in A_1\cup A_2\Rightarrow y=f(x),~x\in A_1$ or $y=f(x),~x\in A_2\Rightarrow y\in f(A_1)$ or $y\in f(A_2)\Rightarrow y\in f(A_1)\cup f(A_2).$\\
+$(\supseteq)$ Given $y\in f(A_1)\cup f(A_2)\Rightarrow y\in f(A_1)$ or $y\in f(A_2)\Rightarrow y=f(x_1),~x_1\in A_1\subseteq A_1\cup A_2$ or $y=f(x_2),~x_2\in A_2\subseteq A_1\cup A_2\Rightarrow y\in f(A_1\cup A_2).$ 
+\part Given $y\in f(A_1\cap A_2),~y=f(x),~x\in A_1\cap A_2\Rightarrow y=f(x),~x\in A_1$ and $y=f(x),~x\in A_2\Rightarrow y\in f(A_1)$ and $y\in f(A_2)\Rightarrow y\in f(A_1)\cap f(A_2).$\\
+Conversely, it is not true. Consider $f:\R\rightarrow \R$ by $f(x)=x^2,~A_1=\{1\}$ and $A_2=\{-1\}.$\\
+Clearly, $f(A_1\cap A_2)=f(\varnothing)=\varnothing$ and $f(A_1)\cap f(A_2)=\{1\}.$
+\part Given $x\in A\Rightarrow f(x)\in f(A)\Rightarrow x\in f^{-1}[f(A)].$\\
+Conversely, it is not true. Consider $f:\R\rightarrow \R$ by $f(x)=x^2,~A=\{1\}.$\\ Clearly, $f^{-1}[f(A)]=\{-1,1\}.$\\
+Given $y\in f[f^{-1}(B)]\subseteq B\Rightarrow y=f(x),~x\in f^{-1}(B)\Rightarrow y=f(x)\in B.$\\
+Conversely, it is not true. Consider $f:\R\rightarrow\R$ by $f(x)=x^2,~B=\{-1,1\}.$\\ Clearly, $f[f^{-1}(B)]=\{1\}.$
+\part $(\subseteq )$ Given $x\in f^{-1}(B_1\cup B_2)\Rightarrow f(x)\in B_1\cup B_2\Rightarrow f(x)\in B_1$ or $f(x)\in B_2\Rightarrow x\in f^{-1}(B_1)$ or $x\in f^{-1}(B_2)\Rightarrow x\in f^{-1}(B_1)\cup f^{-1}(B_2).$\\
+$(\supseteq)$ Given $x\in f^{-1}(B_1)\cup f^{-1}(B_2)\Rightarrow x\in f^{-1}(B_1)$ or $x\in f^{-1}(B_2)\Rightarrow f(x)\in B_1$ or $f(x)\in B_2\Rightarrow f(x)\in B_1\cup B_2\Rightarrow x\in f^{-1}(B_1\cup B_2).$\\
+$(\subseteq)$ Given $x\in f^{-1}(B_1\cap B_2)\Rightarrow f(x)\in B_1\cap B_2\Rightarrow f(x)\in B_1$ and $f(x)\in B_2\Rightarrow x\in f^{-1}(B_1)$ and $x\in f^{-1}(B_2)\Rightarrow x\in f^{-1}(B_1)\cap f^{-1}(B_2).$\\
+$(\supseteq)$ Given $x\in f^{-1}(B_1)\cap f^{-1}(B_2)\Rightarrow x\in f^{-1}(B_1)$ and $x\in f^{-1}{B_2}\Rightarrow f(x)\in B_1$ and $f(x)\in B_2\Rightarrow f(x)\in B_1\cap B_2\Rightarrow x\in f^{-1}(B_1\cap B_2).$
+\end{parts} 
+\end{solution}
+
+%%%%%%% 
+\question %第四題%
+\begin{parts}
+\part Show that $\mathbb{N}$ is unbounded above.
+\part Show that for any real number $x$, there exists a positive integer $n$ such that $n>x$.
+\part Using (b) to prove the following {\bf{Archimedean property}}: 
+
+If $x>0$ and $y\in\R$, then there exists a positive integer $n$ such that $nx>y$.
+\part Using (c) to prove the denseness of $\mathbb{Q}$ in $\R$:
+
+Let $a<b\in\R$ be distinct real numbers, then there exists a rational number $q\in\mathbb{Q}$ such that $a<q<b$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part If not, $\N$ is bounded above $\Rightarrow \sup (\N)$ exists and finite, say $\alpha.$ By definition of sup, $\exists~n\in \N$ such that $\alpha -1<n\Rightarrow \alpha <n+1~\text{and}~n+1\in\N\rightarrow \leftarrow$ to $\alpha =\sup (\N)$
+\part If not, $\exists~x\in\R~\forall~n\in\N$ such that $n\leq x$
+$\Rightarrow~\N$ is bounded above by $x\rightarrow\leftarrow $ to $(a)$
+\part Given $x>0$ and $y\in\R,~\dfrac{y}{x}\in\R.$
+By $(b),~\exists~n\in\N$ such that $n>\dfrac{y}{x}\Rightarrow nx>y.$    
+\part Let $a<b\in\R\Rightarrow b-a>0$ and $1\in\R.$ By $(c),$
+$$\text{(1)}~\exists~n\in\N~\text{such that}~n(b-a)>1\Rightarrow nb>1+na.$$
+$1>0$ and $na,~-na\in\R,$ by $(c),~\exists~m_1,~m_2\in\N$ such that $m_1>na~\text{and}~m_2>-na.$\\
+$\Rightarrow -m_2<na<m_1.$
+$$(2)~\exists~m\in [-m_2,m_1]\in\Z~\text{such that}~m-1\leq na<m.$$
+By $(1)$ and $(2),$ we get $na<m\leq na+1<nb\Rightarrow a<\dfrac{m}{n}<b.$ Choose $q=\dfrac{m}{n}\in\Q\Rightarrow a<q<b.$    
+
+\end{parts}
+\end{solution}
+
+
+
+%%%%%%% 
+\question %第五題%
+Let $A,B$ be two nonempty sets of $\R$.
+\begin{parts}
+\part If $A\subseteq B$,then $\sup A\leq \sup B$ and $\inf A\geq \inf B$.
+\part How to define $\sup\phi$ and $\inf\phi$ in $\R$?
+\part Show that $\inf A\leq \sup A$.
+\part Show that $\inf(-A)= -\sup A$ and $\sup(-A) = - \inf(A)$, where
+$-A=\{-a~|a\in A\}$.
+\part Show that $\sup(A+B)=\sup A+\sup B$ and $\inf(A+B)=\inf A+\inf B$,\\
+where $A+B=\{a+b~|a\in A, b\in B\}$, the {\bf{Minkowski sum}} of $A$ and $B$.
+\part If $A$, $B$ be two sets of positive numbers which is bounded above.\\
+Let $a=\sup A$, $b=\sup B$ and $C=\{ab~|a\in A,b\in B \}$. Prove that $\sup C =ab$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Suppose $A\subseteq B.$ If $A$ and $B$ are unbounded then 
+$$\sup A=\infty=\sup B~\text{and}~\inf A=-\infty=\inf B.$$
+Now, we assume that $A$ and $B$ are bounded then $\sup A=\alpha,~\sup B=\beta ,~\inf A=\alpha ',~\text{and}~\inf B=\beta '$ exist and finite. Now to prove that $\alpha \leq \beta$ and $\alpha '\geq \beta'.$\\
+Given $\epsilon >0,$ since $\sup A=\alpha,~\exists~a\in A$ such that $\alpha -\epsilon <a.$ Since $A\subseteq B~\text{and}~\sup B=\beta,~a\in B~\text{and}~a\leq\beta \Rightarrow a+\epsilon \leq \beta +\epsilon\Rightarrow \alpha <\beta +\epsilon.$ Since $\epsilon $ is arbitrary, $\alpha \leq \beta.$ Similarly, $\alpha '\geq \beta'.$ 
+\part $\sup \varnothing =-\infty$ and $\inf \varnothing =\infty.$
+\part Suppose $A$ is unbounded then $\inf A=-\infty$ and $\sup A=\infty.$ Assume that $A$ is bounded then $\alpha =\sup A$ and $\beta =\inf A$ exist and finite.
+$$\forall~x\in A,~\beta \leq x~\text{and}~x\leq \alpha\Rightarrow \beta \leq \alpha.$$
+\part If $A$ is unbounded then $-A$ is also unbounded. Then 
+$$\inf (-A)=-\infty =-\sup A~\text{and}~\sup (-A)=\infty =-\inf (A).$$
+Assume that $A$ is bounded then $-A$ is also bounded $\Rightarrow \sup A,~\inf A,~\sup (-A),$ and $\inf (-A)$ exist and finite. Let $\alpha =\sup A$ and $\beta =\inf A.$\\
+Claim: $\inf (-A)=-\alpha $ and $\sup (-A)=-\beta.$\\
+Given $x\in -A,~x=-a$ for some $a\in A$ then $a\leq \alpha \Rightarrow -a\geq -\alpha \Rightarrow x\geq -\alpha.$ \\
+Given $\epsilon >0,$ since $\alpha =\sup A,~\exists~a\in A$ such that $\alpha -\epsilon <a\Rightarrow -\alpha +\epsilon >-a$ and $-a\in -A.$\\
+Hence, $\inf (-A)=-\alpha.$ Similarly, $-\beta = \sup (-A).$
+\part If $A$ or $B$ is unbounded then $A+B$ is unbounded. Then
+$$\sup (A+B)=\infty =\sup A+\sup B~\text{and}~\inf (A+B)=-\infty =\inf A+\inf B.$$
+Assume that $A$ and $B$ is bounded then $A+B$ is also. Then 
+$$\sup (A+B),~\sup A,~\sup B,~\inf A,~\inf B,~\text{and}~\inf (A+B)~\text{exist and finite.}$$
+Let $\sup A=\alpha,~\sup B=\beta,~\inf A =\alpha ',$ and $\inf B=\beta'.$\\
+Claim: $\sup (A+B)=\alpha +\beta$ and $\inf (A+B)=\alpha '+\beta '.$\\
+Given $x\in A+B,~x=a+b$ for some $a\in A$ and $b\in B.$ Then
+$$a\leq \alpha~\text{and}~b\leq \beta\Rightarrow a+b\leq \alpha +\beta\Rightarrow x\leq \alpha +\beta.$$
+Given $\epsilon >0,$ since $\alpha =\sup A$ and $\beta =\sup B,~\exists~a\in A$ and $b\in B$ such that 
+$$\alpha -\dfrac{\epsilon }{2}<a~\text{and}~\beta -\dfrac{\epsilon}{2}<b\Rightarrow \alpha +\beta -\epsilon <a+b.$$
+Hence, $\sup (A+B)=\alpha +\beta.$ Similarly, $\inf (A+B)=\alpha '+\beta '.$     
+\part Given $c\in C,~c=xy$ for some $x\in A$ and $y\in B.$ Then
+$$0<x\leq a~\text{and}~0<y\leq b\Rightarrow xy\leq ab.$$
+Hence, $\sup C\leq ab.$ Now, to prove that $\sup C\geq ab.~\forall~x\in A,~y\in B,$
+$$\sup C\geq xy\Rightarrow \dfrac{\sup C}{x}>y\Rightarrow \dfrac{\sup C}{x}\geq b\Rightarrow \dfrac{\sup C}{b}\geq x\Rightarrow \dfrac{\sup C}{b}\geq a\Rightarrow \sup C\geq ab.$$
+Hence, $\sup C=ab.$
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第六題%
+Prove or disprove the following statement by given a counterexample:
+\begin{parts}
+\part $\sup(A\cap B)\leq \inf\{\sup A, \sup B\}$.
+\part $\sup(A\cap B)= \inf\{\sup A, \sup B\}$.
+\part $\sup(A\cap B)\geq \sup\{\sup A, \sup B\}$.
+\part $\sup(A\cap B)= \sup\{\sup A, \sup B\}$.
+\end{parts}
+
+\begin{solution}
+$ $
+\begin{parts}
+\part Case I: If $A\cap B=\varnothing.$\\
+Then $\sup (A\cap B)=-\infty \leq \inf \{\sup A,\sup B\}.$\\
+Case II: If $A\cap B\neq \varnothing.$\\
+$A\cap B\subseteq A$ and $A\cap B\subseteq B\Rightarrow \sup (A\cap B)\leq \sup A$ and $\sup (A\cap B)\leq \sup B.$\\
+Therefore, $\sup (A\cap B)\leq \inf\{\sup A, \sup B\}.$
+\part Let $A=\{1,2\}$ and $B=\{1,3\}.$\\
+$\sup (A\cap B)=1,~\sup A=2,~\sup B=3\Rightarrow \sup (A\cap B)=1\neq \inf\{\sup A,\sup B\}=2.$
+\part Let $A=\{1,2\}$ and $B=\{1,3\}.$\\
+$\sup (A\cap B)=1,~\sup A=2,~\sup B=3\Rightarrow \sup (A\cap B)=1\ngeq \sup\{\sup A,\sup B\}=3.$
+\part Let $A=\{1,2\}$ and $B=\{1,3\}.$\\
+$\sup (A\cap B)=1,~\sup A=2,~\sup B=3\Rightarrow \sup (A\cap B)=1\neq \sup\{\sup A,\sup B\}=3.$
+\end{parts}
+\end{solution}
+
+%%%%%%% 
+\question %第七題%
+Let $A,B\subseteq\R$ such that $\sup A=\sup B $ and $\inf A=\inf B$. Does $A=B$?
+
+\begin{solution}
+$ $\newline
+Let $A=(0,1)$ and $B=[0,1]$ then $\sup A=1=\sup B$ and $\inf A=0=\inf B$ but $A\neq B.$
+\end{solution}
+
+\end{questions}
+\end{document}
